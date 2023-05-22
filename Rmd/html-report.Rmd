@@ -1,0 +1,73 @@
+---
+title: "html report"
+date: "`r Sys.Date()`"
+bibliography: refer.bib
+csl: nature-methods.csl
+link-citations: true
+nocite: "@*"
+output: 
+  bookdown::html_document2:
+    toc: true
+    fig_caption: true 
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  cache = TRUE
+)
+
+library(ggplot2, help, pos = 2, lib.loc = NULL)
+```
+
+# cite
+
+cite ggplot2[@ggplot2]  
+cite r-base[@r-base]
+
+# cross-reference
+
+You can use cross reference for table, figure and expression. \@ref(fig:plot-cor) show the cor plot of mtcars dataset.
+If you want to cross-reference, those elements should have label, because reference dependend on these label envioment, and figure shoul have caption(`fig.cap`)
+
+## correlation plot
+
+```{r plot-cor, fig.show="hold", fig.cap = "(ref:mtcar-cor)"}
+plot(mtcars)
+```
+
+(ref:mtcar-cor) this is figure caption
+
+
+## mtcars table
+
+table \@ref(tab:tab-mtcars) show the mtcars table.
+
+```{r tab-mtcars}
+head(mtcars) |>  kableExtra::kbl(caption = "this is table caption") |>
+  kableExtra::kable_classic(full_width = FALSE, html_font = "Cambria")
+```
+
+
+# References
+
+<div id="refs"></div>
+
+# (APPENDIX) Appendix {-} 
+
+[More on html table](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)  
+[More on cite style language](https://www.zotero.org/styles)
+[more on bib]
+
+# More information
+
+This will be Appendix A.
+
+# One more thing
+
+This will be Appendix B.
+
