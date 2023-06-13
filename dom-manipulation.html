@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul class="list" id="list1">
+      <li>lorem</li>
+      <li>lorem</li>
+      <li class="a-li">lorem</li>
+      <li>lorem</li>
+      <li>lorem</li>
+      <li>lorem</li>
+    </ul>
+
+    <ul class="list" id="list2">
+      <li>lorem</li>
+      <li>lorem</li>
+      <li class="a-li">lorem</li>
+      <li>lorem</li>
+      <li>lorem</li>
+      <li>lorem</li>
+    </ul>
+
+    <script>
+      'use strict';
+      // get class = list nodelist
+      let obj, el, sub, objArray;
+      obj = document.querySelectorAll('.list');
+      objArray = new Array(...obj);
+      el = objArray.at(0);
+
+      // modify document
+      let create_el = function (type, className, content, isHTML) {
+        var el = document.createElement(type);
+        if (className) el.className = className;
+        if (content) {
+          if (isHTML) {
+            el.innerHTML = content;
+          } else {
+            el.innerText = content;
+          }
+        }
+        return el;
+      };
+
+      let newel = create_el('li', null, 'new');
+      let newp = create_el('p', null, 'new');
+      let child = el.querySelector('.a-li');
+      el.appendChild(newel, 'hello');
+
+      var x = 10;
+      function test() {
+        x = 20;
+        console.log(x);
+      }
+    </script>
+  </body>
+</html>

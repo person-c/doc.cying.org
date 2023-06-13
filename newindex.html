@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0px;
+        padding-top: 60px;
+        padding-left: 60px;
+        padding-right: 60px;
+        height: 100%;
+      }
+
+      html {
+        height: 100%;
+      }
+      p {
+        font-size: 20px;
+      }
+      .nav {
+        position: fixed;
+        padding: 20px;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        display: flex;
+        padding: 18px;
+        justify-content: right;
+        align-items: center;
+        background-color: grey;
+        column-gap: 20px;
+
+        transition: transform 0.2s;
+      }
+
+      .nav-hidden {
+        transform: translateY(-70px);
+      }
+      .nav-button-note,
+      .nav-button-todo {
+        border-radius: 5px;
+        padding: 6px 6px;
+        border: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .container {
+        margin-left: 150px;
+        margin-right: 150px;
+        margin-top: 10px;
+        display: grid;
+        min-height: 100%;
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr auto;
+      }
+
+      footer {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav">
+        <button class="nav-button-note">
+          <a href="" class="nav-button-note-a">Note</a>
+        </button>
+
+        <button class="nav-button-todo"><a href="">Todo</a></button>
+      </div>
+    </nav>
+
+    <artical>
+      <div class="container">
+        <div class="content">
+          <p class="centered-paragraph">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi modi
+            vero consequatur. Magnam adipisci saepe iure eligendi doloremque
+            molestiae totam atque quisquam aliquam possimus officia, libero
+            facilis obcaecati repellendus a!
+          </p>
+          <h2>Lorem, ipsum dolor.</h2>
+          <p>
+            Neque repellat provident corrupti accusamus facere consequuntur
+            nostrum, laboriosam rerum dolorem pariatur ipsa ex magni doloribus
+            magnam sunt iste odio delectus illum? Nesciunt atque itaque
+            laboriosam molestias, laudantium recusandae ullam in provident amet,
+            id sapiente quos! Dicta id debitis incidunt sequi iusto praesentium,
+            itaque corrupti quae, harum ab corporis dolorum? Veniam,
+            consequatur! Fugit dicta explicabo quia corrupti, pariatur laborum
+            veniam error, nihil, autem delectus incidunt facilis.
+          </p>
+        </div>
+        <div class="footer"><footer>2022</footer></div>
+      </div>
+    </artical>
+
+    <!-- <script>
+      const nav = document.querySelector('.nav');
+      let lastScrollY = window.scrollY;
+
+      window.addEventListener('scroll', () => {
+        if (lastScrollY < window.scrollY) {
+          nav.classList.add('nav-hidden');
+        } else {
+          nav.classList.remove('nav-hidden');
+        }
+
+        lastScrollY = window.scrollY;
+      });
+    </script> -->
+  </body>
+</html>

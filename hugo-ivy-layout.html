@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+    <link rel="stylesheet" href="fonts.css" />
+
+    <style>
+      /* layout */
+      html {
+        font-size: 100%;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        box-sizing: border-box;
+      }
+
+      body {
+        line-height: 1.75;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      .masthead {
+        position: fixed;
+        min-height: 100vh;
+        top: 0px;
+        left: 0px;
+        padding: 2em 20px;
+        width: 200px;
+        border-right: 3px solid #ddd;
+      }
+
+      .main {
+        margin-top: 60px;
+        width: 700px;
+        min-height: 100vh;
+        margin-left: calc(50% - 250px);
+      }
+
+      .masthead .menu ul li {
+        direction: ltr;
+        list-style: none;
+        padding-left: 70px;
+      }
+
+      .masthead .menu ul li::after {
+        content: '•\00a\000a0\00a0';
+      }
+
+      .masthead .menu ul li a {
+        color: #000;
+        text-decoration: none;
+      }
+
+      /* medium search */
+      @-ms-viewport {
+        width: device-width;
+      }
+
+      @viewport {
+        width: device-width;
+      }
+
+      @media screen and (max-width: 960px) {
+        body {
+          width: auto;
+        }
+
+        .masthead {
+          float: none;
+          position: static;
+          width: auto;
+          min-height: auto;
+          padding: 20px 0 60px;
+          text-align: center;
+          margin-left: 10px;
+          margin-right: 10px;
+          border-right: none;
+          border-bottom: 3px solid #000;
+        }
+
+        .main {
+          width: auto;
+          padding: 40px 10px;
+          margin: auto;
+          border-left: none;
+          min-height: auto;
+        } /* element style */
+
+        .masthead .menu li:first-child {
+          border-top: 1px solid #000;
+        }
+        .masthead .menu ul li {
+          border-bottom: 1px solid #000;
+          direction: ltr;
+          list-style: none;
+          color: #000;
+          padding: 10px;
+        }
+
+        .masthead .menu ul li::after {
+          content: none;
+        }
+
+        .masthead .menu ul li a {
+          color: #000;
+          text-decoration: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="masthead">
+      <head>
+        <h1>XunhuanLi</h1>
+      </head>
+      <nav class="menu">
+        <ul>
+          <li><a href="">lorem</a></li>
+          <li><a href="">lorem</a></li>
+          <li><a href="">lorem</a></li>
+          <li><a href="">lorem</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <article class="main">
+      <header>
+        <h1
+          style="
+            font-weight: 500;
+            text-align: center;
+            font-size: 34px;
+            margin-bottom: 40px;
+          "
+        >
+          Lorem ipsum dolor sit amet, consectetur adipisicing
+        </h1>
+        <h3 style="font-weight: 500; text-align: center; font-size: 1.17em">
+          2023-06-10 / Lorem ipsum
+        </h3>
+      </header>
+      <p class="note-left">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus pariatur
+        quo fuga adipisci voluptatem rerum, officia dignissimos aperiam nam
+        nisi!
+      </p>
+
+      <p class="note-right">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, atque.
+        Nulla, tenetur? Quaerat quidem delectus maiores repudiandae ex aperiam
+        dolore eum cupiditate omnis, officia, sunt quasi vel tempore id fugiat
+        enim doloribus, voluptatem repellat sint dolores necessitatibus iure
+        dolorum. Unde modi beatae adipisci ad praesentium impedit eveniet odio
+        tempora earum?
+      </p>
+
+      <p class="note">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum,
+        molestiae numquam. Quo amet laborum beatae! Reiciendis sit adipisci
+        doloribus ducimus aperiam impedit eligendi reprehenderit exercitationem
+        velit omnis, illo vero molestias dicta. Dolore corporis soluta corrupti
+        rerum cupiditate mollitia debitis. Dolores sunt voluptates consequatur
+        vel rerum quibusdam est, cumque tempora obcaecati distinctio quas vitae,
+        praesentium ab ipsum architecto ut nam? Cupiditate provident repellat
+        ullam veritatis ex in odio accusamus laudantium consequatur ipsam,
+        aperiam expedita ipsa libero atque facere quia suscipit illo facilis
+        eaque? Consectetur nesciunt, aspernatur ratione exercitationem inventore
+        magnam aliquam neque quod odio, consequatur laudantium ex id minus
+        quibusdam cum nulla accusantium obcaecati saepe delectus voluptatem.
+        Voluptatem natus reiciendis earum iure debitis dolorem maxime ipsum enim
+        illum eum libero aliquam excepturi inventore alias vel, laudantium,
+        reprehenderit facere labore aliquid. Esse laborum provident quam dolorum
+        asperiores dolorem expedita atque quidem sit ea cupiditate fuga tempore
+        aut itaque quisquam, error voluptate mollitia qui officia architecto
+        minus delectus, dolores dignissimos aspernatur. Molestias numquam
+        commodi voluptatibus laboriosam facere tempora vitae, distinctio
+        veritatis aspernatur dolore magni aliquam autem amet excepturi dolor
+        eveniet dolorum esse aliquid maiores dolorem obcaecati suscipit in
+        labore at. Nemo adipisci, iste autem debitis blanditiis, labore, soluta
+        quaerat eaque saepe velit cum!
+      </p>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+        placeat voluptates esse! Qui, eius saepe similique voluptates sunt autem
+        laborum.
+      </p>
+    </article>
+  </body>
+</html>
