@@ -49,7 +49,10 @@
       let newel = create_el('li', null, 'new');
       let newp = create_el('p', null, 'new');
       let child = el.querySelector('.a-li');
-      el.appendChild(newel, 'hello');
+
+      let name = 'ying';
+
+      el.innerHTML = `<li>${name}</li>`;
 
       var x = 10;
       function test() {
