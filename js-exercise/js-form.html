@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #mouse {
+        display: inline-block;
+        cursor: pointer;
+        margin: 0;
+      }
+
+      #mouse:focus {
+        outline: 1px dashed black;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="title">select的3个重要属性</p>
+    <hr />
+    <select id="genres" title="1">
+      <option value="rock">Rock</option>
+      <option value="blues" selected>Blues</option>
+    </select>
+    <script>
+      // 1)
+      let genres = document.querySelector('#genres');
+      let selectedOption = genres.options[genres.selectedIndex];
+      alert(selectedOption.value);
+
+      // 2)
+      let newOption = new Option('Classic', 'classic');
+      genres.append(newOption);
+
+      // 3)
+      newOption.selected = true;
+    </script>
+
+    <p class="title">可以编辑的div</p>
+    <hr />
+    <ul>
+      <li>点击下面的这个 div 来进行编辑。</li>
+      <li>按 Enter 键或者通过 blur 来保存结果。</li>
+    </ul>
+
+    允许输入 HTML。
+    <div id="view" class="view">Text</div>
+    <script title="可编辑的div">
+      let area = null;
+      let view = document.querySelector('#view');
+
+      view.onclick = function (e) {
+        editStart();
+      };
+
+      function editStart() {
+        area = document.createElement('textarea');
+        area.value = view.innerHTML;
+        view.replaceWith(area);
+        area.focus();
+
+        area.onkeydown = function (e) {
+          if (e.key == 'Enter') this.blur();
+        };
+
+        area.onblur = function () {
+          editEnd();
+        };
+      }
+
+      function editEnd() {
+        view.innerHTML = area.value;
+        area.replaceWith(view);
+      }
+    </script>
+
+    <p class="title">点击即可编辑单元格</p>
+    <hr />
+    <link rel="stylesheet" href="js-form-bagua.css" />
+    <link rel="stylesheet" href="js-form-my.css" />
+
+    <p>Click on a table cell to edit it. Press OK or CANCEL when you finish.</p>
+
+    <table id="bagua-table">
+      <tr>
+        <th colspan="3">
+          <em>Bagua</em> Chart: Direction, Element, Color, Meaning
+        </th>
+      </tr>
+      <tr>
+        <td class="nw">
+          <strong>Northwest</strong> <br />Metal <br />Silver <br />Elders
+        </td>
+        <td class="n">
+          <strong>North</strong> <br />Water <br />Blue <br />Change
+        </td>
+        <td class="ne">
+          <strong>Northeast</strong> <br />Earth <br />Yellow <br />Direction
+        </td>
+      </tr>
+      <tr>
+        <td class="w">
+          <strong>West</strong> <br />Metal <br />Gold <br />Youth
+        </td>
+        <td class="c">
+          <strong>Center</strong> <br />All <br />Purple <br />Harmony
+        </td>
+        <td class="e">
+          <strong>East</strong> <br />Wood <br />Blue <br />Future
+        </td>
+      </tr>
+      <tr>
+        <td class="sw">
+          <strong>Southwest</strong> <br />Earth <br />Brown <br />Tranquility
+        </td>
+        <td class="s">
+          <strong>South</strong> <br />Fire <br />Orange <br />Fame
+        </td>
+        <td class="se">
+          <strong>Southeast</strong> <br />Wood <br />Green <br />Romance
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      let table = document.getElementById('bagua-table');
+
+      let editingTd;
+
+      table.onclick = function (event) {
+        // 3 possible targets
+        let target = event.target.closest('.edit-cancel,.edit-ok,td');
+
+        if (!table.contains(target)) return;
+
+        if (target.className == 'edit-cancel') {
+          finishTdEdit(editingTd.elem, false);
+        } else if (target.className == 'edit-ok') {
+          finishTdEdit(editingTd.elem, true);
+        } else if (target.nodeName == 'TD') {
+          if (editingTd) return; // already editing
+
+          makeTdEditable(target);
+        }
+      };
+
+      function makeTdEditable(td) {
+        editingTd = {
+          elem: td,
+          data: td.innerHTML,
+        };
+
+        td.classList.add('edit-td'); // td is in edit state, CSS also styles the area inside
+
+        let textArea = document.createElement('textarea');
+        textArea.style.width = td.clientWidth + 'px';
+        textArea.style.height = td.clientHeight + 'px';
+        textArea.className = 'edit-area';
+
+        textArea.value = td.innerHTML;
+        td.innerHTML = '';
+        td.appendChild(textArea);
+        textArea.focus();
+
+        td.insertAdjacentHTML(
+          'beforeEnd',
+          '<div class="edit-controls"><button class="edit-ok">OK</button><button class="edit-cancel">CANCEL</button></div>'
+        );
+      }
+
+      function finishTdEdit(td, isOk) {
+        if (isOk) {
+          td.innerHTML = td.firstChild.value;
+        } else {
+          td.innerHTML = editingTd.data;
+        }
+        td.classList.remove('edit-td');
+        editingTd = null;
+      }
+    </script>
+
+    <p class="tittl">键盘移动老鼠</p>
+    <hr />
+    <p>用鼠标点击以下老鼠，并使用键盘的方向键移动它。</p>
+
+    <pre id="mouse">
+ _   _
+(q\_/p)
+ /. .\
+=\_t_/=   __
+ /   \   (
+((   ))   )
+/\) (/\  /
+\  Y  /-'
+ nn^nn
+</pre
+    >
+
+    <script>
+      mouse.tabIndex = 0;
+
+      mouse.onclick = function () {
+        this.style.left = this.getBoundingClientRect().left + 'px';
+        this.style.top = this.getBoundingClientRect().top + 'px';
+
+        this.style.position = 'fixed';
+      };
+
+      mouse.onkeydown = function (e) {
+        switch (e.key) {
+          case 'ArrowLeft':
+            this.style.left =
+              parseInt(this.style.left) - this.offsetWidth + 'px';
+            return false;
+          case 'ArrowUp':
+            this.style.top =
+              parseInt(this.style.top) - this.offsetHeight + 'px';
+            return false;
+          case 'ArrowRight':
+            this.style.left =
+              parseInt(this.style.left) + this.offsetWidth + 'px';
+            return false;
+          case 'ArrowDown':
+            this.style.top =
+              parseInt(this.style.top) + this.offsetHeight + 'px';
+            return false;
+        }
+      };
+    </script>
+  </body>
+</html>
