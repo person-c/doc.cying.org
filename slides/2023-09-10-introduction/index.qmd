@@ -1,0 +1,210 @@
+---
+title: "Introduction"
+subtitle: ""
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+---
+
+## 提要
+
+主要介绍的一些内容如下：
+
+-   教育经历
+-   兴趣领域
+-   项目经历
+
+## {auto-animate="true"}
+
+2017 - 2021
+
+湖北大学 - 生物科学
+
+## {auto-animate="true"}
+
+2017 - 2021
+
+湖北大学 - 生物科学
+
+<br/>
+
+## {auto-animate="true"}
+
+2017 - 2021
+
+湖北大学 - 生物科学
+
+<br/>
+
+生物统计，生物化学， C语言程序设计。
+
+CET6，计算机二级C语言。
+
+## 兴趣领域
+
+::: incremental 
+- 数据处理统计，绘图（data.table, ggplot2) 
+- R 包开发
+- 写作，网页设计与开发。
+:::
+
+
+## 肠道微生物改变对二型糖尿病人以及糖尿病肾病患者的影响
+
+肠道微生物在人类健康和疾病中扮演重要角色。
+
+<br/>
+
+T2D患者肠道病毒组的变化及其与肠道细菌的关系，探讨病毒组的变化是否与DN有关。
+
+## 糖尿病人的肠型分析
+
+基于肠道病毒的PCoA分析
+
+## Xgboost
+
+- 集成模型
+
+- 速度快
+  
+- 准确度高
+
+
+## 二分类的结果
+
+![](./roc.jpg){border="none"}
+
+## 二代转录组测序的snakemake流程
+
+多个样本分析的方法
+
+- shell 循环
+- 每个样本生成一个运行脚本
+
+<br/>
+
+snakemake
+
+- 并行
+- yaml配置文件
+
+##
+
+从测序reads到表达矩阵
+
+trim_galore + fastQC + hisat2 + samtools + featureCount
+
+<br/>
+
+表达矩阵到后续的个性化分析的报告
+
+```{=tex}
+\begin{align}
+knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
+\end{align}
+```
+
+## R包easybio
+
+统一的接口： `analyze`函数
+
+```{.r code-line-numbers="1|2|4"}
+x <- analyze(data, 'go') # 自动分配合适的函数
+p <- plot(x) # 扩展的plot泛型函数
+
+p + virids::viridis_scale_color(discrete = TRUE) # 自定义细节部分
+ ```
+
+## {auto-animate="true"}
+
+泛型函数
+
+```{r echo=TRUE}
+sloop::s3_methods_generic(x = "plot") |> head(n=3)
+```
+
+## {auto-animate="true"}
+
+泛型函数
+
+```{r echo=TRUE}
+sloop::s3_methods_generic(x = "plot") |> head(n=3)
+```
+
+`analyze`函数内部调用`bio.`泛型函数
+
+```r
+analyze <- function(x, type, ...) {
+  bio.*()
+}
+```
+
+## {auto-animate="true"}
+
+泛型函数
+
+```{r echo=TRUE}
+sloop::s3_methods_generic(x = "plot") |> head(n = 3)
+```
+
+`analyze`函数内部调用`bio.`泛型函数
+
+```r
+analyze <- function(x, type, ...) {
+  bio.*()
+}
+```
+
+添加新的分析方法
+
+```r
+bio.* <- function(...) {}
+```
+
+## Artist{auto-animate="true"}
+
+数据到几何美学的映射(map)
+
+```r
+geom_point(aes(x, y), ...)
+```
+
+## Artist{auto-animate="true"}
+
+数据到几何美学的映射(map)
+
+```r
+geom_points(aes(x, y), ...) # 数据空间到美学空间的映射
+
+draw <- Artist$new() # 创建一个实例
+p <- draw$points(x, y, ....) # 绘图
+
+p + thems() # 自定义
+```
+
+## Artist{auto-animate="true"}
+
+数据到几何美学的映射(map)
+
+```r
+geom_points(aes(x, y), ...) # 数据空间到美学空间的映射
+
+draw <- Artist$new() # 创建一个实例
+p <- draw$points(x, y, ....) # 绘图
+
+p + thems() # 自定义
+```
+
+添加新分析方法
+
+```r
+draw$scatter_plot <- function(){ 
+}
+```
+
+## 
+
+源文件可在doc.cying.org/slides/2023-9-10-introduction.html
