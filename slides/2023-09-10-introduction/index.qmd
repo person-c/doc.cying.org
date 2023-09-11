@@ -43,6 +43,29 @@ format:
 
 CET6，计算机二级C语言。
 
+## {auto-animate="true"}
+
+2017 - 2021
+
+湖北大学 - 生物科学
+
+<br/>
+
+生物统计，生物化学， C语言程序设计。
+
+CET6，计算机二级C语言。
+
+
+<br/>
+
+毕业论文:
+
+一种新的基于焦亡特征对宫颈癌患者的预后方法
+
+分析方法:
+
+聚类 差异分析 单因素/多因素Cox回归 生存分析 免疫评分指标
+
 ## 兴趣领域
 
 ::: incremental 
@@ -64,6 +87,8 @@ T2D患者肠道病毒组的变化及其与肠道细菌的关系，探讨病毒�
 
 基于肠道病毒的PCoA分析
 
+![](./pcoA.bmp)
+
 ## Xgboost
 
 - 集成模型
@@ -76,6 +101,10 @@ T2D患者肠道病毒组的变化及其与肠道细菌的关系，探讨病毒�
 ## 二分类的结果
 
 ![](./roc.jpg){border="none"}
+
+## 发表于 Gut Microbes 上结果
+
+![](./gut micro.bmp)
 
 ## 二代转录组测序的snakemake流程
 
@@ -177,12 +206,12 @@ geom_point(aes(x, y), ...)
 数据到几何美学的映射(map)
 
 ```r
-geom_points(aes(x, y), ...) # 数据空间到美学空间的映射
+geom_point(aes(x, y), ...) # 数据空间到美学空间的映射
 
 draw <- Artist$new() # 创建一个实例
-p <- draw$points(x, y, ....) # 绘图
+p <- draw$point(x, y, ....) # 绘图
 
-p + thems() # 自定义
+p + theme(...) # 自定义
 ```
 
 ## Artist{auto-animate="true"}
@@ -207,4 +236,9 @@ draw$scatter_plot <- function(){
 
 ## 
 
-源文件可在doc.cying.org/slides/2023-9-10-introduction.html
+<br/>
+
+在线浏览 *doc.cying.org/slides/2023-09-10-introduction/*
+
+源文件 *doc.cying.org/slides/2023-09-10-introduction/index.qmd*
+

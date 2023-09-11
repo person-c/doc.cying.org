@@ -426,6 +426,19 @@
 <p>生物统计，生物化学， C语言程序设计。</p>
 <p>CET6，计算机二级C语言。</p>
 </section>
+<section id="section-3" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<p>2017 - 2021</p>
+<p>湖北大学 - 生物科学</p>
+<p><br></p>
+<p>生物统计，生物化学， C语言程序设计。</p>
+<p>CET6，计算机二级C语言。</p>
+<p><br></p>
+<p>毕业论文:</p>
+<p>一种新的基于焦亡特征对宫颈癌患者的预后方法</p>
+<p>分析方法:</p>
+<p>聚类 差异分析 单因素/多因素Cox回归 生存分析 免疫评分指标</p>
+</section>
 <section id="兴趣领域" class="slide level2">
 <h2>兴趣领域</h2>
 <div>
@@ -445,7 +458,8 @@
 <section id="糖尿病人的肠型分析" class="slide level2">
 <h2>糖尿病人的肠型分析</h2>
 <p>基于肠道病毒的PCoA分析</p>
-</section>
+
+<img data-src="./pcoA.bmp" class="r-stretch"></section>
 <section id="xgboost" class="slide level2">
 <h2>Xgboost</h2>
 <ul>
@@ -458,6 +472,10 @@
 <h2>二分类的结果</h2>
 
 <img data-src="./roc.jpg" data-border="none" class="r-stretch"></section>
+<section id="发表于-gut-microbes-上结果" class="slide level2">
+<h2>发表于 Gut Microbes 上结果</h2>
+
+<img data-src="./gut%20micro.bmp" class="r-stretch"></section>
 <section id="二代转录组测序的snakemake流程" class="slide level2">
 <h2>二代转录组测序的snakemake流程</h2>
 <p>多个样本分析的方法</p>
@@ -472,7 +490,7 @@
 <li>yaml配置文件</li>
 </ul>
 </section>
-<section id="section-3" class="slide level2">
+<section id="section-4" class="slide level2">
 <h2></h2>
 <p>从测序reads到表达矩阵</p>
 <p>trim_galore + fastQC + hisat2 + samtools + featureCount</p>
@@ -490,7 +508,7 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
 <span id="cb1-3"><a href="#cb1-3"></a></span>
 <span id="cb1-4"><a href="#cb1-4"></a>p <span class="sc">+</span> virids<span class="sc">::</span><span class="fu">viridis_scale_color</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>) <span class="co"># 自定义细节部分</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="section-4" class="slide level2" data-auto-animate="true">
+<section id="section-5" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p>泛型函数</p>
 <div class="cell">
@@ -505,7 +523,7 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
 </div>
 </div>
 </section>
-<section id="section-5" class="slide level2" data-auto-animate="true">
+<section id="section-6" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p>泛型函数</p>
 <div class="cell">
@@ -524,7 +542,7 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
 <span id="cb6-2"><a href="#cb6-2"></a>  bio.<span class="sc">*</span>()</span>
 <span id="cb6-3"><a href="#cb6-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="section-6" class="slide level2" data-auto-animate="true">
+<section id="section-7" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p>泛型函数</p>
 <div class="cell">
@@ -553,12 +571,12 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
 <section id="artist-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Artist</h2>
 <p>数据到几何美学的映射(map)</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb12-1" class="hljs-ln-code"><a href="#cb12-1"></a><span class="fu">geom_points</span>(<span class="fu">aes</span>(x, y), ...) <span class="co"># 数据空间到美学空间的映射</span></span>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb12-1" class="hljs-ln-code"><a href="#cb12-1"></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(x, y), ...) <span class="co"># 数据空间到美学空间的映射</span></span>
 <span id="cb12-2" class="hljs-ln-code"><a href="#cb12-2"></a></span>
 <span id="cb12-3" class="hljs-ln-code"><a href="#cb12-3"></a>draw <span class="ot">&lt;-</span> Artist<span class="sc">$</span><span class="fu">new</span>() <span class="co"># 创建一个实例</span></span>
-<span id="cb12-4" class="hljs-ln-code"><a href="#cb12-4"></a>p <span class="ot">&lt;-</span> draw<span class="sc">$</span><span class="fu">points</span>(x, y, ....) <span class="co"># 绘图</span></span>
+<span id="cb12-4" class="hljs-ln-code"><a href="#cb12-4"></a>p <span class="ot">&lt;-</span> draw<span class="sc">$</span><span class="fu">point</span>(x, y, ....) <span class="co"># 绘图</span></span>
 <span id="cb12-5" class="hljs-ln-code"><a href="#cb12-5"></a></span>
-<span id="cb12-6" class="hljs-ln-code"><a href="#cb12-6"></a>p <span class="sc">+</span> <span class="fu">thems</span>() <span class="co"># 自定义</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-6" class="hljs-ln-code"><a href="#cb12-6"></a>p <span class="sc">+</span> <span class="fu">theme</span>(...) <span class="co"># 自定义</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="artist-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Artist</h2>
@@ -573,9 +591,11 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
 <div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>draw<span class="sc">$</span>scatter_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(){ </span>
 <span id="cb14-2"><a href="#cb14-2"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="section-7" class="slide level2">
+<section id="section-8" class="slide level2">
 <h2></h2>
-<p>源文件可在doc.cying.org/slides/2023-9-10-introduction.html</p>
+<p><br></p>
+<p>在线浏览 <em>doc.cying.org/slides/2023-09-10-introduction/</em></p>
+<p>源文件 <em>doc.cying.org/slides/2023-09-10-introduction/index.qmd</em></p>
 <div class="footer footer-default">
 
 </div>
