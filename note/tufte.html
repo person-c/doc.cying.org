@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2023-09-22">
 
-<title>Hypothesis Test</title>
+<title>A Quarto Page Layout Example</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,16 +58,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="Hypothesis-test_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Hypothesis-test_files/libs/quarto-html/quarto.js"></script>
-<script src="Hypothesis-test_files/libs/quarto-html/popper.min.js"></script>
-<script src="Hypothesis-test_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Hypothesis-test_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Hypothesis-test_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Hypothesis-test_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Hypothesis-test_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Hypothesis-test_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Hypothesis-test_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="tufte_files/libs/clipboard/clipboard.min.js"></script>
+<script src="tufte_files/libs/quarto-html/quarto.js"></script>
+<script src="tufte_files/libs/quarto-html/popper.min.js"></script>
+<script src="tufte_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="tufte_files/libs/quarto-html/anchor.min.js"></script>
+<link href="tufte_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="tufte_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="tufte_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="tufte_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="tufte_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -79,58 +79,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#统计描述" id="toc-统计描述" class="nav-link active" data-scroll-target="#统计描述">统计描述</a>
-  <ul class="collapse">
-  <li><a href="#数值变量" id="toc-数值变量" class="nav-link" data-scroll-target="#数值变量">数值变量</a></li>
-  <li><a href="#分类变量" id="toc-分类变量" class="nav-link" data-scroll-target="#分类变量">分类变量</a></li>
-  </ul></li>
-  <li><a href="#正态总体均值的置信区间以及假设检验" id="toc-正态总体均值的置信区间以及假设检验" class="nav-link" data-scroll-target="#正态总体均值的置信区间以及假设检验">正态总体均值的置信区间以及假设检验</a>
-  <ul class="collapse">
-  <li><a href="#小于等于2个样本的情况" id="toc-小于等于2个样本的情况" class="nav-link" data-scroll-target="#小于等于2个样本的情况">小于等于2个样本的情况</a>
-  <ul class="collapse">
-  <li><a href="#单样本---样本均值总体均值的比较" id="toc-单样本---样本均值总体均值的比较" class="nav-link" data-scroll-target="#单样本---样本均值总体均值的比较">单样本 - 样本均值总体均值的比较。</a></li>
-  <li><a href="#配对样本均值比较" id="toc-配对样本均值比较" class="nav-link" data-scroll-target="#配对样本均值比较">配对样本均值比较</a></li>
-  <li><a href="#两独立样本比较" id="toc-两独立样本比较" class="nav-link" data-scroll-target="#两独立样本比较">两独立样本比较</a></li>
-  </ul></li>
-  <li><a href="#r中实现t-test" id="toc-r中实现t-test" class="nav-link" data-scroll-target="#r中实现t-test">R中实现T-test</a></li>
-  <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions">Assumptions</a></li>
-  <li><a href="#大于等于3个样本的情况" id="toc-大于等于3个样本的情况" class="nav-link" data-scroll-target="#大于等于3个样本的情况">大于等于3个样本的情况</a></li>
-  <li><a href="#assumptions-1" id="toc-assumptions-1" class="nav-link" data-scroll-target="#assumptions-1">Assumptions</a></li>
-  <li><a href="#r中实现one-way-anova" id="toc-r中实现one-way-anova" class="nav-link" data-scroll-target="#r中实现one-way-anova">R中实现One Way ANOVA</a></li>
-  </ul></li>
-  <li><a href="#其它总体的假设检验" id="toc-其它总体的假设检验" class="nav-link" data-scroll-target="#其它总体的假设检验">其它总体的假设检验</a></li>
-  <li><a href="#rc列联表的卡方检验" id="toc-rc列联表的卡方检验" class="nav-link" data-scroll-target="#rc列联表的卡方检验">R*C列联表的卡方检验</a>
-  <ul class="collapse">
-  <li><a href="#r-中实现chi2-test" id="toc-r-中实现chi2-test" class="nav-link" data-scroll-target="#r-中实现chi2-test">R 中实现<span class="math inline">\(\chi^2-test\)</span></a></li>
-  </ul></li>
-  <li><a href="#非参数检验---秩检验" id="toc-非参数检验---秩检验" class="nav-link" data-scroll-target="#非参数检验---秩检验">非参数检验 - 秩检验</a>
-  <ul class="collapse">
-  <li><a href="#数值变量配对检验或者单样本检验wilcoxon-signed-rank-test" id="toc-数值变量配对检验或者单样本检验wilcoxon-signed-rank-test" class="nav-link" data-scroll-target="#数值变量配对检验或者单样本检验wilcoxon-signed-rank-test">数值变量配对检验或者单样本检验（Wilcoxon Signed Rank Test)</a></li>
-  <li><a href="#两个样本的检验wilcoxon-rank-sum-test---equivalent-to-mann-whitney-test" id="toc-两个样本的检验wilcoxon-rank-sum-test---equivalent-to-mann-whitney-test" class="nav-link" data-scroll-target="#两个样本的检验wilcoxon-rank-sum-test---equivalent-to-mann-whitney-test">两个样本的检验（Wilcoxon Rank Sum Test - equivalent to Mann Whitney test)</a></li>
-  <li><a href="#大于两个样本的检验" id="toc-大于两个样本的检验" class="nav-link" data-scroll-target="#大于两个样本的检验">大于两个样本的检验</a></li>
-  <li><a href="#r中实现秩和检验" id="toc-r中实现秩和检验" class="nav-link" data-scroll-target="#r中实现秩和检验">R中实现秩和检验</a></li>
-  </ul></li>
-  <li><a href="#总结" id="toc-总结" class="nav-link" data-scroll-target="#总结">总结</a></li>
-  <li><a href="#some-notes-on-page-layout" id="toc-some-notes-on-page-layout" class="nav-link" data-scroll-target="#some-notes-on-page-layout">Some Notes on Page Layout</a></li>
-  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a></li>
-  
-  
-  
-  
-  
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="..\Hypothesis-test.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
-</div>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="..\tufte.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hypothesis Test</h1>
-<p class="subtitle lead">假设检验实践</p>
+<h1 class="title">A Quarto Page Layout Example</h1>
+<p class="subtitle lead">Inspired by Tufte Handout, Using Quarto</p>
 </div>
 
 
@@ -295,7 +250,7 @@ data:  extra
 W = 0.94607, p-value = 0.3114</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="Hypothesis-test_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<p><img src="tufte_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><strong>One Sample t-test</strong></p>
@@ -540,24 +495,24 @@ Residuals   94  3.327 0.03539               </code></pre>
 </div>
 </section>
 </section>
-<section id="其它总体的假设检验" class="level1">
-<h1>其它总体的假设检验</h1>
-<p><strong>二项分布总体假设检验</strong></p>
+<section id="二项分布以及泊松分布总体的假设检验" class="level1">
+<h1>二项分布以及泊松分布总体的假设检验</h1>
+<p><strong>二项分布</strong></p>
 <p><span class="math display">\[
 S_p = \sqrt{p(1-p)/n}
 \]</span></p>
 <p><strong>小样本时</strong> 依据二项分布公式直接计算</p>
-<p><strong><span class="math inline">\(n\pi &gt; 5, n(1 - \pi) &gt; 5\)</span>时</strong> 正态近似</p>
+<p>**<span class="math inline">\(n\pi &gt; 5, n(1 - \pi) &gt; 5\)</span>时 正态近似</p>
 <p><span class="math display">\[
 Z = \frac{X - N\pi_0}{\sqrt{n\pi_0{(1 - \pi_0)}}} = \frac{p - \pi_0}{\sqrt{\pi_0(1 - \pi_0)/n}}
 \]</span></p>
-<p><strong>泊松分布总体单样本检验</strong></p>
+<p><strong>泊松分布单样本检验</strong></p>
 <p><strong><span class="math inline">\(\lambda\)</span>较小</strong> 直接依据概率计算</p>
 <p><strong><span class="math inline">\(\lambda_0 &gt; 20\)</span></strong> 正态近似</p>
 <p><span class="math display">\[
 Z = \frac{X - \lambda_0}{\sqrt{\lambda_0}}
 \]</span></p>
-<p><strong>泊松分布总体两样本检验</strong></p>
+<p><strong>泊松分布两样本检验</strong></p>
 <ol type="1">
 <li>两样本观察单位数相同</li>
 </ol>
@@ -869,7 +824,7 @@ alternative hypothesis: true location shift is greater than 0</code></pre>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(graphics)</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Ozone <span class="sc">~</span> Month, <span class="at">data =</span> airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Hypothesis-test_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<p><img src="tufte_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(Ozone <span class="sc">~</span> Month, <span class="at">data =</span> airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
