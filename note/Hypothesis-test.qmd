@@ -179,7 +179,7 @@ $$
 \upsilon = \frac{(S_{\bar{X_1}}^2  + S_{\bar{X_2}}^2)^2}{\frac{S_{\bar{X_1}}^4}{n1 - 1} + \frac{S_{\bar{X_2}}^4}{n_2 - 1}}
 $$
 
-## R中实现T-test
+### R中实现t-test
 
 **正态性检验**
 
@@ -205,11 +205,11 @@ t.test(extra ~ 1, mu = 0, data = sleep)
 [^1]: 更多方差齐性检验的方法可以参考[这里](https://www.r-bloggers.com/2021/06/equality-of-variances-in-r-homogeneity-test-quick-guide/)
 
 ```{r}
-var.test(extra ~ group, data = sleep, alternative = 'two.sided')
+var.test(extra ~ group, data = sleep, alternative = "two.sided")
 ```
 
 ```{r}
-t.test(extra ~  group, data = sleep, var.equal = TRUE)
+t.test(extra ~ group, data = sleep, var.equal = TRUE)
 ```
 
 **Welch Two Sample t-test**
@@ -221,7 +221,7 @@ t.test(extra ~ group, data = sleep, var.equal = FALSE)
 **Paired t-test**
 
 ```{r}
-sleep2 <- reshape(sleep, direction = 'wide', idvar = 'ID', timevar = 'group')
+sleep2 <- reshape(sleep, direction = "wide", idvar = "ID", timevar = "group")
 t.test(Pair(extra.1, extra.2) ~ 1, data = sleep2)
 ```
 
@@ -229,7 +229,7 @@ t.test(Pair(extra.1, extra.2) ~ 1, data = sleep2)
 
 -   alternative: 备择假设，two.sided, less, greater.
 
-## Assumptions
+### Assumptions
 
 From [wikipedia](https://en.wikipedia.org/wiki/Student%27s_t-test#Assumptions):
 
@@ -248,9 +248,24 @@ From [wikipedia](https://en.wikipedia.org/wiki/Student%27s_t-test#Assumptions):
 
 ## 大于等于3个样本的情况
 
+### 总体均值的比较
+
+#### ANOVA
+
 原理：
 
 >If the group means are drawn from populations with the same mean values, the variance between the group means should be lower than the variance of the samples, following the central limit theorem - [wikipedia](https://en.wikipedia.org/wiki/One-way_analysis_of_variance)
+
+**Assumptions**
+
+- 正态总体
+- 方差齐性
+- 样本独立性
+
+如t-test的assumption类似，推导出F分布的前提是正态分布以及方差齐性。但在实际使用过程之中，方差分析具有稳健性，对正态分布的要求并不是很严格[^2]。
+
+[^2]: Tiku (1971) found that "the non-normal theory power of F is found to differ from the normal theory power by a correction term which decreases sharply with increasing sample size." The problem of non-normality, especially in large samples, is far less serious than popular articles would suggest - [wikipedia](https://en.wikipedia.org/wiki/One-way_analysis_of_variance)
+
 
 | $variation \: source$                               |                          $SS$                          | $\upsilon$ | $MS$                                                                 | $F$                                                  | $P$ |
 |------------|:----------:|------------|-------------|------------|------------|
@@ -268,22 +283,12 @@ F = \frac{MS_{组间}}{MS_{组内}} = \frac{SS_{组间}/\upsilon_{组间}}{SS_{�
 \upsilon_{组内}}
 $$
 
-## Assumptions
-
-- 正态总体
-- 方差齐性
-- 样本独立性
-
-如t-test的assumption类似，推导出F分布的前提是正态分布以及方差齐性。但在实际使用过程之中，方差分析具有稳健性，对正态分布的要求并不是很严格[^2]。
-
-[^2]: Tiku (1971) found that "the non-normal theory power of F is found to differ from the normal theory power by a correction term which decreases sharply with increasing sample size." The problem of non-normality, especially in large samples, is far less serious than popular articles would suggest - [wikipedia](https://en.wikipedia.org/wiki/One-way_analysis_of_variance)
-
 **随机区组设计地方差分析**
 
 > 分组以后再进行随机化，分组地原因在于不同地组别特征对于观测指标有影响。实际上这里有两个因素对观测结果有影响，所以方差分析时也有两个假设。
 >
 
-## R中实现One Way ANOVA
+#### R中实现One Way ANOVA
 
 ```{r}
 library(data.table)
@@ -313,10 +318,101 @@ res <- aov(value ~ block + group, data = dt2)
 summary(res)
 ```
 
+### 均数之间的多重比较
+
+方差分析对各处理组均数是否相等总的检验，在$H_0$被拒绝以后，需要确定究竟是哪些处理组之间存在差异，此时需要进行均数之间的多重比较，这就涉及到累计&#8544;率。
+
+当$a$个处理组均数需要两两比较时候，共需要比较$c = a![2!(a-1)!].$ 设每次检验的检验的检验水准为$\alpha$,累积&#8544;型错误概率为$'\alpha$
+
+$$
+'\alpha = 1 - (1 - \alpha)^c
+$$
+
+#### 均数之间任意两组的比较
+
+**SNK(student Newman-Keuls)法** 又称**$q$检验**
+
+1. 将各组的平均值按由小到大的顺序排列。
+2. 计算过两个平均之间的差值以及组间跨度$r$
+3. 按下列公式计算统计量$q$.
+
+$$
+q = \frac{{\bar{Y_i} - \bar{Y_h}}}{\sqrt{\frac{MS_{within \: group}}{2}(\frac{1}{n_i} + \frac{1}{n_h})}}
+$$
+
+其中$\bar{Y_i}, \bar{Y_h}$及$n_i, n_h$分别是两个比较组的均数以及样本例数， $MS_{within \: group}$为进行方差分析得到的组内均方。
+
+```{r}
+#| warning: false
+library(agricolae)
+data(sweetpotato)
+model <- aov(yield ~ virus, data = sweetpotato)
+out <- SNK.test(model, "virus",
+  console = TRUE,
+  main = "Yield of sweetpotato. Dealt with different virus"
+)
+print(SNK.test(model, "virus", group = FALSE))
+# version old SNK.test()
+df <- df.residual(model)
+MSerror <- deviance(model) / df
+out <- with(sweetpotato, SNK.test(yield, virus, df, MSerror, group = TRUE))
+print(out$groups)
+```
+
+SNK法的检验效能介于Bonferroni和Tukey法之间的；当比较均值的组数较多时，Tukey法更有效，组数较少时，ferroni法更有效。
+
+
+
+#### 处理组与对照组的比较
+
+**Dunnett-t**检验
+
+$t_D$统计量
+
+$$
+t_D = \frac{\bar{Y_i} - \bar{Y_c}}{\sqrt{MS_{within \: group} \times (\frac{1}{n}_i + \frac{1}{n_c})}}
+$$
+
+其中$\bar{Y_i}, \bar{Y_c}$及$n_i, n_c$分别是实验组与对照组的均数以及样本例数， $MS_{within \: group}$为进行方差分析得到的组内均方。
+
+```{r}
+set.seed(23)
+data <- data.frame(
+  Group = rep(c("control", "Test1", "Test2"), each = 10),
+  value = c(rnorm(10), rnorm(10), rnorm(10))
+)
+data$Group <- as.factor(data$Group)
+
+boxplot(value ~ Group,
+  data = data,
+  main = "Product Values",
+  xlab = "Groups",
+  ylab = "Value",
+  col = "red",
+  border = "black"
+)
+
+model <- aov(value ~ Group, data = data)
+summary(model)
+
+library(DescTools)
+DunnettTest(x = data$value, g = data$Group)
+```
 
 # 其它总体的假设检验
 
 **二项分布总体假设检验**
+
+以样本频率$\mu_p, \sigma_p^2, \sigma_p$分别表示该事件的频率$p=X/n$的总体均数，总体方差和总体标准差，则
+
+$$\mu_p = \pi$$
+
+$$\sigma_p^2 = \pi(1-\pi)/n$$
+
+$$\sigma_p = \sqrt{\pi(1-\pi)/n}$$
+
+
+当$\pi$未知时，我们无法求得$\sigma_p$，只好用$S_p$来估计$\sigma_p,$ $S_p$的计算公式为
 
 $$
 S_p = \sqrt{p(1-p)/n}
@@ -325,13 +421,15 @@ $$
 
 **小样本时** 依据二项分布公式直接计算
 
-**$n\pi > 5, n(1 - \pi) > 5$时** 正态近似
+**$n\pi > 5, n(1 - \pi) > 5$** 正态近似
 
 $$
 Z = \frac{X - N\pi_0}{\sqrt{n\pi_0{(1 - \pi_0)}}} = \frac{p - \pi_0}{\sqrt{\pi_0(1 - \pi_0)/n}}
 $$
 
 **泊松分布总体单样本检验**
+
+泊松分布的的样本均数统计量的总体均值为$\lambda,$ 其标准差为$\sqrt{\lambda}$
 
 **$\lambda$较小** 直接依据概率计算
 
@@ -546,12 +644,12 @@ $$
 **单样本或者配对样本的Wilcoxon Signed Rank Test**
 
 ```{r}
-x <- c(1.83,  0.50,  1.62,  2.48, 1.68, 1.88, 1.55, 3.06, 1.30)
+x <- c(1.83, 0.50, 1.62, 2.48, 1.68, 1.88, 1.55, 3.06, 1.30)
 y <- c(0.878, 0.647, 0.598, 2.05, 1.06, 1.29, 1.06, 3.14, 1.29)
 depression <- data.frame(first = x, second = y, change = y - x)
 
-wilcox.test(change ~ 1, data = depression) # one sample 
-wilcox.test(Pair(first, second) ~ 1, data = depression) # paired sample 
+wilcox.test(change ~ 1, data = depression) # one sample
+wilcox.test(Pair(first, second) ~ 1, data = depression) # paired sample
 ```
 
 **独立两样本的Mann Whitney test**
@@ -635,15 +733,13 @@ friedman.test(x ~ w | t, data = wb)
 knitr::include_graphics("img/hypothesis-test01.svg")
 ```
 
-# Some Notes on Page Layout
-
-To see the Quarto markdown source of this example document, you may follow [this link to Github](https://raw.githubusercontent.com/quarto-dev/quarto-gallery/main/page-layout/tufte.qmd).
-
 # Appendix
 
 # 假设检验原理{.appendix}
 
 某一变化的量背后有公式用于完美地描述其规律。
+
+若在假设之下计算得到发生样本如此极端以及更极端情况的概率（**1.根据总体分布直接计算概率 2. 根据样本统计量的分布计算概率**）小于预先设定的阈值，那么我们则选择拒绝该假设或相反。
 
 现实的数据总是抽象变量 - 总体，概率的结果。从现实数据中收集得到的某一指标的一些数据-样本， 都是该抽象变量的一些随机数据-。一个显而易见的事实是：**样本统计量总是围绕总体参数的周围分布**。若在假设之下，求得样本统计量的分布，则可求得假设之下样本统计量向总体参数偏离如此大范围的机率，则依据小概率定律，选择拒绝或者接受原假设。
 
@@ -655,7 +751,7 @@ To see the Quarto markdown source of this example document, you may follow [this
 
 在计算机时代，我们可以直接利用Bootstrp模拟得到假设之下样本统计量的分布。
 
-# 假设检验与置信区间 {.appendix}
+# 假设检验与置信区间 {.appendix} 
 
 # 检验功效的问题 {.appendix}
 

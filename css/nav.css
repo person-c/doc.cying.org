@@ -1,0 +1,35 @@
+html{
+  box-sizing: border-box;
+}
+
+.nav-bar ul{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:aliceblue;
+  column-gap: 2%;
+}
+
+a:link{
+  text-decoration: none;
+  color: white;
+}
+
+.nav-bar ul li{
+  padding: 2px;
+  display: inline-block;
+  background-color: black;
+  color: white;
+}
+
+
+.foot-note {
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 10px;
+  justify-content: center;
+  align-items: center;
+}

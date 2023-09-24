@@ -1,7 +1,7 @@
 ---
 title: "Hypothesis Test"
 subtitle: "假设检验实践"
-date: "2023-09-22"
+date: "2023-09-24"
 keep-md: true
 format:
     pdf: default
@@ -182,7 +182,7 @@ $$
 \upsilon = \frac{(S_{\bar{X_1}}^2  + S_{\bar{X_2}}^2)^2}{\frac{S_{\bar{X_1}}^4}{n1 - 1} + \frac{S_{\bar{X_2}}^4}{n_2 - 1}}
 $$
 
-## R中实现T-test
+### R中实现t-test
 
 **正态性检验**
 
@@ -261,7 +261,7 @@ mean of x
 ::: {.cell}
 
 ```{.r .cell-code}
-var.test(extra ~ group, data = sleep, alternative = 'two.sided')
+var.test(extra ~ group, data = sleep, alternative = "two.sided")
 ```
 
 ::: {.cell-output .cell-output-stdout}
@@ -287,7 +287,7 @@ ratio of variances
 ::: {.cell}
 
 ```{.r .cell-code}
-t.test(extra ~  group, data = sleep, var.equal = TRUE)
+t.test(extra ~ group, data = sleep, var.equal = TRUE)
 ```
 
 ::: {.cell-output .cell-output-stdout}
@@ -351,7 +351,7 @@ mean in group 1 mean in group 2
 ::: {.cell}
 
 ```{.r .cell-code}
-sleep2 <- reshape(sleep, direction = 'wide', idvar = 'ID', timevar = 'group')
+sleep2 <- reshape(sleep, direction = "wide", idvar = "ID", timevar = "group")
 t.test(Pair(extra.1, extra.2) ~ 1, data = sleep2)
 ```
 
@@ -381,7 +381,7 @@ mean difference
 
 -   alternative: 备择假设，two.sided, less, greater.
 
-## Assumptions
+### Assumptions
 
 From [wikipedia](https://en.wikipedia.org/wiki/Student%27s_t-test#Assumptions):
 
@@ -400,9 +400,24 @@ From [wikipedia](https://en.wikipedia.org/wiki/Student%27s_t-test#Assumptions):
 
 ## 大于等于3个样本的情况
 
+### 总体均值的比较
+
+#### ANOVA
+
 原理：
 
 >If the group means are drawn from populations with the same mean values, the variance between the group means should be lower than the variance of the samples, following the central limit theorem - [wikipedia](https://en.wikipedia.org/wiki/One-way_analysis_of_variance)
+
+**Assumptions**
+
+- 正态总体
+- 方差齐性
+- 样本独立性
+
+如t-test的assumption类似，推导出F分布的前提是正态分布以及方差齐性。但在实际使用过程之中，方差分析具有稳健性，对正态分布的要求并不是很严格[^2]。
+
+[^2]: Tiku (1971) found that "the non-normal theory power of F is found to differ from the normal theory power by a correction term which decreases sharply with increasing sample size." The problem of non-normality, especially in large samples, is far less serious than popular articles would suggest - [wikipedia](https://en.wikipedia.org/wiki/One-way_analysis_of_variance)
+
 
 | $variation \: source$                               |                          $SS$                          | $\upsilon$ | $MS$                                                                 | $F$                                                  | $P$ |
 |------------|:----------:|------------|-------------|------------|------------|
@@ -420,22 +435,12 @@ F = \frac{MS_{组间}}{MS_{组内}} = \frac{SS_{组间}/\upsilon_{组间}}{SS_{�
 \upsilon_{组内}}
 $$
 
-## Assumptions
-
-- 正态总体
-- 方差齐性
-- 样本独立性
-
-如t-test的assumption类似，推导出F分布的前提是正态分布以及方差齐性。但在实际使用过程之中，方差分析具有稳健性，对正态分布的要求并不是很严格[^2]。
-
-[^2]: Tiku (1971) found that "the non-normal theory power of F is found to differ from the normal theory power by a correction term which decreases sharply with increasing sample size." The problem of non-normality, especially in large samples, is far less serious than popular articles would suggest - [wikipedia](https://en.wikipedia.org/wiki/One-way_analysis_of_variance)
-
 **随机区组设计地方差分析**
 
 > 分组以后再进行随机化，分组地原因在于不同地组别特征对于观测指标有影响。实际上这里有两个因素对观测结果有影响，所以方差分析时也有两个假设。
 >
 
-## R中实现One Way ANOVA
+#### R中实现One Way ANOVA
 
 
 
@@ -538,10 +543,286 @@ Residuals   94  3.327 0.03539
 
 
 
+### 均数之间的多重比较
+
+方差分析对各处理组均数是否相等总的检验，在$H_0$被拒绝以后，需要确定究竟是哪些处理组之间存在差异，此时需要进行均数之间的多重比较，这就涉及到累计&#8544;率。
+
+当$a$个处理组均数需要两两比较时候，共需要比较$c = a![2!(a-1)!].$ 设每次检验的检验的检验水准为$\alpha$,累积&#8544;型错误概率为$'\alpha$
+
+$$
+'\alpha = 1 - (1 - \alpha)^c
+$$
+
+#### 均数之间任意两组的比较
+
+**SNK(student Newman-Keuls)法** 又称**$q$检验**
+
+1. 将各组的平均值按由小到大的顺序排列。
+2. 计算过两个平均之间的差值以及组间跨度$r$
+3. 按下列公式计算统计量$q$.
+
+$$
+q = \frac{{\bar{Y_i} - \bar{Y_h}}}{\sqrt{\frac{MS_{within \: group}}{2}(\frac{1}{n_i} + \frac{1}{n_h})}}
+$$
+
+其中$\bar{Y_i}, \bar{Y_h}$及$n_i, n_h$分别是两个比较组的均数以及样本例数， $MS_{within \: group}$为进行方差分析得到的组内均方。
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+library(agricolae)
+data(sweetpotato)
+model <- aov(yield ~ virus, data = sweetpotato)
+out <- SNK.test(model, "virus",
+  console = TRUE,
+  main = "Yield of sweetpotato. Dealt with different virus"
+)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+
+Study: Yield of sweetpotato. Dealt with different virus
+
+Student Newman Keuls Test
+for yield 
+
+Mean Square Error:  22.48917 
+
+virus,  means
+
+      yield      std r       se  Min  Max   Q25  Q50   Q75
+cc 24.40000 3.609709 3 2.737953 21.7 28.5 22.35 23.0 25.75
+fc 12.86667 2.159475 3 2.737953 10.6 14.9 11.85 13.1 14.00
+ff 36.33333 7.333030 3 2.737953 28.0 41.8 33.60 39.2 40.50
+oo 36.90000 4.300000 3 2.737953 32.1 40.4 35.15 38.2 39.30
+
+Alpha: 0.05 ; DF Error: 8 
+
+Critical Range
+        2         3         4 
+ 8.928965 11.064170 12.399670 
+
+Means with the same letter are not significantly different.
+
+      yield groups
+oo 36.90000      a
+ff 36.33333      a
+cc 24.40000      b
+fc 12.86667      c
+```
+
+
+:::
+
+```{.r .cell-code}
+print(SNK.test(model, "virus", group = FALSE))
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+$statistics
+   MSerror Df   Mean      CV
+  22.48917  8 27.625 17.1666
+
+$parameters
+  test name.t ntr alpha
+   SNK  virus   4  0.05
+
+$snk
+     Table CriticalRange
+2 3.261182      8.928965
+3 4.041036     11.064170
+4 4.528810     12.399670
+
+$means
+      yield      std r       se  Min  Max   Q25  Q50   Q75
+cc 24.40000 3.609709 3 2.737953 21.7 28.5 22.35 23.0 25.75
+fc 12.86667 2.159475 3 2.737953 10.6 14.9 11.85 13.1 14.00
+ff 36.33333 7.333030 3 2.737953 28.0 41.8 33.60 39.2 40.50
+oo 36.90000 4.300000 3 2.737953 32.1 40.4 35.15 38.2 39.30
+
+$comparison
+         difference pvalue signif.        LCL        UCL
+cc - fc  11.5333333 0.0176       *   2.604368  20.462299
+cc - ff -11.9333333 0.0151       * -20.862299  -3.004368
+cc - oo -12.5000000 0.0291       * -23.564170  -1.435830
+fc - ff -23.4666667 0.0008     *** -34.530836 -12.402497
+fc - oo -24.0333333 0.0012      ** -36.433003 -11.633664
+ff - oo  -0.5666667 0.8873          -9.495632   8.362299
+
+$groups
+NULL
+
+attr(,"class")
+[1] "group"
+```
+
+
+:::
+
+```{.r .cell-code}
+# version old SNK.test()
+df <- df.residual(model)
+MSerror <- deviance(model) / df
+out <- with(sweetpotato, SNK.test(yield, virus, df, MSerror, group = TRUE))
+print(out$groups)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+      yield groups
+oo 36.90000      a
+ff 36.33333      a
+cc 24.40000      b
+fc 12.86667      c
+```
+
+
+:::
+:::
+
+
+
+SNK法的检验效能介于Bonferroni和Tukey法之间的；当比较均值的组数较多时，Tukey法更有效，组数较少时，ferroni法更有效。
+
+
+
+#### 处理组与对照组的比较
+
+**Dunnett-t**检验
+
+$t_D$统计量
+
+$$
+t_D = \frac{\bar{Y_i} - \bar{Y_c}}{\sqrt{MS_{within \: group} \times (\frac{1}{n}_i + \frac{1}{n_c})}}
+$$
+
+其中$\bar{Y_i}, \bar{Y_c}$及$n_i, n_c$分别是实验组与对照组的均数以及样本例数， $MS_{within \: group}$为进行方差分析得到的组内均方。
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+set.seed(23)
+data <- data.frame(
+  Group = rep(c("control", "Test1", "Test2"), each = 10),
+  value = c(rnorm(10), rnorm(10), rnorm(10))
+)
+data$Group <- as.factor(data$Group)
+
+boxplot(value ~ Group,
+  data = data,
+  main = "Product Values",
+  xlab = "Groups",
+  ylab = "Value",
+  col = "red",
+  border = "black"
+)
+```
+
+::: {.cell-output-display}
+![](Hypothesis-test_files/figure-html/unnamed-chunk-11-1.png){width=672}
+:::
+
+```{.r .cell-code}
+model <- aov(value ~ Group, data = data)
+summary(model)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+            Df Sum Sq Mean Sq F value Pr(>F)  
+Group        2  4.407  2.2036    3.71 0.0377 *
+Residuals   27 16.035  0.5939                 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+
+:::
+
+```{.r .cell-code}
+library(DescTools)
+```
+
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning: package 'DescTools' was built under R version 4.2.3
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stderr}
+
+```
+
+Attaching package: 'DescTools'
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stderr}
+
+```
+The following object is masked from 'package:data.table':
+
+    %like%
+```
+
+
+:::
+
+```{.r .cell-code}
+DunnettTest(x = data$value, g = data$Group)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+
+  Dunnett's test for comparing several treatments with a control :  
+    95% family-wise confidence level
+
+$control
+                    diff    lwr.ci      upr.ci   pval    
+Test1-control -0.8742469 -1.678514 -0.06998022 0.0320 *  
+Test2-control -0.7335283 -1.537795  0.07073836 0.0768 .  
+
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+
+:::
+:::
+
+
 
 # 其它总体的假设检验
 
 **二项分布总体假设检验**
+
+以样本频率$\mu_p, \sigma_p^2, \sigma_p$分别表示该事件的频率$p=X/n$的总体均数，总体方差和总体标准差，则
+
+$$\mu_p = \pi$$
+
+$$\sigma_p^2 = \pi(1-\pi)/n$$
+
+$$\sigma_p = \sqrt{\pi(1-\pi)/n}$$
+
+
+当$\pi$未知时，我们无法求得$\sigma_p$，只好用$S_p$来估计$\sigma_p,$ $S_p$的计算公式为
 
 $$
 S_p = \sqrt{p(1-p)/n}
@@ -550,13 +831,15 @@ $$
 
 **小样本时** 依据二项分布公式直接计算
 
-**$n\pi > 5, n(1 - \pi) > 5$时** 正态近似
+**$n\pi > 5, n(1 - \pi) > 5$** 正态近似
 
 $$
 Z = \frac{X - N\pi_0}{\sqrt{n\pi_0{(1 - \pi_0)}}} = \frac{p - \pi_0}{\sqrt{\pi_0(1 - \pi_0)/n}}
 $$
 
 **泊松分布总体单样本检验**
+
+泊松分布的的样本均数统计量的总体均值为$\lambda,$ 其标准差为$\sqrt{\lambda}$
 
 **$\lambda$较小** 直接依据概率计算
 
@@ -805,18 +1088,18 @@ odds ratio
 ::: {.cell-output-display}
 
 
-| id|     groupA|   groupB|       diff|
-|--:|----------:|--------:|----------:|
-|  1| -1.7031855| 2.639792|  4.3429773|
-|  2|  0.1351204| 3.795763|  3.6606427|
-|  3|  4.0077605| 5.399024|  1.3912634|
-|  4|  5.2533236| 5.668337|  0.4150133|
-|  5|  1.8431657| 1.213177| -0.6299890|
-|  6| -8.1410710| 4.218752| 12.3598230|
-|  7|  7.1950846| 5.845892| -1.3491923|
-|  8|  9.9509159| 8.163719| -1.7871970|
-|  9| -5.2574992| 5.452317| 10.7098158|
-| 10|  0.4043620| 5.515140|  5.1107781|
+| id|     groupA|     groupB|       diff|
+|--:|----------:|----------:|----------:|
+|  1|  0.3403843| 10.2112855|  9.8709012|
+|  2|  2.2945442| 11.6454913|  9.3509470|
+|  3| -1.4399976|  9.7297898| 11.1697873|
+|  4| -1.7497818|  0.0718725|  1.8216542|
+|  5|  1.3936650| -1.0793342| -2.4729991|
+|  6|  2.5325010| -3.1460297| -5.6785307|
+|  7|  5.9229420|  5.4615812| -0.4613608|
+|  8| -2.0288062|  4.8894129|  6.9182191|
+|  9|  4.5832491|  7.5673896|  2.9841404|
+| 10|  2.6986250|  3.8522318|  1.1536068|
 
 
 :::
@@ -920,11 +1203,11 @@ $$
 ::: {.cell}
 
 ```{.r .cell-code}
-x <- c(1.83,  0.50,  1.62,  2.48, 1.68, 1.88, 1.55, 3.06, 1.30)
+x <- c(1.83, 0.50, 1.62, 2.48, 1.68, 1.88, 1.55, 3.06, 1.30)
 y <- c(0.878, 0.647, 0.598, 2.05, 1.06, 1.29, 1.06, 3.14, 1.29)
 depression <- data.frame(first = x, second = y, change = y - x)
 
-wilcox.test(change ~ 1, data = depression) # one sample 
+wilcox.test(change ~ 1, data = depression) # one sample
 ```
 
 ::: {.cell-output .cell-output-stdout}
@@ -942,7 +1225,7 @@ alternative hypothesis: true location is not equal to 0
 :::
 
 ```{.r .cell-code}
-wilcox.test(Pair(first, second) ~ 1, data = depression) # paired sample 
+wilcox.test(Pair(first, second) ~ 1, data = depression) # paired sample
 ```
 
 ::: {.cell-output .cell-output-stdout}
@@ -1003,7 +1286,7 @@ boxplot(Ozone ~ Month, data = airquality)
 ```
 
 ::: {.cell-output-display}
-![](Hypothesis-test_files/figure-html/unnamed-chunk-17-1.png){width=672}
+![](Hypothesis-test_files/figure-html/unnamed-chunk-19-1.png){width=672}
 :::
 
 ```{.r .cell-code}
@@ -1172,15 +1455,13 @@ knitr::include_graphics("img/hypothesis-test01.svg")
 
 
 
-# Some Notes on Page Layout
-
-To see the Quarto markdown source of this example document, you may follow [this link to Github](https://raw.githubusercontent.com/quarto-dev/quarto-gallery/main/page-layout/tufte.qmd).
-
 # Appendix
 
 # 假设检验原理{.appendix}
 
 某一变化的量背后有公式用于完美地描述其规律。
+
+若在假设之下计算得到发生样本如此极端以及更极端情况的概率（**1.根据总体分布直接计算概率 2. 根据样本统计量的分布计算概率**）小于预先设定的阈值，那么我们则选择拒绝该假设或相反。
 
 现实的数据总是抽象变量 - 总体，概率的结果。从现实数据中收集得到的某一指标的一些数据-样本， 都是该抽象变量的一些随机数据-。一个显而易见的事实是：**样本统计量总是围绕总体参数的周围分布**。若在假设之下，求得样本统计量的分布，则可求得假设之下样本统计量向总体参数偏离如此大范围的机率，则依据小概率定律，选择拒绝或者接受原假设。
 
@@ -1192,7 +1473,7 @@ To see the Quarto markdown source of this example document, you may follow [this
 
 在计算机时代，我们可以直接利用Bootstrp模拟得到假设之下样本统计量的分布。
 
-# 假设检验与置信区间 {.appendix}
+# 假设检验与置信区间 {.appendix} 
 
 # 检验功效的问题 {.appendix}
 

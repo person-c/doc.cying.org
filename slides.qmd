@@ -1,0 +1,14 @@
+---
+title: "Slides"
+date: "`r Sys.Date()`"
+format: 
+  html:
+    css: [css/link.css, css/font.css]
+    self-contained: true
+---
+
+```{r results='asis'}
+#| echo: false
+slides_dir <- list.dirs(path = "./slides", recursive = FALSE)
+sprintf("<a href='%s%s'>%s</a>", slides_dir, "/index.html", gsub("./slides/", "", slides_dir)) |> cat(sep = "\n\n")
+```

@@ -1,0 +1,14 @@
+---
+title: "Web exercise"
+date: "`r Sys.Date()`"
+format: 
+  html:
+    css: [css/link.css, css/font.css]
+    self-contained: true
+---
+
+```{r results='asis'}
+#| echo: false
+web_file <- list.files(path = "./web", pattern = "*.html", recursive = TRUE)
+sprintf("<a href='web/%s'>%s</a>", web_file, stringr::str_remove(string = web_file, ".html")) |> cat(sep = "\n\n")
+```

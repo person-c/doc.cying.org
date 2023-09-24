@@ -1,0 +1,15 @@
+---
+title: "Note"
+date: "`r sys.date()"
+format: 
+  html:
+    css: [css/link.css, css/font.css]
+    self-contained: true
+---
+
+```{r results='asis'}
+#| echo: false
+note_file <- list.files(path = "./note", pattern = "*.html", recursive = TRUE)
+sprintf("<a href='note/%s'>%s</a>", note_file, stringr::str_remove(string = note_file, ".html")) |> cat(sep = "\n\n")
+```
+
