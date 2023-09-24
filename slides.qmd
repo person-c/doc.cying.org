@@ -1,5 +1,9 @@
 ---
 title: "Slides"
+date: "`r Sys.Date()`"
+formate:
+  html:
+    css: [css/link.css, css/font.css]
 ---
 
 ```{r results='asis'}
