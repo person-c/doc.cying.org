@@ -16,7 +16,10 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
 
       - name: update table of contents
-        run: quarto note.qmd slides.qmd web.qmd
+        run: |
+          quarto render web.qmd
+          quarto render note.qmd 
+          quarto render slides.qmd
 
       - name: Commit results
         run: |

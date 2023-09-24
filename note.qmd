@@ -1,10 +1,5 @@
 ---
 title: "Note"
-date: "`r sys.date()"
-format: 
-  html:
-    css: [css/link.css, css/font.css]
-    self-contained: true
 ---
 
 ```{r results='asis'}
