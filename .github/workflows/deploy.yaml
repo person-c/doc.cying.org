@@ -15,6 +15,9 @@ jobs:
 
       - uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: install rmarkdow
+         run: Rscript -e 'install.packages("rmarkdown")'
+
       - name: update table of contents
         run: |
           quarto render web.qmd
