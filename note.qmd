@@ -1,9 +1,9 @@
 ---
 title: "Note"
 date: "`r Sys.Date()`"
-formate:
+format:
   html:
-    css: [css/link.css, css/font.css]
+    css: [css/font.css, css/link.css]
 ---
 
 ```{r results='asis'}

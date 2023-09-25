@@ -1,7 +1,7 @@
 ---
 title: "Web exercise"
 date: "`r Sys.Date()`"
-formate:
+format:
   html:
     css: [css/link.css, css/font.css]
 ---
