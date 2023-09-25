@@ -70,9 +70,18 @@ div.article-intr>h1, h2, h3, h4, h5, h6
 }
 
 .sidenote {
-  width: 100vw;
+  width: max(10%, 200px);
   float: right;
   display: block;
   margin-bottom: 5px;
-  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+@media only screen and (max-width: 1000px) {
+  .sidenote {
+      width: max(80%, 100px);
+      float: none;;
+      display: block;
+      margin:auto;
+    }
 }
