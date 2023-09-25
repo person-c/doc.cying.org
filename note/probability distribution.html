@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2023-09-25">
 
-<title>Xgboost</title>
+<title>Probability distribution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,16 +24,16 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="xgboost_files/libs/clipboard/clipboard.min.js"></script>
-<script src="xgboost_files/libs/quarto-html/quarto.js"></script>
-<script src="xgboost_files/libs/quarto-html/popper.min.js"></script>
-<script src="xgboost_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="xgboost_files/libs/quarto-html/anchor.min.js"></script>
-<link href="xgboost_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="xgboost_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="xgboost_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="xgboost_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="xgboost_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="probability distribution_files/libs/clipboard/clipboard.min.js"></script>
+<script src="probability distribution_files/libs/quarto-html/quarto.js"></script>
+<script src="probability distribution_files/libs/quarto-html/popper.min.js"></script>
+<script src="probability distribution_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="probability distribution_files/libs/quarto-html/anchor.min.js"></script>
+<link href="probability distribution_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="probability distribution_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="probability distribution_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="probability distribution_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="probability distribution_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -49,15 +49,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#基模型" id="toc-基模型" class="nav-link active" data-scroll-target="#基模型">基模型</a>
+  <li><a href="#离散分布" id="toc-离散分布" class="nav-link active" data-scroll-target="#离散分布">离散分布</a>
   <ul class="collapse">
-  <li><a href="#回归树" id="toc-回归树" class="nav-link" data-scroll-target="#回归树">回归树</a></li>
-  <li><a href="#决策树" id="toc-决策树" class="nav-link" data-scroll-target="#决策树">决策树</a></li>
+  <li><a href="#二项分布binomial-distribution" id="toc-二项分布binomial-distribution" class="nav-link" data-scroll-target="#二项分布binomial-distribution">二项分布(Binomial Distribution)</a></li>
+  <li><a href="#负二项分布negative-binomial-distribution" id="toc-负二项分布negative-binomial-distribution" class="nav-link" data-scroll-target="#负二项分布negative-binomial-distribution">负二项分布(Negative Binomial Distribution)</a></li>
+  <li><a href="#超几何分布" id="toc-超几何分布" class="nav-link" data-scroll-target="#超几何分布">超几何分布</a></li>
+  <li><a href="#泊松分布possion-distribution" id="toc-泊松分布possion-distribution" class="nav-link" data-scroll-target="#泊松分布possion-distribution">泊松分布(Possion Distribution)</a></li>
   </ul></li>
-  <li><a href="#bagging" id="toc-bagging" class="nav-link" data-scroll-target="#bagging">Bagging</a></li>
-  <li><a href="#boosting" id="toc-boosting" class="nav-link" data-scroll-target="#boosting">Boosting</a>
+  <li><a href="#连续分布" id="toc-连续分布" class="nav-link" data-scroll-target="#连续分布">连续分布</a>
   <ul class="collapse">
-  <li><a href="#xgboost" id="toc-xgboost" class="nav-link" data-scroll-target="#xgboost">xgboost</a></li>
+  <li><a href="#正态分布" id="toc-正态分布" class="nav-link" data-scroll-target="#正态分布">正态分布</a></li>
+  <li><a href="#均匀分布" id="toc-均匀分布" class="nav-link" data-scroll-target="#均匀分布">均匀分布</a></li>
+  <li><a href="#指数分布" id="toc-指数分布" class="nav-link" data-scroll-target="#指数分布">指数分布</a></li>
+  <li><a href="#伽玛分布" id="toc-伽玛分布" class="nav-link" data-scroll-target="#伽玛分布">伽玛分布</a></li>
+  <li><a href="#贝塔分布" id="toc-贝塔分布" class="nav-link" data-scroll-target="#贝塔分布">贝塔分布</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -66,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Xgboost</h1>
+<h1 class="title">Probability distribution</h1>
 </div>
 
 
@@ -88,87 +93,54 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="基模型" class="level1">
-<h1>基模型</h1>
-<p>考虑一个二叉树，如何生长？最大化父节点的样本集合的损失值与其之下的两个子节点的样本集合损失值的差值。</p>
-<section id="回归树" class="level2">
-<h2 class="anchored" data-anchor-id="回归树">回归树</h2>
-<p>变量竞争准则：</p>
-<p><span class="math display">\[
-\Delta_{SST} = \sum_{i \in father\ node}(y_i - \overline{y})^2 - \left\{ \sum_{i\in son\ node\ 1}(y_i - \overline{y})^2 + \sum_{i\in son\ node\ 2}(y_i - \overline{y})^2 \right\}
-\]</span></p>
-<p>拆分变量以及生长：</p>
-<ol type="1">
-<li><p>变量内部寻找最佳分割。数值变量一般遍历样本之间的均值找到该变量使得<span class="math inline">\(\Delta_{SST}\)</span>最大的分割点<span class="math inline">\(\tau\)</span>，而分类变量遍历所有的组合找使得<span class="math inline">\(\Delta\)</span>最大的<span class="math inline">\(\mathcal{A}\)</span>以及其补集<span class="math inline">\(\mathcal{A}^c\)</span>。</p></li>
-<li><p>变量之间寻找最佳拆分变量。比较每个变量最佳分割的<span class="math inline">\(\Delta_{SST}\)</span>的大小，拥有最大<span class="math inline">\(\Delta\)</span>的变量，作为拆分分量，其<span class="math inline">\(\tau\)</span>或<span class="math inline">\(\mathcal{A}\)</span>作为拆分准则。</p></li>
-<li><p>重复1，2。根据不同的准则，停止生长。比如总<span class="math inline">\(R^2\)</span>增长不会大于复杂性参数(complexity parameter, cp)的某个值时，或者到了分叉的限制点，或者某个节点的观测值太少。</p></li>
-</ol>
-<p>Note: 对于回归树而言，样本在某个节点的预测值就是该节点样本集合的均值；每个节点下面如果停止生长，那么序号会保留。</p>
-</section>
-<section id="决策树" class="level2">
-<h2 class="anchored" data-anchor-id="决策树">决策树</h2>
-<p>决策树拆分变量以及生长的过程与回归树类似，只不过竞争的准则与回归有所不同。</p>
-<p>假定观测值一共有<span class="math inline">\(K\)</span>类，在一个节点的观测值中属于第<span class="math inline">\(i\)</span>类的比例为<span class="math inline">\(p_k(k = 1, 2, ..., K)\)</span>. 显然<span class="math inline">\(\sum_{k=1}^{K} p_k = 1\)</span>. 常有的准则有下面几种：</p>
-<ul>
-<li><p>误分率 按照少数服从多数的原则，在树的某叉中，某一类<span class="math inline">\(i\)</span>的数目是最多的，则类<span class="math inline">\(i\)</span>被认为是分类正确的，那么误分率为<span class="math inline">\(1 - p_i\)</span></p></li>
-<li><p>熵 定义为 —— <span class="math inline">\(\sum_{k=1}^{K}p_{k}log_{2}p_{k}\)</span>. 在所有的观测值都为一类的时候，熵为0. 因此所选择的拆分变量是使得父节点的熵和子节点的熵差别（称为信息增益(information gain)）最大的变量。子节点的熵应为各个子节点的数目比例对各个节点熵的加权平均。</p></li>
-<li><p>Gini 不纯度（或Gini指数）定义为</p>
-<p><span class="math display">\[
-\sum_{k=1}^{K}p_{k}(1 -  p_k) = \sum_{k=1}^{K}p_{k} - \sum_{k=1}^{K}p_{k}^2 = 1 - \sum_{i=1}^{K}p_{k}^{2}
-\]</span></p>
-<p>在所有的观测值都为一类的时候，Gini不纯度的度量都为0.因此，所选择的拆分变量是使得父节点Gini不纯度和子节点的Gini不纯度差别最大的变量。子节点的Gini不纯度应该用各个子节点观测值数目比例对各个节点的Gini不纯度的加权平均来计算。</p></li>
-</ul>
-<p>何时停止树的生长按照某些确定的误判函数计算。例如控制参数cp，如果纯度改变达不到它的值，就不会再分叉了。另外还有一个复杂性（complexity parameter）的量<span class="math inline">\(\alpha \in [0, \infi)\)</span>, 计算每增加一个变量到模型中的损失。</p>
-<p>再如，从长成的树的终节点开始剪枝，每剪一次，看看误差是不是增加，如果超过要求则停止剪枝。</p>
-<p>另一种剪枝原则是使得下式最小：</p>
-<p><span class="math display">\[
-\frac{树T减去其子树t后的误差 - 树T的误差}{树T的的终节点数目 - 树T减去其子树t后的终节点数目}
-\]</span></p>
-<p>其实本质就是最大化剪去一个节点能够减少的误差。</p>
-</section>
-</section>
-<section id="bagging" class="level1">
-<h1>Bagging</h1>
-<p><strong>自助法抽样</strong>：对样本的抽样；一般我们只有一个样本，通过对这个样本进行抽样（部分或者全部），得到许多自助法样本。</p>
-<p><strong>抽样</strong>： 对总体的抽样。</p>
+<section id="离散分布" class="level1">
+<h1>离散分布</h1>
+<section id="二项分布binomial-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="二项分布binomial-distribution">二项分布(Binomial Distribution)</h2>
+<p>多重伯努利实验中，已知事件事件 <span class="math inline">\(A\)</span> 成功的概率为 <span class="math inline">\(p\)</span>，且实验次数 <span class="math inline">\(n\)</span> 固定 ，那么随机变量 <span class="math inline">\(X\)</span> —— 事件 <span class="math inline">\(A\)</span> 发生次数 <span class="math inline">\(X\)</span> ： <span class="math display">\[ P(X = k) = C_n^k p^k(1-p)^{n-k}, k = 0,1,...,n. \]</span> 记为：<span class="math display">\[X \sim b(n,p)\]</span> <span class="math display">\[E(X) = np\]</span> <span class="math display">\[ D(X) = np(1-p)\]</span></p>
 <blockquote class="blockquote">
-<p>自助法的数学推断以及与总体近似的证明：</p>
+<p>二项分布的特殊分布 <strong>两点分布Bernoulli Distribution</strong> ，即一重伯努利实验：</p>
 </blockquote>
-<p>经典的统计推断基于抽样分布(sampling distribution), 抽样分布是从总体重复抽样所得样本的分布，但是从原始总体中重复抽样是很困难的，因此我们只有对分布做出各种无法验证的假定，然后根据这些假定对统计量或者参数做出推断。</p>
-<p>自主法也有其限制所在：太小的样本不是总体的很好近似；不平衡样本；不规范数据；以及非独立观测值组成的数据。</p>
-<p>决策树可以看作一个简单的学习器，多个决策树的组合可以组合成非常精确的学习器。但是同一个数据产生的学习器是一样的，但是如果对原始数据做自助法抽样（放回抽样）则会产生不同的数据，因而会产生不同的决策树，如果再在抽样概率以及决策树拆分变量等方面做些改变，则可以产生基于同一个原始数据的各个不同的决策树，形成一个可以“投票”（平均或加权平均）的决策树群。</p>
-<p>Note：bagging解决的是基模型overfitting的问题。</p>
 </section>
-<section id="boosting" class="level1">
-<h1>Boosting</h1>
-<p>核心：基于残差的拟合；</p>
-<p>假定第一个基模型的拟合以后每个样本的残差为<span class="math inline">\([y_1, y_2, ..., y_m]\)</span>, 那么第二个基模型拟合的观测值就为<span class="math inline">\([y_1, y_2, ..., y_m]\)</span>.</p>
-<p>Note: boosting解决的是underfitting的问题。</p>
-<section id="xgboost" class="level2">
-<h2 class="anchored" data-anchor-id="xgboost">xgboost</h2>
-<p>构造目标函数</p>
-<p>假设已经训练了<span class="math inline">\(K\)</span>棵树，则对于第<span class="math inline">\(i\)</span>个样本（<strong>最终</strong>)预测值为： <span class="math display">\[\hat{y}_{i} = \sum_{k=1}^{K}f_{k}(x_i), f_k \in \mathcal{F}\]</span> 目标函数： <span class="math display">\[
-obj = \sum_{i=1}^{n}l(y_i, \hat{y}_i) + \sum_{k=1}^{K}\Omega(f_k)
-\]</span> 对于<span class="math inline">\(K\)</span>个模型的优化是叠加式训练；给定<span class="math inline">\(x_i\)</span>： <span class="math inline">\(\hat{y_i}^{(0)}= 0 \leftarrow\)</span> (default case)<br>
-<span class="math inline">\(\hat{y_i}^{(1)}= \hat{y_i}^{(0)} + f_{1}(x_i)\)</span> <span class="math inline">\(\hat{y_i}^{(2)}= \hat{y_i}^{(0)} + f_{1}(x_i) + f_{2}(x_i)\)</span><br>
-…… <span class="math inline">\(\hat{y_i}^{(k)}= \hat{y_i}^{(0)} + f_{1}(x_i) + f_{2}(x_i) + ... + f_{k-1}(x_i) + f_{k}(x_i) \rightarrow \hat{y_i}^{(k)} = \hat{y}^{(k-1)} + f_{k}(x_k)\)</span> 当训练第<span class="math inline">\(k\)</span>树时，目标函数写作： <span class="math display">\[
-obj_k = \sum_{i=1}^{n}l(y_i, \hat{y}^{(k-1)} + f_{k}(x_k)) + \sum_{j=1}^{K-1}\Omega(f_j) + \Omega(f_k) \rightarrow  \sum_{i=1}^{n}l(y_i, \hat{y}^{(k-1)} + f_{k}(x_k)) +  \Omega(f_k)
-\]</span></p>
-<p>目标函数直接优化难，如何近似?（talor expansion)</p>
-<p><span class="math display">\[obj_k = \sum_{i}^{n} \left[l(y_i, \hat{y_i}^{(k-1)}) + \partial_{\hat{y_i}^{(k-1)})}l(y_i, \hat{y_i}^{(k-1)}) *f_{k}(x_i) + \frac{1}{2}\partial_{\hat{y_i}^{(k-1)})}^{2}l(y_i, \hat{y_i}^{(k-1)}) *f_{k}^{2}(x_i)\right] + \Omega(f_k)  \\
-= \sum_{i}^{n} \left[ g_{i} *f_{k}(x_i) + \frac{1}{2}h_i*f_{k}^{2}(x_i)\right] + \Omega(f_k)
-\]</span></p>
-<p>Note: <span class="math inline">\(g_i\)</span>以及<span class="math inline">\(h_i\)</span>就是残差的一种形式，传递给第<span class="math inline">\(k\)</span>个模型训练的方向；记住<span class="math inline">\(g_i\)</span>以及<span class="math inline">\(h_i\)</span>是样本<span class="math inline">\(i\)</span>具有两个常量可以帮助后面的理解。</p>
-<p>如何把树的结构引入目标函数</p>
-<p>参数化一棵树： 定义： <span class="math inline">\(q(x_i) \rightarrow\)</span> 样本<span class="math inline">\(x_i\)</span>在树的哪个叶节点。 <span class="math inline">\(\omega \rightarrow\)</span> 叶节点的权重值（值） 那么<span class="math inline">\(\omega_{q(x_i)} \rightarrow\)</span> 样本<span class="math inline">\(x_i\)</span>的预测值<span class="math inline">\(f_k(x_i) = \omega_{q(x_i)}\)</span> <span class="math inline">\(I_j \rightarrow\)</span> 在叶子节点<span class="math inline">\(j\)</span>的样本集合。 <span class="math display">\[\Omega(f_k) = \gamma T + \frac{1}{2}\lambda\sum_{j=1}^{T}\omega_j\]</span></p>
-<p>新的目标函数： <span class="math display">\[
-  obj_k = \sum_{i}^{n} \left[ g_{i} *f_{k}(x_i) + \frac{1}{2}h_i*f_{k}^{2}(x_i)\right] + \Omega(f_k) \\ = \sum_{i}^{n} \left[ g_{i} *\omega_{q(x_i)} + \omega_{q(x_i)}^{2}(x_i)\right] + \gamma T + \frac{1}{2}\lambda\sum_{j=1}^{T}\omega_j \\ = \sum_{j}^T \left[(\sum_{i \in I_j}g_i)\omega_j + \frac{1}{2}(\sum_{i \in I_j}h_i + \lambda)\omega_{j}^2 \right] + \gamma T
-\]</span></p>
-<p>Note：这里的关键在于上面提到的<span class="math inline">\(g_i\)</span>以及<span class="math inline">\(h_i\)</span>是样本<span class="math inline">\(i\)</span>所具有的一个常量，观察目标函数可以知道，其值就是每个样本的<span class="math inline">\(g_i\)</span>和<span class="math inline">\(h_i\)</span>与其叶子节点<span class="math inline">\(\omega_j\)</span>值的乘积之和。目标函数形式的改变就是从样本遍历其和变为从叶子节点遍历其和。 定义<span class="math inline">\(G_j = \sum_{i \in I_j}g_{i}\)</span>, <span class="math inline">\(H_j = \sum_{i \in I_j}h_{i}\)</span>: <span class="math display">\[
-obj_k = \sum_{j=1}^T \left[ G_{i}\omega_j + \frac{1}{2}(H_{i} + \lambda)\omega_{j}^2 \right] + \gamma T
-\]</span> Note: 可以看到最后的目标函数就是，某个叶子节点的样本集合一阶导数之和<em>该节点权重值 + 二阶导数之和</em>该节点权重值的平方。注意<span class="math inline">\(G_i\)</span>以及<span class="math inline">\(H_i\)</span>的都是常数。</p>
-<p>利用贪心算法求解树的生长过程。</p>
-<p>注意<span class="math inline">\(G_i\)</span>以及<span class="math inline">\(H_i\)</span>的都是常数，最后的目标函数实际熵就是一个形如<span class="math inline">\(b + ax^2\)</span>的二次函数，二次函数为了取得最大值，其<span class="math inline">\(x\)</span>取值为：<span class="math inline">\(\omega_{j}* = - \frac{G_i}{H_i + \lambda} + \gamma T\)</span>，那么目标函数取值为<span class="math inline">\(-\frac{1}{2} \sum_{j=1}^{T}\frac{G_{i}^2}{H_i + \lambda}\)</span>。如之前提到的决策树的生长，这里的生长，和其类似，不过分割的准则变成了<span class="math inline">\(obj\)</span>；每一次分割就是使得<span class="math inline">\(\Delta_{obj}\)</span>最大的方向。</p>
+<section id="负二项分布negative-binomial-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="负二项分布negative-binomial-distribution">负二项分布(Negative Binomial Distribution)</h2>
+<p>多重伯努利实验中，已知事件 <span class="math inline">\(A\)</span> 发生的概率为<span class="math inline">\(p\)</span>，那么当事件 <span class="math inline">\(A\)</span> 第 <span class="math inline">\(r\)</span> 次发生，那么随机变量 <span class="math inline">\(X\)</span> —— 伯努利实验次数： <span class="math display">\[P(X = K) = C_{k-1}^{r-1}p^r(1-p)^{k-r}, k = r,r+1,... \]</span> 记作：<span class="math inline">\(X \sim Nb(r,p)\)</span> <span class="math display">\[E(X) = \frac{r}{p}\]</span> <span class="math display">\[D(X) = \frac{r(1-p)}{p^2}\]</span></p>
+<blockquote class="blockquote">
+<p>负二项分布的特殊分布 <strong>几何分布（Geometric Distrirution)</strong>，即当 <span class="math inline">\(r = 1\)</span> 时的负二项分布。 记为：<span class="math inline">\(X \sim Ge(p)\)</span></p>
+</blockquote>
+</section>
+<section id="超几何分布" class="level2">
+<h2 class="anchored" data-anchor-id="超几何分布">超几何分布</h2>
+<p>不放回的随机抽样，设有<span class="math inline">\(N\)</span>件产品，其中中<span class="math inline">\(M\)</span>件不合格品，从中不放回的随机抽取<span class="math inline">\(n\)</span>件，则其中的不合格的件数服从超几何分布： <span class="math display">\[P(X = k) = \frac{C_M^K C_{N-M}^{n-k}}{C_N^n} \]</span><br>
+记为：<span class="math inline">\(X \sim h(n,N,M)\)</span> <span class="math display">\[E(X) = n\frac{M}{N}\]</span> <span class="math display">\[D(X) = \frac{nM(N-M)(N-n)}{N^2(N-1)}\]</span></p>
+</section>
+<section id="泊松分布possion-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="泊松分布possion-distribution">泊松分布(Possion Distribution)</h2>
+<p>涉及到单位时间，面积，体积的计数过程，数量<span class="math inline">\(X\)</span>: <span class="math display">\[ P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!}  \]</span> 记为：<span class="math display">\[ X \sim  P(\lambda) \]</span> <span class="math display">\[E(X) = \lambda)\]</span> <span class="math display">\[D(X) = \lambda\]</span></p>
+</section>
+</section>
+<section id="连续分布" class="level1">
+<h1>连续分布</h1>
+<section id="正态分布" class="level2">
+<h2 class="anchored" data-anchor-id="正态分布">正态分布</h2>
+<p>正态分布含有两个参数 <span class="math inline">\(\mu\)</span>，<span class="math inline">\(\sigma\)</span>, 其中 <span class="math inline">\(\mu\)</span> 为位置参数，控制曲线在 <span class="math inline">\(x\)</span> 轴上的位置；<span class="math inline">\(\sigma\)</span>为尺度参数，用于控制曲线的参数。 记为：<span class="math inline">\(X \sim N(\mu,\sigma)\)</span> <span class="math inline">\(E(X) = \mu\)</span>, <span class="math inline">\(D(X) = \sigma^2\)</span></p>
+<p>概率密度函数： <span class="math display">\[ p(x) = \frac{1}{\sqrt{2 \pi}\sigma} e^{- \frac{(x - \mu)^2}   {2\sigma^2}} \]</span> 分布函数： <span class="math display">\[ F(x) = \int_{-\infty}^x p(t)dt = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}\sigma} e^{- \frac{(t-\mu^2)}{2\sigma}}dt \]</span></p>
+</section>
+<section id="均匀分布" class="level2">
+<h2 class="anchored" data-anchor-id="均匀分布">均匀分布</h2>
+<p>记为：<span class="math inline">\(X \sim U(a,b)\)</span> <span class="math inline">\(E(X) = \frac{a+b}{2}\)</span>，<span class="math inline">\(D(X) = \frac{(b-a)^2}{12}\)</span></p>
+</section>
+<section id="指数分布" class="level2">
+<h2 class="anchored" data-anchor-id="指数分布">指数分布</h2>
+<p>记为：<span class="math inline">\(X \sim Exp(\lambda)\)</span> <span class="math inline">\(E(X) = \frac{1}{\lambda}\)</span>，<span class="math inline">\(D(x) = \frac{1}{\lambda^2}\)</span></p>
+</section>
+<section id="伽玛分布" class="level2">
+<h2 class="anchored" data-anchor-id="伽玛分布">伽玛分布</h2>
+<p>记为：<span class="math inline">\(X \sim Ga(\alpha,\lambda)\)</span> <span class="math inline">\(E(X) = \frac{\alpha}{\lambda}\)</span>， <span class="math inline">\(D(X) = \frac{\alpha}{\lambda^2}\)</span></p>
+</section>
+<section id="贝塔分布" class="level2">
+<h2 class="anchored" data-anchor-id="贝塔分布">贝塔分布</h2>
+<p>记为：<span class="math inline">\(X \sim Be(a,b)\)</span> <span class="math inline">\(E(X) = \frac{a}{a+b}\)</span>， <span class="math inline">\(D(x) = \frac{ab}{(a+b)^2 (a+b+1)}\)</span></p>
 </section>
 </section>
 

@@ -1,3 +1,20 @@
+---
+title: "Statistics"
+date: "`r Sys.Date()`"
+format:
+    html: 
+      self-contained: false
+      css: style.css
+      grid: 
+        margin-width: 350px
+execute: 
+  echo: true
+toc: true
+reference-location: margin
+citation-location: margin
+bibliography: skeleton.bib
+---
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
