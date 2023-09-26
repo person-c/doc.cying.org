@@ -89,6 +89,8 @@ a:hover{
 
 /* article */
 
+
+
 div.article-intr {
   position: relative;
   margin-bottom: 5vh;
@@ -98,10 +100,33 @@ div.article-intr {
   height: auto;
 }
 
+h1 {
+  font-size: 2.0em;
+}
+
 div.article-intr>h1, h2, h3, h4, h5, h6
 {
   margin: 0px;
 }
+
+div.article-intr>h1:first-of-type::first-line {
+  text-transform: capitalize;
+}
+
+div.article-intr>p:first-of-type::first-line {
+  letter-spacing: .1em;
+    font-size: 1.5em;
+  font-family: 'Dancing Script', cursive;
+}
+
+div.article-intr>p:first-of-type::first-letter {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3em;
+  padding: 0.2em 0.2em 0 0;
+  float: left;
+  line-height: 1em;
+}
+
 
 /* sidenote */
 
