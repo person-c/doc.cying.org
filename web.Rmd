@@ -1,9 +1,7 @@
 ---
 title: "Web exercise"
 date: "`r Sys.Date()`"
-format:
-  html:
-    css: [css/link.css, css/font.css]
+css: [css/link.css, css/font.css]
 ---
 
 ```{r results='asis'}

@@ -18,11 +18,8 @@ jobs:
       - name: install rmarkdow
         run: Rscript -e 'install.packages("rmarkdown")'
 
-      - name: update table of contents
-        run: |
-          quarto render web.qmd
-          quarto render note.qmd 
-          quarto render slides.qmd
+      - name: render
+        run: python render.py
 
       - name: Commit results
         run: |
