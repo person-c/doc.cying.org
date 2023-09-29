@@ -7,5 +7,5 @@ css: [css/link.css, css/font.css]
 ```{r results='asis'}
 #| echo: false
 web_file <- list.files(path = "./web", pattern = "*.html", recursive = TRUE)
-sprintf("<a href='web/%s'>%s</a>", web_file, stringr::str_remove(string = web_file, ".html")) |> cat(sep = "\n\n")
+sprintf("<a href='web/%s'>%s</a>", web_file, gsub(".html", "", web_file)) |> cat(sep = "\n\n")
 ```

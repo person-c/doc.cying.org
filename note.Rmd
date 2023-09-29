@@ -8,6 +8,6 @@ css: [css/link.css, css/font.css]
 ```{r results='asis'}
 #| echo: false
 note_file <- list.files(path = "./note", pattern = "*.html", recursive = TRUE)
-sprintf("<a href='note/%s'>%s</a>", note_file, stringr::str_remove(string = note_file, ".html")) |> cat(sep = "\n\n")
+sprintf("<a href='note/%s'>%s</a>", note_file, gsub(".html", "", note_file)) |> cat(sep = "\n\n")
 ```
 
