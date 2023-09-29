@@ -16,7 +16,7 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
 
       - name: install rmarkdow
-        run: Rscript -e 'install.packages("rmarkdown")'
+        run: Rscript -e 'install.packages("knitr")'
 
       - name: render
         run: python render.py
