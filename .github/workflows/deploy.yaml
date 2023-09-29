@@ -23,6 +23,8 @@ jobs:
 
       - name: Commit results
         run: |
+          git config --global user.email "m2c.w@outlook.com"
+          git config --global user.name "cw"
           git add -A
           git commit -a -m 'update table of contents'
           git push origin
