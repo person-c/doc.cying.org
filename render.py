@@ -9,3 +9,4 @@ for f in toc:
     subprocess.run(['pandoc', f.replace("Rmd", "md"),
                     '-o', f.replace("Rmd", "html"),
                     '--template=templates/default.html'])
+    os.remove(f.replace("Rmd", "md"))
