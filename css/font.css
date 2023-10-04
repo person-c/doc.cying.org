@@ -14,3 +14,7 @@ code {
 a{
   font-size: 18px;
 }
+
+html {
+  font-size: --webkit-justify-text
+}
