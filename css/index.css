@@ -91,7 +91,7 @@ a:hover{
 /* article */
 
 article {
-  margin-top: 20vh;
+  margin-top: calc(10vh + 50px);
 }
 
 div.article-intr {
