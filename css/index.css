@@ -1,5 +1,6 @@
 /* font settings */
 html{
+  min-height: 400px;
   height: auto;
   box-sizing: border-box;
   font-family: Palatino, palatino linotype, palatino lt std, latin modern roman, source-han-serif-sc, 'Noto Serif SC', 'source han serif sc', 'source han serif cn', 'source han serif tc', 'source han serif tw', 'source han serif', 'noto serif cjk sc', songti sc, microsoft yahei, serif
@@ -89,7 +90,9 @@ a:hover{
 
 /* article */
 
-
+article {
+  margin-top: 20vh;
+}
 
 div.article-intr {
   position: relative;

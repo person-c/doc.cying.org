@@ -1,12 +1,23 @@
 ---
-title: "Slides"
-date: "`r Sys.Date()`"
-css: [css/link.css, css/font.css]
+css: [css/link.css, css/font.css, css/list.css]
 ---
 
+<header>
+      <div class="nav-bg"></div>
+      <nav class="nav-bar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="slides.html">Slides</a></li>
+          <li><a href="web.html">Web</a></li>
+          <li><a href="note.html">Note</a></li>
+        </ul>
+      </nav>
+</header>
 
+:::{.blog-list}
 ```{r results='asis'}
 #| echo: false
 slides_dir <- list.dirs(path = "./slides", recursive = FALSE)
 sprintf("<a href='%s%s'>%s</a>", slides_dir, "/index.html", gsub("./slides/", "", slides_dir)) |> cat(sep = "\n\n")
 ```
+:::

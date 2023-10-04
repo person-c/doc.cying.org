@@ -1,0 +1,49 @@
+/* nav-bar */
+.nav-bg {
+  height: 10vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: white;
+  z-index: 10;
+
+}
+
+.nav-bar ul {
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin-bottom: 400px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-color: aliceblue;
+  column-gap: 2%;
+  z-index: 10;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: navajowhite;
+}
+
+.nav-bar ul li {
+  padding: 2px;
+  display: inline-block;
+  color: white;
+}
+
+/* blog-list */
+.blog-list {
+  margin-left: 40vw;
+  margin-top: 15vw;
+}
