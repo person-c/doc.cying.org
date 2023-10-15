@@ -21,23 +21,21 @@ css: [static/css/link.css, static/css/font.css, static/css/list.css]
 </header>
 
 :::{{.blog-list}}
-<ul class='archive-list'>
 ```{{r results='asis'}}
 #| echo: false
 if ("{p}" == "slides") {{
     slides_dir <- list.dirs(path = "resource/slides", recursive = FALSE)
     sprintf("<a href='%s/index.html'>%s</a>", slides_dir,
     gsub("resource/slides/", "", slides_dir)) |>
-    cat(sep = "\n\n")
+    cat(sep = "\\n\\n")
 }} else {{
     file <- list.files(path = "resource/{p}",
         pattern = "*.html", recursive = TRUE)
-    sprintf("<li><a href='resource/{p}/%s'>%s</a></li>",
+    sprintf("<a href='resource/{p}/%s'>%s</a>",
       file, gsub(".html", "", file)) |>
     cat(sep = "\\n\\n")
 }}
 ```
-</ul>
 :::'''
             )
     f.close()
@@ -46,5 +44,5 @@ if ("{p}" == "slides") {{
     subprocess.run(['pandoc', f'{p}.md',
                     '-o', f'{p}.html',
                     '--template=templates/list.html'])
-    # os.remove(f'{p}.rmd')
+    os.remove(f'{p}.rmd')
     os.remove(f'{p}.md')

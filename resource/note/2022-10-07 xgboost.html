@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-10-15">
+
+<title>Xgboost</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="2022-10-07 xgboost_files/libs/clipboard/clipboard.min.js"></script>
+<script src="2022-10-07 xgboost_files/libs/quarto-html/quarto.js"></script>
+<script src="2022-10-07 xgboost_files/libs/quarto-html/popper.min.js"></script>
+<script src="2022-10-07 xgboost_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="2022-10-07 xgboost_files/libs/quarto-html/anchor.min.js"></script>
+<link href="2022-10-07 xgboost_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="2022-10-07 xgboost_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="2022-10-07 xgboost_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="2022-10-07 xgboost_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="2022-10-07 xgboost_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#基模型" id="toc-基模型" class="nav-link active" data-scroll-target="#基模型">基模型</a>
+  <ul class="collapse">
+  <li><a href="#回归树" id="toc-回归树" class="nav-link" data-scroll-target="#回归树">回归树</a></li>
+  <li><a href="#决策树" id="toc-决策树" class="nav-link" data-scroll-target="#决策树">决策树</a></li>
+  </ul></li>
+  <li><a href="#bagging" id="toc-bagging" class="nav-link" data-scroll-target="#bagging">Bagging</a></li>
+  <li><a href="#boosting" id="toc-boosting" class="nav-link" data-scroll-target="#boosting">Boosting</a>
+  <ul class="collapse">
+  <li><a href="#xgboost" id="toc-xgboost" class="nav-link" data-scroll-target="#xgboost">xgboost</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Xgboost</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 15, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="基模型" class="level1">
+<h1>基模型</h1>
+<p>考虑一个二叉树，如何生长？最大化父节点的样本集合的损失值与其之下的两个子节点的样本集合损失值的差值。</p>
+<section id="回归树" class="level2">
+<h2 class="anchored" data-anchor-id="回归树">回归树</h2>
+<p>变量竞争准则：</p>
+<p><span class="math display">\[
+\Delta_{SST} = \sum_{i \in father\ node}(y_i - \overline{y})^2 - \left\{ \sum_{i\in son\ node\ 1}(y_i - \overline{y})^2 + \sum_{i\in son\ node\ 2}(y_i - \overline{y})^2 \right\}
+\]</span></p>
+<p>拆分变量以及生长：</p>
+<ol type="1">
+<li><p>变量内部寻找最佳分割。数值变量一般遍历样本之间的均值找到该变量使得<span class="math inline">\(\Delta_{SST}\)</span>最大的分割点<span class="math inline">\(\tau\)</span>，而分类变量遍历所有的组合找使得<span class="math inline">\(\Delta\)</span>最大的<span class="math inline">\(\mathcal{A}\)</span>以及其补集<span class="math inline">\(\mathcal{A}^c\)</span>。</p></li>
+<li><p>变量之间寻找最佳拆分变量。比较每个变量最佳分割的<span class="math inline">\(\Delta_{SST}\)</span>的大小，拥有最大<span class="math inline">\(\Delta\)</span>的变量，作为拆分分量，其<span class="math inline">\(\tau\)</span>或<span class="math inline">\(\mathcal{A}\)</span>作为拆分准则。</p></li>
+<li><p>重复1，2。根据不同的准则，停止生长。比如总<span class="math inline">\(R^2\)</span>增长不会大于复杂性参数(complexity parameter, cp)的某个值时，或者到了分叉的限制点，或者某个节点的观测值太少。</p></li>
+</ol>
+<p>Note: 对于回归树而言，样本在某个节点的预测值就是该节点样本集合的均值；每个节点下面如果停止生长，那么序号会保留。</p>
+</section>
+<section id="决策树" class="level2">
+<h2 class="anchored" data-anchor-id="决策树">决策树</h2>
+<p>决策树拆分变量以及生长的过程与回归树类似，只不过竞争的准则与回归有所不同。</p>
+<p>假定观测值一共有<span class="math inline">\(K\)</span>类，在一个节点的观测值中属于第<span class="math inline">\(i\)</span>类的比例为<span class="math inline">\(p_k(k = 1, 2, ..., K)\)</span>. 显然<span class="math inline">\(\sum_{k=1}^{K} p_k = 1\)</span>. 常有的准则有下面几种：</p>
+<ul>
+<li><p>误分率 按照少数服从多数的原则，在树的某叉中，某一类<span class="math inline">\(i\)</span>的数目是最多的，则类<span class="math inline">\(i\)</span>被认为是分类正确的，那么误分率为<span class="math inline">\(1 - p_i\)</span></p></li>
+<li><p>熵 定义为 —— <span class="math inline">\(\sum_{k=1}^{K}p_{k}log_{2}p_{k}\)</span>. 在所有的观测值都为一类的时候，熵为0. 因此所选择的拆分变量是使得父节点的熵和子节点的熵差别（称为信息增益(information gain)）最大的变量。子节点的熵应为各个子节点的数目比例对各个节点熵的加权平均。</p></li>
+<li><p>Gini 不纯度（或Gini指数）定义为</p>
+<p><span class="math display">\[
+\sum_{k=1}^{K}p_{k}(1 -  p_k) = \sum_{k=1}^{K}p_{k} - \sum_{k=1}^{K}p_{k}^2 = 1 - \sum_{i=1}^{K}p_{k}^{2}
+\]</span></p>
+<p>在所有的观测值都为一类的时候，Gini不纯度的度量都为0.因此，所选择的拆分变量是使得父节点Gini不纯度和子节点的Gini不纯度差别最大的变量。子节点的Gini不纯度应该用各个子节点观测值数目比例对各个节点的Gini不纯度的加权平均来计算。</p></li>
+</ul>
+<p>何时停止树的生长按照某些确定的误判函数计算。例如控制参数cp，如果纯度改变达不到它的值，就不会再分叉了。另外还有一个复杂性（complexity parameter）的量<span class="math inline">\(\alpha \in [0, \infi)\)</span>, 计算每增加一个变量到模型中的损失。</p>
+<p>再如，从长成的树的终节点开始剪枝，每剪一次，看看误差是不是增加，如果超过要求则停止剪枝。</p>
+<p>另一种剪枝原则是使得下式最小：</p>
+<p><span class="math display">\[
+\frac{树T减去其子树t后的误差 - 树T的误差}{树T的的终节点数目 - 树T减去其子树t后的终节点数目}
+\]</span></p>
+<p>其实本质就是最大化剪去一个节点能够减少的误差。</p>
+</section>
+</section>
+<section id="bagging" class="level1">
+<h1>Bagging</h1>
+<p><strong>自助法抽样</strong>：对样本的抽样；一般我们只有一个样本，通过对这个样本进行抽样（部分或者全部），得到许多自助法样本。</p>
+<p><strong>抽样</strong>： 对总体的抽样。</p>
+<blockquote class="blockquote">
+<p>自助法的数学推断以及与总体近似的证明：</p>
+</blockquote>
+<p>经典的统计推断基于抽样分布(sampling distribution), 抽样分布是从总体重复抽样所得样本的分布，但是从原始总体中重复抽样是很困难的，因此我们只有对分布做出各种无法验证的假定，然后根据这些假定对统计量或者参数做出推断。</p>
+<p>自主法也有其限制所在：太小的样本不是总体的很好近似；不平衡样本；不规范数据；以及非独立观测值组成的数据。</p>
+<p>决策树可以看作一个简单的学习器，多个决策树的组合可以组合成非常精确的学习器。但是同一个数据产生的学习器是一样的，但是如果对原始数据做自助法抽样（放回抽样）则会产生不同的数据，因而会产生不同的决策树，如果再在抽样概率以及决策树拆分变量等方面做些改变，则可以产生基于同一个原始数据的各个不同的决策树，形成一个可以“投票”（平均或加权平均）的决策树群。</p>
+<p>Note：bagging解决的是基模型overfitting的问题。</p>
+</section>
+<section id="boosting" class="level1">
+<h1>Boosting</h1>
+<p>核心：基于残差的拟合；</p>
+<p>假定第一个基模型的拟合以后每个样本的残差为<span class="math inline">\([y_1, y_2, ..., y_m]\)</span>, 那么第二个基模型拟合的观测值就为<span class="math inline">\([y_1, y_2, ..., y_m]\)</span>.</p>
+<p>Note: boosting解决的是underfitting的问题。</p>
+<section id="xgboost" class="level2">
+<h2 class="anchored" data-anchor-id="xgboost">xgboost</h2>
+<p>构造目标函数</p>
+<p>假设已经训练了<span class="math inline">\(K\)</span>棵树，则对于第<span class="math inline">\(i\)</span>个样本（<strong>最终</strong>)预测值为： <span class="math display">\[\hat{y}_{i} = \sum_{k=1}^{K}f_{k}(x_i), f_k \in \mathcal{F}\]</span> 目标函数： <span class="math display">\[
+obj = \sum_{i=1}^{n}l(y_i, \hat{y}_i) + \sum_{k=1}^{K}\Omega(f_k)
+\]</span> 对于<span class="math inline">\(K\)</span>个模型的优化是叠加式训练；给定<span class="math inline">\(x_i\)</span>： <span class="math inline">\(\hat{y_i}^{(0)}= 0 \leftarrow\)</span> (default case)<br>
+<span class="math inline">\(\hat{y_i}^{(1)}= \hat{y_i}^{(0)} + f_{1}(x_i)\)</span> <span class="math inline">\(\hat{y_i}^{(2)}= \hat{y_i}^{(0)} + f_{1}(x_i) + f_{2}(x_i)\)</span><br>
+…… <span class="math inline">\(\hat{y_i}^{(k)}= \hat{y_i}^{(0)} + f_{1}(x_i) + f_{2}(x_i) + ... + f_{k-1}(x_i) + f_{k}(x_i) \rightarrow \hat{y_i}^{(k)} = \hat{y}^{(k-1)} + f_{k}(x_k)\)</span> 当训练第<span class="math inline">\(k\)</span>树时，目标函数写作： <span class="math display">\[
+obj_k = \sum_{i=1}^{n}l(y_i, \hat{y}^{(k-1)} + f_{k}(x_k)) + \sum_{j=1}^{K-1}\Omega(f_j) + \Omega(f_k) \rightarrow  \sum_{i=1}^{n}l(y_i, \hat{y}^{(k-1)} + f_{k}(x_k)) +  \Omega(f_k)
+\]</span></p>
+<p>目标函数直接优化难，如何近似?（talor expansion)</p>
+<p><span class="math display">\[obj_k = \sum_{i}^{n} \left[l(y_i, \hat{y_i}^{(k-1)}) + \partial_{\hat{y_i}^{(k-1)})}l(y_i, \hat{y_i}^{(k-1)}) *f_{k}(x_i) + \frac{1}{2}\partial_{\hat{y_i}^{(k-1)})}^{2}l(y_i, \hat{y_i}^{(k-1)}) *f_{k}^{2}(x_i)\right] + \Omega(f_k)  \\
+= \sum_{i}^{n} \left[ g_{i} *f_{k}(x_i) + \frac{1}{2}h_i*f_{k}^{2}(x_i)\right] + \Omega(f_k)
+\]</span></p>
+<p>Note: <span class="math inline">\(g_i\)</span>以及<span class="math inline">\(h_i\)</span>就是残差的一种形式，传递给第<span class="math inline">\(k\)</span>个模型训练的方向；记住<span class="math inline">\(g_i\)</span>以及<span class="math inline">\(h_i\)</span>是样本<span class="math inline">\(i\)</span>具有两个常量可以帮助后面的理解。</p>
+<p>如何把树的结构引入目标函数</p>
+<p>参数化一棵树： 定义： <span class="math inline">\(q(x_i) \rightarrow\)</span> 样本<span class="math inline">\(x_i\)</span>在树的哪个叶节点。 <span class="math inline">\(\omega \rightarrow\)</span> 叶节点的权重值（值） 那么<span class="math inline">\(\omega_{q(x_i)} \rightarrow\)</span> 样本<span class="math inline">\(x_i\)</span>的预测值<span class="math inline">\(f_k(x_i) = \omega_{q(x_i)}\)</span> <span class="math inline">\(I_j \rightarrow\)</span> 在叶子节点<span class="math inline">\(j\)</span>的样本集合。 <span class="math display">\[\Omega(f_k) = \gamma T + \frac{1}{2}\lambda\sum_{j=1}^{T}\omega_j\]</span></p>
+<p>新的目标函数： <span class="math display">\[
+  obj_k = \sum_{i}^{n} \left[ g_{i} *f_{k}(x_i) + \frac{1}{2}h_i*f_{k}^{2}(x_i)\right] + \Omega(f_k) \\ = \sum_{i}^{n} \left[ g_{i} *\omega_{q(x_i)} + \omega_{q(x_i)}^{2}(x_i)\right] + \gamma T + \frac{1}{2}\lambda\sum_{j=1}^{T}\omega_j \\ = \sum_{j}^T \left[(\sum_{i \in I_j}g_i)\omega_j + \frac{1}{2}(\sum_{i \in I_j}h_i + \lambda)\omega_{j}^2 \right] + \gamma T
+\]</span></p>
+<p>Note：这里的关键在于上面提到的<span class="math inline">\(g_i\)</span>以及<span class="math inline">\(h_i\)</span>是样本<span class="math inline">\(i\)</span>所具有的一个常量，观察目标函数可以知道，其值就是每个样本的<span class="math inline">\(g_i\)</span>和<span class="math inline">\(h_i\)</span>与其叶子节点<span class="math inline">\(\omega_j\)</span>值的乘积之和。目标函数形式的改变就是从样本遍历其和变为从叶子节点遍历其和。 定义<span class="math inline">\(G_j = \sum_{i \in I_j}g_{i}\)</span>, <span class="math inline">\(H_j = \sum_{i \in I_j}h_{i}\)</span>: <span class="math display">\[
+obj_k = \sum_{j=1}^T \left[ G_{i}\omega_j + \frac{1}{2}(H_{i} + \lambda)\omega_{j}^2 \right] + \gamma T
+\]</span> Note: 可以看到最后的目标函数就是，某个叶子节点的样本集合一阶导数之和<em>该节点权重值 + 二阶导数之和</em>该节点权重值的平方。注意<span class="math inline">\(G_i\)</span>以及<span class="math inline">\(H_i\)</span>的都是常数。</p>
+<p>利用贪心算法求解树的生长过程。</p>
+<p>注意<span class="math inline">\(G_i\)</span>以及<span class="math inline">\(H_i\)</span>的都是常数，最后的目标函数实际熵就是一个形如<span class="math inline">\(b + ax^2\)</span>的二次函数，二次函数为了取得最大值，其<span class="math inline">\(x\)</span>取值为：<span class="math inline">\(\omega_{j}* = - \frac{G_i}{H_i + \lambda} + \gamma T\)</span>，那么目标函数取值为<span class="math inline">\(-\frac{1}{2} \sum_{j=1}^{T}\frac{G_{i}^2}{H_i + \lambda}\)</span>。如之前提到的决策树的生长，这里的生长，和其类似，不过分割的准则变成了<span class="math inline">\(obj\)</span>；每一次分割就是使得<span class="math inline">\(\Delta_{obj}\)</span>最大的方向。</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
