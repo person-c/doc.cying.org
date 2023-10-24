@@ -61,10 +61,52 @@ $$
 
 倒数变换常用于数据两端波动较大的资料，可使极端值的影响减小。
 
+# Normalization - 归一化
 
-# 机器学习中的特征工程
+由以下的定义可以看出Normalizatin是一个比scaling范围更大的概念。
 
-feature scaling中的各种方法也叫什么normalization，实际上如它的统称一样只是改变数据的range。
+From [here](https://en.wikipedia.org/wiki/Normalization_(statistics)#cite_note-Dodge-1)
+
+>In statistics and applications of statistics, normalization can have a range of meanings. In the simplest cases, normalization of ratings means adjusting values measured on different scales to a notionally common scale, often prior to averaging. In more complicated cases, normalization may refer to more sophisticated adjustments where the intention is to bring the entire probability distributions of adjusted values into alignment. In the case of normalization of scores in educational assessment, there may be an intention to align distributions to a normal distribution. A different approach to normalization of probability distributions is quantile normalization, where the quantiles of the different measures are brought into alignment.
+
+# Feature scaling
+
+Copyed from [here](https://en.wikipedia.org/wiki/Feature_scaling)
+
+
+**Rescaling(min-max normalization)** 将特征的的范围限制在[0, 1]
+
+$$
+x'={\frac {x-{\text{min}}(x)}{{\text{max}}(x)-{\text{min}}(x)}}
+$$
+
+如果想把数据限制在任意的[a, b], 公式如下：
+
+$$
+x'=a+{\frac {(x-{\text{min}}(x))(b - a)}{{\text{max}}(x)-{\text{min}}(x)}}
+$$
+
+**Mean normalization**
+
+$$
+x'={\frac {x-{\bar {x}}}{{\text{max}}(x)-{\text{min}}(x)}}
+$$
+
+**Standardization(Z-score Normalization)**
+
+$$
+x' = \frac{x - \bar{x}}{\sigma}
+$$
+
+**Scaling to unit length**
+
+$$
+x' = \frac{x}{||x||}
+$$
+
+
+
+
 
 真正意义上的normalization，例如BOX-BOX变换会让数据服从于正态分布。
 

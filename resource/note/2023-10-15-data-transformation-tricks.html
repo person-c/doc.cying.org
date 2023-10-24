@@ -49,7 +49,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#参数统计中常用的数据变换" id="toc-参数统计中常用的数据变换" class="nav-link active" data-scroll-target="#参数统计中常用的数据变换">参数统计中常用的数据变换</a></li>
-  <li><a href="#机器学习中的特征工程" id="toc-机器学习中的特征工程" class="nav-link" data-scroll-target="#机器学习中的特征工程">机器学习中的特征工程</a></li>
+  <li><a href="#normalization---归一化" id="toc-normalization---归一化" class="nav-link" data-scroll-target="#normalization---归一化">Normalization - 归一化</a></li>
+  <li><a href="#feature-scaling" id="toc-feature-scaling" class="nav-link" data-scroll-target="#feature-scaling">Feature scaling</a></li>
   <li><a href="#缺失值处理" id="toc-缺失值处理" class="nav-link" data-scroll-target="#缺失值处理">缺失值处理</a>
   <ul class="collapse">
   <li><a href="#删除元组" id="toc-删除元组" class="nav-link" data-scroll-target="#删除元组">删除元组</a></li>
@@ -117,9 +118,38 @@ X' = \frac{1}{X}
 \]</span></p>
 <p>倒数变换常用于数据两端波动较大的资料，可使极端值的影响减小。</p>
 </section>
-<section id="机器学习中的特征工程" class="level1">
-<h1>机器学习中的特征工程</h1>
+<section id="normalization---归一化" class="level1">
+<h1>Normalization - 归一化</h1>
+<p>由以下的定义可以看出Normalizatin是一个比scaling范围更大的概念。</p>
+<p>From <a href="https://en.wikipedia.org/wiki/Normalization_(statistics)#cite_note-Dodge-1">here</a></p>
+<blockquote class="blockquote">
+<p>In statistics and applications of statistics, normalization can have a range of meanings. In the simplest cases, normalization of ratings means adjusting values measured on different scales to a notionally common scale, often prior to averaging. In more complicated cases, normalization may refer to more sophisticated adjustments where the intention is to bring the entire probability distributions of adjusted values into alignment. In the case of normalization of scores in educational assessment, there may be an intention to align distributions to a normal distribution. A different approach to normalization of probability distributions is quantile normalization, where the quantiles of the different measures are brought into alignment.</p>
+</blockquote>
+</section>
+<section id="feature-scaling" class="level1">
+<h1>Feature scaling</h1>
+<p>Copyed from <a href="https://en.wikipedia.org/wiki/Feature_scaling">here</a></p>
 <p>feature scaling中的各种方法也叫什么normalization，实际上如它的统称一样只是改变数据的range。</p>
+<p><strong>Rescaling(min-max normalization)</strong> 将特征的的范围限制在[0, 1]</p>
+<p><span class="math display">\[
+x'={\frac {x-{\text{min}}(x)}{{\text{max}}(x)-{\text{min}}(x)}}
+\]</span></p>
+<p>如果想把数据限制在任意的[a, b], 公式如下：</p>
+<p><span class="math display">\[
+x'=a+{\frac {(x-{\text{min}}(x))(b - a)}{{\text{max}}(x)-{\text{min}}(x)}}
+\]</span></p>
+<p><strong>Mean normalization</strong></p>
+<p><span class="math display">\[
+x'={\frac {x-{\bar {x}}}{{\text{max}}(x)-{\text{min}}(x)}}
+\]</span></p>
+<p><strong>Standardization(Z-score Normalization)</strong></p>
+<p><span class="math display">\[
+x' = \frac{x - \bar{x}}{\sigma}
+\]</span></p>
+<p><strong>Scaling to unit length</strong></p>
+<p><span class="math display">\[
+x' = \frac{x}{||x||}
+\]</span></p>
 <p>真正意义上的normalization，例如BOX-BOX变换会让数据服从于正态分布。</p>
 </section>
 <section id="缺失值处理" class="level1">
