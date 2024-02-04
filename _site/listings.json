@@ -1,0 +1,21 @@
+[
+  {
+    "listing": "/note.html",
+    "items": [
+      "/note/2023-15-data-transformation/index.html",
+      "/note/2022-06-25-rna-seq/index.html",
+      "/note/2022-06-10-probability-distribution.qmd/index.html",
+      "/note/2022-07-17-statistics/index.html",
+      "/note/2022-10-07-xgboost/index.html",
+      "/note/2022-08-10-linear-dimension-reduction/index.html",
+      "/note/2023-10-01-hypothesis-test/index.html",
+      "/note/2022-07-10-cluster-algorithm/index.html"
+    ]
+  },
+  {
+    "listing": "/slides.html",
+    "items": [
+      "/slides/2023-09-10-introduction/index.html"
+    ]
+  }
+]
