@@ -1,5 +1,5 @@
 ---
-title: "小楼一夜听春雨"
+title: "."
 ---
 
 This is a Quarto website.
