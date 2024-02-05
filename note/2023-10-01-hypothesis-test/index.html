@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,7 +80,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -89,6 +95,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -98,6 +105,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="../../styles.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -106,9 +140,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">.</span>
     </a>
@@ -120,25 +154,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../note.html" rel="" target="">
- <span class="menu-text">Note</span></a>
+    <a class="nav-link" href="../../note.html"> 
+<span class="menu-text">Note</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../slides.html" rel="" target="">
- <span class="menu-text">Slides</span></a>
+    <a class="nav-link" href="../../slides.html"> 
+<span class="menu-text">Slides</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -219,7 +253,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <hr>
 <section id="统计描述" class="level1">
@@ -255,13 +291,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="正态总体均值的置信区间以及假设检验" class="level1 page-columns page-full">
 <h1>正态总体均值的置信区间以及假设检验</h1>
 <div id="thm-normal-populaton-sample-mean-distribution" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (normal populaton’s sample mean following a normal distribution) </strong></span>设<span class="math inline">\(X_1, X_2, ..., X_n\)</span>是来自正态总体<span class="math inline">\(N(\mu, \sigma^2)\)</span>的样本，<span class="math inline">\(\bar{X}\)</span>是样本均值，则有：</p>
+<p><span class="theorem-title"><strong>Theorem 1 (normal populaton’s sample mean following a normal distribution)</strong></span> 设<span class="math inline">\(X_1, X_2, ..., X_n\)</span>是来自正态总体<span class="math inline">\(N(\mu, \sigma^2)\)</span>的样本，<span class="math inline">\(\bar{X}\)</span>是样本均值，则有：</p>
 <p><span class="math display">\[
 \bar{X} \sim N(\mu, \sigma^2/n).
 \]</span></p>
 </div>
 <div id="thm-normal-populaton-sample-variance-distribution" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2 (normal populaton’s sample variance following scaling <span class="math inline">\(\chi^2\)</span> distribution) </strong></span>设<span class="math inline">\(X_1, X_2, ..., X_n\)</span>是来自正态总体<span class="math inline">\(N(\mu, \sigma^2)\)</span>的样本， <span class="math inline">\(\bar{X}, S^2\)</span>分别是样本均值和样本方差，则有</p>
+<p><span class="theorem-title"><strong>Theorem 2 (normal populaton’s sample variance following scaling <span class="math inline">\(\chi^2\)</span> distribution)</strong></span> 设<span class="math inline">\(X_1, X_2, ..., X_n\)</span>是来自正态总体<span class="math inline">\(N(\mu, \sigma^2)\)</span>的样本， <span class="math inline">\(\bar{X}, S^2\)</span>分别是样本均值和样本方差，则有</p>
 <ol type="1">
 <li><p><span class="math display">\[
 \frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{(n-1)}.
@@ -270,20 +306,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 </div>
 <div id="thm-normal-popuplation-sample-mean-variance-distribution" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3 (normal popuplation sample mean and variance following t-distribution) </strong></span>设<span class="math inline">\(X_1, X_2, ..., X_n\)</span>是来自正态总体<span class="math inline">\(N(\mu, \sigma^2)\)</span>的样本， <span class="math inline">\(\bar{X}, S^2\)</span>分别是样本均值和样本方差，则有</p>
+<p><span class="theorem-title"><strong>Theorem 3 (normal popuplation sample mean and variance following t-distribution)</strong></span> 设<span class="math inline">\(X_1, X_2, ..., X_n\)</span>是来自正态总体<span class="math inline">\(N(\mu, \sigma^2)\)</span>的样本， <span class="math inline">\(\bar{X}, S^2\)</span>分别是样本均值和样本方差，则有</p>
 <p><span class="math display">\[
 \frac{\bar{X} - \mu}{S/\sqrt{n}} \sim t(n-1).
 \]</span></p>
 </div>
-<p><strong>证</strong> 由 <a href="#thm-normal-populaton-sample-mean-distribution">Theorem&nbsp;1</a>，<a href="#thm-normal-populaton-sample-variance-distribution">Theorem&nbsp;2</a></p>
+<p><strong>证</strong> 由 <a href="#thm-normal-populaton-sample-mean-distribution" class="quarto-xref">Theorem&nbsp;1</a>，<a href="#thm-normal-populaton-sample-variance-distribution" class="quarto-xref">Theorem&nbsp;2</a></p>
 <p><span class="math display">\[\bar{X} \sim N(\mu, \sigma^2/n), \frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{(n-1)},\]</span></p>
 <p>且两者独立，由<span class="math inline">\(t\)</span>分布定义知</p>
 <p><span class="math display">\[
   \frac{\bar{X} - \mu}{\sigma / \sqrt{n}} \Bigg/ \sqrt{\frac{(n-1)S^2}{\sigma^2(n-1)}} \sim t(n-1).
   \]</span></p>
-<p>化简上式左边，即得 <a href="#thm-normal-popuplation-sample-mean-variance-distribution">Theorem&nbsp;3</a>.</p>
+<p>化简上式左边，即得 <a href="#thm-normal-popuplation-sample-mean-variance-distribution" class="quarto-xref">Theorem&nbsp;3</a>.</p>
 <div id="thm-two-normal-popuplation-sample-mean-variance-distribution" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4 (two normal population’s sample mean and variance’s distribution) </strong></span>设<span class="math inline">\(X_1, X_2, ...,X_{n}\)</span>与<span class="math inline">\(Y_1, Y_2, ..., Y_n\)</span>分别是来自正态总体<span class="math inline">\(N(\mu_1, \sigma_1^2)\)</span>和<span class="math inline">\(N(\mu_1, \sigma_2^2)\)</span>的样本，且这两个样本相互独立。设<span class="math inline">\(\bar{X}, \bar{Y}\)</span>分别是这两个样本的样本均值；<span class="math inline">\(S_1^2, S_2^2\)</span>分别是这两个样本的样本方差，则有</p>
+<p><span class="theorem-title"><strong>Theorem 4 (two normal population’s sample mean and variance’s distribution)</strong></span> 设<span class="math inline">\(X_1, X_2, ...,X_{n}\)</span>与<span class="math inline">\(Y_1, Y_2, ..., Y_n\)</span>分别是来自正态总体<span class="math inline">\(N(\mu_1, \sigma_1^2)\)</span>和<span class="math inline">\(N(\mu_1, \sigma_2^2)\)</span>的样本，且这两个样本相互独立。设<span class="math inline">\(\bar{X}, \bar{Y}\)</span>分别是这两个样本的样本均值；<span class="math inline">\(S_1^2, S_2^2\)</span>分别是这两个样本的样本方差，则有</p>
 <ol type="1">
 <li><span class="math inline">\(\frac{S_1^2 / S_2^2}{\sigma_1 / \sigma_2} \sim F(n_1 - 1, n_2 - 1);\)</span></li>
 <li>当<span class="math inline">\(\sigma_1^2 = \sigma_2^2 = \sigma^2\)</span>时，</li>
@@ -363,7 +399,11 @@ data:  extra
 W = 0.94607, p-value = 0.3114</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p><strong>One Sample t-test</strong></p>
@@ -384,8 +424,8 @@ mean of x
 </div>
 </div>
 <p><strong>Two Sample t-test</strong>(<span class="math inline">\(\sigma_1^2 = \sigma_2^2\)</span>)</p>
-<div class="page-columns page-full"><p><strong>var-test</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;更多方差齐性检验的方法可以参考<a href="https://www.r-bloggers.com/2021/06/equality-of-variances-in-r-homogeneity-test-quick-guide/">这里</a></p></li></div></div>
-<div class="cell">
+<p><strong>var-test</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="no-row-height column-margin column-container"><p><sup>1</sup>&nbsp;更多方差齐性检验的方法可以参考<a href="https://www.r-bloggers.com/2021/06/equality-of-variances-in-r-homogeneity-test-quick-guide/">这里</a></p></div><div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(extra <span class="sc">~</span> group, <span class="at">data =</span> sleep, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -461,7 +501,7 @@ mean difference
 <h3 class="anchored" data-anchor-id="assumptions">Assumptions</h3>
 <p>From <a href="https://en.wikipedia.org/wiki/Student%27s_t-test#Assumptions">wikipedia</a>:</p>
 <blockquote class="blockquote">
-<p>For exactness, the t-test and Z-test require normality of the sample means(<a href="#thm-normal-populaton-sample-mean-distribution">Theorem&nbsp;1</a>), and the t-test additionally requires that the sample variance follows a scaled <span class="math inline">\(\chi^2\)</span> distribution, and that the sample mean and sample variance be statistically independent(<a href="#thm-normal-populaton-sample-variance-distribution">Theorem&nbsp;2</a>). Normality of the individual data values is not required if these conditions are met. By the central limit theorem, sample means of moderately large samples are often well-approximated by a normal distribution even if the data are not normally distributed. For non-normal data, the distribution of the sample variance may deviate substantially from a <span class="math inline">\(\chi^2\)</span> distribution.</p>
+<p>For exactness, the t-test and Z-test require normality of the sample means(<a href="#thm-normal-populaton-sample-mean-distribution" class="quarto-xref">Theorem&nbsp;1</a>), and the t-test additionally requires that the sample variance follows a scaled <span class="math inline">\(\chi^2\)</span> distribution, and that the sample mean and sample variance be statistically independent(<a href="#thm-normal-populaton-sample-variance-distribution" class="quarto-xref">Theorem&nbsp;2</a>). Normality of the individual data values is not required if these conditions are met. By the central limit theorem, sample means of moderately large samples are often well-approximated by a normal distribution even if the data are not normally distributed. For non-normal data, the distribution of the sample variance may deviate substantially from a <span class="math inline">\(\chi^2\)</span> distribution.</p>
 <p>However, if the sample size is large, Slutsky’s theorem implies that the distribution of the sample variance has little effect on the distribution of the test statistic. That is as sample size</p>
 <ul>
 <li><p><span class="math inline">\({\displaystyle {\sqrt {n}}({\bar {X}}-\mu )\xrightarrow {d} N\left(0,\sigma ^{2}\right)}\)</span> as per the Central limit theorem.</p></li>
@@ -469,7 +509,7 @@ mean difference
 <li><p><span class="math inline">\({\displaystyle \therefore {\frac {{\sqrt {n}}({\bar {X}}-\mu )}{s}}\xrightarrow {d} N(0,1)}\)</span></p></li>
 </ul>
 </blockquote>
-<p>可以简单地理解为，大样本情况下， 依据中心极限定理，样本均值总是符合 <a href="#eq-sample-mean-under-CLT">Equation&nbsp;1</a> 以及 <a href="#eq-two-sample-mean-under-CLT">Equation&nbsp;2</a>。 进一步地，依据大数定理，<span class="math inline">\(s^2 \approx \sigma^2\)</span>, 所以大样本下无论什么总体其样本均值统计量都服从于正态分布，而大样本下的正态分布近似于<span class="math inline">\(t\)</span>分布。</p>
+<p>可以简单地理解为，大样本情况下， 依据中心极限定理，样本均值总是符合 <a href="#eq-sample-mean-under-CLT" class="quarto-xref">Equation&nbsp;1</a> 以及 <a href="#eq-two-sample-mean-under-CLT" class="quarto-xref">Equation&nbsp;2</a>。 进一步地，依据大数定理，<span class="math inline">\(s^2 \approx \sigma^2\)</span>, 所以大样本下无论什么总体其样本均值统计量都服从于正态分布，而大样本下的正态分布近似于<span class="math inline">\(t\)</span>分布。</p>
 </section>
 </section>
 <section id="大于等于3个样本的情况" class="level2 page-columns page-full">
@@ -488,8 +528,8 @@ mean difference
 <li>方差齐性</li>
 <li>样本独立性</li>
 </ul>
-<div class="page-columns page-full"><p>如t-test的assumption类似，推导出F分布的前提是正态分布以及方差齐性。但在实际使用过程之中，方差分析具有稳健性，对正态分布的要求并不是很严格<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;Tiku (1971) found that “the non-normal theory power of F is found to differ from the normal theory power by a correction term which decreases sharply with increasing sample size.” The problem of non-normality, especially in large samples, is far less serious than popular articles would suggest - <a href="https://en.wikipedia.org/wiki/One-way_analysis_of_variance">wikipedia</a></p></li></div></div>
-<table class="table">
+<p>如t-test的assumption类似，推导出F分布的前提是正态分布以及方差齐性。但在实际使用过程之中，方差分析具有稳健性，对正态分布的要求并不是很严格<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
+<div class="no-row-height column-margin column-container"><p><sup>2</sup>&nbsp;Tiku (1971) found that “the non-normal theory power of F is found to differ from the normal theory power by a correction term which decreases sharply with increasing sample size.” The problem of non-normality, especially in large samples, is far less serious than popular articles would suggest - <a href="https://en.wikipedia.org/wiki/One-way_analysis_of_variance">wikipedia</a></p></div><table class="table">
 <caption>Onw-Way-ANOVA-Table</caption>
 <colgroup>
 <col style="width: 16%">
@@ -747,7 +787,11 @@ t_D = \frac{\bar{Y_i} - \bar{Y_c}}{\sqrt{MS_{within \: group} \times (\frac{1}{n
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">border =</span> <span class="st">"black"</span></span>
 <span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(value <span class="sc">~</span> Group, <span class="at">data =</span> data)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1020,7 +1064,7 @@ odds ratio
 </table>
 </div>
 </div>
-<p>依差值的绝对值从小到大编秩。编秩时遇到差值为0的舍去不计，同时样本例数<span class="math inline">\(n - 1\)</span>; 遇到绝对值差值相等差数，符号相同则顺次编秩，符号相反则取平均秩次，再给秩次冠以原差值的正负号。分别计算出正负秩次<span class="math inline">\(T_+, T_-,\)</span>任取其中一个作为统计量秩和<span class="math inline">\(T\)</span></p>
+<p>依差值的绝对值从小到大编秩。编秩时遇到差值为0的舍去不计，同时样本例数<span class="math inline">\(n -  1\)</span>; 遇到绝对值差值相等差数，符号相同则顺次编秩，符号相反则取平均秩次，再给秩次冠以原差值的正负号。分别计算出正负秩次<span class="math inline">\(T_+, T_-,\)</span>任取其中一个作为统计量秩和<span class="math inline">\(T\)</span></p>
 <p><strong><span class="math inline">\(n \le 50\)</span></strong> 查表</p>
 <p><strong><span class="math inline">\(n \ge 50\)</span></strong> 正态近似</p>
 <p><span class="math display">\[
@@ -1122,7 +1166,11 @@ alternative hypothesis: true location shift is greater than 0</code></pre>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(graphics)</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Ozone <span class="sc">~</span> Month, <span class="at">data =</span> airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(Ozone <span class="sc">~</span> Month, <span class="at">data =</span> airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1225,7 +1273,11 @@ Friedman chi-squared = 0.33333, df = 1, p-value = 0.5637</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"hypothesis-test01.svg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="hypothesis-test01.svg" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="hypothesis-test01.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1337,10 +1389,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1350,8 +1401,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1364,6 +1424,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1407,6 +1586,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1432,6 +1612,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1492,6 +1698,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
