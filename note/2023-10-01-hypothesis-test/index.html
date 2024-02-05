@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-02-05">
+
+<title>. - Hypothesis Test</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">.</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../note.html" rel="" target="">
+ <span class="menu-text">Note</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../slides.html" rel="" target="">
+ <span class="menu-text">Slides</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#统计描述" id="toc-统计描述" class="nav-link active" data-scroll-target="#统计描述">统计描述</a>
+  <ul class="collapse">
+  <li><a href="#数值变量" id="toc-数值变量" class="nav-link" data-scroll-target="#数值变量">数值变量</a></li>
+  <li><a href="#分类变量" id="toc-分类变量" class="nav-link" data-scroll-target="#分类变量">分类变量</a></li>
+  </ul></li>
+  <li><a href="#正态总体均值的置信区间以及假设检验" id="toc-正态总体均值的置信区间以及假设检验" class="nav-link" data-scroll-target="#正态总体均值的置信区间以及假设检验">正态总体均值的置信区间以及假设检验</a>
+  <ul class="collapse">
+  <li><a href="#小于等于2个样本的情况" id="toc-小于等于2个样本的情况" class="nav-link" data-scroll-target="#小于等于2个样本的情况">小于等于2个样本的情况</a>
+  <ul class="collapse">
+  <li><a href="#单样本---样本均值总体均值的比较" id="toc-单样本---样本均值总体均值的比较" class="nav-link" data-scroll-target="#单样本---样本均值总体均值的比较">单样本 - 样本均值总体均值的比较。</a></li>
+  <li><a href="#配对样本均值比较" id="toc-配对样本均值比较" class="nav-link" data-scroll-target="#配对样本均值比较">配对样本均值比较</a></li>
+  <li><a href="#两独立样本比较" id="toc-两独立样本比较" class="nav-link" data-scroll-target="#两独立样本比较">两独立样本比较</a></li>
+  <li><a href="#r中实现t-test" id="toc-r中实现t-test" class="nav-link" data-scroll-target="#r中实现t-test">R中实现t-test</a></li>
+  <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions">Assumptions</a></li>
+  </ul></li>
+  <li><a href="#大于等于3个样本的情况" id="toc-大于等于3个样本的情况" class="nav-link" data-scroll-target="#大于等于3个样本的情况">大于等于3个样本的情况</a>
+  <ul class="collapse">
+  <li><a href="#总体均值的比较" id="toc-总体均值的比较" class="nav-link" data-scroll-target="#总体均值的比较">总体均值的比较</a></li>
+  <li><a href="#均数之间的多重比较" id="toc-均数之间的多重比较" class="nav-link" data-scroll-target="#均数之间的多重比较">均数之间的多重比较</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#其它总体的假设检验" id="toc-其它总体的假设检验" class="nav-link" data-scroll-target="#其它总体的假设检验">其它总体的假设检验</a></li>
+  <li><a href="#rc列联表的卡方检验" id="toc-rc列联表的卡方检验" class="nav-link" data-scroll-target="#rc列联表的卡方检验">R*C列联表的卡方检验</a>
+  <ul class="collapse">
+  <li><a href="#r-中实现chi2-test" id="toc-r-中实现chi2-test" class="nav-link" data-scroll-target="#r-中实现chi2-test">R 中实现<span class="math inline">\(\chi^2-test\)</span></a></li>
+  </ul></li>
+  <li><a href="#非参数检验---秩检验" id="toc-非参数检验---秩检验" class="nav-link" data-scroll-target="#非参数检验---秩检验">非参数检验 - 秩检验</a>
+  <ul class="collapse">
+  <li><a href="#数值变量配对检验或者单样本检验wilcoxon-signed-rank-test" id="toc-数值变量配对检验或者单样本检验wilcoxon-signed-rank-test" class="nav-link" data-scroll-target="#数值变量配对检验或者单样本检验wilcoxon-signed-rank-test">数值变量配对检验或者单样本检验（Wilcoxon Signed Rank Test)</a></li>
+  <li><a href="#两个样本的检验wilcoxon-rank-sum-test---equivalent-to-mann-whitney-test" id="toc-两个样本的检验wilcoxon-rank-sum-test---equivalent-to-mann-whitney-test" class="nav-link" data-scroll-target="#两个样本的检验wilcoxon-rank-sum-test---equivalent-to-mann-whitney-test">两个样本的检验（Wilcoxon Rank Sum Test - equivalent to Mann Whitney test)</a></li>
+  <li><a href="#大于两个样本的检验" id="toc-大于两个样本的检验" class="nav-link" data-scroll-target="#大于两个样本的检验">大于两个样本的检验</a></li>
+  <li><a href="#r中实现秩和检验" id="toc-r中实现秩和检验" class="nav-link" data-scroll-target="#r中实现秩和检验">R中实现秩和检验</a></li>
+  </ul></li>
+  <li><a href="#总结" id="toc-总结" class="nav-link" data-scroll-target="#总结">总结</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a></li>
+  
+  
+  
+  
+  
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Hypothesis Test</h1>
+<p class="subtitle lead">假设检验实践</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 5, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="统计描述" class="level1">
+<h1>统计描述</h1>
+<p>首先了解数据的频数分布，选用合适的集中以及离散趋势描述数据。</p>
+<section id="数值变量" class="level2">
+<h2 class="anchored" data-anchor-id="数值变量">数值变量</h2>
+<p>频数分布图形： range / n 取整数。</p>
+<ul>
+<li><p>正态分布数据选用算术均值，方差/标准差/变异系数描述其分布。</p>
+<p>理论公式：<br>
+计算公式：</p></li>
+</ul>
+<blockquote class="blockquote">
+<p>标准差，变异系数是同单位的。变异系数用于不同尺度，均值相差较大的数据。 方差/标准差/变异系数的计算都依赖于均值的计算。</p>
+</blockquote>
+<ul>
+<li><p>对数正态分布数据选用几何均值，全距/四分位数。</p>
+<p>理论公式：<br>
+计算公式：</p></li>
+<li><p>任意其它分布选用中位数，全距/四分位数</p></li>
+</ul>
+</section>
+<section id="分类变量" class="level2">
+<h2 class="anchored" data-anchor-id="分类变量">分类变量</h2>
+<p>分类变量数据主要依赖于各种相对数描述，包括proportion, rate, ration.其中rate主要涉及到时间的概念。</p>
+<blockquote class="blockquote">
+<p>数据的标准化法 直接化法，按总人口统一人口数。 间接法， 每组死亡人数与预期死亡人数之比互相比较。</p>
+<p>动态数列 定基/环比，变化/增长（-1），平均发展速度，平均变化速度。</p>
+</blockquote>
+</section>
+</section>
+<section id="正态总体均值的置信区间以及假设检验" class="level1 page-columns page-full">
+<h1>正态总体均值的置信区间以及假设检验</h1>
+<div id="thm-normal-populaton-sample-mean-distribution" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (normal populaton’s sample mean following a normal distribution) </strong></span>设<span class="math inline">\(X_1, X_2, ..., X_n\)</span>是来自正态总体<span class="math inline">\(N(\mu, \sigma^2)\)</span>的样本，<span class="math inline">\(\bar{X}\)</span>是样本均值，则有：</p>
+<p><span class="math display">\[
+\bar{X} \sim N(\mu, \sigma^2/n).
+\]</span></p>
+</div>
+<div id="thm-normal-populaton-sample-variance-distribution" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (normal populaton’s sample variance following scaling <span class="math inline">\(\chi^2\)</span> distribution) </strong></span>设<span class="math inline">\(X_1, X_2, ..., X_n\)</span>是来自正态总体<span class="math inline">\(N(\mu, \sigma^2)\)</span>的样本， <span class="math inline">\(\bar{X}, S^2\)</span>分别是样本均值和样本方差，则有</p>
+<ol type="1">
+<li><p><span class="math display">\[
+\frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{(n-1)}.
+\]</span></p></li>
+<li><p><span class="math inline">\(\bar{X}\)</span>, <span class="math inline">\(S^2\)</span>相互独立。</p></li>
+</ol>
+</div>
+<div id="thm-normal-popuplation-sample-mean-variance-distribution" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (normal popuplation sample mean and variance following t-distribution) </strong></span>设<span class="math inline">\(X_1, X_2, ..., X_n\)</span>是来自正态总体<span class="math inline">\(N(\mu, \sigma^2)\)</span>的样本， <span class="math inline">\(\bar{X}, S^2\)</span>分别是样本均值和样本方差，则有</p>
+<p><span class="math display">\[
+\frac{\bar{X} - \mu}{S/\sqrt{n}} \sim t(n-1).
+\]</span></p>
+</div>
+<p><strong>证</strong> 由 <a href="#thm-normal-populaton-sample-mean-distribution">Theorem&nbsp;1</a>，<a href="#thm-normal-populaton-sample-variance-distribution">Theorem&nbsp;2</a></p>
+<p><span class="math display">\[\bar{X} \sim N(\mu, \sigma^2/n), \frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{(n-1)},\]</span></p>
+<p>且两者独立，由<span class="math inline">\(t\)</span>分布定义知</p>
+<p><span class="math display">\[
+  \frac{\bar{X} - \mu}{\sigma / \sqrt{n}} \Bigg/ \sqrt{\frac{(n-1)S^2}{\sigma^2(n-1)}} \sim t(n-1).
+  \]</span></p>
+<p>化简上式左边，即得 <a href="#thm-normal-popuplation-sample-mean-variance-distribution">Theorem&nbsp;3</a>.</p>
+<div id="thm-two-normal-popuplation-sample-mean-variance-distribution" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4 (two normal population’s sample mean and variance’s distribution) </strong></span>设<span class="math inline">\(X_1, X_2, ...,X_{n}\)</span>与<span class="math inline">\(Y_1, Y_2, ..., Y_n\)</span>分别是来自正态总体<span class="math inline">\(N(\mu_1, \sigma_1^2)\)</span>和<span class="math inline">\(N(\mu_1, \sigma_2^2)\)</span>的样本，且这两个样本相互独立。设<span class="math inline">\(\bar{X}, \bar{Y}\)</span>分别是这两个样本的样本均值；<span class="math inline">\(S_1^2, S_2^2\)</span>分别是这两个样本的样本方差，则有</p>
+<ol type="1">
+<li><span class="math inline">\(\frac{S_1^2 / S_2^2}{\sigma_1 / \sigma_2} \sim F(n_1 - 1, n_2 - 1);\)</span></li>
+<li>当<span class="math inline">\(\sigma_1^2 = \sigma_2^2 = \sigma^2\)</span>时，</li>
+</ol>
+<p><span class="math display">\[
+  \frac{(\bar{X} - \bar{Y}) - (\mu_1 - \mu_2)}{S_w\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}},
+  \]</span></p>
+<p>其中 <span class="math inline">\(S_w = \frac{(n_1 - 1)S_1^2 + (n_2 - 1)S_2^2}{n_1 + n_2 - 2}, S_w = \sqrt{S_w^2}.\)</span></p>
+</div>
+<section id="小于等于2个样本的情况" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="小于等于2个样本的情况">小于等于2个样本的情况</h2>
+<section id="单样本---样本均值总体均值的比较" class="level3">
+<h3 class="anchored" data-anchor-id="单样本---样本均值总体均值的比较">单样本 - 样本均值总体均值的比较。</h3>
+<p><strong>理论公式</strong></p>
+<p><span id="eq-sample-mean-under-CLT"><span class="math display">\[
+\frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0, 1).
+\tag{1}\]</span></span></p>
+<p>当总体为正态变量或依赖于中心极限定理时（CLT)，该公式成立。</p>
+<blockquote class="blockquote">
+<p>中心极限定理描述了在大样本情况下样本均值服从于正态分布这一事实。</p>
+</blockquote>
+<p><span class="math inline">\(\sigma\)</span>未知时</p>
+<p><span class="math display">\[
+\frac{\bar{X} - \mu}{S/\sqrt{n}} \sim t(n-1).
+\]</span></p>
+<p>当<span class="math inline">\(n \rightarrow \infty\)</span>, <span class="math inline">\(t\)</span>分布近似于正态分布，计算时可用<span class="math inline">\(z\)</span>分布替代<span class="math inline">\(t\)</span>分布。</p>
+</section>
+<section id="配对样本均值比较" class="level3">
+<h3 class="anchored" data-anchor-id="配对样本均值比较">配对样本均值比较</h3>
+<p><span class="math display">\[
+t(\upsilon) = \frac{\mid\bar{d} - 0 \mid}{S_\bar{d}} = \frac{\bar{d}}{S_\bar{d}}, \upsilon = 对子数 - 1.
+\]</span></p>
+</section>
+<section id="两独立样本比较" class="level3">
+<h3 class="anchored" data-anchor-id="两独立样本比较">两独立样本比较</h3>
+<p><strong>理论公式</strong></p>
+<p><span id="eq-two-sample-mean-under-CLT"><span class="math display">\[
+  \frac{(\bar{X} - \bar{Y}) - (\mu_1 - \mu_2)}{\sqrt{(\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2})}} \sim N(0, 1).
+  \tag{2}\]</span></span></p>
+<p><strong>样本数</strong><span class="math inline">\(n\)</span>足够大<span class="math inline">\((n_1 &gt; 100, n_2 &gt; 100)\)</span></p>
+<ol type="1">
+<li><p>此时<span class="math inline">\(s_1^2 \approx \sigma_1^2, s_2^2 \approx \sigma_2^2.\)</span></p></li>
+<li></li>
+</ol>
+<p><span class="math display">\[
+  Z = \frac{\mid \bar{X_1} - \bar{X_2} \mid}{S_{\bar{X_1} - \bar{X_2}}}, S_{\bar{X_1} - \bar{X_2}} = \sqrt{S_1^2/n_1 + S_2^2/n_2}.
+  \]</span></p>
+<p><strong>方差齐</strong><span class="math inline">\(\sigma_1 = \sigma_2\)</span></p>
+<p><span class="math display">\[
+t = \frac{\mid \bar{X_1} - \bar{X_2} \mid}{S_{\bar{X_1} - \bar{X_2}}}, \upsilon = n_1 + n_2 - 2.
+\]</span></p>
+<p>式中两样本均数之差的标准误：<span class="math inline">\(S_{\bar{X_1} - \bar{X_2}} = \sqrt{S_c^2(\frac{1}{n_1} + \frac{2}{n_2})}.\)</span></p>
+<p>其中合并标准差的平方： <span class="math inline">\(S_c^2 = \frac{S_1^2(n_1 - 1) + S_2^2(n_2 - 1)}{n_1 + n_2 - 2}\)</span></p>
+<p><strong>方差不齐</strong></p>
+<p><span class="math display">\[
+t^\prime = \frac{\bar{X_1} - \bar{X_2}}{\sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}}
+\]</span></p>
+<p>通过Satterhwaite法，对自由度进行校正</p>
+<p><span class="math display">\[
+\upsilon = \frac{(S_{\bar{X_1}}^2  + S_{\bar{X_2}}^2)^2}{\frac{S_{\bar{X_1}}^4}{n1 - 1} + \frac{S_{\bar{X_2}}^4}{n_2 - 1}}
+\]</span></p>
+</section>
+<section id="r中实现t-test" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="r中实现t-test">R中实现t-test</h3>
+<p><strong>正态性检验</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(sleep, {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">shapiro.test</span>(extra))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qqnorm</span>(extra)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qqline</span>(extra)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  extra
+W = 0.94607, p-value = 0.3114</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><strong>One Sample t-test</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(extra <span class="sc">~</span> <span class="dv">1</span>, <span class="at">mu =</span> <span class="dv">0</span>, <span class="at">data =</span> sleep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  extra
+t = 3.413, df = 19, p-value = 0.002918
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 0.5955845 2.4844155
+sample estimates:
+mean of x 
+     1.54 </code></pre>
+</div>
+</div>
+<p><strong>Two Sample t-test</strong>(<span class="math inline">\(\sigma_1^2 = \sigma_2^2\)</span>)</p>
+<div class="page-columns page-full"><p><strong>var-test</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;更多方差齐性检验的方法可以参考<a href="https://www.r-bloggers.com/2021/06/equality-of-variances-in-r-homogeneity-test-quick-guide/">这里</a></p></li></div></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(extra <span class="sc">~</span> group, <span class="at">data =</span> sleep, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    F test to compare two variances
+
+data:  extra by group
+F = 0.79834, num df = 9, denom df = 9, p-value = 0.7427
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.198297 3.214123
+sample estimates:
+ratio of variances 
+         0.7983426 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(extra <span class="sc">~</span> group, <span class="at">data =</span> sleep, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  extra by group
+t = -1.8608, df = 18, p-value = 0.07919
+alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
+95 percent confidence interval:
+ -3.363874  0.203874
+sample estimates:
+mean in group 1 mean in group 2 
+           0.75            2.33 </code></pre>
+</div>
+</div>
+<p><strong>Welch Two Sample t-test</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(extra <span class="sc">~</span> group, <span class="at">data =</span> sleep, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  extra by group
+t = -1.8608, df = 17.776, p-value = 0.07939
+alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
+95 percent confidence interval:
+ -3.3654832  0.2054832
+sample estimates:
+mean in group 1 mean in group 2 
+           0.75            2.33 </code></pre>
+</div>
+</div>
+<p><strong>Paired t-test</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sleep2 <span class="ot">&lt;-</span> <span class="fu">reshape</span>(sleep, <span class="at">direction =</span> <span class="st">"wide"</span>, <span class="at">idvar =</span> <span class="st">"ID"</span>, <span class="at">timevar =</span> <span class="st">"group"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="fu">Pair</span>(extra<span class="fl">.1</span>, extra<span class="fl">.2</span>) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> sleep2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Paired t-test
+
+data:  Pair(extra.1, extra.2)
+t = -4.0621, df = 9, p-value = 0.002833
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -2.4598858 -0.7001142
+sample estimates:
+mean difference 
+          -1.58 </code></pre>
+</div>
+</div>
+<p>其它参数：</p>
+<ul>
+<li>alternative: 备择假设，two.sided, less, greater.</li>
+</ul>
+</section>
+<section id="assumptions" class="level3">
+<h3 class="anchored" data-anchor-id="assumptions">Assumptions</h3>
+<p>From <a href="https://en.wikipedia.org/wiki/Student%27s_t-test#Assumptions">wikipedia</a>:</p>
+<blockquote class="blockquote">
+<p>For exactness, the t-test and Z-test require normality of the sample means(<a href="#thm-normal-populaton-sample-mean-distribution">Theorem&nbsp;1</a>), and the t-test additionally requires that the sample variance follows a scaled <span class="math inline">\(\chi^2\)</span> distribution, and that the sample mean and sample variance be statistically independent(<a href="#thm-normal-populaton-sample-variance-distribution">Theorem&nbsp;2</a>). Normality of the individual data values is not required if these conditions are met. By the central limit theorem, sample means of moderately large samples are often well-approximated by a normal distribution even if the data are not normally distributed. For non-normal data, the distribution of the sample variance may deviate substantially from a <span class="math inline">\(\chi^2\)</span> distribution.</p>
+<p>However, if the sample size is large, Slutsky’s theorem implies that the distribution of the sample variance has little effect on the distribution of the test statistic. That is as sample size</p>
+<ul>
+<li><p><span class="math inline">\({\displaystyle {\sqrt {n}}({\bar {X}}-\mu )\xrightarrow {d} N\left(0,\sigma ^{2}\right)}\)</span> as per the Central limit theorem.</p></li>
+<li><p><span class="math inline">\({\displaystyle s^{2}\xrightarrow {p} \sigma ^{2}}\)</span> as per the Law of large numbers.</p></li>
+<li><p><span class="math inline">\({\displaystyle \therefore {\frac {{\sqrt {n}}({\bar {X}}-\mu )}{s}}\xrightarrow {d} N(0,1)}\)</span></p></li>
+</ul>
+</blockquote>
+<p>可以简单地理解为，大样本情况下， 依据中心极限定理，样本均值总是符合 <a href="#eq-sample-mean-under-CLT">Equation&nbsp;1</a> 以及 <a href="#eq-two-sample-mean-under-CLT">Equation&nbsp;2</a>。 进一步地，依据大数定理，<span class="math inline">\(s^2 \approx \sigma^2\)</span>, 所以大样本下无论什么总体其样本均值统计量都服从于正态分布，而大样本下的正态分布近似于<span class="math inline">\(t\)</span>分布。</p>
+</section>
+</section>
+<section id="大于等于3个样本的情况" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="大于等于3个样本的情况">大于等于3个样本的情况</h2>
+<section id="总体均值的比较" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="总体均值的比较">总体均值的比较</h3>
+<section id="anova" class="level4 page-columns page-full">
+<h4 class="anchored" data-anchor-id="anova">ANOVA</h4>
+<p>原理：</p>
+<blockquote class="blockquote">
+<p>If the group means are drawn from populations with the same mean values, the variance between the group means should be lower than the variance of the samples, following the central limit theorem - <a href="https://en.wikipedia.org/wiki/One-way_analysis_of_variance">wikipedia</a></p>
+</blockquote>
+<p><strong>Assumptions</strong></p>
+<ul>
+<li>正态总体</li>
+<li>方差齐性</li>
+<li>样本独立性</li>
+</ul>
+<div class="page-columns page-full"><p>如t-test的assumption类似，推导出F分布的前提是正态分布以及方差齐性。但在实际使用过程之中，方差分析具有稳健性，对正态分布的要求并不是很严格<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;Tiku (1971) found that “the non-normal theory power of F is found to differ from the normal theory power by a correction term which decreases sharply with increasing sample size.” The problem of non-normality, especially in large samples, is far less serious than popular articles would suggest - <a href="https://en.wikipedia.org/wiki/One-way_analysis_of_variance">wikipedia</a></p></li></div></div>
+<table class="table">
+<caption>Onw-Way-ANOVA-Table</caption>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 17%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(variation \: source\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(SS\)</span></th>
+<th><span class="math inline">\(\upsilon\)</span></th>
+<th><span class="math inline">\(MS\)</span></th>
+<th><span class="math inline">\(F\)</span></th>
+<th><span class="math inline">\(P\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(Treatment(Between \: groups)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\sum_{i=1}^an_i(\bar{Y_i}-\bar{Y})^2\)</span></td>
+<td><span class="math inline">\(a - 1\)</span></td>
+<td><span class="math inline">\(\frac{\sum_{i=1}^an_i(\bar{Y_i}-\bar{Y})^2}{a -1}\)</span></td>
+<td><span class="math inline">\(\frac{MS_{between \: group}}{MS_{within \: group}}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Individual\: random \:var iation(within\: groups)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\sum_{i=1}^{a}\sum_{j=1}^{n_i}(Y_{ij} - \bar{Y}_i)^2\)</span></td>
+<td><span class="math inline">\(N - a\)</span></td>
+<td><span class="math inline">\(\frac{\sum_{i=1}^{a}\sum_{j=1}^{n_i}(Y_{ij} - \bar{Y}_i)^2}{N - a}\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Total \: variation\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\sum_{i=1}^n\sum_{j=1}^{n_i}(Y_{ij} - \bar{Y})^2\)</span></td>
+<td><span class="math inline">\(N - 1\)</span></td>
+<td><span class="math inline">\(\frac{\sum_{i=1}^n\sum_{j=1}^{n_i}(Y_{ij} - \bar{Y})^2}{N - 1}\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: center;"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>单因素方差分分析(one way ANOVA-analysis of variance)</strong></p>
+<p><span class="math display">\[
+F = \frac{MS_{组间}}{MS_{组内}} = \frac{SS_{组间}/\upsilon_{组间}}{SS_{组内}/
+\upsilon_{组内}}
+\]</span></p>
+<p><strong>随机区组设计地方差分析</strong></p>
+<blockquote class="blockquote">
+<p>分组以后再进行随机化，分组地原因在于不同地组别特征对于观测指标有影响。实际上这里有两个因素对观测结果有影响，所以方差分析时也有两个假设。</p>
+</blockquote>
+</section>
+<section id="r中实现one-way-anova" class="level4">
+<h4 class="anchored" data-anchor-id="r中实现one-way-anova">R中实现One Way ANOVA</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2023</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">data.table</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"control"</span>, <span class="st">"treat1"</span>, <span class="st">"treat2"</span>)), <span class="dv">99</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">99</span>, <span class="fl">1.2</span>, <span class="at">sd =</span> <span class="fl">0.2</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(value <span class="sc">~</span> group, <span class="at">data =</span> dt) <span class="co"># 方差齐性检验</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+      Df F value Pr(&gt;F)
+group  2  0.2487 0.7803
+      96               </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(res <span class="ot">&lt;-</span> <span class="fu">aov</span>(value <span class="sc">~</span> group, <span class="at">data =</span> dt)) <span class="co"># one way anova</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+   aov(formula = value ~ group, data = dt)
+
+Terms:
+                   group Residuals
+Sum of Squares  0.011514  3.671180
+Deg. of Freedom        2        96
+
+Residual standard error: 0.1955542
+Estimated effects may be unbalanced</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)
+group        2  0.012 0.00576   0.151   0.86
+Residuals   96  3.671 0.03824               </code></pre>
+</div>
+</div>
+<p><strong>Randomized block design ANOVA</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">data.table</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"control"</span>, <span class="st">"treat1"</span>, <span class="st">"treat2"</span>)), <span class="dv">99</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">block =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"control"</span>, <span class="st">"treat1"</span>, <span class="st">"treat2"</span>)), <span class="dv">99</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">99</span>, <span class="fl">1.2</span>, <span class="at">sd =</span> <span class="fl">0.2</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">aov</span>(value <span class="sc">~</span> block <span class="sc">+</span> group, <span class="at">data =</span> dt2)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)
+block        2  0.054 0.02711   0.766  0.468
+group        2  0.087 0.04333   1.224  0.299
+Residuals   94  3.327 0.03539               </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="均数之间的多重比较" class="level3">
+<h3 class="anchored" data-anchor-id="均数之间的多重比较">均数之间的多重比较</h3>
+<p>方差分析对各处理组均数是否相等总的检验，在<span class="math inline">\(H_0\)</span>被拒绝以后，需要确定究竟是哪些处理组之间存在差异，此时需要进行均数之间的多重比较，这就涉及到累计Ⅰ率。</p>
+<p>当<span class="math inline">\(a\)</span>个处理组均数需要两两比较时候，共需要比较<span class="math inline">\(c = a![2!(a-1)!].\)</span> 设每次检验的检验的检验水准为<span class="math inline">\(\alpha\)</span>,累积Ⅰ型错误概率为<span class="math inline">\('\alpha\)</span></p>
+<p><span class="math display">\[
+'\alpha = 1 - (1 - \alpha)^c
+\]</span></p>
+<section id="均数之间任意两组的比较" class="level4">
+<h4 class="anchored" data-anchor-id="均数之间任意两组的比较">均数之间任意两组的比较</h4>
+<p><strong>SNK(student Newman-Keuls)法</strong> 又称<strong><span class="math inline">\(q\)</span>检验</strong></p>
+<ol type="1">
+<li>将各组的平均值按由小到大的顺序排列。</li>
+<li>计算过两个平均之间的差值以及组间跨度<span class="math inline">\(r\)</span></li>
+<li>按下列公式计算统计量<span class="math inline">\(q\)</span>.</li>
+</ol>
+<p><span class="math display">\[
+q = \frac{{\bar{Y_i} - \bar{Y_h}}}{\sqrt{\frac{MS_{within \: group}}{2}(\frac{1}{n_i} + \frac{1}{n_h})}}
+\]</span></p>
+<p>其中<span class="math inline">\(\bar{Y_i}, \bar{Y_h}\)</span>及<span class="math inline">\(n_i, n_h\)</span>分别是两个比较组的均数以及样本例数， <span class="math inline">\(MS_{within \: group}\)</span>为进行方差分析得到的组内均方。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agricolae)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sweetpotato)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(yield <span class="sc">~</span> virus, <span class="at">data =</span> sweetpotato)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">SNK.test</span>(model, <span class="st">"virus"</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">console =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Yield of sweetpotato. Dealt with different virus"</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Study: Yield of sweetpotato. Dealt with different virus
+
+Student Newman Keuls Test
+for yield 
+
+Mean Square Error:  22.48917 
+
+virus,  means
+
+      yield      std r       se  Min  Max   Q25  Q50   Q75
+cc 24.40000 3.609709 3 2.737953 21.7 28.5 22.35 23.0 25.75
+fc 12.86667 2.159475 3 2.737953 10.6 14.9 11.85 13.1 14.00
+ff 36.33333 7.333030 3 2.737953 28.0 41.8 33.60 39.2 40.50
+oo 36.90000 4.300000 3 2.737953 32.1 40.4 35.15 38.2 39.30
+
+Alpha: 0.05 ; DF Error: 8 
+
+Critical Range
+        2         3         4 
+ 8.928965 11.064170 12.399670 
+
+Means with the same letter are not significantly different.
+
+      yield groups
+oo 36.90000      a
+ff 36.33333      a
+cc 24.40000      b
+fc 12.86667      c</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">SNK.test</span>(model, <span class="st">"virus"</span>, <span class="at">group =</span> <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$statistics
+   MSerror Df   Mean      CV
+  22.48917  8 27.625 17.1666
+
+$parameters
+  test name.t ntr alpha
+   SNK  virus   4  0.05
+
+$snk
+     Table CriticalRange
+2 3.261182      8.928965
+3 4.041036     11.064170
+4 4.528810     12.399670
+
+$means
+      yield      std r       se  Min  Max   Q25  Q50   Q75
+cc 24.40000 3.609709 3 2.737953 21.7 28.5 22.35 23.0 25.75
+fc 12.86667 2.159475 3 2.737953 10.6 14.9 11.85 13.1 14.00
+ff 36.33333 7.333030 3 2.737953 28.0 41.8 33.60 39.2 40.50
+oo 36.90000 4.300000 3 2.737953 32.1 40.4 35.15 38.2 39.30
+
+$comparison
+         difference pvalue signif.        LCL        UCL
+cc - fc  11.5333333 0.0176       *   2.604368  20.462299
+cc - ff -11.9333333 0.0151       * -20.862299  -3.004368
+cc - oo -12.5000000 0.0291       * -23.564170  -1.435830
+fc - ff -23.4666667 0.0008     *** -34.530836 -12.402497
+fc - oo -24.0333333 0.0012      ** -36.433003 -11.633664
+ff - oo  -0.5666667 0.8873          -9.495632   8.362299
+
+$groups
+NULL
+
+attr(,"class")
+[1] "group"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># version old SNK.test()</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">df.residual</span>(model)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>MSerror <span class="ot">&lt;-</span> <span class="fu">deviance</span>(model) <span class="sc">/</span> df</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">with</span>(sweetpotato, <span class="fu">SNK.test</span>(yield, virus, df, MSerror, <span class="at">group =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(out<span class="sc">$</span>groups)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      yield groups
+oo 36.90000      a
+ff 36.33333      a
+cc 24.40000      b
+fc 12.86667      c</code></pre>
+</div>
+</div>
+<p>SNK法的检验效能介于Bonferroni和Tukey法之间的；当比较均值的组数较多时，Tukey法更有效，组数较少时，ferroni法更有效。</p>
+</section>
+<section id="处理组与对照组的比较" class="level4">
+<h4 class="anchored" data-anchor-id="处理组与对照组的比较">处理组与对照组的比较</h4>
+<p><strong>Dunnett-t</strong>检验</p>
+<p><span class="math inline">\(t_D\)</span>统计量</p>
+<p><span class="math display">\[
+t_D = \frac{\bar{Y_i} - \bar{Y_c}}{\sqrt{MS_{within \: group} \times (\frac{1}{n}_i + \frac{1}{n_c})}}
+\]</span></p>
+<p>其中<span class="math inline">\(\bar{Y_i}, \bar{Y_c}\)</span>及<span class="math inline">\(n_i, n_c\)</span>分别是实验组与对照组的均数以及样本例数， <span class="math inline">\(MS_{within \: group}\)</span>为进行方差分析得到的组内均方。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">23</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Group =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"control"</span>, <span class="st">"Test1"</span>, <span class="st">"Test2"</span>), <span class="at">each =</span> <span class="dv">10</span>),</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>), <span class="fu">rnorm</span>(<span class="dv">10</span>), <span class="fu">rnorm</span>(<span class="dv">10</span>))</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>Group)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(value <span class="sc">~</span> Group,</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> data,</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Product Values"</span>,</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"Groups"</span>,</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">"Value"</span>,</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"red"</span>,</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">border =</span> <span class="st">"black"</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(value <span class="sc">~</span> Group, <span class="at">data =</span> data)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)  
+Group        2  4.407  2.2036    3.71 0.0377 *
+Residuals   27 16.035  0.5939                 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'DescTools'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:data.table':
+
+    %like%</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">DunnettTest</span>(<span class="at">x =</span> data<span class="sc">$</span>value, <span class="at">g =</span> data<span class="sc">$</span>Group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  Dunnett's test for comparing several treatments with a control :  
+    95% family-wise confidence level
+
+$control
+                    diff    lwr.ci      upr.ci   pval    
+Test1-control -0.8742469 -1.678514 -0.06998022 0.0320 *  
+Test2-control -0.7335283 -1.537795  0.07073836 0.0768 .  
+
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="其它总体的假设检验" class="level1">
+<h1>其它总体的假设检验</h1>
+<p><strong>二项分布总体假设检验</strong></p>
+<p>以样本频率<span class="math inline">\(\mu_p, \sigma_p^2, \sigma_p\)</span>分别表示该事件的频率<span class="math inline">\(p=X/n\)</span>的总体均数，总体方差和总体标准差，则</p>
+<p><span class="math display">\[\mu_p = \pi\]</span></p>
+<p><span class="math display">\[\sigma_p^2 = \pi(1-\pi)/n\]</span></p>
+<p><span class="math display">\[\sigma_p = \sqrt{\pi(1-\pi)/n}\]</span></p>
+<p>当<span class="math inline">\(\pi\)</span>未知时，我们无法求得<span class="math inline">\(\sigma_p\)</span>，只好用<span class="math inline">\(S_p\)</span>来估计<span class="math inline">\(\sigma_p,\)</span> <span class="math inline">\(S_p\)</span>的计算公式为</p>
+<p><span class="math display">\[
+S_p = \sqrt{p(1-p)/n}
+\]</span></p>
+<p><strong>小样本时</strong> 依据二项分布公式直接计算</p>
+<p><strong><span class="math inline">\(n\pi &gt; 5, n(1 - \pi) &gt; 5\)</span></strong> 正态近似</p>
+<p><span class="math display">\[
+Z = \frac{X - N\pi_0}{\sqrt{n\pi_0{(1 - \pi_0)}}} = \frac{p - \pi_0}{\sqrt{\pi_0(1 - \pi_0)/n}}
+\]</span></p>
+<p><strong>泊松分布总体单样本检验</strong></p>
+<p>泊松分布的的样本均数统计量的总体均值为<span class="math inline">\(\lambda,\)</span> 其标准差为<span class="math inline">\(\sqrt{\lambda}\)</span></p>
+<p><strong><span class="math inline">\(\lambda\)</span>较小</strong> 直接依据概率计算</p>
+<p><strong><span class="math inline">\(\lambda_0 &gt; 20\)</span></strong> 正态近似</p>
+<p><span class="math display">\[
+Z = \frac{X - \lambda_0}{\sqrt{\lambda_0}}
+\]</span></p>
+<p><strong>泊松分布总体两样本检验</strong></p>
+<ol type="1">
+<li>两样本观察单位数相同</li>
+</ol>
+<p><span class="math display">\[
+Z = \frac{X_1 - X_2}{\sqrt{X_1 + X_2}}
+\]</span></p>
+<ol start="2" type="1">
+<li>两样本观察单位数不同</li>
+</ol>
+<p><span class="math display">\[
+Z = \frac{X_1/n_1 - X_2/n_2}{\sqrt{X_1/n_1^2 + X_2/n_2^2}}
+\]</span></p>
+</section>
+<section id="rc列联表的卡方检验" class="level1">
+<h1>R*C列联表的卡方检验</h1>
+<p><strong>理论公式</strong></p>
+<p><span class="math display">\[
+\chi^2 = \sum\frac{(O - E)^2}{E}
+\]</span></p>
+<p><strong>四格表，样本率（<span class="math inline">\(R \times 2\)</span>)，构成比检验(<span class="math inline">\(2\times C\)</span>), 关联性，独立性（<span class="math inline">\(R\times C\)</span>）检验的计算公式</strong></p>
+<p><span class="math display">\[
+\chi^2 = n(\sum\frac{O^2}{n_{r}n_{c}} - 1)
+\]</span></p>
+<blockquote class="blockquote">
+<p>实际上Pearson卡方值是正态总体中一种连续性的变量，四格表资料的卡方值为不连续的值，卡方分布仅仅是对表格资料的统计量分布的近似分布。 当四格表中有小于5的期望值时，进行Yate 的连续性校正公式 <span class="math display">\[
+\chi^2 = \sum\frac{(\mid O - E \mid - 0.2)^2}{E}
+\]</span> 若<span class="math inline">\(n \le 40\)</span> 则采用Fisher确切概率法。</p>
+</blockquote>
+<p><strong>配对设计四格表的计算公式</strong></p>
+<p><span class="math display">\[
+\chi^2 = \frac{(b- c)^2}{b + c}, \upsilon = 1
+\]</span></p>
+<p>当 <span class="math inline">\(b + c \le 40\)</span> 时， 采用校正公式</p>
+<p><span class="math display">\[
+\chi^2 = \frac{(\mid b - c \mid - 1)^2}{b + c}, \upsilon = 1
+\]</span></p>
+<p><strong>卡方拟合优度检验的计算公式</strong> 用于离散变量分布的检验</p>
+<p><span class="math display">\[
+\chi^2 = \sum\frac{(O - E)^2}{E}
+\]</span></p>
+<p>如果想要对连续性变量的分布进行检验，可以采用<strong>Kolmogorov-Smirnov Tests Description</strong></p>
+<section id="r-中实现chi2-test" class="level2">
+<h2 class="anchored" data-anchor-id="r-中实现chi2-test">R 中实现<span class="math inline">\(\chi^2-test\)</span></h2>
+<p><strong>拟合优度检验</strong> 当提供一个向量或者一个一维矩阵时进行拟合优度检验。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Chi-squared test for given probabilities
+
+data:  c(2, 5, 4, 9)
+X-squared = 5.2, df = 3, p-value = 0.1577</code></pre>
+</div>
+</div>
+<p><strong><span class="math inline">\(R\times C\)</span>的检验</strong> 当提供一个至少<span class="math inline">\(2\times2\)</span>的矩阵时，则进行<span class="math inline">\(R\times C\)</span>列联表的检验-或许检验的目的不同，但它们的计算公式都是相同的。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">0</span>, <span class="dv">4</span>), <span class="at">nrow =</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in chisq.test(x = matrix(data = c(1, 5, 6, 7, 2, 9, 0, 4), nrow = 2)):
+Chi-squared approximation may be incorrect</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  matrix(data = c(1, 5, 6, 7, 2, 9, 0, 4), nrow = 2)
+X-squared = 4.7123, df = 3, p-value = 0.1941</code></pre>
+</div>
+</div>
+<p><strong>配对的<span class="math inline">\(\chi^2\)</span> test - McNemar test</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">12</span>, <span class="dv">40</span>, <span class="dv">18</span>),</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">nrow =</span> <span class="dv">2</span>,</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">dimnames =</span> <span class="fu">list</span>(</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"After Video"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Support"</span>, <span class="st">"Do Not Support"</span>),</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Before Video"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Support"</span>, <span class="st">"Do Not Support"</span>)</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                Before Video
+After Video      Support Do Not Support
+  Support             30             40
+  Do Not Support      12             18</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcnemar.test</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    McNemar's Chi-squared test with continuity correction
+
+data:  data
+McNemar's chi-squared = 14.019, df = 1, p-value = 0.000181</code></pre>
+</div>
+</div>
+<p><strong>Fisher test in r</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"smoke_no"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">0</span>),</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"smoke_yes"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>),</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="fu">c</span>(<span class="st">"Athlete"</span>, <span class="st">"Non-athlete"</span>),</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dat) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Non-smoker"</span>, <span class="st">"Smoker"</span>)</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>dat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Non-smoker Smoker
+Athlete              7      2
+Non-athlete          0      5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Fisher's Exact Test for Count Data
+
+data:  dat
+p-value = 0.02098
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 1.449481      Inf
+sample estimates:
+odds ratio 
+       Inf </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="非参数检验---秩检验" class="level1">
+<h1>非参数检验 - 秩检验</h1>
+<p>用于总体分布未知的数值变量以及有序的R*C列联表的检验，需要关注的是不同的秩和检验的秩和<span class="math inline">\(T\)</span>是如何计算的。</p>
+<section id="数值变量配对检验或者单样本检验wilcoxon-signed-rank-test" class="level2">
+<h2 class="anchored" data-anchor-id="数值变量配对检验或者单样本检验wilcoxon-signed-rank-test">数值变量配对检验或者单样本检验（Wilcoxon Signed Rank Test)</h2>
+<p>秩和计算</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">id</th>
+<th style="text-align: right;">groupA</th>
+<th style="text-align: right;">groupB</th>
+<th style="text-align: right;">diff</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.3403843</td>
+<td style="text-align: right;">10.2112855</td>
+<td style="text-align: right;">9.8709012</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.2945442</td>
+<td style="text-align: right;">11.6454913</td>
+<td style="text-align: right;">9.3509470</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">-1.4399976</td>
+<td style="text-align: right;">9.7297898</td>
+<td style="text-align: right;">11.1697873</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">-1.7497818</td>
+<td style="text-align: right;">0.0718725</td>
+<td style="text-align: right;">1.8216542</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1.3936650</td>
+<td style="text-align: right;">-1.0793342</td>
+<td style="text-align: right;">-2.4729991</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2.5325010</td>
+<td style="text-align: right;">-3.1460297</td>
+<td style="text-align: right;">-5.6785307</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">5.9229420</td>
+<td style="text-align: right;">5.4615812</td>
+<td style="text-align: right;">-0.4613608</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">-2.0288062</td>
+<td style="text-align: right;">4.8894129</td>
+<td style="text-align: right;">6.9182191</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">4.5832491</td>
+<td style="text-align: right;">7.5673896</td>
+<td style="text-align: right;">2.9841404</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">2.6986250</td>
+<td style="text-align: right;">3.8522318</td>
+<td style="text-align: right;">1.1536068</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>依差值的绝对值从小到大编秩。编秩时遇到差值为0的舍去不计，同时样本例数<span class="math inline">\(n - 1\)</span>; 遇到绝对值差值相等差数，符号相同则顺次编秩，符号相反则取平均秩次，再给秩次冠以原差值的正负号。分别计算出正负秩次<span class="math inline">\(T_+, T_-,\)</span>任取其中一个作为统计量秩和<span class="math inline">\(T\)</span></p>
+<p><strong><span class="math inline">\(n \le 50\)</span></strong> 查表</p>
+<p><strong><span class="math inline">\(n \ge 50\)</span></strong> 正态近似</p>
+<p><span class="math display">\[
+Z = \frac{\mid T - n(n + 1)/4  \mid - 0.5}{\sqrt{n(n+1)(2n+1)/24}}
+\]</span></p>
+<p>当相同差值数较多时（不包括差值为0的值)，校正式</p>
+<p><span class="math display">\[
+Z = \frac{\mid T - n(n + 1)/4  \mid - 0.5}{\sqrt{n(n+1)(2n+1)/24 - \frac{\sum(t_j^3 - t_j)}{48}}}
+\]</span></p>
+<p>其中<span class="math inline">\(t_j\)</span>是第<span class="math inline">\(j\)</span>个相同差值的个数。</p>
+</section>
+<section id="两个样本的检验wilcoxon-rank-sum-test---equivalent-to-mann-whitney-test" class="level2">
+<h2 class="anchored" data-anchor-id="两个样本的检验wilcoxon-rank-sum-test---equivalent-to-mann-whitney-test">两个样本的检验（Wilcoxon Rank Sum Test - equivalent to Mann Whitney test)</h2>
+<p>将两组原始数据分别从小到大排队，再将两组数据由小到大统一编秩，若有同组相同数据则顺序编秩，若有不同组别相同数据则取平均秩次。记两组中样本例数较小的为<span class="math inline">\(n_1,\)</span> 其秩和为统计量<span class="math inline">\(T.\)</span></p>
+<p><strong>查<span class="math inline">\(T\)</span>界值表</strong>。</p>
+<p><strong><span class="math inline">\(n_1\)</span>或<span class="math inline">\(n_2 - n_1\)</span>超出表的范围</strong> 正态近似</p>
+<p><span class="math display">\[
+Z = \frac{\mid T - n_1(N+1)/2 \mid - 0.5}{n_{1}n_{2}(N+1)/12}
+\]</span></p>
+<p>相同秩次过多时，采用校正式。</p>
+<p><span class="math display">\[
+Z_c = Z\sqrt{C},
+\]</span></p>
+<p>其中<span class="math inline">\(C = 1 - \sum(t_j^3 - t_j) / (N^3 - N).\)</span></p>
+</section>
+<section id="大于两个样本的检验" class="level2">
+<h2 class="anchored" data-anchor-id="大于两个样本的检验">大于两个样本的检验</h2>
+<p><strong>单向有序分类变量多个变量或者多个数值变量的检验</strong>（Kruskal–Wallis test)</p>
+<p>构造<span class="math inline">\(H\)</span>统计量：假设有<span class="math inline">\(a\)</span>个组，第<span class="math inline">\(i\)</span>组的样本量<span class="math inline">\(n_i,\)</span>N为各组样本量之和，将各组数据合并，编秩次，秩次 相同的取平均值。<span class="math inline">\(R_{ij}\)</span>为第<span class="math inline">\(i\)</span>个组的第<span class="math inline">\(j\)</span>个个体的秩次，<span class="math inline">\(\bar{R_i}\)</span>为第<span class="math inline">\(i\)</span>个组的平均秩次，<span class="math inline">\(\bar{R}\)</span>为总平均秩次。</p>
+<p>没有相同秩次时，秩次服从均匀分布：</p>
+<p><span class="math display">\[
+H =\frac{12}{N(N + 1)}(\sum\frac{R_i^2}{n_i}) - 3(N+1).
+\]</span></p>
+<p>相同秩次过多时，上诉以均匀分布为基础推导的公式需要进行校正：</p>
+<p><span class="math display">\[
+H_c = H/C,
+\]</span></p>
+<p>其中<span class="math inline">\(C = 1 - \sum(t_j^3 - t_j) / (N^3 - N).\)</span></p>
+<p><strong><span class="math inline">\(n_i\)</span>与<span class="math inline">\(a\)</span>较小时</strong> 直接计算或者查表。</p>
+<p><strong><span class="math inline">\(n\)</span>较大时 <span class="math inline">\(H\)</span></strong> 近似服从于 <span class="math inline">\(\chi^2_{a-1}.\)</span></p>
+<p><strong>随机区组的Friedman秩和检验</strong>（Friedman Test）</p>
+<p>在区组(行）内进行编秩，有相同的则取平均秩次。<span class="math inline">\(i\)</span>代表不同的区组，<span class="math inline">\(j\)</span>代表不同地处理水平。</p>
+<p><span class="math display">\[
+M = \frac{\sum_{j=1}^{a}n(\bar{R}_j - \bar{R})^2}{\sum_{j=1}^{a}\sum_{i=1}^{n}(R_{ij} - \bar{R})^2 / n(a-1)}
+\]</span></p>
+<p>当相同秩过多时可以进行校正，校正系数为</p>
+<p><span class="math display">\[
+C = 1 - \sum_{j=1}^{a}\sum_{p=1}^{l_i}(t_{jp}^3 - t_{jp})/[na(a^2 -1 )]
+\]</span></p>
+<p><span class="math display">\[
+M_c = M/C
+\]</span></p>
+<p><strong>当<span class="math inline">\(n\)</span>以及<span class="math inline">\(a\)</span>较小时</strong> 直接查表或精确计算</p>
+<p><strong><span class="math inline">\(n\)</span>较大时 <span class="math inline">\(M\)</span></strong> 近似服从于 <span class="math inline">\(\chi^2_{a-1}.\)</span></p>
+</section>
+<section id="r中实现秩和检验" class="level2">
+<h2 class="anchored" data-anchor-id="r中实现秩和检验">R中实现秩和检验</h2>
+<p><strong>单样本或者配对样本的Wilcoxon Signed Rank Test</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.83</span>, <span class="fl">0.50</span>, <span class="fl">1.62</span>, <span class="fl">2.48</span>, <span class="fl">1.68</span>, <span class="fl">1.88</span>, <span class="fl">1.55</span>, <span class="fl">3.06</span>, <span class="fl">1.30</span>)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.878</span>, <span class="fl">0.647</span>, <span class="fl">0.598</span>, <span class="fl">2.05</span>, <span class="fl">1.06</span>, <span class="fl">1.29</span>, <span class="fl">1.06</span>, <span class="fl">3.14</span>, <span class="fl">1.29</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>depression <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">first =</span> x, <span class="at">second =</span> y, <span class="at">change =</span> y <span class="sc">-</span> x)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(change <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> depression) <span class="co"># one sample</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon signed rank exact test
+
+data:  change
+V = 5, p-value = 0.03906
+alternative hypothesis: true location is not equal to 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(<span class="fu">Pair</span>(first, second) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> depression) <span class="co"># paired sample</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon signed rank exact test
+
+data:  Pair(first, second)
+V = 40, p-value = 0.03906
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+<p><strong>独立两样本的Mann Whitney test</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.83</span>, <span class="fl">1.89</span>, <span class="fl">1.04</span>, <span class="fl">1.45</span>, <span class="fl">1.38</span>, <span class="fl">1.91</span>, <span class="fl">1.64</span>, <span class="fl">0.73</span>, <span class="fl">1.46</span>)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.15</span>, <span class="fl">0.88</span>, <span class="fl">0.90</span>, <span class="fl">0.74</span>, <span class="fl">1.21</span>)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(x, y, <span class="at">alternative =</span> <span class="st">"g"</span>) <span class="co"># greater</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon rank sum exact test
+
+data:  x and y
+W = 35, p-value = 0.1272
+alternative hypothesis: true location shift is greater than 0</code></pre>
+</div>
+</div>
+<p><strong>多样本的kruskal Wallis test</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(graphics)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Ozone <span class="sc">~</span> Month, <span class="at">data =</span> airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(Ozone <span class="sc">~</span> Month, <span class="at">data =</span> airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Kruskal-Wallis rank sum test
+
+data:  Ozone by Month
+Kruskal-Wallis chi-squared = 29.267, df = 4, p-value = 6.901e-06</code></pre>
+</div>
+</div>
+<p><strong>随机区组设计的Friedman test</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Hollander &amp; Wolfe (1973), p. 140ff.</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Comparison of three methods ("round out", "narrow angle", and</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  "wide angle") for rounding first base.  For each of 18 players</span></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  and the three method, the average time of two runs from a point on</span></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  the first base line 35ft from home plate to a point 15ft short of</span></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  second base is recorded.</span></span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>RoundingTimes <span class="ot">&lt;-</span></span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">matrix</span>(</span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(</span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.40</span>, <span class="fl">5.50</span>, <span class="fl">5.55</span>,</span>
+<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.85</span>, <span class="fl">5.70</span>, <span class="fl">5.75</span>,</span>
+<span id="cb57-12"><a href="#cb57-12" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.20</span>, <span class="fl">5.60</span>, <span class="fl">5.50</span>,</span>
+<span id="cb57-13"><a href="#cb57-13" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.55</span>, <span class="fl">5.50</span>, <span class="fl">5.40</span>,</span>
+<span id="cb57-14"><a href="#cb57-14" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.90</span>, <span class="fl">5.85</span>, <span class="fl">5.70</span>,</span>
+<span id="cb57-15"><a href="#cb57-15" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.45</span>, <span class="fl">5.55</span>, <span class="fl">5.60</span>,</span>
+<span id="cb57-16"><a href="#cb57-16" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.40</span>, <span class="fl">5.40</span>, <span class="fl">5.35</span>,</span>
+<span id="cb57-17"><a href="#cb57-17" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.45</span>, <span class="fl">5.50</span>, <span class="fl">5.35</span>,</span>
+<span id="cb57-18"><a href="#cb57-18" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.25</span>, <span class="fl">5.15</span>, <span class="fl">5.00</span>,</span>
+<span id="cb57-19"><a href="#cb57-19" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.85</span>, <span class="fl">5.80</span>, <span class="fl">5.70</span>,</span>
+<span id="cb57-20"><a href="#cb57-20" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.25</span>, <span class="fl">5.20</span>, <span class="fl">5.10</span>,</span>
+<span id="cb57-21"><a href="#cb57-21" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.65</span>, <span class="fl">5.55</span>, <span class="fl">5.45</span>,</span>
+<span id="cb57-22"><a href="#cb57-22" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.60</span>, <span class="fl">5.35</span>, <span class="fl">5.45</span>,</span>
+<span id="cb57-23"><a href="#cb57-23" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.05</span>, <span class="fl">5.00</span>, <span class="fl">4.95</span>,</span>
+<span id="cb57-24"><a href="#cb57-24" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.50</span>, <span class="fl">5.50</span>, <span class="fl">5.40</span>,</span>
+<span id="cb57-25"><a href="#cb57-25" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.45</span>, <span class="fl">5.55</span>, <span class="fl">5.50</span>,</span>
+<span id="cb57-26"><a href="#cb57-26" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.55</span>, <span class="fl">5.55</span>, <span class="fl">5.35</span>,</span>
+<span id="cb57-27"><a href="#cb57-27" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.45</span>, <span class="fl">5.50</span>, <span class="fl">5.55</span>,</span>
+<span id="cb57-28"><a href="#cb57-28" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.50</span>, <span class="fl">5.45</span>, <span class="fl">5.25</span>,</span>
+<span id="cb57-29"><a href="#cb57-29" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.65</span>, <span class="fl">5.60</span>, <span class="fl">5.40</span>,</span>
+<span id="cb57-30"><a href="#cb57-30" aria-hidden="true" tabindex="-1"></a>      <span class="fl">5.70</span>, <span class="fl">5.65</span>, <span class="fl">5.55</span>,</span>
+<span id="cb57-31"><a href="#cb57-31" aria-hidden="true" tabindex="-1"></a>      <span class="fl">6.30</span>, <span class="fl">6.30</span>, <span class="fl">6.25</span></span>
+<span id="cb57-32"><a href="#cb57-32" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb57-33"><a href="#cb57-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">nrow =</span> <span class="dv">22</span>,</span>
+<span id="cb57-34"><a href="#cb57-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb57-35"><a href="#cb57-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">dimnames =</span> <span class="fu">list</span>(</span>
+<span id="cb57-36"><a href="#cb57-36" aria-hidden="true" tabindex="-1"></a>      <span class="dv">1</span><span class="sc">:</span><span class="dv">22</span>,</span>
+<span id="cb57-37"><a href="#cb57-37" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"Round Out"</span>, <span class="st">"Narrow Angle"</span>, <span class="st">"Wide Angle"</span>)</span>
+<span id="cb57-38"><a href="#cb57-38" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb57-39"><a href="#cb57-39" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb57-40"><a href="#cb57-40" aria-hidden="true" tabindex="-1"></a><span class="fu">friedman.test</span>(RoundingTimes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Friedman rank sum test
+
+data:  RoundingTimes
+Friedman chi-squared = 11.143, df = 2, p-value = 0.003805</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="do">## =&gt; strong evidence against the null that the methods are equivalent</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="do">##    with respect to speed</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>wb <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(warpbreaks<span class="sc">$</span>breaks,</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">list</span>(</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">w =</span> warpbreaks<span class="sc">$</span>wool,</span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">t =</span> warpbreaks<span class="sc">$</span>tension</span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">FUN =</span> mean</span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>wb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  w t        x
+1 A L 44.55556
+2 B L 28.22222
+3 A M 24.00000
+4 B M 28.77778
+5 A H 24.55556
+6 B H 18.77778</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">friedman.test</span>(wb<span class="sc">$</span>x, wb<span class="sc">$</span>w, wb<span class="sc">$</span>t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Friedman rank sum test
+
+data:  wb$x, wb$w and wb$t
+Friedman chi-squared = 0.33333, df = 1, p-value = 0.5637</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">friedman.test</span>(x <span class="sc">~</span> w <span class="sc">|</span> t, <span class="at">data =</span> wb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Friedman rank sum test
+
+data:  x and w and t
+Friedman chi-squared = 0.33333, df = 1, p-value = 0.5637</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="总结" class="level1">
+<h1>总结</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"hypothesis-test01.svg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="hypothesis-test01.svg" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="appendix" class="level1">
+<h1>Appendix</h1>
+</section>
+
+
+
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="假设检验原理" class="level1 appendix"><h2 class="anchored quarto-appendix-heading">假设检验原理</h2><div class="quarto-appendix-contents">
+
+<p>某一变化的量背后有公式用于完美地描述其规律。</p>
+<p>若在假设之下计算得到发生样本如此极端以及更极端情况的概率（<strong>1.根据总体分布直接计算概率 2. 根据样本统计量的分布计算概率</strong>）小于预先设定的阈值，那么我们则选择拒绝该假设或相反。</p>
+<p>现实的数据总是抽象变量 - 总体，概率的结果。从现实数据中收集得到的某一指标的一些数据-样本， 都是该抽象变量的一些随机数据-。一个显而易见的事实是：<strong>样本统计量总是围绕总体参数的周围分布</strong>。若在假设之下，求得样本统计量的分布，则可求得假设之下样本统计量向总体参数偏离如此大范围的机率，则依据小概率定律，选择拒绝或者接受原假设。</p>
+</div></section><section id="假设检验中样本统计量分布的计算以及bootstrap方法" class="level1 appendix"><h2 class="anchored quarto-appendix-heading">假设检验中样本统计量分布的计算以及Bootstrap方法</h2><div class="quarto-appendix-contents">
+
+<p>但是在实际的假设检验过程，倘若需要求得样本统计量的分布，往往需要知晓总体的概率分布。由此在假设检验过程之中，除了零假设以外，实际上在样本统计量的分布的计算之中，同时隐含了总体的分布以及方差齐性等假设，而这些假设也有对应的检验方法。因此，<strong>假设检验真正的概率应该所有假设概率的乘积，而不仅仅是在零假设之下所计算出的概率</strong>。</p>
+<p>以上所考虑的是一定要得到样本统计量的确切分布，进而得到精确的概率，例如正态总体假设下，方差齐性的t test, 但是很多情况下我们不必得到样本统计量的精确分布，得到一个大概估计即可，例如大样本下的正态检验，<span class="math inline">\(R\times C\)</span>列表值用卡方分布近似，非参数检验-秩检验等。</p>
+<p>在计算机时代，我们可以直接利用Bootstrp模拟得到假设之下样本统计量的分布。</p>
+</div></section><section id="假设检验与置信区间" class="level1 appendix"><h2 class="anchored quarto-appendix-heading">假设检验与置信区间</h2><div class="quarto-appendix-contents">
+
+</div></section><section id="检验功效的问题" class="level1 appendix"><h2 class="anchored quarto-appendix-heading">检验功效的问题</h2><div class="quarto-appendix-contents">
+
+</div></section><section id="假设检验与线性回归参数检验的等效性" class="level1 appendix"><h2 class="anchored quarto-appendix-heading">假设检验与线性回归参数检验的等效性</h2><div class="quarto-appendix-contents">
+
+
+
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
