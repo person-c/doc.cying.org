@@ -1,7 +1,6 @@
 ---
-title: "Single cell tutorial
+title: "Single cell tutorial"
 subtitle: "Seurat 教程"
-date: "`r Sys.Date()`"
 format:
     html:
       self-contained: false
