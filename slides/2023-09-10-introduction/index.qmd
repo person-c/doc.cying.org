@@ -55,17 +55,6 @@ CET6，计算机二级C语言。
 
 CET6，计算机二级C语言。
 
-
-<br/>
-
-毕业论文:
-
-一种新的基于焦亡特征对宫颈癌患者的预后方法
-
-分析方法:
-
-聚类 差异分析 单因素/多因素Cox回归 生存分析 免疫评分指标
-
 ## 兴趣领域
 
 ::: incremental 
@@ -75,36 +64,61 @@ CET6，计算机二级C语言。
 :::
 
 
-## 肠道微生物改变对二型糖尿病人以及糖尿病肾病患者的影响
+## 肠道病毒组改变与二型糖尿病人以及糖尿病肾病相关
 
-肠道微生物在人类健康和疾病中扮演重要角色。
+- 肠道微生物在人类健康和疾病中扮演重要角色。
+- 研究集中在肠道菌群。
+- T2D-Ne为T2D常见的并发症。
 
 <br/>
 
-T2D患者肠道病毒组的变化及其与肠道细菌的关系，探讨病毒组的变化是否与DN有关。
+T2D患者肠道病毒组的变化及其与肠道细菌的关系，以及病毒组的变化与T2D-Ne关系。
 
-## 糖尿病人的肠型分析
+T2D:90 (T2D-Ne:41, T2D-none-Ne:49), control:42.
 
-基于肠道病毒的PCoA分析
+## T2D肠道病毒组变化
 
-![](./pcoA.bmp)
+T2D患者的病毒组具有较低的多样性和丰度。
 
-## Xgboost
-
-- 集成模型
-
-- 速度快
-  
-- 准确度高
+![](./t2d.jpg)
 
 
-## 二分类的结果
+## T2D和control组病毒的相对丰度水平
 
-![](./roc.jpg){border="none"}
+种水平上， 78%差异显著变化为噬菌体。
 
-## 发表于 Gut Microbes 上结果
+![](./categrory.jpg)
+
+## T2D-none-Ne，T2D-Ne与control组的病毒组变化情况
+
+T2D-Ne相对于T2D-none-Ne丰度水平更低。
+
+![](./3cat.jpg)
+
+## 功能变化
+
+- T2D中，噬菌体裂解宿主细菌的功能显著下降。
+- 16rRAN的结果显示，T2D中细菌的丰度显著增加。
+
+![](./fun.jpg)
+
+## 病毒组和细菌组跨界相关性变化
+
+病毒组的改变引起细菌组的改变。
+
+![](./cor.jpg)
+
+## 基于肠道菌群Xgboost二分类的结果
+
+细菌在肠道微生物中发挥着更加直接的作用。
 
 ![](./gut micro.bmp)
+
+## 结论
+
+- T2D和DN中肠道病毒多样性和丰度下降。
+- 下降的病毒集中在噬菌体，影响肠道细菌组的多样性和丰度。
+- 特异性病毒和细菌标志物的组合对T2D和DN具有良好的诊断潜力，这可能会提高目前仅基于细菌的生物标志物的性能。
 
 ## 二代转录组测序的snakemake流程
 
@@ -152,7 +166,7 @@ p + virids::viridis_scale_color(discrete = TRUE) # 自定义细节部分
 泛型函数
 
 ```{r echo=TRUE}
-sloop::s3_methods_generic(x = "plot") |> head(n=3)
+sloop::s3_methods_generic(x = "plot") |> head(n = 3)
 ```
 
 ## {auto-animate="true"}
@@ -160,7 +174,7 @@ sloop::s3_methods_generic(x = "plot") |> head(n=3)
 泛型函数
 
 ```{r echo=TRUE}
-sloop::s3_methods_generic(x = "plot") |> head(n=3)
+sloop::s3_methods_generic(x = "plot") |> head(n = 3)
 ```
 
 `analyze`函数内部调用`bio.`泛型函数
@@ -224,7 +238,7 @@ geom_points(aes(x, y), ...) # 数据空间到美学空间的映射
 draw <- Artist$new() # 创建一个实例
 p <- draw$points(x, y, ....) # 绘图
 
-p + thems() # 自定义
+p + theme() # 自定义
 ```
 
 添加新分析方法
