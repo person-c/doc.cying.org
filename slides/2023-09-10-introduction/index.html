@@ -8,7 +8,7 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.549">
+  <meta name="generator" content="quarto-1.4.339">
 
   <title>snow and rain - Introduction</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,7 +30,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -433,11 +433,6 @@
 <p><br></p>
 <p>生物统计，生物化学， C语言程序设计。</p>
 <p>CET6，计算机二级C语言。</p>
-<p><br></p>
-<p>毕业论文:</p>
-<p>一种新的基于焦亡特征对宫颈癌患者的预后方法</p>
-<p>分析方法:</p>
-<p>聚类 差异分析 单因素/多因素Cox回归 生存分析 免疫评分指标</p>
 </section>
 <section id="兴趣领域" class="slide level2">
 <h2>兴趣领域</h2>
@@ -449,33 +444,55 @@
 </ul>
 </div>
 </section>
-<section id="肠道微生物改变对二型糖尿病人以及糖尿病肾病患者的影响" class="slide level2">
-<h2>肠道微生物改变对二型糖尿病人以及糖尿病肾病患者的影响</h2>
-<p>肠道微生物在人类健康和疾病中扮演重要角色。</p>
-<p><br></p>
-<p>T2D患者肠道病毒组的变化及其与肠道细菌的关系，探讨病毒组的变化是否与DN有关。</p>
-</section>
-<section id="糖尿病人的肠型分析" class="slide level2">
-<h2>糖尿病人的肠型分析</h2>
-<p>基于肠道病毒的PCoA分析</p>
-
-<img data-src="./pcoA.bmp" class="r-stretch"></section>
-<section id="xgboost" class="slide level2">
-<h2>Xgboost</h2>
+<section id="肠道病毒组改变与二型糖尿病人以及糖尿病肾病相关" class="slide level2">
+<h2>肠道病毒组改变与二型糖尿病人以及糖尿病肾病相关</h2>
 <ul>
-<li><p>集成模型</p></li>
-<li><p>速度快</p></li>
-<li><p>准确度高</p></li>
+<li>肠道微生物在人类健康和疾病中扮演重要角色。</li>
+<li>研究集中在肠道菌群。</li>
+<li>T2D-Ne为T2D常见的并发症。</li>
+</ul>
+<p><br></p>
+<p>T2D患者肠道病毒组的变化及其与肠道细菌的关系，以及病毒组的变化与T2D-Ne关系。</p>
+<p>T2D:90 (T2D-Ne:41, T2D-none-Ne:49), control:42.</p>
+</section>
+<section id="t2d肠道病毒组变化" class="slide level2">
+<h2>T2D肠道病毒组变化</h2>
+<p>T2D患者的病毒组具有较低的多样性和丰度。</p>
+
+<img data-src="./t2d.jpg" class="r-stretch"></section>
+<section id="t2d和control组病毒的相对丰度水平" class="slide level2">
+<h2>T2D和control组病毒的相对丰度水平</h2>
+<p>种水平上， 78%差异显著变化为噬菌体。</p>
+
+<img data-src="./category.jpg" class="r-stretch"></section>
+<section id="t2d-none-net2d-ne与control组的病毒组变化情况" class="slide level2">
+<h2>T2D-none-Ne，T2D-Ne与control组的病毒组变化情况</h2>
+<p>T2D-Ne相对于T2D-none-Ne丰度水平更低。</p>
+
+<img data-src="./3cat.jpg" class="r-stretch"></section>
+<section id="功能变化" class="slide level2">
+<h2>功能变化</h2>
+<p>T2D中，噬菌体裂解宿主细菌的功能显著下降。 16S RNA的结果显示，T2D中细菌的丰度显著增加。</p>
+
+<img data-src="./fun.jpg" class="r-stretch"></section>
+<section id="病毒组和细菌组跨界相关性变化" class="slide level2">
+<h2>病毒组和细菌组跨界相关性变化</h2>
+<p>病毒组的改变引起细菌组的改变。</p>
+
+<img data-src="./cor.jpg" class="r-stretch"></section>
+<section id="基于肠道菌群xgboost二分类的结果" class="slide level2">
+<h2>基于肠道菌群Xgboost二分类的结果</h2>
+<p>细菌在肠道微生物中发挥着更加直接的作用。</p>
+
+<img data-src="./roc.jpg" class="r-stretch"></section>
+<section id="结论" class="slide level2">
+<h2>结论</h2>
+<ul>
+<li>T2D和DN中肠道病毒多样性和丰度下降。</li>
+<li>下降的病毒集中在噬菌体，影响肠道细菌组的多样性和丰度。</li>
+<li>特异性病毒和细菌标志物的组合对T2D和DN具有良好的诊断潜力，这可能会提高目前仅基于细菌的生物标志物的性能。</li>
 </ul>
 </section>
-<section id="二分类的结果" class="slide level2">
-<h2>二分类的结果</h2>
-
-<img data-src="./roc.jpg" data-border="none" class="r-stretch"></section>
-<section id="发表于-gut-microbes-上结果" class="slide level2">
-<h2>发表于 Gut Microbes 上结果</h2>
-
-<img data-src="./gut micro.bmp" class="r-stretch"></section>
 <section id="二代转录组测序的snakemake流程" class="slide level2">
 <h2>二代转录组测序的snakemake流程</h2>
 <p>多个样本分析的方法</p>
@@ -503,16 +520,16 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
 <section id="r包easybio" class="slide level2">
 <h2>R包easybio</h2>
 <p>统一的接口： <code>analyze</code>函数</p>
-<div class="sourceCode" id="cb1" data-code-line-numbers="1|2|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">analyze</span>(data, <span class="st">'go'</span>) <span class="co"># 自动分配合适的函数</span></span>
-<span id="cb1-2"><a></a>p <span class="ot">&lt;-</span> <span class="fu">plot</span>(x) <span class="co"># 扩展的plot泛型函数</span></span>
-<span id="cb1-3"><a></a></span>
-<span id="cb1-4"><a></a>p <span class="sc">+</span> virids<span class="sc">::</span><span class="fu">viridis_scale_color</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>) <span class="co"># 自定义细节部分</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-code-line-numbers="1|2|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>x <span class="ot">&lt;-</span> <span class="fu">analyze</span>(data, <span class="st">'go'</span>) <span class="co"># 自动分配合适的函数</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>p <span class="ot">&lt;-</span> <span class="fu">plot</span>(x) <span class="co"># 扩展的plot泛型函数</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a>p <span class="sc">+</span> virids<span class="sc">::</span><span class="fu">viridis_scale_color</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>) <span class="co"># 自定义细节部分</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="section-5" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p>泛型函数</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb2-1" class="hljs-ln-code"><a></a>sloop<span class="sc">::</span><span class="fu">s3_methods_generic</span>(<span class="at">x =</span> <span class="st">"plot"</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb2-1" class="hljs-ln-code"><a href="#cb2-1"></a>sloop<span class="sc">::</span><span class="fu">s3_methods_generic</span>(<span class="at">x =</span> <span class="st">"plot"</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   generic class         visible source             
@@ -527,7 +544,7 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
 <h2 data-id="quarto-animate-title"></h2>
 <p>泛型函数</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>sloop<span class="sc">::</span><span class="fu">s3_methods_generic</span>(<span class="at">x =</span> <span class="st">"plot"</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>sloop<span class="sc">::</span><span class="fu">s3_methods_generic</span>(<span class="at">x =</span> <span class="st">"plot"</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   generic class         visible source             
@@ -538,15 +555,15 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
 </div>
 </div>
 <p><code>analyze</code>函数内部调用<code>bio.</code>泛型函数</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>analyze <span class="ot">&lt;-</span> <span class="cf">function</span>(x, type, ...) {</span>
-<span id="cb6-2"><a></a>  bio.<span class="sc">*</span>()</span>
-<span id="cb6-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>analyze <span class="ot">&lt;-</span> <span class="cf">function</span>(x, type, ...) {</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  bio.<span class="sc">*</span>()</span>
+<span id="cb6-3"><a href="#cb6-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="section-7" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p>泛型函数</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>sloop<span class="sc">::</span><span class="fu">s3_methods_generic</span>(<span class="at">x =</span> <span class="st">"plot"</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>sloop<span class="sc">::</span><span class="fu">s3_methods_generic</span>(<span class="at">x =</span> <span class="st">"plot"</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   generic class         visible source             
@@ -557,39 +574,39 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
 </div>
 </div>
 <p><code>analyze</code>函数内部调用<code>bio.</code>泛型函数</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>analyze <span class="ot">&lt;-</span> <span class="cf">function</span>(x, type, ...) {</span>
-<span id="cb9-2"><a></a>  bio.<span class="sc">*</span>()</span>
-<span id="cb9-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>analyze <span class="ot">&lt;-</span> <span class="cf">function</span>(x, type, ...) {</span>
+<span id="cb9-2"><a href="#cb9-2"></a>  bio.<span class="sc">*</span>()</span>
+<span id="cb9-3"><a href="#cb9-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>添加新的分析方法</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>bio.<span class="sc">*</span> <span class="er">&lt;</span><span class="sc">-</span> <span class="cf">function</span>(...) {}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>bio.<span class="sc">*</span> <span class="er">&lt;</span><span class="sc">-</span> <span class="cf">function</span>(...) {}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="artist" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Artist</h2>
 <p>数据到几何美学的映射(map)</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb11-1" class="hljs-ln-code"><a></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(x, y), ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb11-1" class="hljs-ln-code"><a href="#cb11-1"></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(x, y), ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="artist-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Artist</h2>
 <p>数据到几何美学的映射(map)</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb12-1" class="hljs-ln-code"><a></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(x, y), ...) <span class="co"># 数据空间到美学空间的映射</span></span>
-<span id="cb12-2" class="hljs-ln-code"><a></a></span>
-<span id="cb12-3" class="hljs-ln-code"><a></a>draw <span class="ot">&lt;-</span> Artist<span class="sc">$</span><span class="fu">new</span>() <span class="co"># 创建一个实例</span></span>
-<span id="cb12-4" class="hljs-ln-code"><a></a>p <span class="ot">&lt;-</span> draw<span class="sc">$</span><span class="fu">point</span>(x, y, ....) <span class="co"># 绘图</span></span>
-<span id="cb12-5" class="hljs-ln-code"><a></a></span>
-<span id="cb12-6" class="hljs-ln-code"><a></a>p <span class="sc">+</span> <span class="fu">theme</span>(...) <span class="co"># 自定义</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb12-1" class="hljs-ln-code"><a href="#cb12-1"></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(x, y), ...) <span class="co"># 数据空间到美学空间的映射</span></span>
+<span id="cb12-2" class="hljs-ln-code"><a href="#cb12-2"></a></span>
+<span id="cb12-3" class="hljs-ln-code"><a href="#cb12-3"></a>draw <span class="ot">&lt;-</span> Artist<span class="sc">$</span><span class="fu">new</span>() <span class="co"># 创建一个实例</span></span>
+<span id="cb12-4" class="hljs-ln-code"><a href="#cb12-4"></a>p <span class="ot">&lt;-</span> draw<span class="sc">$</span><span class="fu">point</span>(x, y, ....) <span class="co"># 绘图</span></span>
+<span id="cb12-5" class="hljs-ln-code"><a href="#cb12-5"></a></span>
+<span id="cb12-6" class="hljs-ln-code"><a href="#cb12-6"></a>p <span class="sc">+</span> <span class="fu">theme</span>(...) <span class="co"># 自定义</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="artist-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Artist</h2>
 <p>数据到几何美学的映射(map)</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">geom_points</span>(<span class="fu">aes</span>(x, y), ...) <span class="co"># 数据空间到美学空间的映射</span></span>
-<span id="cb13-2"><a></a></span>
-<span id="cb13-3"><a></a>draw <span class="ot">&lt;-</span> Artist<span class="sc">$</span><span class="fu">new</span>() <span class="co"># 创建一个实例</span></span>
-<span id="cb13-4"><a></a>p <span class="ot">&lt;-</span> draw<span class="sc">$</span><span class="fu">points</span>(x, y, ....) <span class="co"># 绘图</span></span>
-<span id="cb13-5"><a></a></span>
-<span id="cb13-6"><a></a>p <span class="sc">+</span> <span class="fu">thems</span>() <span class="co"># 自定义</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">geom_points</span>(<span class="fu">aes</span>(x, y), ...) <span class="co"># 数据空间到美学空间的映射</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a>draw <span class="ot">&lt;-</span> Artist<span class="sc">$</span><span class="fu">new</span>() <span class="co"># 创建一个实例</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>p <span class="ot">&lt;-</span> draw<span class="sc">$</span><span class="fu">points</span>(x, y, ....) <span class="co"># 绘图</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a></span>
+<span id="cb13-6"><a href="#cb13-6"></a>p <span class="sc">+</span> <span class="fu">theme</span>() <span class="co"># 自定义</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>添加新分析方法</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>draw<span class="sc">$</span>scatter_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(){ </span>
-<span id="cb14-2"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>draw<span class="sc">$</span>scatter_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(){ </span>
+<span id="cb14-2"><a href="#cb14-2"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="section-8" class="slide level2">
 <h2></h2>
@@ -597,10 +614,8 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
 <p>在线浏览 <em>doc.cying.org/slides/2023-09-10-introduction/</em></p>
 <p>源文件 <em>doc.cying.org/slides/2023-09-10-introduction/index.qmd</em></p>
 
-<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
-</div>
 </div>
 </section>
     </div>

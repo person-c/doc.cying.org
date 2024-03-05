@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.339">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-02-05">
+<meta name="dcterms.date" content="2024-02-29">
 
 <title>snow and rain - Hypothesis Test</title>
 <style>
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -80,13 +80,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
+  "limit": 20,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -95,7 +94,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -105,33 +103,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
 <link rel="stylesheet" href="../../styles.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -140,7 +111,7 @@ window.Quarto = {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
@@ -245,7 +216,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 5, 2024</p>
+      <p class="date">February 29, 2024</p>
     </div>
   </div>
   
@@ -255,7 +226,6 @@ window.Quarto = {
 
 
 </header>
-
 
 <hr>
 <section id="统计描述" class="level1">
@@ -291,13 +261,13 @@ window.Quarto = {
 <section id="正态总体均值的置信区间以及假设检验" class="level1 page-columns page-full">
 <h1>正态总体均值的置信区间以及假设检验</h1>
 <div id="thm-normal-populaton-sample-mean-distribution" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (normal populaton’s sample mean following a normal distribution)</strong></span> 设<span class="math inline">\(X_1, X_2, ..., X_n\)</span>是来自正态总体<span class="math inline">\(N(\mu, \sigma^2)\)</span>的样本，<span class="math inline">\(\bar{X}\)</span>是样本均值，则有：</p>
+<p><span class="theorem-title"><strong>Theorem 1 (normal populaton’s sample mean following a normal distribution) </strong></span>设<span class="math inline">\(X_1, X_2, ..., X_n\)</span>是来自正态总体<span class="math inline">\(N(\mu, \sigma^2)\)</span>的样本，<span class="math inline">\(\bar{X}\)</span>是样本均值，则有：</p>
 <p><span class="math display">\[
 \bar{X} \sim N(\mu, \sigma^2/n).
 \]</span></p>
 </div>
 <div id="thm-normal-populaton-sample-variance-distribution" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2 (normal populaton’s sample variance following scaling <span class="math inline">\(\chi^2\)</span> distribution)</strong></span> 设<span class="math inline">\(X_1, X_2, ..., X_n\)</span>是来自正态总体<span class="math inline">\(N(\mu, \sigma^2)\)</span>的样本， <span class="math inline">\(\bar{X}, S^2\)</span>分别是样本均值和样本方差，则有</p>
+<p><span class="theorem-title"><strong>Theorem 2 (normal populaton’s sample variance following scaling <span class="math inline">\(\chi^2\)</span> distribution) </strong></span>设<span class="math inline">\(X_1, X_2, ..., X_n\)</span>是来自正态总体<span class="math inline">\(N(\mu, \sigma^2)\)</span>的样本， <span class="math inline">\(\bar{X}, S^2\)</span>分别是样本均值和样本方差，则有</p>
 <ol type="1">
 <li><p><span class="math display">\[
 \frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{(n-1)}.
@@ -306,7 +276,7 @@ window.Quarto = {
 </ol>
 </div>
 <div id="thm-normal-popuplation-sample-mean-variance-distribution" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3 (normal popuplation sample mean and variance following t-distribution)</strong></span> 设<span class="math inline">\(X_1, X_2, ..., X_n\)</span>是来自正态总体<span class="math inline">\(N(\mu, \sigma^2)\)</span>的样本， <span class="math inline">\(\bar{X}, S^2\)</span>分别是样本均值和样本方差，则有</p>
+<p><span class="theorem-title"><strong>Theorem 3 (normal popuplation sample mean and variance following t-distribution) </strong></span>设<span class="math inline">\(X_1, X_2, ..., X_n\)</span>是来自正态总体<span class="math inline">\(N(\mu, \sigma^2)\)</span>的样本， <span class="math inline">\(\bar{X}, S^2\)</span>分别是样本均值和样本方差，则有</p>
 <p><span class="math display">\[
 \frac{\bar{X} - \mu}{S/\sqrt{n}} \sim t(n-1).
 \]</span></p>
@@ -319,7 +289,7 @@ window.Quarto = {
   \]</span></p>
 <p>化简上式左边，即得 <a href="#thm-normal-popuplation-sample-mean-variance-distribution" class="quarto-xref">Theorem&nbsp;3</a>.</p>
 <div id="thm-two-normal-popuplation-sample-mean-variance-distribution" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4 (two normal population’s sample mean and variance’s distribution)</strong></span> 设<span class="math inline">\(X_1, X_2, ...,X_{n}\)</span>与<span class="math inline">\(Y_1, Y_2, ..., Y_n\)</span>分别是来自正态总体<span class="math inline">\(N(\mu_1, \sigma_1^2)\)</span>和<span class="math inline">\(N(\mu_1, \sigma_2^2)\)</span>的样本，且这两个样本相互独立。设<span class="math inline">\(\bar{X}, \bar{Y}\)</span>分别是这两个样本的样本均值；<span class="math inline">\(S_1^2, S_2^2\)</span>分别是这两个样本的样本方差，则有</p>
+<p><span class="theorem-title"><strong>Theorem 4 (two normal population’s sample mean and variance’s distribution) </strong></span>设<span class="math inline">\(X_1, X_2, ...,X_{n}\)</span>与<span class="math inline">\(Y_1, Y_2, ..., Y_n\)</span>分别是来自正态总体<span class="math inline">\(N(\mu_1, \sigma_1^2)\)</span>和<span class="math inline">\(N(\mu_1, \sigma_2^2)\)</span>的样本，且这两个样本相互独立。设<span class="math inline">\(\bar{X}, \bar{Y}\)</span>分别是这两个样本的样本均值；<span class="math inline">\(S_1^2, S_2^2\)</span>分别是这两个样本的样本方差，则有</p>
 <ol type="1">
 <li><span class="math inline">\(\frac{S_1^2 / S_2^2}{\sigma_1 / \sigma_2} \sim F(n_1 - 1, n_2 - 1);\)</span></li>
 <li>当<span class="math inline">\(\sigma_1^2 = \sigma_2^2 = \sigma^2\)</span>时，</li>
@@ -399,11 +369,7 @@ data:  extra
 W = 0.94607, p-value = 0.3114</code></pre>
 </div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><strong>One Sample t-test</strong></p>
@@ -425,7 +391,7 @@ mean of x
 </div>
 <p><strong>Two Sample t-test</strong>(<span class="math inline">\(\sigma_1^2 = \sigma_2^2\)</span>)</p>
 <p><strong>var-test</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div class="no-row-height column-margin column-container"><p><sup>1</sup>&nbsp;更多方差齐性检验的方法可以参考<a href="https://www.r-bloggers.com/2021/06/equality-of-variances-in-r-homogeneity-test-quick-guide/">这里</a></p></div><div class="cell">
+<div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;更多方差齐性检验的方法可以参考<a href="https://www.r-bloggers.com/2021/06/equality-of-variances-in-r-homogeneity-test-quick-guide/">这里</a></p></li></div><div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(extra <span class="sc">~</span> group, <span class="at">data =</span> sleep, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -529,7 +495,7 @@ mean difference
 <li>样本独立性</li>
 </ul>
 <p>如t-test的assumption类似，推导出F分布的前提是正态分布以及方差齐性。但在实际使用过程之中，方差分析具有稳健性，对正态分布的要求并不是很严格<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
-<div class="no-row-height column-margin column-container"><p><sup>2</sup>&nbsp;Tiku (1971) found that “the non-normal theory power of F is found to differ from the normal theory power by a correction term which decreases sharply with increasing sample size.” The problem of non-normality, especially in large samples, is far less serious than popular articles would suggest - <a href="https://en.wikipedia.org/wiki/One-way_analysis_of_variance">wikipedia</a></p></div><table class="table">
+<div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;Tiku (1971) found that “the non-normal theory power of F is found to differ from the normal theory power by a correction term which decreases sharply with increasing sample size.” The problem of non-normality, especially in large samples, is far less serious than popular articles would suggest - <a href="https://en.wikipedia.org/wiki/One-way_analysis_of_variance">wikipedia</a></p></li></div><table class="table">
 <caption>Onw-Way-ANOVA-Table</caption>
 <colgroup>
 <col style="width: 16%">
@@ -787,11 +753,7 @@ t_D = \frac{\bar{Y_i} - \bar{Y_c}}{\sqrt{MS_{within \: group} \times (\frac{1}{n
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">border =</span> <span class="st">"black"</span></span>
 <span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">aov</span>(value <span class="sc">~</span> Group, <span class="at">data =</span> data)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1064,7 +1026,7 @@ odds ratio
 </table>
 </div>
 </div>
-<p>依差值的绝对值从小到大编秩。编秩时遇到差值为0的舍去不计，同时样本例数<span class="math inline">\(n -  1\)</span>; 遇到绝对值差值相等差数，符号相同则顺次编秩，符号相反则取平均秩次，再给秩次冠以原差值的正负号。分别计算出正负秩次<span class="math inline">\(T_+, T_-,\)</span>任取其中一个作为统计量秩和<span class="math inline">\(T\)</span></p>
+<p>依差值的绝对值从小到大编秩。编秩时遇到差值为0的舍去不计，同时样本例数<span class="math inline">\(n - 1\)</span>; 遇到绝对值差值相等差数，符号相同则顺次编秩，符号相反则取平均秩次，再给秩次冠以原差值的正负号。分别计算出正负秩次<span class="math inline">\(T_+, T_-,\)</span>任取其中一个作为统计量秩和<span class="math inline">\(T\)</span></p>
 <p><strong><span class="math inline">\(n \le 50\)</span></strong> 查表</p>
 <p><strong><span class="math inline">\(n \ge 50\)</span></strong> 正态近似</p>
 <p><span class="math display">\[
@@ -1166,11 +1128,7 @@ alternative hypothesis: true location shift is greater than 0</code></pre>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(graphics)</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Ozone <span class="sc">~</span> Month, <span class="at">data =</span> airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(Ozone <span class="sc">~</span> Month, <span class="at">data =</span> airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1273,11 +1231,7 @@ Friedman chi-squared = 0.33333, df = 1, p-value = 0.5637</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"hypothesis-test01.svg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hypothesis-test01.svg" class="img-fluid figure-img"></p>
-</figure>
-</div>
+<p><img src="hypothesis-test01.svg" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -1438,28 +1392,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
+    if (id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
         }
         return container.innerHTML
       } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
         return note.innerHTML;
       }
     } else {
@@ -1468,15 +1409,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
+      return note.innerHTML;
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1518,29 +1451,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
       }
     }, function(instance) {
     });
@@ -1616,6 +1526,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
+        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);
