@@ -22,6 +22,9 @@ jobs:
         with:
           r-version: '4.3.2'
 
+      - name: Install dependencies
+        run: Rscript -e 'install.packages(c("rmarkdown", "prettydoc"))'
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
