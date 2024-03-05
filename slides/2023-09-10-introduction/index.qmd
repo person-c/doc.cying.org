@@ -1,6 +1,7 @@
 ---
 title: "Introduction"
 subtitle: ""
+fontsize: 25px
 format:
   revealjs: 
     slide-number: true
@@ -87,7 +88,7 @@ T2D患者的病毒组具有较低的多样性和丰度。
 
 种水平上， 78%差异显著变化为噬菌体。
 
-![](./categrory.jpg)
+![](./category.jpg)
 
 ## T2D-none-Ne，T2D-Ne与control组的病毒组变化情况
 
@@ -97,8 +98,8 @@ T2D-Ne相对于T2D-none-Ne丰度水平更低。
 
 ## 功能变化
 
-- T2D中，噬菌体裂解宿主细菌的功能显著下降。
-- 16rRAN的结果显示，T2D中细菌的丰度显著增加。
+T2D中，噬菌体裂解宿主细菌的功能显著下降。
+16S RNA的结果显示，T2D中细菌的丰度显著增加。
 
 ![](./fun.jpg)
 
@@ -112,7 +113,7 @@ T2D-Ne相对于T2D-none-Ne丰度水平更低。
 
 细菌在肠道微生物中发挥着更加直接的作用。
 
-![](./gut micro.bmp)
+![](./roc.jpg)
 
 ## 结论
 
