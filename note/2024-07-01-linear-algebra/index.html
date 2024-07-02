@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.52">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-07-01">
+
+<title>线性代数 – snow and rain</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">snow and rain</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../note.html"> 
+<span class="menu-text">Note</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../slides.html"> 
+<span class="menu-text">Slides</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#矩阵定义以及运算" id="toc-矩阵定义以及运算" class="nav-link active" data-scroll-target="#矩阵定义以及运算">矩阵定义以及运算</a>
+  <ul class="collapse">
+  <li><a href="#定义" id="toc-定义" class="nav-link" data-scroll-target="#定义">定义</a></li>
+  <li><a href="#矩阵线性运算" id="toc-矩阵线性运算" class="nav-link" data-scroll-target="#矩阵线性运算">矩阵线性运算</a></li>
+  <li><a href="#矩阵乘法" id="toc-矩阵乘法" class="nav-link" data-scroll-target="#矩阵乘法">矩阵乘法</a></li>
+  <li><a href="#矩阵转置" id="toc-矩阵转置" class="nav-link" data-scroll-target="#矩阵转置">矩阵转置</a></li>
+  <li><a href="#矩阵的逆" id="toc-矩阵的逆" class="nav-link" data-scroll-target="#矩阵的逆">矩阵的逆</a></li>
+  <li><a href="#分块矩阵" id="toc-分块矩阵" class="nav-link" data-scroll-target="#分块矩阵">分块矩阵</a></li>
+  <li><a href="#初等变换" id="toc-初等变换" class="nav-link" data-scroll-target="#初等变换">初等变换</a></li>
+  <li><a href="#行列式" id="toc-行列式" class="nav-link" data-scroll-target="#行列式">行列式</a></li>
+  <li><a href="#伴随矩阵" id="toc-伴随矩阵" class="nav-link" data-scroll-target="#伴随矩阵">伴随矩阵</a></li>
+  <li><a href="#矩阵的秩" id="toc-矩阵的秩" class="nav-link" data-scroll-target="#矩阵的秩">矩阵的秩</a></li>
+  <li><a href="#线性方程组的矩阵抽象" id="toc-线性方程组的矩阵抽象" class="nav-link" data-scroll-target="#线性方程组的矩阵抽象">线性方程组的矩阵抽象</a></li>
+  <li><a href="#几何直观" id="toc-几何直观" class="nav-link" data-scroll-target="#几何直观">几何直观</a></li>
+  </ul></li>
+  <li><a href="#向量以及向量空间" id="toc-向量以及向量空间" class="nav-link" data-scroll-target="#向量以及向量空间">向量以及向量空间</a>
+  <ul class="collapse">
+  <li><a href="#定义以及定理" id="toc-定义以及定理" class="nav-link" data-scroll-target="#定义以及定理">定义以及定理</a></li>
+  <li><a href="#向量空间下的线性方程组" id="toc-向量空间下的线性方程组" class="nav-link" data-scroll-target="#向量空间下的线性方程组">向量空间下的线性方程组</a></li>
+  <li><a href="#齐次方程组的解" id="toc-齐次方程组的解" class="nav-link" data-scroll-target="#齐次方程组的解">齐次方程组的解</a></li>
+  <li><a href="#非齐次方程组的通解" id="toc-非齐次方程组的通解" class="nav-link" data-scroll-target="#非齐次方程组的通解">非齐次方程组的通解</a></li>
+  <li><a href="#几何直观-1" id="toc-几何直观-1" class="nav-link" data-scroll-target="#几何直观-1">几何直观</a></li>
+  </ul></li>
+  <li><a href="#矩阵变换" id="toc-矩阵变换" class="nav-link" data-scroll-target="#矩阵变换">矩阵变换</a>
+  <ul class="collapse">
+  <li><a href="#特征值eigenvalues特征向量eigenvectors" id="toc-特征值eigenvalues特征向量eigenvectors" class="nav-link" data-scroll-target="#特征值eigenvalues特征向量eigenvectors">特征值（Eigenvalues）特征向量（Eigenvectors）</a></li>
+  <li><a href="#相似矩阵-矩阵对角相似化" id="toc-相似矩阵-矩阵对角相似化" class="nav-link" data-scroll-target="#相似矩阵-矩阵对角相似化">相似矩阵 矩阵对角相似化</a></li>
+  <li><a href="#二次型" id="toc-二次型" class="nav-link" data-scroll-target="#二次型">二次型</a></li>
+  <li><a href="#几何直观-2" id="toc-几何直观-2" class="nav-link" data-scroll-target="#几何直观-2">几何直观</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">线性代数</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 1, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="矩阵定义以及运算" class="level1">
+<h1>矩阵定义以及运算</h1>
+<section id="定义" class="level2">
+<h2 class="anchored" data-anchor-id="定义">定义</h2>
+<p>矩阵为矩形数表；</p>
+<p>m * n 矩阵， n 阶方阵， 零矩阵， 列矩阵(列向量)， 行矩阵（行向量），主对角线，次（副）对角线。</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+a_{11} &amp; a_{12} &amp; a_{13} \\
+0 &amp; a_{22} &amp; a_{23} \\
+0 &amp; 0 &amp; a_{33} \\
+\end{bmatrix}
+\]</span></p>
+<p>上三角矩阵</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+a_{11} &amp; 0 &amp; 0 \\
+a_{21} &amp; a_{22} &amp; 0 \\
+a_{31} &amp; a_{32} &amp; a_{33} \\
+\end{bmatrix}
+\]</span></p>
+<p>下三角矩阵。</p>
+<p>上下三角矩阵统称为三角矩阵。</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+a_{11} &amp; 0 &amp; 0 \\
+0 &amp; a_{22} &amp; 0 \\
+0 &amp; 0 &amp; a_{33} \\
+\end{bmatrix}
+\]</span></p>
+<p>对角矩阵</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1 \\
+\end{bmatrix}
+\]</span></p>
+<p>单位矩阵E, I。</p>
+</section>
+<section id="矩阵线性运算" class="level2">
+<h2 class="anchored" data-anchor-id="矩阵线性运算">矩阵线性运算</h2>
+<p><span class="math display">\[{c_{ij}=a_{ij}+b_{ij}}\]</span></p>
+<p><strong>矩阵加法</strong></p>
+<p><strong>矩阵数乘</strong>。</p>
+<p>矩阵加法和数乘统称为矩阵的线性运算。</p>
+</section>
+<section id="矩阵乘法" class="level2">
+<h2 class="anchored" data-anchor-id="矩阵乘法">矩阵乘法</h2>
+<ul>
+<li><span class="math inline">\(AB = 0 \not\Rightarrow A = 0 \text{ 或 } B = 0\)</span></li>
+<li><span class="math inline">\(A \cdot B \neq B \cdot A\)</span></li>
+<li><span class="math inline">\(ABC = (AB)C\)</span></li>
+<li><span class="math inline">\(A(B + C) = AB + AC\)</span></li>
+<li><span class="math inline">\(k(AB) = A(kB) = ABk\)</span></li>
+</ul>
+<p>空间位置不能变，时间次序可以变。</p>
+<p><span class="math display">\[
+x + 2y = 3 \\
+4x + 5y = 6
+\]</span></p>
+<p><strong>线性方程组的矩阵表示</strong>，系数矩阵，变量矩阵，常数矩阵。 线性变化的矩阵表示。</p>
+</section>
+<section id="矩阵转置" class="level2">
+<h2 class="anchored" data-anchor-id="矩阵转置">矩阵转置</h2>
+<p>反对称矩阵 <span class="math inline">\(A^T = -A\)</span> , 一定为方阵，，对角线一定为0.</p>
+</section>
+<section id="矩阵的逆" class="level2">
+<h2 class="anchored" data-anchor-id="矩阵的逆">矩阵的逆</h2>
+<p><span class="math display">\[
+\begin{equation}
+A_{n}B_{n} = B_{n}A_{n} = E_n
+\end{equation}
+\]</span></p>
+<p>逆只能存在方阵之中，且不一定可逆。逆具有唯一性。</p>
+<p><span class="math display">\[
+\begin{align*}
+(A^{-1})^{-1} &amp;= A \\
+(AB)^{-1} &amp;= B^{-1}A^{-1} \\
+(A^{-1})^T &amp;= (A^T)^{-1}
+\end{align*}
+\]</span></p>
+<p>矩阵逆运算规律如上。矩阵的上标运算可以任意交换位置。</p>
+</section>
+<section id="分块矩阵" class="level2">
+<h2 class="anchored" data-anchor-id="分块矩阵">分块矩阵</h2>
+<p>非分块矩阵可以认为每个元素都是一个只有一个数的块。</p>
+<p><span class="math display">\[
+\alpha_1x_1 + \alpha_2x_2 = b
+\]</span></p>
+<p>利用分块矩阵表示线性方程组。</p>
+</section>
+<section id="初等变换" class="level2">
+<h2 class="anchored" data-anchor-id="初等变换">初等变换</h2>
+<p><strong>矩阵初等变换，实际上就是方程组系数消元的抽象过程，初等变换的一系列矩阵称为等价矩阵</strong>。</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{bmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{bmatrix}
+\xrightarrow{\text{行变换}}
+\begin{bmatrix}
+0 &amp; 1 \\
+1 &amp; 0
+\end{bmatrix}
+\end{equation}
+\]</span></p>
+<p><strong>初等方阵</strong> : 定义为单位矩阵<span class="math inline">\(E\)</span>经过一次初等变换所形成的方阵<span class="math inline">\(P\)</span>。</p>
+<p>若 <span class="math inline">\(P\)</span> 为初等方阵， <span class="math inline">\(PA=B\)</span>， 则<span class="math inline">\(A \rightarrow B\)</span>的变化等价于<span class="math inline">\(E \rightarrow P\)</span>的初等行变换。若<span class="math inline">\(AP = B\)</span>， 则<span class="math inline">\(A  \rightarrow B\)</span> 等价于 <span class="math inline">\(E \rightarrow P\)</span>的初等列变换。实际上这里描述了的是一个初等变换可由一个初等方阵来定义。</p>
+<p><strong>初等方阵的逆矩阵</strong>：</p>
+<p>通过交换单位矩阵的第 <span class="math inline">\(i\)</span> 行和第 <span class="math inline">\(j\)</span> 行得到的初等矩阵 <span class="math inline">\(E_{ij}\)</span> 可以表示为：</p>
+<p><span class="math display">\[
+E_{ij} = \begin{bmatrix}
+1 &amp; 0 &amp; \cdots &amp; 0 &amp; \cdots &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; 1 &amp; \cdots &amp; 0 &amp; \cdots &amp; 0 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; 0 &amp; \cdots &amp; 1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; 1 &amp; \cdots &amp; 0 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; 0 &amp; \cdots &amp; 0 &amp; \cdots &amp; 1
+\end{bmatrix}
+\]</span></p>
+<p>其逆矩阵也是通过交换同样的两行得到的，即 <span class="math inline">\(E_{ij}^{-1} = E_{ij}\)</span>。</p>
+<p>将单位矩阵的第 <span class="math inline">\(i\)</span> 行乘以一个非零常数 <span class="math inline">\(k\)</span> 得到的初等矩阵 <span class="math inline">\(E_i(k)\)</span> 可以表示为：</p>
+<p><span class="math display">\[
+E_i(k) = \begin{bmatrix}
+1 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; 1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; k \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; 0 \\
+\end{bmatrix}
+\]</span></p>
+<p>其逆矩阵是将第 <span class="math inline">\(i\)</span> 行乘以 <span class="math inline">\(1/k\)</span>，即 <span class="math inline">\(E_i(k)^{-1} = E_i(1/k)\)</span>。</p>
+<p>将单位矩阵的第 <span class="math inline">\(i\)</span> 行加上第 <span class="math inline">\(j\)</span> 行的 <span class="math inline">\(k\)</span> 倍得到的初等矩阵 <span class="math inline">\(E_{ij}(k)\)</span> 可以表示为：</p>
+<p><span class="math display">\[
+E_{ij}(k) = \begin{bmatrix}
+1 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; 1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; k &amp; \cdots &amp; 1 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; 0 \\
+\end{bmatrix}
+\]</span></p>
+<p>其逆矩阵是将第 <span class="math inline">\(i\)</span> 行减去第 <span class="math inline">\(j\)</span> 行的 <span class="math inline">\(k\)</span> 倍， 即 <span class="math inline">\(E_{ij}(k)^{-1} = E_{ij}(-k)\)</span>。</p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{bmatrix}
+a_{11} &amp; a_{12} &amp; 1 &amp; 0 \\
+a_{21} &amp; a_{22} &amp; 0 &amp; 1
+\end{bmatrix}
+\xrightarrow{\text{初等行变换}}
+\begin{bmatrix}
+1 &amp; 0 &amp; a_{11}^{-1} &amp; -a_{12}a_{11}^{-1} \\
+0 &amp; 1 &amp; -a_{21}a_{11}^{-1} &amp; a_{11}^{-1}(a_{11}a_{22}-a_{12}a_{21})
+\end{bmatrix}
+\end{equation}
+\]</span></p>
+<p>求解：将矩阵经过初等变换为单位矩阵，同样的变化作用于单位矩阵的结果就是其拟矩阵。</p>
+</section>
+<section id="行列式" class="level2">
+<h2 class="anchored" data-anchor-id="行列式">行列式</h2>
+<p><strong>逆序数</strong>：在一个排列 <span class="math inline">\(a_1, a_2, \ldots, a_n\)</span> 中，如果存在一对 <span class="math inline">\(i, j\)</span>，满足 <span class="math inline">\(i &lt; j\)</span> 且 <span class="math inline">\(a_i &gt; a_j\)</span>，那么这对 $ (a_i, a_j) $ 称为一个逆序对。排列中所有逆序对的个数称为该排列的逆序数。</p>
+<p>例如，对于排列 <span class="math inline">\(3, 1, 2\)</span>，它的逆序对有 $ (3, 1) $ 和 $ (3, 2) $，所以它的逆序数是 2。</p>
+<p>形式化地，设排列为 $ = (_1, _2, , _n) $，则逆序数定义为：</p>
+<p><span class="math display">\[ \text{Inv}(\sigma) = \sum_{1 \leq i &lt; j \leq n} \mathbf{1}_{\sigma_i &gt; \sigma_j} \]</span></p>
+<p>其中 <span class="math inline">\(\mathbf{1}_{\sigma_i &gt; \sigma_j}\)</span> 是指示函数，当 <span class="math inline">\(\sigma_i &gt; \sigma_j\)</span> 时取值为 1，否则取值为 0。。</p>
+<p><strong>余子式</strong>：设 <span class="math inline">\(A\)</span> 是一个 <span class="math inline">\(n \times n\)</span> 的矩阵，<span class="math inline">\(A_{ij}\)</span> 是 <span class="math inline">\(A\)</span> 中去掉第 <span class="math inline">\(i\)</span> 行和第 <span class="math inline">\(j\)</span> 列后剩下的 <span class="math inline">\((n-1) \times (n-1)\)</span> 子矩阵。那么，<span class="math inline">\(A\)</span> 的 <span class="math inline">\((i, j)\)</span> 元素对应的余子式定义为：</p>
+<p><span class="math display">\[ M_{ij} = \det(A_{ij}) \]</span></p>
+<p>其中 <span class="math inline">\(\det(A_{ij})\)</span> 表示 <span class="math inline">\(A_{ij}\)</span> 的行列式。</p>
+<p><strong>代数余子式</strong>：设 <span class="math inline">\(A\)</span> 是一个 <span class="math inline">\(n \times n\)</span> 的矩阵，<span class="math inline">\(A_{ij}\)</span> 是 <span class="math inline">\(A\)</span> 中去掉第 <span class="math inline">\(i\)</span> 行和第 <span class="math inline">\(j\)</span> 列后剩下的 <span class="math inline">\((n-1) \times (n-1)\)</span> 子矩阵。那么，<span class="math inline">\(A\)</span> 的 <span class="math inline">\((i, j)\)</span> 元素对应的代数余子式定义为：</p>
+<p><span class="math display">\[ C_{ij} = (-1)^{i+j} \det(A_{ij}) \]</span></p>
+<p><strong>行列式</strong>： 行列式（Determinant）是一个函数，将方阵映射到标量，记作 <span class="math inline">\(\det(A)\)</span> 或 <span class="math inline">\(|A|\)</span>。设 <span class="math inline">\(A\)</span> 是一个 <span class="math inline">\(n \times n\)</span> 的方阵，那么 <span class="math inline">\(A\)</span> 的行列式 <span class="math inline">\(\det(A)\)</span> 定义为：</p>
+<p><span class="math display">\[
+\det(A) = \sum_{\sigma \in S_n} (\text{sgn}(\sigma) \prod_{i=1}^{n} a_{i,\sigma(i)})
+\]</span></p>
+<p>其中，<span class="math inline">\(S_n\)</span> 表示所有 <span class="math inline">\(n\)</span> 个元素的排列，<span class="math inline">\(\sigma\)</span> 是一个排列，<span class="math inline">\(\text{sgn}(\sigma)\)</span> 表示排列 <span class="math inline">\(\sigma\)</span> 的符号，<span class="math inline">\(a_{i,\sigma(i)}\)</span> 表示矩阵 <span class="math inline">\(A\)</span> 在第 <span class="math inline">\(i\)</span> 行第 <span class="math inline">\(\sigma(i)\)</span> 列的元素。对于 n 阶方阵 <span class="math inline">\(A\)</span>，其行列式可通过以下方法计算：</p>
+<ul>
+<li><p><strong>三角矩阵</strong>：对于三角矩阵，行列式是对角线上元素的代数余子式。</p></li>
+<li><p><strong>展开法</strong>：通过任意一行（或列）的元素进行展开。例如，第 <span class="math inline">\(i\)</span> 行的展开公式为：</p>
+<p><span class="math display">\[
+\det(A) = \sum_{j=1}^{n} (-1)^{i+j} a_{ij} \det(A_{ij})
+\]</span></p>
+<p>其中，<span class="math inline">\(a_{ij}\)</span> 是矩阵 <span class="math inline">\(A\)</span> 中第 <span class="math inline">\(i\)</span> 行第 <span class="math inline">\(j\)</span> 列的元素，<span class="math inline">\(A_{ij}\)</span> 是删除了第 <span class="math inline">\(i\)</span> 行和第 <span class="math inline">\(j\)</span> 列的子矩阵。</p></li>
+</ul>
+<p>行列式的基本性质包括：</p>
+<ul>
+<li><strong>转置相等</strong>：<span class="math inline">\(\det(A) = \det(A^T)\)</span></li>
+<li><strong>换行变号</strong>：交换行列式的两行（列），行列式变号。</li>
+<li><strong>乘数乘行</strong>：行列式的某一行（列）乘以常数，行列式也乘以该常数。</li>
+<li><strong>倍加相等</strong>：行列式中某一行（列）的常数倍加到另一行（列），行列式不变。</li>
+<li><strong>拆分分行</strong>：行列式可以按行或列拆分。</li>
+<li><strong>零性质</strong>：行列式中某一行（列）全为零，行列式为零。</li>
+</ul>
+<p>行列式按行展开的两个定理（待补充）</p>
+</section>
+<section id="伴随矩阵" class="level2">
+<h2 class="anchored" data-anchor-id="伴随矩阵">伴随矩阵</h2>
+<p><strong>伴随矩阵</strong>： 伴随矩阵是与原矩阵密切相关的一个矩阵，它由原矩阵的代数余子式构成。对于一个 n 阶方阵 <span class="math inline">\(A\)</span>，其伴随矩阵记作 <span class="math inline">\(adj(A)\)</span>，它的每个元素 <span class="math inline">\(a_{ij}\)</span> 都是由原矩阵 <span class="math inline">\(A\)</span> 的代数余子式 <span class="math inline">\(C_{ij}\)</span> 替换得到的。具体来说，伴随矩阵的第 <span class="math inline">\(i\)</span> 行第 <span class="math inline">\(j\)</span> 列的元素是原矩阵第 <span class="math inline">\(j\)</span> 行第 <span class="math inline">\(i\)</span> 列的代数余子式，即 <span class="math inline">\(adj(A)_{ij} = C_{ji}\)</span>。</p>
+<p>伴随矩阵与原矩阵的行列式之间有如下关系：</p>
+<p><span class="math display">\[
+A \cdot adj(A) = \det(A) \cdot I
+\]</span></p>
+<p>其中，<span class="math inline">\(I\)</span> 是单位矩阵，<span class="math inline">\(\det(A)\)</span> 是矩阵 <span class="math inline">\(A\)</span> 的行列式。这个关系表明，伴随矩阵可以用于计算矩阵的逆，当 <span class="math inline">\(\det(A) \neq 0\)</span> 时，矩阵 <span class="math inline">\(A\)</span> 可逆，且其逆矩阵 <span class="math inline">\(A^{-1}\)</span> 可以通过伴随矩阵来计算：</p>
+<p><span class="math display">\[
+A^{-1} = \frac{1}{\det(A)} \cdot adj(A)
+\]</span></p>
+</section>
+<section id="矩阵的秩" class="level2">
+<h2 class="anchored" data-anchor-id="矩阵的秩">矩阵的秩</h2>
+<p>矩阵的秩（Rank）可以通过其最高阶非零子式来定义。设 <span class="math inline">\(A\)</span> 是一个 <span class="math inline">\(m \times n\)</span> 的矩阵。矩阵的秩是 <span class="math inline">\(A\)</span> 中阶数最大的非零子式的阶数。具体定义如下：</p>
+<p>设 <span class="math inline">\(A\)</span> 是一个 <span class="math inline">\(m \times n\)</span> 的矩阵，若 <span class="math inline">\(A\)</span> 中存在一个 <span class="math inline">\(k \times k\)</span> 的子矩阵（即从 <span class="math inline">\(A\)</span> 中取出 <span class="math inline">\(k\)</span> 行 <span class="math inline">\(k\)</span> 列构成的子矩阵）的行列式不为零，但所有 <span class="math inline">\(k+1 \times k+1\)</span> 的子矩阵的行列式均为零，则称矩阵 <span class="math inline">\(A\)</span> 的秩为 <span class="math inline">\(k\)</span>。</p>
+<p>换句话说： <span class="math display">\[
+\text{rank}(A) = k
+\]</span> 其中 <span class="math inline">\(k\)</span> 是满足矩阵 <span class="math inline">\(A\)</span> 中存在 <span class="math inline">\(k \times k\)</span> 非零行列式的最大整数。</p>
+<p><strong>行阶梯矩阵（Row Echelon Matrix）</strong>： 行阶梯型矩阵是一种特殊形式的矩阵，它满足以下条件：</p>
+<ul>
+<li>所有零行（全为零的行）都排在非零行的下面。</li>
+<li>每一非零行的首个非零元素（称为主元）位于其前一行的主元的右边。</li>
+</ul>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 2 &amp; 0 &amp; 3 \\
+0 &amp; 1 &amp; 4 &amp; 5 \\
+0 &amp; 0 &amp; 0 &amp; 6 \\
+0 &amp; 0 &amp; 0 &amp; 0 \\
+\end{bmatrix}
+\]</span></p>
+<p><strong>行最简形矩阵（Reduced Row Echelon Form, RREF）</strong>： 行最简形矩阵（Reduced Row Echelon Form, RREF）是行阶梯矩阵的进一步简化形式，满足以下条件：</p>
+<ul>
+<li>它是一个行阶梯矩阵。</li>
+<li>每个主元所在列的其他元素均为零。</li>
+<li>每个主元为1。</li>
+</ul>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; 2 &amp; 0 \\
+0 &amp; 1 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 0 \\
+\end{bmatrix}
+\]</span></p>
+<p><strong>初等变化不改变矩阵的秩，将矩阵经过初等变换为最简形矩阵可用于求矩阵的秩</strong></p>
+</section>
+<section id="线性方程组的矩阵抽象" class="level2">
+<h2 class="anchored" data-anchor-id="线性方程组的矩阵抽象">线性方程组的矩阵抽象</h2>
+<p><strong>克莱姆法则（Cramer’s Rule）</strong>: 克莱姆法则是一种用行列式求解线性方程组的方法。假设我们有一个线性方程组：</p>
+<p><span class="math display">\[
+\begin{cases}
+a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\
+a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\
+\vdots \\
+a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n
+\end{cases}
+\]</span></p>
+<p>我们可以将其表示为矩阵形式：</p>
+<p><span class="math display">\[
+A \mathbf{x} = \mathbf{b}
+\]</span></p>
+<p>其中，<span class="math inline">\(A\)</span> 是系数矩阵，<span class="math inline">\(\mathbf{x}\)</span> 是未知数向量，<span class="math inline">\(\mathbf{b}\)</span> 是常数向量：</p>
+<p><span class="math display">\[
+A = \begin{bmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}
+\end{bmatrix},
+\quad
+\mathbf{x} = \begin{bmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n
+\end{bmatrix},
+\quad
+\mathbf{b} = \begin{bmatrix}
+b_1 \\
+b_2 \\
+\vdots \\
+b_n
+\end{bmatrix}
+\]</span></p>
+<p>克莱姆法则指出，如果行列式 <span class="math inline">\(\text{det}(A) \neq 0\)</span>，那么线性方程组有唯一解，每个未知数 <span class="math inline">\(x_i\)</span> 的解可以通过以下公式求得：</p>
+<p><span class="math display">\[
+x_i = \frac{\text{det}(A_i)}{\text{det}(A)}
+\]</span></p>
+<p>其中，矩阵 <span class="math inline">\(A_i\)</span> 是将矩阵 <span class="math inline">\(A\)</span> 的第 <span class="math inline">\(i\)</span> 列替换为向量 <span class="math inline">\(\mathbf{b}\)</span> 后得到的矩阵。</p>
+<p>对于非齐次线性方程组 $ A = $，其解的判定如下：</p>
+<ul>
+<li>如果 <span class="math inline">\(\det(A) \neq 0\)</span>, 则方程组有唯一解。</li>
+<li>如果 <span class="math inline">\(\det(A) = 0\)</span>，则方程组有无穷多解，或者无解。</li>
+</ul>
+<p>对于齐次线性方程组 $ A = $，其解的判定如下：</p>
+<ul>
+<li>如果 <span class="math inline">\(\det(A) \neq 0\)</span> 则方程组只有零解。</li>
+<li>如果 <span class="math inline">\(\det(A) = 0\)</span> ，则方程组有无穷多非零解。</li>
+</ul>
+<p><strong>利用初等行变换解线性方程组</strong>：对于增广矩阵的初等行变换本质就是高斯消元法的抽象，得到最终的线性方程组。</p>
+<p>对于非齐次线性方程组 $ A = $，其解的判定如下：</p>
+<ul>
+<li>如果 $ (A) = ([A|]) = n $，其中 $ n $ 是方程组的未知数个数，则方程组有唯一解。</li>
+<li>如果 $ (A) = ([A|]) &lt; n $，则方程组有无穷多解。</li>
+<li>如果 $ (A) ([A|]) $，则方程组无解。</li>
+</ul>
+<p>对于齐次线性方程组 $ A = $，其解的判定如下：</p>
+<ul>
+<li>如果 $ (A) = n $，其中 $ n $ 是方程组的未知数个数，则方程组只有零解。</li>
+<li>如果 $ (A) &lt; n $，则方程组有无穷多非零解。</li>
+</ul>
+</section>
+<section id="几何直观" class="level2">
+<h2 class="anchored" data-anchor-id="几何直观">几何直观</h2>
+<p><strong>向量</strong> 一个向量完全由其基向量以及各基向量方向上的标量决定，例如向量<span class="math inline">\(\alpha = [a, b]\)</span>, 表示其在两个基 <span class="math inline">\(i, j\)</span> 的倍数。</p>
+<p><strong>矩阵</strong> 一个矩阵代表了空间的变化，为了确定一个向量在变换后的位置，只需要追踪基向量的位置。实际上矩阵<span class="math inline">\(A = [e_1|e2]\)</span>的每个列向量<span class="math inline">\(e_1, e2\)</span>就是变换后的基向量。将每个基向量<span class="math inline">\(e_1, e2\)</span>乘以原向量<span class="math inline">\(\alpha\)</span>每个方向上的标量，再加起来就得到变换后的向量<span class="math inline">\(\beta\)</span>.</p>
+<p><strong>初等变换</strong> 向量的线性组合，重新组合后的向量仍然在同一向量空间。</p>
+<p><span class="math inline">\(\beta = ae_1 + be_2\)</span></p>
+<p><strong>行列式</strong> 行列式的几何含义空间变换以后由基向量所张成空间的变化比例。<span class="math inline">\(|A| = 0\)</span>，则说明<span class="math inline">\(A\)</span>并不是满秩的，会造成空间的降维，其行列式为0，且由于发生了空间的坍缩，由低维空间返回到原高维空间是不可能得，即其逆变换不存在，即<span class="math inline">\(A^{-1}\)</span>不存在。所以实际上行列式，秩，是对矩阵所张成空间的维度的不同角度的描述。</p>
+</section>
+</section>
+<section id="向量以及向量空间" class="level1">
+<h1>向量以及向量空间</h1>
+<section id="定义以及定理" class="level2">
+<h2 class="anchored" data-anchor-id="定义以及定理">定义以及定理</h2>
+<p><strong>线性组合</strong>：线性组合是指通过对向量进行加权求和得到一个新的向量。假设有向量 <span class="math inline">\(\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\)</span> 和系数 <span class="math inline">\(c_1, c_2, \ldots, c_n\)</span>，它们的线性组合表示为：</p>
+<p><span class="math display">\[\mathbf{v} = c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \cdots + c_n \mathbf{v}_n\]</span></p>
+<p><strong>线性表示</strong>：线性表示是指一个向量可以表示为其他向量的线性组合。假设向量 <span class="math inline">\(\mathbf{v}\)</span> 可以表示为向量 <span class="math inline">\(\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\)</span> 的线性组合，则有：</p>
+<p><span class="math display">\[\mathbf{v} = c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \cdots + c_n \mathbf{v}_n\]</span></p>
+<p><strong>线性相关:</strong> 一组向量 <span class="math inline">\(\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}\)</span> 被称为线性相关，如果存在一组不全为零的标量 <span class="math inline">\(c_1, c_2, \ldots, c_n\)</span>，使得这些向量的线性组合为零向量：</p>
+<p><span class="math display">\[c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \cdots + c_n \mathbf{v}_n = \mathbf{0}\]</span></p>
+<p>换句话说，如果至少有一个向量可以表示为其他向量的线性组合，则这些向量是线性相关的。对应于齐次方程组有非零解。</p>
+<p><strong>线性无关</strong>：一组向量 <span class="math inline">\(\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}\)</span> 被称为线性无关，如果只有当所有标量 <span class="math inline">\(c_1, c_2, \ldots, c_n\)</span> 均为零时，这些向量的线性组合才为零向量：</p>
+<p><span class="math display">\[c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \cdots + c_n \mathbf{v}_n = \mathbf{0} \implies c_1 = c_2 = \cdots = c_n = 0\]</span></p>
+<p>换句话说，任何一个向量都不能表示为其他向量的线性组合，则这些向量是线性无关的。对应于齐次方程组只有零解。</p>
+<p>假设我们有一组线性无关的向量 <span class="math inline">\(\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}\)</span>。这些向量的线性组合只有在所有系数都为零时，才会等于零向量：</p>
+<p><span class="math display">\[c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \cdots + c_n \mathbf{v}_n = \mathbf{0} \implies c_1 = c_2 = \cdots = c_n = 0\]</span></p>
+<p>现在，假设我们引入一个新向量 <span class="math inline">\(\mathbf{u}\)</span>。如果将这个新向量加到上述向量组中后变得线性相关，则有：</p>
+<p><span class="math display">\[c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \cdots + c_n \mathbf{v}_n + c_{n+1} \mathbf{u} = \mathbf{0}\]</span></p>
+<p>并且存在不全为零的系数 <span class="math inline">\(c_1, c_2, \ldots, c_n, c_{n+1}\)</span> 使得上式成立。</p>
+<p>由于 <span class="math inline">\(\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}\)</span> 是线性无关的，<strong>因此 <span class="math inline">\(\mathbf{u}\)</span> 可以唯一地表示为这些向量的线性组合</strong>。</p>
+<p><strong>向量组的部分与整体定理</strong>：整体线性无关，那么部分线性无关；部分线性相关，那么整体线性相关。</p>
+<p><strong>向量组的伸长与缩短定理</strong>：短线性无关，那么长线性无关；长线性相关关，那么短线性相关。</p>
+<p><strong>极大无关组与向量组的秩</strong>：向量组中无关向量的数量，数量上等于矩阵的秩。</p>
+<p><strong>等价向量组</strong>：向量组与它的任意极大无关组等价。</p>
+<p><strong>向量组的秩与向量组的线性表示定理</strong>： 如果向量组 <span class="math inline">\(\alpha_1, \alpha_2 ...\)</span> , 可由向量组 <span class="math inline">\(\beta_1, \beta_2 ..\)</span> 表示，那么 <span class="math inline">\(rank(B) &gt;= rank(A)\)</span> .</p>
+<p><strong>向量空间</strong>: 是一个由向量构成的集合，这个集合对于向量的加法和标量乘法是封闭的。更正式地说，一个集合 <span class="math inline">\(V\)</span> 配备了一对操作：加法（记作 <span class="math inline">\(+\)</span>）和标量乘法（记作 <span class="math inline">\(\cdot\)</span>），如果满足以下性质，则称 <span class="math inline">\(V\)</span> 为一个向量空间：</p>
+<ol type="1">
+<li><strong>封闭性</strong>：对于所有 <span class="math inline">\(\mathbf{u}, \mathbf{v} \in V\)</span>，有 <span class="math inline">\(\mathbf{u} + \mathbf{v} \in V\)</span> 和 <span class="math inline">\(c \cdot \mathbf{u} \in V\)</span>，其中 <span class="math inline">\(c\)</span> 是任意标量。</li>
+<li><strong>结合律</strong>：对于所有 <span class="math inline">\(\mathbf{u}, \mathbf{v}, \mathbf{w} \in V\)</span>，有 <span class="math inline">\((\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})\)</span>。</li>
+<li><strong>交换律</strong>：对于所有 <span class="math inline">\(\mathbf{u}, \mathbf{v} \in V\)</span>，有 <span class="math inline">\(\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}\)</span>。</li>
+<li><strong>存在零向量</strong>：存在一个向量 <span class="math inline">\(\mathbf{0} \in V\)</span>，使得对于所有 <span class="math inline">\(\mathbf{v} \in V\)</span>，有 <span class="math inline">\(\mathbf{v} + \mathbf{0} = \mathbf{v}\)</span>。</li>
+<li><strong>存在加法的逆元</strong>：对于每个 <span class="math inline">\(\mathbf{v} \in V\)</span>，存在一个向量 <span class="math inline">\(-\mathbf{v} \in V\)</span>，使得 <span class="math inline">\(\mathbf{v} + (-\mathbf{v}) = \mathbf{0}\)</span>。</li>
+<li><strong>标量乘法的分配律</strong>：对于所有 <span class="math inline">\(c, d\)</span> 是标量，和所有 <span class="math inline">\(\mathbf{u}, \mathbf{v} \in V\)</span>，有 <span class="math inline">\(c \cdot (\mathbf{u} + \mathbf{v}) = c \cdot \mathbf{u} + c \cdot \mathbf{v}\)</span> 和 <span class="math inline">\((c + d) \cdot \mathbf{u} = c \cdot \mathbf{u} + d \cdot \mathbf{u}\)</span>。</li>
+<li><strong>标量乘法的单位元</strong>：对于所有 <span class="math inline">\(\mathbf{v} \in V\)</span>，有 <span class="math inline">\(1 \cdot \mathbf{v} = \mathbf{v}\)</span>，其中 <span class="math inline">\(1\)</span> 是标量乘法的单位元。</li>
+</ol>
+<p><strong>向量在基下的坐标:</strong> 在向量空间中，一个向量 <span class="math inline">\(\mathbf{v}\)</span> 可以通过基 <span class="math inline">\(\{\mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n\}\)</span> 下的坐标来唯一表示。如果 <span class="math inline">\(\mathbf{v}\)</span> 可以表示为基向量的线性组合，那么存在一组系数 <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> 使得：</p>
+<p><span class="math display">\[\mathbf{v} = x_1 \mathbf{e}_1 + x_2 \mathbf{e}_2 + \cdots + x_n \mathbf{e}_n\]</span></p>
+<p>系数 <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> 就是向量 <span class="math inline">\(\mathbf{v}\)</span> 在基 <span class="math inline">\(\{\mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n\}\)</span> 下的坐标。</p>
+<p><strong>过渡矩阵</strong>: 过渡矩阵是一个与基变换相关的矩阵。如果有两组基 <span class="math inline">\(\{\mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n\}\)</span> 和 <span class="math inline">\(\{\mathbf{f}_1, \mathbf{f}_2, \ldots, \mathbf{f}_n\}\)</span>，过渡矩阵 <span class="math inline">\(P\)</span> 是一个矩阵，它的列是第二个基向量在第一个基下的坐标。如果 <span class="math inline">\(\mathbf{f}_i\)</span> 在基 <span class="math inline">\(\{\mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n\}\)</span> 下的坐标是列向量 <span class="math inline">\(\mathbf{p}_i\)</span>，那么过渡矩阵 <span class="math inline">\(P\)</span> 可以表示为：</p>
+<p><span class="math display">\[P = [\mathbf{p}_1 | \mathbf{p}_2 | \ldots | \mathbf{p}_n]\]</span></p>
+<p>过渡矩阵可以用来转换一个向量在两个基下的坐标。</p>
+<p><strong>向量的内积</strong>: 两个向量 <span class="math inline">\(\mathbf{u}\)</span> 和 <span class="math inline">\(\mathbf{v}\)</span> 的内积（点积）是一个标量，定义为：</p>
+<p><span class="math display">\[\mathbf{u} \cdot \mathbf{v} = u_1v_1 + u_2v_2 + \cdots + u_nv_n\]</span></p>
+<p>内积也可以表示为：</p>
+<p><span class="math display">\[\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \|\mathbf{v}\| \cos \theta\]</span></p>
+<p>其中 <span class="math inline">\(\theta\)</span> 是向量 <span class="math inline">\(\mathbf{u}\)</span> 和 <span class="math inline">\(\mathbf{v}\)</span> 之间的夹角。</p>
+<p><strong>向量的长度（范数）</strong>: 向量 <span class="math inline">\(\mathbf{v}\)</span> 的长度或范数是向量的内积的平方根，通常指欧几里得范数：</p>
+<p><span class="math display">\[\|\mathbf{v}\| = \sqrt{\mathbf{v} \cdot \mathbf{v}} = \sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}\]</span></p>
+<p><strong>向量的夹角</strong>: 两个非零向量 <span class="math inline">\(\mathbf{u}\)</span> 和 <span class="math inline">\(\mathbf{v}\)</span> 之间的夹角 <span class="math inline">\(\theta\)</span> 可以通过它们的内积和范数来计算：</p>
+<p><span class="math display">\[\cos \theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|}\]</span></p>
+<p><strong>正交基</strong>: 如果一组基向量中的任意两个都是正交的，即它们的内积为零，那么这组基称为正交基。对于正交基 <span class="math inline">\(\{\mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n\}\)</span>，满足：</p>
+<p><span class="math display">\[\mathbf{e}_i \cdot \mathbf{e}_j = 0 \quad \text{for } i \neq j\]</span></p>
+<p><strong>标准正交基</strong>: 如果正交基中的每个基向量的长度都是 1，那么这组基称为标准正交基。对于标准正交基 <span class="math inline">\(\{\mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n\}\)</span>，满足：</p>
+<p><span class="math display">\[\mathbf{e}_i \cdot \mathbf{e}_j = \delta_{ij}\]</span></p>
+<p>其中 <span class="math inline">\(\delta_{ij}\)</span> 是克罗内克 delta 函数。</p>
+<p><strong>正交矩阵</strong>：正交矩阵是一个方阵，其列向量构成一个标准正交基。对于一个 <span class="math inline">\(n \times n\)</span> 的正交矩阵 <span class="math inline">\(Q\)</span>，<span class="math inline">\(Q^TQ = E\)</span> ;它满足以下条件：</p>
+<ol type="1">
+<li><p>列向量是线性无关的。</p></li>
+<li><p>列向量的长度都是 1。</p></li>
+<li><p>列向量与自身正交，即对于任意两个不同的列向量 <span class="math inline">\(\mathbf{q}_i\)</span> 和 <span class="math inline">\(\mathbf{q}_j\)</span>（<span class="math inline">\(i \neq j\)</span>），满足：</p>
+<p><span class="math display">\[
+\mathbf{q}_i \cdot \mathbf{q}_j = \delta_{ij}
+\]</span></p></li>
+</ol>
+<p>其中 <span class="math inline">\(\delta_{ij}\)</span> 是克罗内克 delta 函数。</p>
+<p><strong>正交矩阵的性质</strong>:</p>
+<ul>
+<li>正交矩阵上标运算也是正交矩阵。</li>
+<li>正交矩阵的转置等于其逆矩阵，即 <span class="math inline">\(Q^T = Q^{-1}\)</span>。</li>
+<li>正交矩阵的列向量构成标准正交基，因此其列向量的内积都是单位矩阵 <span class="math inline">\(I\)</span>。</li>
+<li>正交矩阵的行列式等于 ±1，即 <span class="math inline">\(det(Q) = \pm 1\)</span>。</li>
+<li>正交矩阵的奇异值都是 1 或 -1。</li>
+<li>正交矩阵的特征值是 ±1。</li>
+</ul>
+</section>
+<section id="向量空间下的线性方程组" class="level2">
+<h2 class="anchored" data-anchor-id="向量空间下的线性方程组">向量空间下的线性方程组</h2>
+<p><strong>方程组表示 (System of Equations)</strong>: 线性方程组可以直接以方程的形式表示。假设有 <span class="math inline">\(n\)</span> 个方程和 <span class="math inline">\(m\)</span> 个未知数 <span class="math inline">\(x_1, x_2, \ldots, x_m\)</span>，方程组形式如下：</p>
+<p><span class="math display">\[
+\begin{cases}
+a_{11} x_1 + a_{12} x_2 + \cdots + a_{1m} x_m = b_1 \\
+a_{21} x_1 + a_{22} x_2 + \cdots + a_{2m} x_m = b_2 \\
+\vdots \\
+a_{n1} x_1 + a_{n2} x_2 + \cdots + a_{nm} x_m = b_n \\
+\end{cases}
+\]</span></p>
+<p><strong>矩阵表示 (Matrix Form)</strong>: 使用矩阵表示，可以将上述线性方程组表示为：</p>
+<p><span class="math display">\[ A \mathbf{x} = \mathbf{b} \]</span></p>
+<p>其中，矩阵 <span class="math inline">\(A\)</span> 和向量 <span class="math inline">\(\mathbf{x}\)</span>、<span class="math inline">\(\mathbf{b}\)</span> 分别为：</p>
+<p><span class="math display">\[ A = \begin{pmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1m} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2m} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nm}
+\end{pmatrix},
+\quad
+\mathbf{x} = \begin{pmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_m
+\end{pmatrix},
+\quad
+\mathbf{b} = \begin{pmatrix}
+b_1 \\
+b_2 \\
+\vdots \\
+b_n
+\end{pmatrix}
+\]</span></p>
+<p><strong>向量表示 (Vector Form)</strong>: 向量表示法强调线性组合的观点，可以写成：</p>
+<p><span class="math display">\[ a_{1} \mathbf{x}_1 + a_{2} \mathbf{x}_2 + \cdots + a_{m} \mathbf{x}_m = \mathbf{b} \]</span></p>
+<p>其中 <span class="math inline">\(a_{i}\)</span> 表示向量 $ _i $ 的系数。</p>
+</section>
+<section id="齐次方程组的解" class="level2">
+<h2 class="anchored" data-anchor-id="齐次方程组的解">齐次方程组的解</h2>
+<p>齐次方程组是由线性方程组成的方程组，其形式如下：</p>
+<p><span class="math display">\[Ax = 0\]</span></p>
+<p>假设 <span class="math inline">\(\xi_1\)</span> , <span class="math inline">\(\xi_2\)</span> 是其解向量， 那么 <span class="math inline">\(k\xi_1\)</span>, <span class="math inline">\(\xi_1 + \xi_2\)</span>, <span class="math inline">\(k\xi_1 + k\xi_2\)</span>也是其解向量, 这些所有的向量构成解空间，其中任意一组解称为其基础解系，也就是解空间的一组基。</p>
+<p>其中 <span class="math inline">\(A\)</span> 是一个 <span class="math inline">\(m \times n\)</span> 的矩阵，<span class="math inline">\(x\)</span> 是一个 <span class="math inline">\(n \times 1\)</span> 的列向量。齐次方程组的通解是指满足方程组的解的集合。对于齐次方程组，如果 <span class="math inline">\(A\)</span> 的秩 <span class="math inline">\(r(A) &lt; n\)</span>，则齐次方程组有非零解。这些解可以表示为 <span class="math inline">\(A\)</span> 的零空间的基向量的线性组合，其解的向量个数为 <span class="math inline">\(n - r(A)\)</span> 即：</p>
+<p><span class="math display">\[x = c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \cdots + c_k \mathbf{v}_k\]</span></p>
+<p>其中 <span class="math inline">\(c_1, c_2, \ldots, c_k\)</span> 是任意常数，<span class="math inline">\(\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_k\)</span> 是 <span class="math inline">\(A\)</span> 的零空间的基向量。</p>
+</section>
+<section id="非齐次方程组的通解" class="level2">
+<h2 class="anchored" data-anchor-id="非齐次方程组的通解">非齐次方程组的通解</h2>
+<p><strong>导出组</strong>： 非齐次方程组对应的齐次方程组。</p>
+<ul>
+<li><p>若 <span class="math inline">\(\epsilon_1, \epsilon_2\)</span> 是 非齐次方程组的两个解， 则 <span class="math inline">\(\epsilon_1 - \epsilon_2\)</span> 是其导出组 <span class="math inline">\(Ax = 0\)</span> 的解。</p></li>
+<li><p>若 <span class="math inline">\(\epsilon\)</span> 是非齐次线性方程组 <span class="math inline">\(Ax = b\)</span>的的解， <span class="math inline">\(\psi\)</span> 是其导出组的解， 那么 <span class="math inline">\(n + \psi\)</span> 是 <span class="math inline">\(Ax=b\)</span> 的解。</p></li>
+</ul>
+<p>非齐次方程组是由线性方程组成的方程组，其形式如下：</p>
+<p><span class="math display">\[Ax = b\]</span></p>
+<p>其中 <span class="math inline">\(A\)</span> 是一个 <span class="math inline">\(m \times n\)</span> 的矩阵，<span class="math inline">\(x\)</span> 是一个 <span class="math inline">\(n \times 1\)</span> 的列向量，<span class="math inline">\(b\)</span> 是一个 <span class="math inline">\(m \times 1\)</span> 的列向量。非齐次方程组的通解是指满足方程组的解的集合。对于非齐次方程组，如果 <span class="math inline">\(A\)</span> 的秩 <span class="math inline">\(r(A) = n\)</span>，则方程组有唯一解。这个解可以表示为 <span class="math inline">\(A\)</span> 的零空间的基向量的线性组合加上 <span class="math inline">\(A\)</span> 的零空间的补空间的基向量的线性组合，即：</p>
+<p><span class="math display">\[x = c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \cdots + c_k \mathbf{v}_k + d_1 \mathbf{w}_1 + d_2 \mathbf{w}_2 + \cdots + d_m \mathbf{w}_m\]</span></p>
+<p>其中 <span class="math inline">\(c_1, c_2, \ldots, c_k, d_1, d_2, \ldots, d_m\)</span> 是任意常数，<span class="math inline">\(\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_k\)</span> 是 <span class="math inline">\(A\)</span> 的零空间的基向量，<span class="math inline">\(\mathbf{w}_1, \mathbf{w}_2, \ldots, \mathbf{w}_m\)</span> 是 <span class="math inline">\(A\)</span> 的零空间的补空间的基向量。</p>
+<p>非齐次线性方程组的通解就是：导出组的通解 + 其一个特解。</p>
+</section>
+<section id="几何直观-1" class="level2">
+<h2 class="anchored" data-anchor-id="几何直观-1">几何直观</h2>
+<p><strong>向量</strong> 空间中有方向的箭头。</p>
+<p><strong>点积</strong> 向量<span class="math inline">\(\alpha\)</span>投影到<span class="math inline">\(\beta\)</span>上的长度与与向量<span class="math inline">\(\beta\)</span>长度的乘积。对于点积运算，向量总是对应一个对偶向量，其为<span class="math inline">\(\alpha^T\)</span>，也就是说点积也可以理解为向量<span class="math inline">\(beta\)</span>经过线性变换<span class="math inline">\(\alpha^T\)</span>后，压缩为一个一维的向量。如果<span class="math inline">\(||\alpha|| = 1\)</span>，则<span class="math inline">\(\alpha, \beta\)</span>的点积为<span class="math inline">\(beta\)</span>在单位基向量<span class="math inline">\(\alpha\)</span>的表示。这个应用在PCA等线性降维方法中。</p>
+</section>
+</section>
+<section id="矩阵变换" class="level1">
+<h1>矩阵变换</h1>
+<section id="特征值eigenvalues特征向量eigenvectors" class="level2">
+<h2 class="anchored" data-anchor-id="特征值eigenvalues特征向量eigenvectors">特征值（Eigenvalues）特征向量（Eigenvectors）</h2>
+<p><strong>特征值</strong>是线性代数中矩阵理论的一个基本概念。对于一个给定的方阵 <span class="math inline">\(A\)</span>，特征值是满足方程 <span class="math inline">\(Av = \lambda v\)</span> 的数 <span class="math inline">\(\lambda\)</span>，其中 <span class="math inline">\(v\)</span> 是非零向量，称为特征向量。特征值揭示了矩阵的某些代数属性，比如矩阵的行列式和迹（对角线元素之和）与特征值有关。</p>
+<p><strong>特征向量</strong> 是与特征值相关联的非零向量，它表示了矩阵 <span class="math inline">\(A\)</span> 在某个方向上的拉伸或压缩的比例。当一个矩阵作用在它的特征向量上时，结果是该特征向量的标量倍，这个标量就是相应的特征值。</p>
+<p>由定义可得：</p>
+<p><span class="math display">\[(A - \lambda E)v = 0\]</span></p>
+<p>由特征值的的定义，$v $, 则该齐次方程组有非零解，即 <span class="math inline">\(|A - \lambda E| = 0\)</span>, 可求得特征值，将特征值代入 <span class="math inline">\((A - \lambda E)v = 0\)</span> 即可得到该特征值对应的特征向量。</p>
+<p><strong>关于特征值的定理</strong>：</p>
+<ul>
+<li>特征值的和等于矩阵的迹 <span class="math inline">\(tr(A)\)</span> 。</li>
+<li>特征值的积等于矩阵行列式。</li>
+<li>考虑一个变换 <span class="math inline">\(f\)</span> 其作用于矩阵 <span class="math inline">\(A\)</span>, 那么其对应的特征值有同样的变换，但是 <span class="math inline">\(f(\lambda)\)</span> 对应的特征向量不变。</li>
+<li>矩阵互不相等的特征值对应的特征向量是线性无关的。</li>
+<li>几何重数不大于代数重数。</li>
+<li>转置矩阵的特征值相等。</li>
+<li>若n阶矩阵 <span class="math inline">\(g(A) = 0\)</span>， 那么其所有特征值 <span class="math inline">\(g(\lambda) = 0\)</span></li>
+</ul>
+<p><strong>关于实对称矩阵特征值的定理</strong>：</p>
+<ul>
+<li>不同特征值对应特征向量两两正交。</li>
+<li>几何重数等于其代数重数。</li>
+</ul>
+</section>
+<section id="相似矩阵-矩阵对角相似化" class="level2">
+<h2 class="anchored" data-anchor-id="相似矩阵-矩阵对角相似化">相似矩阵 矩阵对角相似化</h2>
+<p><strong>矩阵 <span class="math inline">\(A\)</span> 与 <span class="math inline">\(B\)</span> 相似</strong> 定义为:</p>
+<p><span class="math display">\[B = P^{-1}AP\]</span></p>
+<p><strong>相似矩阵的性质</strong>：</p>
+<ul>
+<li><span class="math inline">\(A\)</span> 与 <span class="math inline">\(B\)</span> 等价。</li>
+<li><span class="math inline">\(R(A) = R(B)\)</span></li>
+<li><span class="math inline">\(determinant(A) = determinant(B)\)</span></li>
+<li><span class="math inline">\(|A| = |B|\)</span></li>
+<li><span class="math inline">\(tr(A) = tr(B)\)</span></li>
+<li><span class="math inline">\(f(A) ~ f(B)\)</span></li>
+</ul>
+<p><strong>相似对角化</strong> 将矩阵 <span class="math inline">\(A\)</span> 与 一个对角矩阵 <span class="math inline">\(\Lambda\)</span> 进行相似。实际上， 对于形如 <span class="math inline">\(P^{-1}AP\)</span> 的矩阵变化或者相似的过程，其几何含义为将 <span class="math inline">\(A\)</span> 所表示的线性变化 转换为以矩阵 <span class="math inline">\(P\)</span> 的列向量的为基向量的坐标系下的线性变化。相似矩阵为同一线性变化在不同基下的描述。特别地，为了得到与 <span class="math inline">\(\Lambda\)</span> 的相似，那么选择<span class="math inline">\(A\)</span>的特征向量构成的基，则该线性变化在特征基的描述下即为对角矩阵。</p>
+<p><span class="math display">\[P^{-1}AP = \Lambda\]</span></p>
+<p><strong>相似对角化充要条件</strong>：</p>
+<ul>
+<li>n个线性无关的特征向量</li>
+<li>代数重数等于几何重数。</li>
+</ul>
+<p><strong>求解</strong>：矩阵<span class="math inline">\(P\)</span>就是<span class="math inline">\(A\)</span>的特征向量按列构成的矩阵。</p>
+<p><strong>实对称矩阵的相似对角化</strong>，对于实对称矩阵<span class="math inline">\(A\)</span>，总可以找到其正交的特征向量，并将其单位化为正交矩阵 <span class="math inline">\(Q\)</span>，使得其相似对角化：</p>
+<p><span class="math inline">\(Q^{-1}AQ = \Lambda \rightarrow Q^{T}AQ = \Lambda\)</span></p>
+</section>
+<section id="二次型" class="level2">
+<h2 class="anchored" data-anchor-id="二次型">二次型</h2>
+<p><strong>二次型</strong>定义为二次多项式函数的矩阵形式，其中<span class="math inline">\(A\)</span>为实对称矩阵。</p>
+<p><span class="math display">\[
+f = x^TAx
+\]</span></p>
+<p><strong>合同矩阵</strong> 对于合同矩阵，矩阵<span class="math inline">\(A\)</span>实际上为一个 <span class="math inline">\((0, 2)\)</span>的张量，其是空间或流形几何一个量，称之为度规，形如<span class="math inline">\(C^TAC\)</span>的形式实际上是将某个度规，转化为以矩阵<span class="math inline">\(C\)</span>的列向量为基的坐标下的描述。而对于二次型而言，该矩阵为实对称矩阵， 形似上其相似与合同一致。</p>
+<p><span class="math inline">\(B = C^TAC\)</span></p>
+<p><strong>二次型化为标准形</strong>：</p>
+<ul>
+<li>令 <span class="math inline">\(x = Cy\)</span>, 则 <span class="math inline">\(x^TAx = y^TQ^TAQy\)</span>，其中矩阵<span class="math inline">\(c\)</span>为特征向量对应的单位特征向量。(实际上为相似对角化的过程， 实对称矩阵的相似和合同一致)</li>
+<li>配方法。</li>
+</ul>
+<p><strong>惯性定理</strong>：无论怎样的可逆的线性变换使得其为标准二次型，其正，负平方项的个数一样。</p>
+<p><strong>正定（负定）矩阵</strong>：假设有二次型<span class="math inline">\(f\)</span>, 若<span class="math inline">\(f &gt; 0\)</span>， 则为正定矩阵 <span class="math inline">\(f &gt;= 0\)</span>则为负正定矩阵。</p>
+</section>
+<section id="几何直观-2" class="level2">
+<h2 class="anchored" data-anchor-id="几何直观-2">几何直观</h2>
+<p><strong>等价矩阵</strong> 对于形如<span class="math inline">\(PAQ = B\)</span>形式的变换，其中<span class="math inline">\(P, Q\)</span>为可逆矩阵。左乘一个可逆矩阵等价于进行初等行变换，右乘一个可逆矩阵等价于进行初等列变换。几何上，<span class="math inline">\(B\)</span>是<span class="math inline">\(A\)</span>经过初等变换得到的矩阵，两者等价意味着个矩阵所张成的行空间与列空间是等价的。</p>
+<p><strong>相似矩阵</strong> 对于形如 <span class="math inline">\(P^{-1}AP\)</span> 的矩阵变化或者相似的过程，其几何含义为将 <span class="math inline">\(A\)</span> 所表示的线性变化 转换为以矩阵 <span class="math inline">\(P\)</span> 的列向量的为基向量的坐标系下的线性变化。相似矩阵为同一线性变化在不同基下的描述。特别地，为了得到与 <span class="math inline">\(\Lambda\)</span> 的相似，那么选择<span class="math inline">\(A\)</span>的特征向量构成的基，则该线性变化在特征基的描述下即为对角矩阵。</p>
+<p><strong>合同矩阵</strong> 对于形如 <span class="math inline">\(P^TAP\)</span> 的形式，矩阵<span class="math inline">\(A\)</span>实际上为一个 <span class="math inline">\((0, 2)\)</span>的张量，其是空间或流形几何一个量，称之为度规，形如<span class="math inline">\(C^TAC\)</span>的形式实际上是将某个度规，转化为以矩阵<span class="math inline">\(C\)</span>的列向量为基的坐标下的描述。特别地，对于二次型而言，该矩阵为实对称矩阵， 形似上其相似与合同一致。</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/snowGlint\.github\.io\/doc\.cying\.org\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

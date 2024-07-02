@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.339">
+<meta name="generator" content="quarto-1.5.52">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>snow and rain - Note</title>
+<title>Note – snow and rain</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,12 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -61,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -96,8 +98,35 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -106,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
@@ -114,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -137,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -148,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -174,204 +203,230 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="NaN" data-listing-file-modified-sort="1712568234954" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="209">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1719792000000" data-listing-file-modified-sort="1719930018420" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1942">
 <div class="thumbnail">
-<p><a href="./note/2022-06-10-probability-distribution.qmd/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./note/2024-07-01-linear-algebra/index.html" class="no-external"></a></p><a href="./note/2024-07-01-linear-algebra/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./note/2024-07-01-linear-algebra/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./note/2022-06-10-probability-distribution.qmd/index.html">
 <h3 class="no-anchor listing-title">
-Probability distribution
+<a href="./note/2024-07-01-linear-algebra/index.html" class="no-external">线性代数</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./note/2024-07-01-linear-algebra/index.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-多重伯努利实验中，已知事件事件 <span class="math inline">\(A\)</span> 成功的概率为 <span class="math inline">\(p\)</span>，且实验次数 <span class="math inline">\(n\)</span> 固定 ，那么随机变量 <span class="math inline">\(X\)</span> —— 事件 <span class="math inline">\(A\)</span> 发生次数 <span class="math inline">\(X\)</span> ： <span class="math display">\[ P(X = k) = C_n^k p^k(1-p)^{n-k}, k = 0,1,...,n. \]</span> 记为：<span class="math display">\[X \sim b(n,p)\]</span> <span class="math display">\[E(X) =…</span><span class="math display"></span>
+<a href="./note/2024-07-01-linear-algebra/index.html" class="no-external">矩阵为矩形数表；</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./note/2022-06-10-probability-distribution.qmd/index.html">
+<a href="./note/2024-07-01-linear-algebra/index.html" class="no-external">
 <div class="listing-date">
-Invalid Date
+Jul 1, 2024
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="NaN" data-listing-file-modified-sort="1712568238190" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="532">
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1697328000000" data-listing-file-modified-sort="1719930018420" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="242">
 <div class="thumbnail">
-<p><a href="./note/2022-06-25-rna-seq/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./note/2023-10-15-data-transformation/index.html" class="no-external"></a></p><a href="./note/2023-10-15-data-transformation/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./note/2023-10-15-data-transformation/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./note/2022-06-25-rna-seq/index.html">
 <h3 class="no-anchor listing-title">
-RNA Seq
+<a href="./note/2023-10-15-data-transformation/index.html" class="no-external">数据变换技巧</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./note/2023-10-15-data-transformation/index.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-组学分析包括基因组学(全外显子组学，全基因组学)，转录组学（有参，无参），表观组学（chip-seq，甲基化等）。
+<a href="./note/2023-10-15-data-transformation/index.html" class="no-external"><strong>对数变换</strong>：即将原始数据<span class="math inline">\(X\)</span>的对数值作为新的分析数据：</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./note/2022-06-25-rna-seq/index.html">
+<a href="./note/2023-10-15-data-transformation/index.html" class="no-external">
 <div class="listing-date">
-Invalid Date
+Oct 15, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="NaN" data-listing-file-modified-sort="1712568240338" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="669">
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1696118400000" data-listing-file-modified-sort="1719930018420" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2472">
 <div class="thumbnail">
-<p><a href="./note/2022-07-10-cluster-algorithm/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./note/2023-10-01-hypothesis-test/index.html" class="no-external"></a></p><a href="./note/2023-10-01-hypothesis-test/index.html" class="no-external">
+<p class="card-img-top"><img src="note/2023-10-01-hypothesis-test/index_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./note/2023-10-01-hypothesis-test/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./note/2022-07-10-cluster-algorithm/index.html">
 <h3 class="no-anchor listing-title">
-Cluster algorithm
+<a href="./note/2023-10-01-hypothesis-test/index.html" class="no-external">Hypothesis Test</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./note/2023-10-01-hypothesis-test/index.html" class="no-external">假设检验实践</a>
 </div>
 <div class="listing-description">
-Note:该文章基本只是对几篇文章的整合，只有细微的细改，原文章在参考下。
+<a href="./note/2023-10-01-hypothesis-test/index.html" class="no-external">首先了解数据的频数分布，选用合适的集中以及离散趋势描述数据。</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./note/2022-07-10-cluster-algorithm/index.html">
+<a href="./note/2023-10-01-hypothesis-test/index.html" class="no-external">
 <div class="listing-date">
-Invalid Date
+Oct 1, 2023
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="NaN" data-listing-file-modified-sort="1712568242494" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2027">
+<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1665100800000" data-listing-file-modified-sort="1719930018420" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="314">
 <div class="thumbnail">
-<p><a href="./note/2022-07-17-statistics/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./note/2022-10-07-xgboost/index.html" class="no-external"></a></p><a href="./note/2022-10-07-xgboost/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./note/2022-10-07-xgboost/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./note/2022-07-17-statistics/index.html">
 <h3 class="no-anchor listing-title">
-Statistics
+<a href="./note/2022-10-07-xgboost/index.html" class="no-external">Xgboost</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./note/2022-10-07-xgboost/index.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-数据集中的描述： 均值与中位数，数据对称时均值与中位相等，均值向数据分布（右偏或左偏）偏离。
+<a href="./note/2022-10-07-xgboost/index.html" class="no-external">考虑一个二叉树，如何生长？最大化父节点的样本集合的损失值与其之下的两个子节点的样本集合损失值的差值。</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./note/2022-07-17-statistics/index.html">
+<a href="./note/2022-10-07-xgboost/index.html" class="no-external">
 <div class="listing-date">
-Invalid Date
+Oct 7, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="NaN" data-listing-file-modified-sort="1712568245090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="274">
+<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1660089600000" data-listing-file-modified-sort="1719930018420" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="274">
 <div class="thumbnail">
-<p><a href="./note/2022-08-10-linear-dimension-reduction/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./note/2022-08-10-linear-dimension-reduction/index.html" class="no-external"></a></p><a href="./note/2022-08-10-linear-dimension-reduction/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./note/2022-08-10-linear-dimension-reduction/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./note/2022-08-10-linear-dimension-reduction/index.html">
 <h3 class="no-anchor listing-title">
-Liner dimension reduction
+<a href="./note/2022-08-10-linear-dimension-reduction/index.html" class="no-external">Liner dimension reduction</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./note/2022-08-10-linear-dimension-reduction/index.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-线性降维方法主要就是<em>PCA(principal componet analysis)</em>以及<em>SVD(sigular value decomposition)</em>,以及<em>PCA</em>的扩展<em>MDS(Multtidimensional Scaling)</em>。<em>PCA</em>与<em>MDS</em>的差别在于<em>PCA</em>考虑的是样本的特征，寻求在低维空间下保留方差较大的特征的信息，所以通过对特征之间的协方…<em></em>
+<a href="./note/2022-08-10-linear-dimension-reduction/index.html" class="no-external">线性降维方法主要就是<em>PCA(principal componet analysis)</em>以及<em>SVD(sigular value decomposition)</em>,以及<em>PCA</em>的扩展<em>MDS(Multtidimensional Scaling)</em>。<em>PCA</em>与<em>MDS</em>的差别在于<em>PCA</em>考虑的是样本的特征，寻求在低维空间下保留方差较大的特征的信息，所以通过对特征之间的协方…<em></em></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./note/2022-08-10-linear-dimension-reduction/index.html">
+<a href="./note/2022-08-10-linear-dimension-reduction/index.html" class="no-external">
 <div class="listing-date">
-Invalid Date
+Aug 10, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="NaN" data-listing-file-modified-sort="1712568247522" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="314">
+<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1658016000000" data-listing-file-modified-sort="1719930018420" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2027">
 <div class="thumbnail">
-<p><a href="./note/2022-10-07-xgboost/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./note/2022-07-17-statistics/index.html" class="no-external"></a></p><a href="./note/2022-07-17-statistics/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./note/2022-07-17-statistics/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./note/2022-10-07-xgboost/index.html">
 <h3 class="no-anchor listing-title">
-Xgboost
+<a href="./note/2022-07-17-statistics/index.html" class="no-external">Statistics</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./note/2022-07-17-statistics/index.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-考虑一个二叉树，如何生长？最大化父节点的样本集合的损失值与其之下的两个子节点的样本集合损失值的差值。
+<a href="./note/2022-07-17-statistics/index.html" class="no-external">数据集中的描述： 均值与中位数，数据对称时均值与中位相等，均值向数据分布（右偏或左偏）偏离。</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./note/2022-10-07-xgboost/index.html">
+<a href="./note/2022-07-17-statistics/index.html" class="no-external">
 <div class="listing-date">
-Invalid Date
+Jul 17, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-listing-date-sort="NaN" data-listing-file-modified-sort="1712568250703" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2472">
+<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1657411200000" data-listing-file-modified-sort="1719930018420" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="669">
 <div class="thumbnail">
-<p><a href="./note/2023-10-01-hypothesis-test/index.html"> <p class="card-img-top"><img src="note\2023-10-01-hypothesis-test\index_files\figure-html\unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./note/2022-07-10-cluster-algorithm/index.html" class="no-external"></a></p><a href="./note/2022-07-10-cluster-algorithm/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./note/2022-07-10-cluster-algorithm/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./note/2023-10-01-hypothesis-test/index.html">
 <h3 class="no-anchor listing-title">
-Hypothesis Test
+<a href="./note/2022-07-10-cluster-algorithm/index.html" class="no-external">Cluster algorithm</a>
 </h3>
 <div class="listing-subtitle">
-假设检验实践
+<a href="./note/2022-07-10-cluster-algorithm/index.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-首先了解数据的频数分布，选用合适的集中以及离散趋势描述数据。
+<a href="./note/2022-07-10-cluster-algorithm/index.html" class="no-external">Note:该文章基本只是对几篇文章的整合，只有细微的细改，原文章在参考下。</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./note/2023-10-01-hypothesis-test/index.html">
+<a href="./note/2022-07-10-cluster-algorithm/index.html" class="no-external">
 <div class="listing-date">
-Invalid Date
+Jul 10, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-listing-date-sort="NaN" data-listing-file-modified-sort="1712568268207" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="242">
+<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1656115200000" data-listing-file-modified-sort="1719930018420" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="532">
 <div class="thumbnail">
-<p><a href="./note/2023-15-data-transformation/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./note/2022-06-25-rna-seq/index.html" class="no-external"></a></p><a href="./note/2022-06-25-rna-seq/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./note/2022-06-25-rna-seq/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./note/2023-15-data-transformation/index.html">
 <h3 class="no-anchor listing-title">
-数据变换技巧
+<a href="./note/2022-06-25-rna-seq/index.html" class="no-external">RNA Seq</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./note/2022-06-25-rna-seq/index.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<strong>对数变换</strong>：即将原始数据<span class="math inline">\(X\)</span>的对数值作为新的分析数据：
+<a href="./note/2022-06-25-rna-seq/index.html" class="no-external">组学分析包括基因组学(全外显子组学，全基因组学)，转录组学（有参，无参），表观组学（chip-seq，甲基化等）。</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./note/2022-06-25-rna-seq/index.html" class="no-external">
+<div class="listing-date">
+Jun 25, 2022
 </div>
 </a>
 </div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1654819200000" data-listing-file-modified-sort="1719930018420" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="209">
+<div class="thumbnail">
+<p><a href="./note/2022-06-10-probability-distribution.qmd/index.html" class="no-external"></a></p><a href="./note/2022-06-10-probability-distribution.qmd/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./note/2022-06-10-probability-distribution.qmd/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./note/2022-06-10-probability-distribution.qmd/index.html" class="no-external">Probability distribution</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./note/2022-06-10-probability-distribution.qmd/index.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./note/2022-06-10-probability-distribution.qmd/index.html" class="no-external">多重伯努利实验中，已知事件事件 <span class="math inline">\(A\)</span> 成功的概率为 <span class="math inline">\(p\)</span>，且实验次数 <span class="math inline">\(n\)</span> 固定 ，那么随机变量 <span class="math inline">\(X\)</span> —— 事件 <span class="math inline">\(A\)</span> 发生次数 <span class="math inline">\(X\)</span> ： <span class="math display">\[ P(X = k) = C_n^k p^k(1-p)^{n-k}, k = 0,1,...,n. \]</span> 记为：<span class="math display">\[X \sim b(n,p)\]</span> <span class="math display">\[E(X) =…</span><span class="math display"></span></a>
+</div>
+</div>
 <div class="metadata">
-<a href="./note/2023-15-data-transformation/index.html">
+<a href="./note/2022-06-10-probability-distribution.qmd/index.html" class="no-external">
 <div class="listing-date">
-Invalid Date
+Jun 10, 2022
 </div>
 </a>
 </div>
@@ -416,18 +471,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -459,7 +503,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/snowGlint\.github\.io\/doc\.cying\.org\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -494,7 +578,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -509,15 +597,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -526,7 +627,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -568,6 +677,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -643,7 +775,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
-        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);

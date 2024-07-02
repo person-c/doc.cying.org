@@ -1,264 +1,5 @@
 [
   {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
-    "section": "",
-    "text": "Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "note.html",
-    "href": "note.html",
-    "title": "Note",
-    "section": "",
-    "text": "Probability distribution\n\n\n\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\n\n\n\n\n  \n\n\n\n\nRNA Seq\n\n\n\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\n\n\n\n\n  \n\n\n\n\nCluster algorithm\n\n\n\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\n\n\n\n\n  \n\n\n\n\nStatistics\n\n\n\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\n\n\n\n\n  \n\n\n\n\nLiner dimension reduction\n\n\n\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\n\n\n\n\n  \n\n\n\n\nXgboost\n\n\n\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\n\n\n\n\n  \n\n\n\n\nHypothesis Test\n\n\n假设检验实践\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\n\n\n\n\n  \n\n\n\n\n数据变换技巧\n\n\n\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "note/2023-10-01-hypothesis-test/index.html#数值变量",
-    "href": "note/2023-10-01-hypothesis-test/index.html#数值变量",
-    "title": "Hypothesis Test",
-    "section": "数值变量",
-    "text": "数值变量\n频数分布图形： range / n 取整数。\n\n正态分布数据选用算术均值，方差/标准差/变异系数描述其分布。\n理论公式：\n计算公式：\n\n\n标准差，变异系数是同单位的。变异系数用于不同尺度，均值相差较大的数据。 方差/标准差/变异系数的计算都依赖于均值的计算。\n\n\n对数正态分布数据选用几何均值，全距/四分位数。\n理论公式：\n计算公式：\n任意其它分布选用中位数，全距/四分位数"
-  },
-  {
-    "objectID": "note/2023-10-01-hypothesis-test/index.html#分类变量",
-    "href": "note/2023-10-01-hypothesis-test/index.html#分类变量",
-    "title": "Hypothesis Test",
-    "section": "分类变量",
-    "text": "分类变量\n分类变量数据主要依赖于各种相对数描述，包括proportion, rate, ration.其中rate主要涉及到时间的概念。\n\n数据的标准化法 直接化法，按总人口统一人口数。 间接法， 每组死亡人数与预期死亡人数之比互相比较。\n动态数列 定基/环比，变化/增长（-1），平均发展速度，平均变化速度。"
-  },
-  {
-    "objectID": "note/2023-10-01-hypothesis-test/index.html#小于等于2个样本的情况",
-    "href": "note/2023-10-01-hypothesis-test/index.html#小于等于2个样本的情况",
-    "title": "Hypothesis Test",
-    "section": "小于等于2个样本的情况",
-    "text": "小于等于2个样本的情况\n\n单样本 - 样本均值总体均值的比较。\n理论公式\n\\[\n\\frac{\\bar{X} - \\mu}{\\sigma/\\sqrt{n}} \\sim N(0, 1).\n\\tag{1}\\]\n当总体为正态变量或依赖于中心极限定理时（CLT)，该公式成立。\n\n中心极限定理描述了在大样本情况下样本均值服从于正态分布这一事实。\n\n\\(\\sigma\\)未知时\n\\[\n\\frac{\\bar{X} - \\mu}{S/\\sqrt{n}} \\sim t(n-1).\n\\]\n当\\(n \\rightarrow \\infty\\), \\(t\\)分布近似于正态分布，计算时可用\\(z\\)分布替代\\(t\\)分布。\n\n\n配对样本均值比较\n\\[\nt(\\upsilon) = \\frac{\\mid\\bar{d} - 0 \\mid}{S_\\bar{d}} = \\frac{\\bar{d}}{S_\\bar{d}}, \\upsilon = 对子数 - 1.\n\\]\n\n\n两独立样本比较\n理论公式\n\\[\n  \\frac{(\\bar{X} - \\bar{Y}) - (\\mu_1 - \\mu_2)}{\\sqrt{(\\frac{\\sigma_1^2}{n_1} + \\frac{\\sigma_2^2}{n_2})}} \\sim N(0, 1).\n  \\tag{2}\\]\n样本数\\(n\\)足够大\\((n_1 &gt; 100, n_2 &gt; 100)\\)\n\n此时\\(s_1^2 \\approx \\sigma_1^2, s_2^2 \\approx \\sigma_2^2.\\)\n\n\n\\[\n  Z = \\frac{\\mid \\bar{X_1} - \\bar{X_2} \\mid}{S_{\\bar{X_1} - \\bar{X_2}}}, S_{\\bar{X_1} - \\bar{X_2}} = \\sqrt{S_1^2/n_1 + S_2^2/n_2}.\n  \\]\n方差齐\\(\\sigma_1 = \\sigma_2\\)\n\\[\nt = \\frac{\\mid \\bar{X_1} - \\bar{X_2} \\mid}{S_{\\bar{X_1} - \\bar{X_2}}}, \\upsilon = n_1 + n_2 - 2.\n\\]\n式中两样本均数之差的标准误：\\(S_{\\bar{X_1} - \\bar{X_2}} = \\sqrt{S_c^2(\\frac{1}{n_1} + \\frac{2}{n_2})}.\\)\n其中合并标准差的平方： \\(S_c^2 = \\frac{S_1^2(n_1 - 1) + S_2^2(n_2 - 1)}{n_1 + n_2 - 2}\\)\n方差不齐\n\\[\nt^\\prime = \\frac{\\bar{X_1} - \\bar{X_2}}{\\sqrt{\\frac{S_1^2}{n_1} + \\frac{S_2^2}{n_2}}}\n\\]\n通过Satterhwaite法，对自由度进行校正\n\\[\n\\upsilon = \\frac{(S_{\\bar{X_1}}^2  + S_{\\bar{X_2}}^2)^2}{\\frac{S_{\\bar{X_1}}^4}{n1 - 1} + \\frac{S_{\\bar{X_2}}^4}{n_2 - 1}}\n\\]\n\n\nR中实现t-test\n正态性检验\n\nwith(sleep, {\n  print(shapiro.test(extra))\n  qqnorm(extra)\n  qqline(extra)\n})\n\n\n    Shapiro-Wilk normality test\n\ndata:  extra\nW = 0.94607, p-value = 0.3114\n\n\n\n\n\nOne Sample t-test\n\nt.test(extra ~ 1, mu = 0, data = sleep)\n\n\n    One Sample t-test\n\ndata:  extra\nt = 3.413, df = 19, p-value = 0.002918\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 0.5955845 2.4844155\nsample estimates:\nmean of x \n     1.54 \n\n\nTwo Sample t-test(\\(\\sigma_1^2 = \\sigma_2^2\\))\nvar-test1\n1 更多方差齐性检验的方法可以参考这里\nvar.test(extra ~ group, data = sleep, alternative = \"two.sided\")\n\n\n    F test to compare two variances\n\ndata:  extra by group\nF = 0.79834, num df = 9, denom df = 9, p-value = 0.7427\nalternative hypothesis: true ratio of variances is not equal to 1\n95 percent confidence interval:\n 0.198297 3.214123\nsample estimates:\nratio of variances \n         0.7983426 \n\n\n\nt.test(extra ~ group, data = sleep, var.equal = TRUE)\n\n\n    Two Sample t-test\n\ndata:  extra by group\nt = -1.8608, df = 18, p-value = 0.07919\nalternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0\n95 percent confidence interval:\n -3.363874  0.203874\nsample estimates:\nmean in group 1 mean in group 2 \n           0.75            2.33 \n\n\nWelch Two Sample t-test\n\nt.test(extra ~ group, data = sleep, var.equal = FALSE)\n\n\n    Welch Two Sample t-test\n\ndata:  extra by group\nt = -1.8608, df = 17.776, p-value = 0.07939\nalternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0\n95 percent confidence interval:\n -3.3654832  0.2054832\nsample estimates:\nmean in group 1 mean in group 2 \n           0.75            2.33 \n\n\nPaired t-test\n\nsleep2 &lt;- reshape(sleep, direction = \"wide\", idvar = \"ID\", timevar = \"group\")\nt.test(Pair(extra.1, extra.2) ~ 1, data = sleep2)\n\n\n    Paired t-test\n\ndata:  Pair(extra.1, extra.2)\nt = -4.0621, df = 9, p-value = 0.002833\nalternative hypothesis: true mean difference is not equal to 0\n95 percent confidence interval:\n -2.4598858 -0.7001142\nsample estimates:\nmean difference \n          -1.58 \n\n\n其它参数：\n\nalternative: 备择假设，two.sided, less, greater.\n\n\n\nAssumptions\nFrom wikipedia:\n\nFor exactness, the t-test and Z-test require normality of the sample means(Theorem 1), and the t-test additionally requires that the sample variance follows a scaled \\(\\chi^2\\) distribution, and that the sample mean and sample variance be statistically independent(Theorem 2). Normality of the individual data values is not required if these conditions are met. By the central limit theorem, sample means of moderately large samples are often well-approximated by a normal distribution even if the data are not normally distributed. For non-normal data, the distribution of the sample variance may deviate substantially from a \\(\\chi^2\\) distribution.\nHowever, if the sample size is large, Slutsky’s theorem implies that the distribution of the sample variance has little effect on the distribution of the test statistic. That is as sample size\n\n\\({\\displaystyle {\\sqrt {n}}({\\bar {X}}-\\mu )\\xrightarrow {d} N\\left(0,\\sigma ^{2}\\right)}\\) as per the Central limit theorem.\n\\({\\displaystyle s^{2}\\xrightarrow {p} \\sigma ^{2}}\\) as per the Law of large numbers.\n\\({\\displaystyle \\therefore {\\frac {{\\sqrt {n}}({\\bar {X}}-\\mu )}{s}}\\xrightarrow {d} N(0,1)}\\)\n\n\n可以简单地理解为，大样本情况下， 依据中心极限定理，样本均值总是符合 Equation 1 以及 Equation 2。 进一步地，依据大数定理，\\(s^2 \\approx \\sigma^2\\), 所以大样本下无论什么总体其样本均值统计量都服从于正态分布，而大样本下的正态分布近似于\\(t\\)分布。"
-  },
-  {
-    "objectID": "note/2023-10-01-hypothesis-test/index.html#大于等于3个样本的情况",
-    "href": "note/2023-10-01-hypothesis-test/index.html#大于等于3个样本的情况",
-    "title": "Hypothesis Test",
-    "section": "大于等于3个样本的情况",
-    "text": "大于等于3个样本的情况\n\n总体均值的比较\n\nANOVA\n原理：\n\nIf the group means are drawn from populations with the same mean values, the variance between the group means should be lower than the variance of the samples, following the central limit theorem - wikipedia\n\nAssumptions\n\n正态总体\n方差齐性\n样本独立性\n\n如t-test的assumption类似，推导出F分布的前提是正态分布以及方差齐性。但在实际使用过程之中，方差分析具有稳健性，对正态分布的要求并不是很严格2。\n2 Tiku (1971) found that “the non-normal theory power of F is found to differ from the normal theory power by a correction term which decreases sharply with increasing sample size.” The problem of non-normality, especially in large samples, is far less serious than popular articles would suggest - wikipedia\nOnw-Way-ANOVA-Table\n\n\n\n\n\n\n\n\n\n\n\\(variation \\: source\\)\n\\(SS\\)\n\\(\\upsilon\\)\n\\(MS\\)\n\\(F\\)\n\\(P\\)\n\n\n\n\n\\(Treatment(Between \\: groups)\\)\n\\(\\sum_{i=1}^an_i(\\bar{Y_i}-\\bar{Y})^2\\)\n\\(a - 1\\)\n\\(\\frac{\\sum_{i=1}^an_i(\\bar{Y_i}-\\bar{Y})^2}{a -1}\\)\n\\(\\frac{MS_{between \\: group}}{MS_{within \\: group}}\\)\n\n\n\n\\(Individual\\: random \\:var iation(within\\: groups)\\)\n\\(\\sum_{i=1}^{a}\\sum_{j=1}^{n_i}(Y_{ij} - \\bar{Y}_i)^2\\)\n\\(N - a\\)\n\\(\\frac{\\sum_{i=1}^{a}\\sum_{j=1}^{n_i}(Y_{ij} - \\bar{Y}_i)^2}{N - a}\\)\n\n\n\n\n\\(Total \\: variation\\)\n\\(\\sum_{i=1}^n\\sum_{j=1}^{n_i}(Y_{ij} - \\bar{Y})^2\\)\n\\(N - 1\\)\n\\(\\frac{\\sum_{i=1}^n\\sum_{j=1}^{n_i}(Y_{ij} - \\bar{Y})^2}{N - 1}\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n单因素方差分分析(one way ANOVA-analysis of variance)\n\\[\nF = \\frac{MS_{组间}}{MS_{组内}} = \\frac{SS_{组间}/\\upsilon_{组间}}{SS_{组内}/\n\\upsilon_{组内}}\n\\]\n随机区组设计地方差分析\n\n分组以后再进行随机化，分组地原因在于不同地组别特征对于观测指标有影响。实际上这里有两个因素对观测结果有影响，所以方差分析时也有两个假设。\n\n\n\nR中实现One Way ANOVA\n\nlibrary(data.table)\nset.seed(2023)\ndt &lt;- data.table(\n  group = sample(x = factor(c(\"control\", \"treat1\", \"treat2\")), 99, replace = TRUE),\n  value = rnorm(n = 99, 1.2, sd = 0.2)\n)\n\ncar::leveneTest(value ~ group, data = dt) # 方差齐性检验\n\nLevene's Test for Homogeneity of Variance (center = median)\n      Df F value Pr(&gt;F)\ngroup  2  0.2487 0.7803\n      96               \n\n\n\n(res &lt;- aov(value ~ group, data = dt)) # one way anova\n\nCall:\n   aov(formula = value ~ group, data = dt)\n\nTerms:\n                   group Residuals\nSum of Squares  0.011514  3.671180\nDeg. of Freedom        2        96\n\nResidual standard error: 0.1955542\nEstimated effects may be unbalanced\n\nsummary(res)\n\n            Df Sum Sq Mean Sq F value Pr(&gt;F)\ngroup        2  0.012 0.00576   0.151   0.86\nResiduals   96  3.671 0.03824               \n\n\nRandomized block design ANOVA\n\ndt2 &lt;- data.table::data.table(\n  group = sample(x = factor(c(\"control\", \"treat1\", \"treat2\")), 99, replace = TRUE),\n  block = sample(x = factor(c(\"control\", \"treat1\", \"treat2\")), 99, replace = TRUE),\n  value = rnorm(n = 99, 1.2, sd = 0.2)\n)\nres &lt;- aov(value ~ block + group, data = dt2)\nsummary(res)\n\n            Df Sum Sq Mean Sq F value Pr(&gt;F)\nblock        2  0.054 0.02711   0.766  0.468\ngroup        2  0.087 0.04333   1.224  0.299\nResiduals   94  3.327 0.03539               \n\n\n\n\n\n均数之间的多重比较\n方差分析对各处理组均数是否相等总的检验，在\\(H_0\\)被拒绝以后，需要确定究竟是哪些处理组之间存在差异，此时需要进行均数之间的多重比较，这就涉及到累计Ⅰ率。\n当\\(a\\)个处理组均数需要两两比较时候，共需要比较\\(c = a![2!(a-1)!].\\) 设每次检验的检验的检验水准为\\(\\alpha\\),累积Ⅰ型错误概率为\\('\\alpha\\)\n\\[\n'\\alpha = 1 - (1 - \\alpha)^c\n\\]\n\n均数之间任意两组的比较\nSNK(student Newman-Keuls)法 又称\\(q\\)检验\n\n将各组的平均值按由小到大的顺序排列。\n计算过两个平均之间的差值以及组间跨度\\(r\\)\n按下列公式计算统计量\\(q\\).\n\n\\[\nq = \\frac{{\\bar{Y_i} - \\bar{Y_h}}}{\\sqrt{\\frac{MS_{within \\: group}}{2}(\\frac{1}{n_i} + \\frac{1}{n_h})}}\n\\]\n其中\\(\\bar{Y_i}, \\bar{Y_h}\\)及\\(n_i, n_h\\)分别是两个比较组的均数以及样本例数， \\(MS_{within \\: group}\\)为进行方差分析得到的组内均方。\n\nlibrary(agricolae)\ndata(sweetpotato)\nmodel &lt;- aov(yield ~ virus, data = sweetpotato)\nout &lt;- SNK.test(model, \"virus\",\n  console = TRUE,\n  main = \"Yield of sweetpotato. Dealt with different virus\"\n)\n\n\nStudy: Yield of sweetpotato. Dealt with different virus\n\nStudent Newman Keuls Test\nfor yield \n\nMean Square Error:  22.48917 \n\nvirus,  means\n\n      yield      std r       se  Min  Max   Q25  Q50   Q75\ncc 24.40000 3.609709 3 2.737953 21.7 28.5 22.35 23.0 25.75\nfc 12.86667 2.159475 3 2.737953 10.6 14.9 11.85 13.1 14.00\nff 36.33333 7.333030 3 2.737953 28.0 41.8 33.60 39.2 40.50\noo 36.90000 4.300000 3 2.737953 32.1 40.4 35.15 38.2 39.30\n\nAlpha: 0.05 ; DF Error: 8 \n\nCritical Range\n        2         3         4 \n 8.928965 11.064170 12.399670 \n\nMeans with the same letter are not significantly different.\n\n      yield groups\noo 36.90000      a\nff 36.33333      a\ncc 24.40000      b\nfc 12.86667      c\n\nprint(SNK.test(model, \"virus\", group = FALSE))\n\n$statistics\n   MSerror Df   Mean      CV\n  22.48917  8 27.625 17.1666\n\n$parameters\n  test name.t ntr alpha\n   SNK  virus   4  0.05\n\n$snk\n     Table CriticalRange\n2 3.261182      8.928965\n3 4.041036     11.064170\n4 4.528810     12.399670\n\n$means\n      yield      std r       se  Min  Max   Q25  Q50   Q75\ncc 24.40000 3.609709 3 2.737953 21.7 28.5 22.35 23.0 25.75\nfc 12.86667 2.159475 3 2.737953 10.6 14.9 11.85 13.1 14.00\nff 36.33333 7.333030 3 2.737953 28.0 41.8 33.60 39.2 40.50\noo 36.90000 4.300000 3 2.737953 32.1 40.4 35.15 38.2 39.30\n\n$comparison\n         difference pvalue signif.        LCL        UCL\ncc - fc  11.5333333 0.0176       *   2.604368  20.462299\ncc - ff -11.9333333 0.0151       * -20.862299  -3.004368\ncc - oo -12.5000000 0.0291       * -23.564170  -1.435830\nfc - ff -23.4666667 0.0008     *** -34.530836 -12.402497\nfc - oo -24.0333333 0.0012      ** -36.433003 -11.633664\nff - oo  -0.5666667 0.8873          -9.495632   8.362299\n\n$groups\nNULL\n\nattr(,\"class\")\n[1] \"group\"\n\n# version old SNK.test()\ndf &lt;- df.residual(model)\nMSerror &lt;- deviance(model) / df\nout &lt;- with(sweetpotato, SNK.test(yield, virus, df, MSerror, group = TRUE))\nprint(out$groups)\n\n      yield groups\noo 36.90000      a\nff 36.33333      a\ncc 24.40000      b\nfc 12.86667      c\n\n\nSNK法的检验效能介于Bonferroni和Tukey法之间的；当比较均值的组数较多时，Tukey法更有效，组数较少时，ferroni法更有效。\n\n\n处理组与对照组的比较\nDunnett-t检验\n\\(t_D\\)统计量\n\\[\nt_D = \\frac{\\bar{Y_i} - \\bar{Y_c}}{\\sqrt{MS_{within \\: group} \\times (\\frac{1}{n}_i + \\frac{1}{n_c})}}\n\\]\n其中\\(\\bar{Y_i}, \\bar{Y_c}\\)及\\(n_i, n_c\\)分别是实验组与对照组的均数以及样本例数， \\(MS_{within \\: group}\\)为进行方差分析得到的组内均方。\n\nset.seed(23)\ndata &lt;- data.frame(\n  Group = rep(c(\"control\", \"Test1\", \"Test2\"), each = 10),\n  value = c(rnorm(10), rnorm(10), rnorm(10))\n)\ndata$Group &lt;- as.factor(data$Group)\n\nboxplot(value ~ Group,\n  data = data,\n  main = \"Product Values\",\n  xlab = \"Groups\",\n  ylab = \"Value\",\n  col = \"red\",\n  border = \"black\"\n)\n\n\n\nmodel &lt;- aov(value ~ Group, data = data)\nsummary(model)\n\n            Df Sum Sq Mean Sq F value Pr(&gt;F)  \nGroup        2  4.407  2.2036    3.71 0.0377 *\nResiduals   27 16.035  0.5939                 \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nlibrary(DescTools)\n\n\nAttaching package: 'DescTools'\n\n\nThe following object is masked from 'package:data.table':\n\n    %like%\n\nDunnettTest(x = data$value, g = data$Group)\n\n\n  Dunnett's test for comparing several treatments with a control :  \n    95% family-wise confidence level\n\n$control\n                    diff    lwr.ci      upr.ci   pval    \nTest1-control -0.8742469 -1.678514 -0.06998022 0.0320 *  \nTest2-control -0.7335283 -1.537795  0.07073836 0.0768 .  \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
-  },
-  {
-    "objectID": "note/2023-10-01-hypothesis-test/index.html#r-中实现chi2-test",
-    "href": "note/2023-10-01-hypothesis-test/index.html#r-中实现chi2-test",
-    "title": "Hypothesis Test",
-    "section": "R 中实现\\(\\chi^2-test\\)",
-    "text": "R 中实现\\(\\chi^2-test\\)\n拟合优度检验 当提供一个向量或者一个一维矩阵时进行拟合优度检验。\n\nchisq.test(x = c(2, 5, 4, 9))\n\n\n    Chi-squared test for given probabilities\n\ndata:  c(2, 5, 4, 9)\nX-squared = 5.2, df = 3, p-value = 0.1577\n\n\n\\(R\\times C\\)的检验 当提供一个至少\\(2\\times2\\)的矩阵时，则进行\\(R\\times C\\)列联表的检验-或许检验的目的不同，但它们的计算公式都是相同的。\n\nchisq.test(x = matrix(data = c(1, 5, 6, 7, 2, 9, 0, 4), nrow = 2))\n\nWarning in chisq.test(x = matrix(data = c(1, 5, 6, 7, 2, 9, 0, 4), nrow = 2)):\nChi-squared approximation may be incorrect\n\n\n\n    Pearson's Chi-squared test\n\ndata:  matrix(data = c(1, 5, 6, 7, 2, 9, 0, 4), nrow = 2)\nX-squared = 4.7123, df = 3, p-value = 0.1941\n\n\n配对的\\(\\chi^2\\) test - McNemar test\n\ndata &lt;- matrix(c(30, 12, 40, 18),\n  nrow = 2,\n  dimnames = list(\n    \"After Video\" = c(\"Support\", \"Do Not Support\"),\n    \"Before Video\" = c(\"Support\", \"Do Not Support\")\n  )\n)\ndata\n\n                Before Video\nAfter Video      Support Do Not Support\n  Support             30             40\n  Do Not Support      12             18\n\nmcnemar.test(data)\n\n\n    McNemar's Chi-squared test with continuity correction\n\ndata:  data\nMcNemar's chi-squared = 14.019, df = 1, p-value = 0.000181\n\n\nFisher test in r\n\ndat &lt;- data.frame(\n  \"smoke_no\" = c(7, 0),\n  \"smoke_yes\" = c(2, 5),\n  row.names = c(\"Athlete\", \"Non-athlete\"),\n  stringsAsFactors = FALSE\n)\ncolnames(dat) &lt;- c(\"Non-smoker\", \"Smoker\")\n\ndat\n\n            Non-smoker Smoker\nAthlete              7      2\nNon-athlete          0      5\n\nfisher.test(dat)\n\n\n    Fisher's Exact Test for Count Data\n\ndata:  dat\np-value = 0.02098\nalternative hypothesis: true odds ratio is not equal to 1\n95 percent confidence interval:\n 1.449481      Inf\nsample estimates:\nodds ratio \n       Inf"
-  },
-  {
-    "objectID": "note/2023-10-01-hypothesis-test/index.html#数值变量配对检验或者单样本检验wilcoxon-signed-rank-test",
-    "href": "note/2023-10-01-hypothesis-test/index.html#数值变量配对检验或者单样本检验wilcoxon-signed-rank-test",
-    "title": "Hypothesis Test",
-    "section": "数值变量配对检验或者单样本检验（Wilcoxon Signed Rank Test)",
-    "text": "数值变量配对检验或者单样本检验（Wilcoxon Signed Rank Test)\n秩和计算\n\n\n\n\n\nid\ngroupA\ngroupB\ndiff\n\n\n\n\n1\n0.3403843\n10.2112855\n9.8709012\n\n\n2\n2.2945442\n11.6454913\n9.3509470\n\n\n3\n-1.4399976\n9.7297898\n11.1697873\n\n\n4\n-1.7497818\n0.0718725\n1.8216542\n\n\n5\n1.3936650\n-1.0793342\n-2.4729991\n\n\n6\n2.5325010\n-3.1460297\n-5.6785307\n\n\n7\n5.9229420\n5.4615812\n-0.4613608\n\n\n8\n-2.0288062\n4.8894129\n6.9182191\n\n\n9\n4.5832491\n7.5673896\n2.9841404\n\n\n10\n2.6986250\n3.8522318\n1.1536068\n\n\n\n\n\n依差值的绝对值从小到大编秩。编秩时遇到差值为0的舍去不计，同时样本例数\\(n - 1\\); 遇到绝对值差值相等差数，符号相同则顺次编秩，符号相反则取平均秩次，再给秩次冠以原差值的正负号。分别计算出正负秩次\\(T_+, T_-,\\)任取其中一个作为统计量秩和\\(T\\)\n\\(n \\le 50\\) 查表\n\\(n \\ge 50\\) 正态近似\n\\[\nZ = \\frac{\\mid T - n(n + 1)/4  \\mid - 0.5}{\\sqrt{n(n+1)(2n+1)/24}}\n\\]\n当相同差值数较多时（不包括差值为0的值)，校正式\n\\[\nZ = \\frac{\\mid T - n(n + 1)/4  \\mid - 0.5}{\\sqrt{n(n+1)(2n+1)/24 - \\frac{\\sum(t_j^3 - t_j)}{48}}}\n\\]\n其中\\(t_j\\)是第\\(j\\)个相同差值的个数。"
-  },
-  {
-    "objectID": "note/2023-10-01-hypothesis-test/index.html#两个样本的检验wilcoxon-rank-sum-test---equivalent-to-mann-whitney-test",
-    "href": "note/2023-10-01-hypothesis-test/index.html#两个样本的检验wilcoxon-rank-sum-test---equivalent-to-mann-whitney-test",
-    "title": "Hypothesis Test",
-    "section": "两个样本的检验（Wilcoxon Rank Sum Test - equivalent to Mann Whitney test)",
-    "text": "两个样本的检验（Wilcoxon Rank Sum Test - equivalent to Mann Whitney test)\n将两组原始数据分别从小到大排队，再将两组数据由小到大统一编秩，若有同组相同数据则顺序编秩，若有不同组别相同数据则取平均秩次。记两组中样本例数较小的为\\(n_1,\\) 其秩和为统计量\\(T.\\)\n查\\(T\\)界值表。\n\\(n_1\\)或\\(n_2 - n_1\\)超出表的范围 正态近似\n\\[\nZ = \\frac{\\mid T - n_1(N+1)/2 \\mid - 0.5}{n_{1}n_{2}(N+1)/12}\n\\]\n相同秩次过多时，采用校正式。\n\\[\nZ_c = Z\\sqrt{C},\n\\]\n其中\\(C = 1 - \\sum(t_j^3 - t_j) / (N^3 - N).\\)"
-  },
-  {
-    "objectID": "note/2023-10-01-hypothesis-test/index.html#大于两个样本的检验",
-    "href": "note/2023-10-01-hypothesis-test/index.html#大于两个样本的检验",
-    "title": "Hypothesis Test",
-    "section": "大于两个样本的检验",
-    "text": "大于两个样本的检验\n单向有序分类变量多个变量或者多个数值变量的检验（Kruskal–Wallis test)\n构造\\(H\\)统计量：假设有\\(a\\)个组，第\\(i\\)组的样本量\\(n_i,\\)N为各组样本量之和，将各组数据合并，编秩次，秩次 相同的取平均值。\\(R_{ij}\\)为第\\(i\\)个组的第\\(j\\)个个体的秩次，\\(\\bar{R_i}\\)为第\\(i\\)个组的平均秩次，\\(\\bar{R}\\)为总平均秩次。\n没有相同秩次时，秩次服从均匀分布：\n\\[\nH =\\frac{12}{N(N + 1)}(\\sum\\frac{R_i^2}{n_i}) - 3(N+1).\n\\]\n相同秩次过多时，上诉以均匀分布为基础推导的公式需要进行校正：\n\\[\nH_c = H/C,\n\\]\n其中\\(C = 1 - \\sum(t_j^3 - t_j) / (N^3 - N).\\)\n\\(n_i\\)与\\(a\\)较小时 直接计算或者查表。\n\\(n\\)较大时 \\(H\\) 近似服从于 \\(\\chi^2_{a-1}.\\)\n随机区组的Friedman秩和检验（Friedman Test）\n在区组(行）内进行编秩，有相同的则取平均秩次。\\(i\\)代表不同的区组，\\(j\\)代表不同地处理水平。\n\\[\nM = \\frac{\\sum_{j=1}^{a}n(\\bar{R}_j - \\bar{R})^2}{\\sum_{j=1}^{a}\\sum_{i=1}^{n}(R_{ij} - \\bar{R})^2 / n(a-1)}\n\\]\n当相同秩过多时可以进行校正，校正系数为\n\\[\nC = 1 - \\sum_{j=1}^{a}\\sum_{p=1}^{l_i}(t_{jp}^3 - t_{jp})/[na(a^2 -1 )]\n\\]\n\\[\nM_c = M/C\n\\]\n当\\(n\\)以及\\(a\\)较小时 直接查表或精确计算\n\\(n\\)较大时 \\(M\\) 近似服从于 \\(\\chi^2_{a-1}.\\)"
-  },
-  {
-    "objectID": "note/2023-10-01-hypothesis-test/index.html#r中实现秩和检验",
-    "href": "note/2023-10-01-hypothesis-test/index.html#r中实现秩和检验",
-    "title": "Hypothesis Test",
-    "section": "R中实现秩和检验",
-    "text": "R中实现秩和检验\n单样本或者配对样本的Wilcoxon Signed Rank Test\n\nx &lt;- c(1.83, 0.50, 1.62, 2.48, 1.68, 1.88, 1.55, 3.06, 1.30)\ny &lt;- c(0.878, 0.647, 0.598, 2.05, 1.06, 1.29, 1.06, 3.14, 1.29)\ndepression &lt;- data.frame(first = x, second = y, change = y - x)\n\nwilcox.test(change ~ 1, data = depression) # one sample\n\n\n    Wilcoxon signed rank exact test\n\ndata:  change\nV = 5, p-value = 0.03906\nalternative hypothesis: true location is not equal to 0\n\nwilcox.test(Pair(first, second) ~ 1, data = depression) # paired sample\n\n\n    Wilcoxon signed rank exact test\n\ndata:  Pair(first, second)\nV = 40, p-value = 0.03906\nalternative hypothesis: true location shift is not equal to 0\n\n\n独立两样本的Mann Whitney test\n\nx &lt;- c(0.80, 0.83, 1.89, 1.04, 1.45, 1.38, 1.91, 1.64, 0.73, 1.46)\ny &lt;- c(1.15, 0.88, 0.90, 0.74, 1.21)\nwilcox.test(x, y, alternative = \"g\") # greater\n\n\n    Wilcoxon rank sum exact test\n\ndata:  x and y\nW = 35, p-value = 0.1272\nalternative hypothesis: true location shift is greater than 0\n\n\n多样本的kruskal Wallis test\n\nrequire(graphics)\nboxplot(Ozone ~ Month, data = airquality)\n\n\n\nkruskal.test(Ozone ~ Month, data = airquality)\n\n\n    Kruskal-Wallis rank sum test\n\ndata:  Ozone by Month\nKruskal-Wallis chi-squared = 29.267, df = 4, p-value = 6.901e-06\n\n\n随机区组设计的Friedman test\n\n## Hollander & Wolfe (1973), p. 140ff.\n## Comparison of three methods (\"round out\", \"narrow angle\", and\n##  \"wide angle\") for rounding first base.  For each of 18 players\n##  and the three method, the average time of two runs from a point on\n##  the first base line 35ft from home plate to a point 15ft short of\n##  second base is recorded.\nRoundingTimes &lt;-\n  matrix(\n    c(\n      5.40, 5.50, 5.55,\n      5.85, 5.70, 5.75,\n      5.20, 5.60, 5.50,\n      5.55, 5.50, 5.40,\n      5.90, 5.85, 5.70,\n      5.45, 5.55, 5.60,\n      5.40, 5.40, 5.35,\n      5.45, 5.50, 5.35,\n      5.25, 5.15, 5.00,\n      5.85, 5.80, 5.70,\n      5.25, 5.20, 5.10,\n      5.65, 5.55, 5.45,\n      5.60, 5.35, 5.45,\n      5.05, 5.00, 4.95,\n      5.50, 5.50, 5.40,\n      5.45, 5.55, 5.50,\n      5.55, 5.55, 5.35,\n      5.45, 5.50, 5.55,\n      5.50, 5.45, 5.25,\n      5.65, 5.60, 5.40,\n      5.70, 5.65, 5.55,\n      6.30, 6.30, 6.25\n    ),\n    nrow = 22,\n    byrow = TRUE,\n    dimnames = list(\n      1:22,\n      c(\"Round Out\", \"Narrow Angle\", \"Wide Angle\")\n    )\n  )\nfriedman.test(RoundingTimes)\n\n\n    Friedman rank sum test\n\ndata:  RoundingTimes\nFriedman chi-squared = 11.143, df = 2, p-value = 0.003805\n\n## =&gt; strong evidence against the null that the methods are equivalent\n##    with respect to speed\nwb &lt;- aggregate(warpbreaks$breaks,\n  by = list(\n    w = warpbreaks$wool,\n    t = warpbreaks$tension\n  ),\n  FUN = mean\n)\nwb\n\n  w t        x\n1 A L 44.55556\n2 B L 28.22222\n3 A M 24.00000\n4 B M 28.77778\n5 A H 24.55556\n6 B H 18.77778\n\nfriedman.test(wb$x, wb$w, wb$t)\n\n\n    Friedman rank sum test\n\ndata:  wb$x, wb$w and wb$t\nFriedman chi-squared = 0.33333, df = 1, p-value = 0.5637\n\nfriedman.test(x ~ w | t, data = wb)\n\n\n    Friedman rank sum test\n\ndata:  x and w and t\nFriedman chi-squared = 0.33333, df = 1, p-value = 0.5637"
-  },
-  {
-    "objectID": "note/2022-08-10-linear-dimension-reduction/index.html",
-    "href": "note/2022-08-10-linear-dimension-reduction/index.html",
-    "title": "Liner dimension reduction",
-    "section": "",
-    "text": "线性降维方法主要就是PCA(principal componet analysis)以及SVD(sigular value decomposition),以及PCA的扩展MDS(Multtidimensional Scaling)。PCA与MDS的差别在于PCA考虑的是样本的特征，寻求在低维空间下保留方差较大的特征的信息，所以通过对特征之间的协方差矩阵进行特征值分解矩阵，得到在低维空间下能够保留方差较大特征的正交基，是对特征的线性组合，而MDS考虑的是样本之间的相似度矩阵，通过对相似度矩阵矩阵进行特征分解找到在低维空间下能够保留样本最大距离的正交基。"
-  },
-  {
-    "objectID": "note/2022-08-10-linear-dimension-reduction/index.html#pcoa",
-    "href": "note/2022-08-10-linear-dimension-reduction/index.html#pcoa",
-    "title": "Liner dimension reduction",
-    "section": "PCoA",
-    "text": "PCoA\n考虑一个样本的dissimilarity matrix,也就是一个含有样本之间距离或不相似度量的矩阵,记为D。\n\nThe Torgerson method\n\n首先对D进行double centering得到double-centered matrix,记为B。然后对矩阵B进行奇异值分解。\ndouble centering1): \\[\nD^2 = \\left[d_{ij}^2 \\right]\n\\] double centering2): \\[\nB = -\\frac{1}{2}CD^{2}C\n\\] 其中\\(C = I - \\frac{1}{n}J_n\\)\n\nThe iterative method\n该方法更加实用，可以用于非欧式距离矩阵。\n\n\\[\nStress_D(x_1, x_2, ..., x_N) = \\left(\\sum_{i\\neq j\\neq 1, ..., N} \\left(d_{ij} - ||x_i - x_j|| \\right)^2 \\right)^{\\frac{1}{2}}\n\\]"
-  },
-  {
-    "objectID": "note/2022-08-10-linear-dimension-reduction/index.html#空间变换",
-    "href": "note/2022-08-10-linear-dimension-reduction/index.html#空间变换",
-    "title": "Liner dimension reduction",
-    "section": "空间变换",
-    "text": "空间变换\n考虑一个向量\\(a\\)，\\(\\begin{bmatrix} -1 \\\\ 2 \\end{bmatrix}\\)，左乘一个矩阵\\(M\\)，\\(\\begin{bmatrix} 3 & 1 \\\\ 1 & 2 \\end{bmatrix}\\)\n首先从空间变化的角度理解矩阵相乘。所谓的空间变化，就是对原空间的映射, 即原空间\\(A\\)经过变化\\(M\\)，变为\\(B\\)。这里假设的是，无论是这个向量，还是矩阵都是从同一组基的视角来表示的，我们将这组基记为\\(\\begin{bmatrix} i & j \\end{bmatrix}\\)，向量\\(\\begin{bmatrix} -1 \\\\ 2 \\end{bmatrix}\\)在基\\(i\\)上的分量就是\\(-1\\)，在基\\(j\\)上的分量就是\\(2\\)。这组基下的所有向量都是依赖于该基的，所以空间的变换直接用基的变换表示即可。矩阵\\(M\\)的列向量表示的含义就是经过空间变化以后，原来的一组基向量在基\\(i, j\\)下的表示。因为变化是整个空间的变化，所有向量的变化都是一致的，所以我们只需要用原向量在原基的每个分量乘以新的基即可:\n\\[\n-1 * \\begin{bmatrix} 3 \\\\ 1 \\end{bmatrix} +\n2 * \\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix}\n\\]\n结论：\n\n对于左乘的矩阵\\(A\\)的每一列，我们可以认为是原基在空间变换\\(A\\)以后用原基表示的原基的映射。\n\n\n行列式\n\n行列式\\(det(A)\\)给出了由\\(A\\)表示的映射引起的缩放因子和方向。数值代表缩放因子，正负号代表变换的方向。当行列式等于1时，由\\(A\\)定义的线性变换是等值的和保持方向的。\n如果一个n阶方阵的行列式为0，也就证明这个行列式不满秩。也就是说组成行列式的列向量是线性相关的，那么这n个列向量张成的空间便是n维空间的一个投影，维度等于秩。\n\\(det(A) = 0\\), 变换A使得空间的维度被压缩了。\n\n非方阵\n\n非方阵没有行列式。按照空间变化，非方阵一定使得空间的维度发生了变化，无法衡量变换的大小，因此没有行列式。例如一个\\(3*2\\)的矩阵可以将一个二维平面的向量映射为三维空间中的一个平面上的向量。而一个\\(2*3\\)的矩阵可以将一个三维空间的向量映射为二维平面上的一个向量，考虑整个三维空间就是将原空间做了一个投影。\n\n矩阵的逆\n\n矩阵不一定存在逆。可以求逆的矩阵叫做可逆矩阵，也叫非奇异矩阵。矩阵为非奇异矩阵的充要条件是矩阵存在行列式且不为0。可以这样理解：矩阵的作用是空间变换，其实就类似于一个函数。（这里说映射更标准些）矩阵求逆就类似于求反函数。当矩阵为不存在行列式或者行列式为0时，代表变换发生了降维，其映射关系不是一对一的关系，是多对一的关系，因此无法求逆或没有意义。\n\\(A^{-1}\\)所代表的变换恰好是\\(A\\)变换的逆过程。\n求解\\(Ax = b\\)的几何意义，就是找到一个向量\\(x\\)使得在\\(A\\)的变换下，\\(x\\)被映射为\\(b\\)。如果\\(A\\)为满秩矩阵，则有唯一解\\(x = A^{-1}B\\) ，也就是对\\(B\\)施加逆变换即可找到\\(x\\)"
-  },
-  {
-    "objectID": "note/2022-08-10-linear-dimension-reduction/index.html#基变换",
-    "href": "note/2022-08-10-linear-dimension-reduction/index.html#基变换",
-    "title": "Liner dimension reduction",
-    "section": "基变换",
-    "text": "基变换\n矩阵相乘同样可以从基变化的角度看。假设一个向量\\(a\\)，其在基\\(u, v\\)下的表示为 \\(\\begin{bmatrix} 2 \\\\ 1 \\end{bmatrix}\\)。如果我们想从另一组基\\(i, j\\)来表示应该怎么做呢？实际上我们只需要把基\\(u, v\\)用基\\(i,j\\)表示即可。假设基\\(u\\)用\\(i, j\\)表示为 \\(\\begin{bmatrix} -1 \\\\ 2 \\end{bmatrix}\\)，\\(v\\)用\\(i, j\\)表示为\\(\\begin{bmatrix} -2 \\\\ 1 \\end{bmatrix}\\)，构成矩阵\\(P\\)。那么把向量变化到\\(i, j\\)的视角下，就是简单的矩阵左乘向量（这里用到了空间变化的思想，即左乘矩阵的列是基向量）：\n\\[\n2 * \\begin{bmatrix} -1 \\\\ 2 \\end{bmatrix} +\n1 * \\begin{bmatrix} -2 \\\\ 1 \\end{bmatrix}\n\\]\n如果我们想把基\\(i, j\\)下的向量从基\\(u, v\\)的视角来观察呢？答案是对于\\(i, j\\)视角下的向量我们只需要左乘\\(P^{-1}\\)，即逆矩阵可以理解为两种视角的相互转换。\n既然从不同的视角看向量有不同的表示，从不同的视角看空间变化，也有不同的表示。考虑在基\\(u, v\\)下的一个空间变化表示为\\(M\\)，那么在基\\(i, j\\)下，该变化怎么表示呢。我们可以考虑先变换到基\\(i, j\\)的视角，然后进行变换，最后回到\\(u, v\\)的视角。即：\n\\[\nM = P^{-1}AP \\rightarrow A = PMP^{-1}\n\\]\n结论：\n\n对于左乘矩阵\\(A\\)，我们可以认为其每一列是用新基视角表示原基的表示。\n这说明对于形如\\(A = PMP^{-1}\\)的式子，我们可以直观的认为是视角转换下的同一变换。\n\n符号约定： 小写字母\\(x, i, j, u, v\\)代表列向量。\n基变化，如何把基\\((i, j)\\)下的坐标转化为另一组基\\((u, v)\\)下的坐标，实际上只需要将基\\((i, j)\\)用基\\((u, v)\\)进行表示，然后左乘向量\\(x\\)即可。"
-  },
-  {
-    "objectID": "note/2022-08-10-linear-dimension-reduction/index.html#特征分解",
-    "href": "note/2022-08-10-linear-dimension-reduction/index.html#特征分解",
-    "title": "Liner dimension reduction",
-    "section": "特征分解",
-    "text": "特征分解\n考虑方阵\\(A\\)，\\(A\\)代表了一个空间变换，空间的变换只对该矩阵的特征向量起到缩放作用。那么\\(A\\)所代表的空间变换，我们可以考虑先把向量\\(x\\)转化为用矩阵\\(A\\)的特征向量构成的基底表示，即\\(Q^{-1}x\\)，其中\\(Q\\)为方阵\\(A\\)的特征向量构成的矩阵（为什么是\\(Q^{-1}\\)而不是\\(Q\\)?因为特征向量是从原矩阵求解而来，它们都是在同一视角下的表示，要变化到特征向量的视角则是其逆\\(Q^{-1}\\))。那么矩阵\\(A\\)对这个新的\\(x\\)，即\\(Q^{-1}x\\)的作用就仅仅是缩放（在每个维度上进行缩放），这个缩放用一个新的矩阵\\(\\Sigma\\)表示，其为对角矩阵，对角线上即是对应的特征值，那么现在整个变化记为\\(\\Sigma\\)\\(Q^{-1}x\\)。完成变化后，我们回到原来的基的视角，即左乘\\(Q\\)，整个变化即如下： \\[\nAx = Q\\Sigma{Q^{-1}}{x} \\longrightarrow A = Q\\Sigma{Q^{-1}}\n\\]"
-  },
-  {
-    "objectID": "note/2022-08-10-linear-dimension-reduction/index.html#奇异值分解",
-    "href": "note/2022-08-10-linear-dimension-reduction/index.html#奇异值分解",
-    "title": "Liner dimension reduction",
-    "section": "奇异值分解",
-    "text": "奇异值分解\n考虑向量\\(\\begin{bmatrix} v_1 & v_2 \\end{bmatrix}\\)，其为一组正交的向量，如果其在经历空间变换\\(M\\)以后仍然映射为一组正交的向量\\(\\begin{bmatrix} U_1 & U_2 \\end{bmatrix}\\)。那么，我们直接在向量\\(\\begin{bmatrix} U_1 & U_2 \\end{bmatrix}\\)的方向上选择一组基\\(\\begin{bmatrix} u_1 & u_2 \\end{bmatrix}\\)，那么向量\\(\\begin{bmatrix} v_1 & v_2 \\end{bmatrix}\\)，在经历空间变化以后，在基\\(\\begin{bmatrix} u_1 & u_2 \\end{bmatrix}\\)上的表示为，\\(\\begin{bmatrix} u_1 & u_2 \\end{bmatrix} * \\begin{bmatrix} \\sigma_1 & 0 \\\\ 0 & \\sigma_2 \\end{bmatrix}\\)。即：\n\\[\nM[v_1, v_2] = [u_1, u_2] * \\begin{bmatrix} \\sigma_1 & 0 \\\\ 0 & \\sigma_2 \\end{bmatrix} \\rightarrow\nMV = U\\Sigma \\rightarrow  M = U\\Sigma V^T\n\\]\n如此，对于奇异值分解，我们有如下的直观理解：对于矩阵\\(M\\),其对一组向量\\(V\\)在变换以后仍然为正交的向量。在进行变换的时候考虑直接转换到向量\\(V\\)的视角之下，然后进行缩放\\(\\Sigma\\)，以及其它变换\\(E\\)（旋转，投影），最后变换回原来的视角。即：\n\\[\nM = VE\\Sigma V^T \\rightarrow M = U\\Sigma V^T\n\\]\n可以看到奇异值与特征值分解的区别在于，选择的视角不同。当选择特征向量视角时，变换只会有缩放即\\(\\Sigma\\)变换，当选择任意的正交向量视角时，变换不仅包含缩放还含有旋转以及投影等即\\(E\\Sigma\\)。\n需要注意的是，虽然对于特征分解以及奇异值分解从视角转换的角度去解释了。但是，矩阵分解同样可以从空间变换的角度理解。例如对于奇异值分解有如下解释：\n第一个变换\\(V^{T}\\)将单位正交向量\\(v_1, v_2\\)转到水平和垂直方向、\\(\\Sigma\\)相当于对\\(v_1, v_2\\)进行放缩、\\(U\\)将放缩后的向量旋转到最后的位置。\n\n基变换以及空间变换的统一"
-  },
-  {
-    "objectID": "note/2022-07-10-cluster-algorithm/index.html",
-    "href": "note/2022-07-10-cluster-algorithm/index.html",
-    "title": "Cluster algorithm",
-    "section": "",
-    "text": "Note:该文章基本只是对几篇文章的整合，只有细微的细改，原文章在参考下。\n参考：\n相似性衡量，聚类算法以及data reduction的整体介绍\n距离计算的详细内容，每种聚类方法的实现过程，example\n聚类结果的内部价指标\n聚类结果的外部评价指标\n聚类分析：根据样本特征计算样本距离。需要考虑的点，聚类算法，相似度的衡量。"
-  },
-  {
-    "objectID": "note/2022-07-10-cluster-algorithm/index.html#相似系数核函数kx-y以及dtw",
-    "href": "note/2022-07-10-cluster-algorithm/index.html#相似系数核函数kx-y以及dtw",
-    "title": "Cluster algorithm",
-    "section": "相似系数，核函数\\(K(x, y)\\)以及DTW",
-    "text": "相似系数，核函数\\(K(x, y)\\)以及DTW\n相似系数，包括夹角余弦和相关系数。其主要优势在于不受原线性变换的影响，可以轻松转化为距离，但其运算速度比距离法慢的多，当维数很高的时候。\n核函数\\(K(x, y)\\)， 定义在\\(R^d * R^d\\)的二元函数，本质也是距离。核函数的功能是把数据从低维到高维进行投影。\nDTW(dynamic time wraping)。可以用于计算两个不同长度向量的距离，也可以对两对向量中不同时间段的数据做匹配。主要用于时间序列分析。"
-  },
-  {
-    "objectID": "note/2022-07-10-cluster-algorithm/index.html#距离",
-    "href": "note/2022-07-10-cluster-algorithm/index.html#距离",
-    "title": "Cluster algorithm",
-    "section": "距离",
-    "text": "距离\n\n数值变量\n\nMinkowski距离：其实就是\\(L_p\\) norm。考虑两个向量， \\(X = (x_1, x_2, ..., x_p)\\), \\(Y = (y_1, y_2, ..., y_p)\\). \\[\nd(X, Y) = \\sqrt[q]{\\lvert(x_1 - y_1)\\rvert^q + \\lvert(x_2 - y_2)\\rvert^q + ... + \\lvert(x_p - y_p)\\rvert^q}\n\\]\nManhattan距离：Minkowski，q = 1的特例。\n\n\\[\nd(X, Y) = \\lvert(x_1 - y_1)\\rvert + \\lvert(x_2 - y_2)\\rvert + ... + \\lvert(x_p - y_p)\\rvert\n\\]\n\nEuclidean距离：Minkowski, q = 2的特例。 \\[\nd(X, Y) = \\sqrt[2]{\\lvert(x_1 - y_1)\\rvert^2 + \\lvert(x_2 - y_2)\\rvert^2 + ... + \\lvert(x_p - y_p)\\rvert^2}\n\\]\nsupremum距离,也叫切比雪夫距离， \\(q \\rightarrow +\\infty\\)\n\nMahalanobis距离：权重向量 \\(W = (\\omega_1, \\omega_2, ..., \\omega_p)\\)，主要用于Gaussian Mixture Model(GMM)\n\\[\nd(X, Y) = \\sqrt[q]{\\omega_1*\\lvert(x_1 - y_1)\\rvert^q + \\omega_2*\\lvert(x_2 - y_2)\\rvert^q + ... +\\omega_p* \\lvert(x_p - y_p)\\rvert^q}\n\\]\nNote: 考虑到不同特征的尺度不一致，对特征做标准化处理。\\(Z_f = \\frac{X_f - mean_f}{S_f}\\)\n\n\n二元变量\n\\[d(X, Y) = \\frac{unpaired\\ features}{unpaired\\ feature + paired\\ positive}\n\\]\nNote: 为什么分母没有考虑\\(paired\\ negativae\\),因为\\(paired\\ negative\\) 说明是两者都没有的属性，那这样的属性可以说是无穷多的，计算上也没什么意义，所以不考虑，该说法由Jaccard提出，所以该距离称为Jaccard distance。\n\n\n分类变量\n\n简单匹配\n\n\\[\nd(X, Y) = \\frac{paired\\ feature}{category\\ number}\n\\]\n\n分类变量二值化，即将多类归为两类。\n\n\n\n有序变量\n考虑 \\(Level \\in{low, middle, high, ...}\\)\n\n用\\({1, 2, ..., N}\\)定义 \\(level\\)排序。\n对\\(level\\)进行\\(z\\ score\\)标准化。\n计算\\(level\\)的Minkowski距离。"
-  },
-  {
-    "objectID": "note/2022-07-10-cluster-algorithm/index.html#hierarchical-methods",
-    "href": "note/2022-07-10-cluster-algorithm/index.html#hierarchical-methods",
-    "title": "Cluster algorithm",
-    "section": "Hierarchical methods",
-    "text": "Hierarchical methods\n主要有两种路径： agglomerative 和divisive, 也可以理解为自下而上法(bottom-up) 和自上而下法(top-down) 。自下而上法，就是一开始每个个体(object) 都是一个类， 然后根据巧linkage寻找同类， 最后形成一个”类” 。自上而下法就是反过来， 一开始所有个体都属于一个” 类， 然后根据linkage排除异己，最后每个个体都成为一个” 类” 。这两种路径本质上没有优劣之分，只是在实际应用的时候要根据数据特点以及你想要的” 类” 的个数，来考虑是自上而下更快还是自下而上更快。至于根据Linkage 判断” 类” 的方法就是楼上所提到的最短距离法、最长距离法、中间距离法、类平均法等等（其中类平均往往被认为是最常用也最好用的方法， 一方面因为其良好的单调性，另一方面因为其空间扩张/ 浓缩的程度适中），HierarchicaI methods 中比较新的算法有BIRCH (BaIanced lterative Reducing and clustering Using Hierarchies) 主要是在数据体量很大的时候使用，而且数据类型是numerical; ROCK (A HierarchicaI CIustering Algorithm for CategoricaI Attri butes）主用在categorical 的数据类型上； ChameIeon (A HierarchicaI CIustering Algorithm Using Dynamic ModeIing) 里用到的linkage是kNN (k-nearest-neighbor) 算法，并以此构建一个graph。Chameleon的聚类效果被认为非常强大，比BIRCH 好用，但运算复杂度很高。\n\nexample\n\n把每一个单个的观测都视为一个类，而后计算各类之间的距离，选取最相近的两个类，将它们合并为一个类。新的这些类再继续计算距离，合并到最近的两个类。如此往复，最后就只有一个类。然后用树状图记录这个过程，这个树状图就包含了我们所需要的信息。类的数量取决于你从树状图哪里剪。\n\n计算类与类之间的距离，用邻近度矩阵记录。\n将最近的两个类合并为一个新的类。\n根据新的类，更新邻近度矩阵。\n重复2. 3。\n到只只剩下一个类的时候，停止。"
-  },
-  {
-    "objectID": "note/2022-07-10-cluster-algorithm/index.html#partition-based-methods",
-    "href": "note/2022-07-10-cluster-algorithm/index.html#partition-based-methods",
-    "title": "Cluster algorithm",
-    "section": "Partition-based methods",
-    "text": "Partition-based methods\n其原理简单来说就是，想象你有一堆散点需要聚类，想要的聚类效果就是”类内的点都足够近，类间的点都足够远” 。首先你要确定这堆散点最后聚成几类，然后挑选几个点作为初始中心点，再然后依据预先定好的启发式算法(heuristic algorithms)给数据点点做迭代重置（iterative relocation),直到最后到达”类内的点都足够近，类间的点都足够远” 的目标效果。也正是根据所渭的”启发式算法”,形成了k-means算法及其变体包括k-medoids 、k-modes 、k-medians、kernel k-means 等算法。k-means 对初始值的设置很敏感，所以有了k-means 十十、intelligent k-means 、genetic k-means; k-means 对噪声和离群值非常敏感，所以有了k-medoids 和k-medians; k-means只用于numerical 类型数据，不适用 于categorical 类型数据，所以k-modes; k-means不能解决非凸(non-convex) 数据，所以有了kernel k-meanso 另外，很多教程都告诉我们Partition-based methods 聚类多适用于中等体量的数据集，但我们也不知道中等’ 到底有多’ 中” ，所以不妨理解成， 数据集越大，越有可能陷入局部最小。\n\nexample k-means\n\n\n选择 K 个初始质心，初始质心随机选择即可，每一个质心为一个类。\n把每个观测指派到离它最近的质心，与质心形成新的类。\n重新计算每个类的质心，所谓质心就是一个类中的所有观测的平均向量（这里称为向量，是因为每一个观测都包含很多变量，所以我们把一个观测视为一个多维向量，维数由变量数决定）。\n重复2. 和 3。\n直到质心不在发生变化时或者到达最大迭代次数时。"
-  },
-  {
-    "objectID": "note/2022-07-10-cluster-algorithm/index.html#density-based-methods",
-    "href": "note/2022-07-10-cluster-algorithm/index.html#density-based-methods",
-    "title": "Cluster algorithm",
-    "section": "Density-based methods",
-    "text": "Density-based methods\nk-means解决不了不规则形状的聚类。于是就有了Density-based methods来系统解决这个问题。该方法同时也对噪声数据的处理比较好。其原理简单说画圈，其中要定义两个参数，一个是圈的最大半径，一个是圈里最少应容纳几个点。最后在一个圈里的，就是一个类。DBSCAN (Density-Based SpatiaI Clustering of Applications with Noise) 就是其中的典型，可惜参数设置也是个问题，对这两个参数的设置非常敏感。DBSCAN 的扩展叫OPTICS (Ordering Points To ldentify Clustering Structure) 通过优先对高密度(high density) 进行搜索，然后根据高密度的特点设置参数，改善了DBSCAN的不足。\n\nexample\n\n其核心思想是在数据空间中找到分散开的密集区域，简单来说就是画圈，其中要定义两个参数，一个是圈的最大半径，一个是一个圈里面最少应该容纳多少个点。\n\n从数据集中随机选择核心点。\n\n以核心点为圆心，做半径为V的圆，圆内圈入点的个数满足密度阈值的核心点称为核心对象,每一个核心对象的对应的圈都是一个簇。\n\n合并这些相互重合的簇。"
-  },
-  {
-    "objectID": "note/2022-07-10-cluster-algorithm/index.html#grid-based-method",
-    "href": "note/2022-07-10-cluster-algorithm/index.html#grid-based-method",
-    "title": "Cluster algorithm",
-    "section": "Grid-based method",
-    "text": "Grid-based method\n\nexample\n\n根据网格的聚类其原理是将数据空间划分为网格单元，将数据对象映射到网格单元中，并计算每个单元的密度。根据预设阈值来判断每个网格单元是不是高密度单元，由邻近的稠密单元组成“类”。\n1.将数据空间划分为网格单元。\n2.依照设置的阈值，判定网格单元是否稠密。\n3.合并相邻稠密的网格单元为一类。"
-  },
-  {
-    "objectID": "note/2022-07-10-cluster-algorithm/index.html#model-based-methods",
-    "href": "note/2022-07-10-cluster-algorithm/index.html#model-based-methods",
-    "title": "Cluster algorithm",
-    "section": "Model-based methods",
-    "text": "Model-based methods\n这一类方去主要是指基于概率模型的方法和基于神经网络模型的方法，尤其以基于概率模型的方法居多。这里的概率模型主要指概率生成模型(generative Model)，同一”类” 的数据属于同一种概率分布。这种方法的优点就是对” 类” 的划分不那么”坚硬”，而是以概率形式表现，每一类的特征也可以用参数来表达；但缺点就是执行效率不高，特别是分布数量很多并且数据量很少的时候。其中最典型、也最常用的方法就是高斯混合模型(GMM, Gaussian Mixture Models)。基于神经网络模型的方法主要就是指SO(SeIfOrganized Maps) 了。"
-  },
-  {
-    "objectID": "note/2022-07-10-cluster-algorithm/index.html#外部评价指标",
-    "href": "note/2022-07-10-cluster-algorithm/index.html#外部评价指标",
-    "title": "Cluster algorithm",
-    "section": "外部评价指标",
-    "text": "外部评价指标\n\n聚类纯度(purity) 与准确率异曲同工，其总体思想就是用聚类正确的数目除以总的样本数，因此常被称为准确率。\n\n\\[\nP = \\sum_k\\frac{max\\ groud\\ truth\\ number\\ in\\ cluster\\ k }{total\\ number}\n\\]\n\nRand Index\n\n定义簇(cluster，cluster result), 类(classification, groud truth)。\nprecision,你发现的阳性有多少是真的阳性。\nRecall,放出去的阳性，你找回了多少。\nTP = 同簇同类的数目\nTN = 不同簇不同类的数目\nFP = 同簇不同类的数目\nFN = 不同簇同类的数目\n\\[ RI = \\frac{TP + TN}{TP + TN + FP + FN} \\] \\[ Precision = \\frac{TP}{TP + FP} \\] \\[ Recall = \\frac{TP}{TP + FN} \\] \\[ F_\\beta = \\frac{(\\beta^2 + 1)}{\\beta^2}\\frac{(Precision * Recall)}{Precision + Recall} \\]\n在这里 \\(RI\\) 和 \\(F_\\beta\\) 的取值范围均为\\([0,1]\\), 越大表示聚类效果越好。一般用得较多的是\\(F1\\)，这里 \\(\\beta =1\\)\n\n调整兰德系数(adjusted Rand Index)\n\n\\[\nARI = \\frac{\\sum_i\\sum_j\\tbinom{n_{ij}}{2} - \\left[ \\sum_i\\tbinom{a_i}{2} \\sum_b\\tbinom{b_j}{2} \\right] \\bigg/ \\tbinom{n}{2}} {\\frac{1}{2} * \\left[ \\sum_i\\tbinom{a_i}{2} \\sum_j\\tbinom{b_j}{2} \\right] - \\left[ \\sum_i\\tbinom{a_i}{2} \\sum_j\\tbinom{b_j}{2} \\right] \\bigg/ \\tbinom{n}{2}}\n\\]\n考虑\\(A\\)在三个cluster中数量分别为5, 1, 2. \\(B\\)在三个cluster中数量分别为1, 4, 0. \\(C\\)在三个cluster中的数量分别为0, 1, 3.\nX, Y1, Y2, Y3, sums\nX1, 5, 1, 2, a1=8\nX2, 1, 4, 0, a2=5\nX3, 0, 1, 3, a3=4\nsums, b1=6, b2=6,b3=5\n\\[\n\\sum_i\\sum_j\\tbinom{n_{ij}}{2} = \\tbinom{5}{2} + \\tbinom{2}{2} + \\tbinom{4}{2} + \\tbinom{3}{2} = 20  \n\\] \\[\n\\sum_i\\tbinom{a_i}{2} = \\tbinom{8}{2} + \\tbinom{5}{2} + \\tbinom{4}{2} = 44  \n\\] \\[\n\\sum_j\\tbinom{b_j}{2} = \\tbinom{6}{2} + \\tbinom{6}{2} + \\tbinom{5}{2} = 40\n\\]\n\\[\nARI = \\frac{20 - 44 * 40 / 136 }{0.5 * (44 + 40) - 44 * 40 / 136 } = 0.24\n\\]"
-  },
-  {
-    "objectID": "note/2022-07-10-cluster-algorithm/index.html#内部评价指标",
-    "href": "note/2022-07-10-cluster-algorithm/index.html#内部评价指标",
-    "title": "Cluster algorithm",
-    "section": "内部评价指标",
-    "text": "内部评价指标\n内部评价指标基本都基于簇内距离，与簇间距离的比值，只是这些距离的含义不同。\n\n轮廓系数(Sihouette Coefficient Index) \\[\ns(i) = \\frac{b(i) - a(i)}{max\\{a(i), b(i) \\}}\n\\]\n\n\\[\ns = \\frac{1}{n} \\sum_i^n s_i\n\\]\n\\(i\\)代表一个样本点，其中\\(a(i)\\)是该样本点在簇类与其它点的均值距离，\\(b(i)\\)是该样本点与其最近的簇的样本点的距离均值，这里所谓的距离最近的簇是该点与其它簇的中心点的距离最近的簇。可以看出\\(s\\)的取值范围为\\(\\left[-1, 1 \\right]\\)\n\nCalinski-Harabasz Index(方差比准则) \\[\nW = \\sum_{k=1}^{k}\\omega_k = \\sum_{k=1}^{K}\\sum_{x\\in C_k} (x - c_k)^2\n\\]\n\n\\[\nB = \\sum_{k=1}^{k} b_k = \\sum_{k=1}^{k} n_k(c_k - c)^2\n\\]\n\\[\ns = \\frac{B}{K - 1} \\bigg/ \\frac{W}{n - K} = \\frac{B}{W} \\cdot \\frac{n - K}{k - 1}\n\\]\n其中\\(\\omega_k\\)是簇\\(k\\)中所有点与该簇中心点的距离和，\\(b_k\\)是簇\\(k\\)的中心点与所有样本中心点距离乘以簇\\(k\\)的样本点数目。其中\\(c_k\\)为簇\\(k\\)的簇中心，\\(c\\)为所有样本点的中心。\\(K\\)为聚类得到的簇总数，\\(n\\)为样本数目，\\(n_k\\)为簇\\(k\\)的样本数目。\n\nDavies-Bouldin Index\n\n簇内直径与簇间距离的比值。\n首先定义簇内直径\\(s_i\\)等于簇\\(i\\)中所有点与簇中心点的距离均值，簇\\(i\\)与簇\\(j\\)之间的距离为\\(d_{ij}\\),等于簇\\(i\\)与簇\\(j\\)中心点之间的距离。\n\\[\nR_{ij} = \\frac{s_i + s_j}{d_{ij}}\n\\]\n\\[\nDB = \\frac{1}{K} \\sum_{i,j=1}^K max_{i\\neq j} R_{ij}\n\\]\n\\(DB\\)指数的取值范围在\\(\\left[0, +\\infty\\right]\\)，结果越小聚类效果越好。"
-  },
-  {
-    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html",
-    "href": "note/2022-06-10-probability-distribution.qmd/index.html",
-    "title": "Probability distribution",
-    "section": "",
-    "text": "多重伯努利实验中，已知事件事件 \\(A\\) 成功的概率为 \\(p\\)，且实验次数 \\(n\\) 固定 ，那么随机变量 \\(X\\) —— 事件 \\(A\\) 发生次数 \\(X\\) ： \\[ P(X = k) = C_n^k p^k(1-p)^{n-k}, k = 0,1,...,n. \\] 记为：\\[X \\sim b(n,p)\\] \\[E(X) = np\\] \\[ D(X) = np(1-p)\\]\n\n二项分布的特殊分布 两点分布Bernoulli Distribution ，即一重伯努利实验：\n\n\n\n\n多重伯努利实验中，已知事件 \\(A\\) 发生的概率为\\(p\\)，那么当事件 \\(A\\) 第 \\(r\\) 次发生，那么随机变量 \\(X\\) —— 伯努利实验次数： \\[P(X = K) = C_{k-1}^{r-1}p^r(1-p)^{k-r}, k = r,r+1,... \\] 记作：\\(X \\sim Nb(r,p)\\) \\[E(X) = \\frac{r}{p}\\] \\[D(X) = \\frac{r(1-p)}{p^2}\\]\n\n负二项分布的特殊分布 几何分布（Geometric Distrirution)，即当 \\(r = 1\\) 时的负二项分布。 记为：\\(X \\sim Ge(p)\\)\n\n\n\n\n不放回的随机抽样，设有\\(N\\)件产品，其中中\\(M\\)件不合格品，从中不放回的随机抽取\\(n\\)件，则其中的不合格的件数服从超几何分布： \\[P(X = k) = \\frac{C_M^K C_{N-M}^{n-k}}{C_N^n} \\]\n记为：\\(X \\sim h(n,N,M)\\) \\[E(X) = n\\frac{M}{N}\\] \\[D(X) = \\frac{nM(N-M)(N-n)}{N^2(N-1)}\\]\n\n\n\n涉及到单位时间，面积，体积的计数过程，数量\\(X\\): \\[ P(X=k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}  \\] 记为：\\[ X \\sim  P(\\lambda) \\] \\[E(X) = \\lambda)\\] \\[D(X) = \\lambda\\]"
-  },
-  {
-    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#二项分布binomial-distribution",
-    "href": "note/2022-06-10-probability-distribution.qmd/index.html#二项分布binomial-distribution",
-    "title": "Probability distribution",
-    "section": "",
-    "text": "多重伯努利实验中，已知事件事件 \\(A\\) 成功的概率为 \\(p\\)，且实验次数 \\(n\\) 固定 ，那么随机变量 \\(X\\) —— 事件 \\(A\\) 发生次数 \\(X\\) ： \\[ P(X = k) = C_n^k p^k(1-p)^{n-k}, k = 0,1,...,n. \\] 记为：\\[X \\sim b(n,p)\\] \\[E(X) = np\\] \\[ D(X) = np(1-p)\\]\n\n二项分布的特殊分布 两点分布Bernoulli Distribution ，即一重伯努利实验："
-  },
-  {
-    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#负二项分布negative-binomial-distribution",
-    "href": "note/2022-06-10-probability-distribution.qmd/index.html#负二项分布negative-binomial-distribution",
-    "title": "Probability distribution",
-    "section": "",
-    "text": "多重伯努利实验中，已知事件 \\(A\\) 发生的概率为\\(p\\)，那么当事件 \\(A\\) 第 \\(r\\) 次发生，那么随机变量 \\(X\\) —— 伯努利实验次数： \\[P(X = K) = C_{k-1}^{r-1}p^r(1-p)^{k-r}, k = r,r+1,... \\] 记作：\\(X \\sim Nb(r,p)\\) \\[E(X) = \\frac{r}{p}\\] \\[D(X) = \\frac{r(1-p)}{p^2}\\]\n\n负二项分布的特殊分布 几何分布（Geometric Distrirution)，即当 \\(r = 1\\) 时的负二项分布。 记为：\\(X \\sim Ge(p)\\)"
-  },
-  {
-    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#超几何分布",
-    "href": "note/2022-06-10-probability-distribution.qmd/index.html#超几何分布",
-    "title": "Probability distribution",
-    "section": "",
-    "text": "不放回的随机抽样，设有\\(N\\)件产品，其中中\\(M\\)件不合格品，从中不放回的随机抽取\\(n\\)件，则其中的不合格的件数服从超几何分布： \\[P(X = k) = \\frac{C_M^K C_{N-M}^{n-k}}{C_N^n} \\]\n记为：\\(X \\sim h(n,N,M)\\) \\[E(X) = n\\frac{M}{N}\\] \\[D(X) = \\frac{nM(N-M)(N-n)}{N^2(N-1)}\\]"
-  },
-  {
-    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#泊松分布possion-distribution",
-    "href": "note/2022-06-10-probability-distribution.qmd/index.html#泊松分布possion-distribution",
-    "title": "Probability distribution",
-    "section": "",
-    "text": "涉及到单位时间，面积，体积的计数过程，数量\\(X\\): \\[ P(X=k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}  \\] 记为：\\[ X \\sim  P(\\lambda) \\] \\[E(X) = \\lambda)\\] \\[D(X) = \\lambda\\]"
-  },
-  {
-    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#正态分布",
-    "href": "note/2022-06-10-probability-distribution.qmd/index.html#正态分布",
-    "title": "Probability distribution",
-    "section": "正态分布",
-    "text": "正态分布\n正态分布含有两个参数 \\(\\mu\\)，\\(\\sigma\\), 其中 \\(\\mu\\) 为位置参数，控制曲线在 \\(x\\) 轴上的位置；\\(\\sigma\\)为尺度参数，用于控制曲线的参数。 记为：\\(X \\sim N(\\mu,\\sigma)\\) \\(E(X) = \\mu\\), \\(D(X) = \\sigma^2\\)\n概率密度函数： \\[ p(x) = \\frac{1}{\\sqrt{2 \\pi}\\sigma} e^{- \\frac{(x - \\mu)^2}   {2\\sigma^2}} \\] 分布函数： \\[ F(x) = \\int_{-\\infty}^x p(t)dt = \\int_{-\\infty}^x \\frac{1}{\\sqrt{2\\pi}\\sigma} e^{- \\frac{(t-\\mu^2)}{2\\sigma}}dt \\]"
-  },
-  {
-    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#均匀分布",
-    "href": "note/2022-06-10-probability-distribution.qmd/index.html#均匀分布",
-    "title": "Probability distribution",
-    "section": "均匀分布",
-    "text": "均匀分布\n记为：\\(X \\sim U(a,b)\\) \\(E(X) = \\frac{a+b}{2}\\)，\\(D(X) = \\frac{(b-a)^2}{12}\\)"
-  },
-  {
-    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#指数分布",
-    "href": "note/2022-06-10-probability-distribution.qmd/index.html#指数分布",
-    "title": "Probability distribution",
-    "section": "指数分布",
-    "text": "指数分布\n记为：\\(X \\sim Exp(\\lambda)\\) \\(E(X) = \\frac{1}{\\lambda}\\)，\\(D(x) = \\frac{1}{\\lambda^2}\\)"
-  },
-  {
-    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#伽玛分布",
-    "href": "note/2022-06-10-probability-distribution.qmd/index.html#伽玛分布",
-    "title": "Probability distribution",
-    "section": "伽玛分布",
-    "text": "伽玛分布\n记为：\\(X \\sim Ga(\\alpha,\\lambda)\\) \\(E(X) = \\frac{\\alpha}{\\lambda}\\)， \\(D(X) = \\frac{\\alpha}{\\lambda^2}\\)"
-  },
-  {
-    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#贝塔分布",
-    "href": "note/2022-06-10-probability-distribution.qmd/index.html#贝塔分布",
-    "title": "Probability distribution",
-    "section": "贝塔分布",
-    "text": "贝塔分布\n记为：\\(X \\sim Be(a,b)\\) \\(E(X) = \\frac{a}{a+b}\\)， \\(D(x) = \\frac{ab}{(a+b)^2 (a+b+1)}\\)"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -315,6 +56,76 @@
     "text": "基因注释与富集分析\n检验：GO kegg注释就是列联表的卡方检验。\n输入：一个感兴趣基因集，基因注释信息。\n输出：基因基是否在某一类注释信息中。\n需要认为设定感兴趣基因集的阈值。\nGESA：解决人为设定基因集的问题。 输入：全部的基因变化信息，一个感兴趣的通路的基因集合（GESA msi)。\n输出：是否与整个感兴趣的通路相关。\n图片认知（待写）\n非模式生物的富集分析：有参，无参。\nannotationhub。\n\n多样本数据分析\nTCGA是肿瘤数据库，可以通过firebrowser下载其中的数据。GTex是正常人的数据。\n关于pearson相关系数以及spearman相关系数：spearman相关系数仅仅是对数据的排序序号进行pearson相关分析的结果。\nWGCNA：只是简单对基因进行聚类，通过最终聚类效果的评价指标选取距离计算的指数。\n多样本差异表达基因：\n将负二项模型通过对数连接函数写作广义线性模型，并对其参数进行似然比检验：\n\\[\nlog\\mu_{gi} = x_{i}^{t}\\beta_g + logN_i\n\\]\n其中\\(log\\mu_{gi}\\)是基因\\(g\\)在样本\\(i\\)的观测值，\\(x_{i}^{t}\\)设计矩阵，\\(N_i\\)是样本的测序深度。差异检验就是对\\(\\beta_g\\)是否全为0的检验。"
   },
   {
+    "objectID": "note/2022-07-10-cluster-algorithm/index.html",
+    "href": "note/2022-07-10-cluster-algorithm/index.html",
+    "title": "Cluster algorithm",
+    "section": "",
+    "text": "Note:该文章基本只是对几篇文章的整合，只有细微的细改，原文章在参考下。\n参考：\n相似性衡量，聚类算法以及data reduction的整体介绍\n距离计算的详细内容，每种聚类方法的实现过程，example\n聚类结果的内部价指标\n聚类结果的外部评价指标\n聚类分析：根据样本特征计算样本距离。需要考虑的点，聚类算法，相似度的衡量。"
+  },
+  {
+    "objectID": "note/2022-07-10-cluster-algorithm/index.html#相似系数核函数kx-y以及dtw",
+    "href": "note/2022-07-10-cluster-algorithm/index.html#相似系数核函数kx-y以及dtw",
+    "title": "Cluster algorithm",
+    "section": "相似系数，核函数\\(K(x, y)\\)以及DTW",
+    "text": "相似系数，核函数\\(K(x, y)\\)以及DTW\n相似系数，包括夹角余弦和相关系数。其主要优势在于不受原线性变换的影响，可以轻松转化为距离，但其运算速度比距离法慢的多，当维数很高的时候。\n核函数\\(K(x, y)\\)， 定义在\\(R^d * R^d\\)的二元函数，本质也是距离。核函数的功能是把数据从低维到高维进行投影。\nDTW(dynamic time wraping)。可以用于计算两个不同长度向量的距离，也可以对两对向量中不同时间段的数据做匹配。主要用于时间序列分析。"
+  },
+  {
+    "objectID": "note/2022-07-10-cluster-algorithm/index.html#距离",
+    "href": "note/2022-07-10-cluster-algorithm/index.html#距离",
+    "title": "Cluster algorithm",
+    "section": "距离",
+    "text": "距离\n\n数值变量\n\nMinkowski距离：其实就是\\(L_p\\) norm。考虑两个向量， \\(X = (x_1, x_2, ..., x_p)\\), \\(Y = (y_1, y_2, ..., y_p)\\). \\[\nd(X, Y) = \\sqrt[q]{\\lvert(x_1 - y_1)\\rvert^q + \\lvert(x_2 - y_2)\\rvert^q + ... + \\lvert(x_p - y_p)\\rvert^q}\n\\]\nManhattan距离：Minkowski，q = 1的特例。\n\n\\[\nd(X, Y) = \\lvert(x_1 - y_1)\\rvert + \\lvert(x_2 - y_2)\\rvert + ... + \\lvert(x_p - y_p)\\rvert\n\\]\n\nEuclidean距离：Minkowski, q = 2的特例。 \\[\nd(X, Y) = \\sqrt[2]{\\lvert(x_1 - y_1)\\rvert^2 + \\lvert(x_2 - y_2)\\rvert^2 + ... + \\lvert(x_p - y_p)\\rvert^2}\n\\]\nsupremum距离,也叫切比雪夫距离， \\(q \\rightarrow +\\infty\\)\n\nMahalanobis距离：权重向量 \\(W = (\\omega_1, \\omega_2, ...,\n\\omega_p)\\)，主要用于Gaussian Mixture Model(GMM)\n\\[\nd(X, Y) = \\sqrt[q]{\\omega_1*\\lvert(x_1 - y_1)\\rvert^q + \\omega_2*\\lvert(x_2 - y_2)\\rvert^q + ... +\\omega_p* \\lvert(x_p - y_p)\\rvert^q}\n\\]\nNote: 考虑到不同特征的尺度不一致，对特征做标准化处理。\\(Z_f = \\frac{X_f - mean_f}{S_f}\\)\n\n\n二元变量\n\\[d(X, Y) = \\frac{unpaired\\ features}{unpaired\\ feature + paired\\ positive}\n\\]\nNote: 为什么分母没有考虑\\(paired\\ negativae\\),因为\\(paired\\ negative\\) 说明是两者都没有的属性，那这样的属性可以说是无穷多的，计算上也没什么意义，所以不考虑，该说法由Jaccard提出，所以该距离称为Jaccard distance。\n\n\n分类变量\n\n简单匹配\n\n\\[\nd(X, Y) = \\frac{paired\\ feature}{category\\ number}\n\\]\n\n分类变量二值化，即将多类归为两类。\n\n\n\n有序变量\n考虑 \\(Level \\in{low, middle, high, ...}\\)\n\n用\\({1, 2, ..., N}\\)定义 \\(level\\)排序。\n对\\(level\\)进行\\(z\\ score\\)标准化。\n计算\\(level\\)的Minkowski距离。"
+  },
+  {
+    "objectID": "note/2022-07-10-cluster-algorithm/index.html#hierarchical-methods",
+    "href": "note/2022-07-10-cluster-algorithm/index.html#hierarchical-methods",
+    "title": "Cluster algorithm",
+    "section": "Hierarchical methods",
+    "text": "Hierarchical methods\n主要有两种路径： agglomerative 和divisive, 也可以理解为自下而上法(bottom-up) 和自上而下法(top-down) 。自下而上法，就是一开始每个个体(object) 都是一个类， 然后根据巧linkage寻找同类， 最后形成一个”类” 。自上而下法就是反过来， 一开始所有个体都属于一个” 类， 然后根据linkage排除异己，最后每个个体都成为一个” 类” 。这两种路径本质上没有优劣之分，只是在实际应用的时候要根据数据特点以及你想要的” 类” 的个数，来考虑是自上而下更快还是自下而上更快。至于根据Linkage 判断” 类” 的方法就是楼上所提到的最短距离法、最长距离法、中间距离法、类平均法等等（其中类平均往往被认为是最常用也最好用的方法， 一方面因为其良好的单调性，另一方面因为其空间扩张/ 浓缩的程度适中），HierarchicaI methods 中比较新的算法有BIRCH (BaIanced lterative Reducing and clustering Using Hierarchies) 主要是在数据体量很大的时候使用，而且数据类型是numerical; ROCK (A HierarchicaI CIustering Algorithm for CategoricaI Attri butes）主用在categorical 的数据类型上； ChameIeon (A HierarchicaI CIustering Algorithm Using Dynamic ModeIing) 里用到的linkage是kNN (k-nearest-neighbor) 算法，并以此构建一个graph。Chameleon的聚类效果被认为非常强大，比BIRCH 好用，但运算复杂度很高。\n\nexample\n\n把每一个单个的观测都视为一个类，而后计算各类之间的距离，选取最相近的两个类，将它们合并为一个类。新的这些类再继续计算距离，合并到最近的两个类。如此往复，最后就只有一个类。然后用树状图记录这个过程，这个树状图就包含了我们所需要的信息。类的数量取决于你从树状图哪里剪。\n\n计算类与类之间的距离，用邻近度矩阵记录。\n将最近的两个类合并为一个新的类。\n根据新的类，更新邻近度矩阵。\n重复2. 3。\n到只只剩下一个类的时候，停止。"
+  },
+  {
+    "objectID": "note/2022-07-10-cluster-algorithm/index.html#partition-based-methods",
+    "href": "note/2022-07-10-cluster-algorithm/index.html#partition-based-methods",
+    "title": "Cluster algorithm",
+    "section": "Partition-based methods",
+    "text": "Partition-based methods\n其原理简单来说就是，想象你有一堆散点需要聚类，想要的聚类效果就是”类内的点都足够近，类间的点都足够远” 。首先你要确定这堆散点最后聚成几类，然后挑选几个点作为初始中心点，再然后依据预先定好的启发式算法(heuristic algorithms)给数据点点做迭代重置（iterative relocation),直到最后到达”类内的点都足够近，类间的点都足够远” 的目标效果。也正是根据所渭的”启发式算法”,形成了k-means算法及其变体包括k-medoids 、k-modes 、k-medians、kernel k-means 等算法。k-means 对初始值的设置很敏感，所以有了k-means 十十、intelligent k-means 、genetic k-means; k-means 对噪声和离群值非常敏感，所以有了k-medoids 和k-medians; k-means只用于numerical 类型数据，不适用 于categorical 类型数据，所以k-modes; k-means不能解决非凸(non-convex) 数据，所以有了kernel k-meanso 另外，很多教程都告诉我们Partition-based methods 聚类多适用于中等体量的数据集，但我们也不知道中等’ 到底有多’ 中” ，所以不妨理解成， 数据集越大，越有可能陷入局部最小。\n\nexample k-means\n\n\n选择 K 个初始质心，初始质心随机选择即可，每一个质心为一个类。\n把每个观测指派到离它最近的质心，与质心形成新的类。\n重新计算每个类的质心，所谓质心就是一个类中的所有观测的平均向量（这里称为向量，是因为每一个观测都包含很多变量，所以我们把一个观测视为一个多维向量，维数由变量数决定）。\n重复2. 和 3。\n直到质心不在发生变化时或者到达最大迭代次数时。"
+  },
+  {
+    "objectID": "note/2022-07-10-cluster-algorithm/index.html#density-based-methods",
+    "href": "note/2022-07-10-cluster-algorithm/index.html#density-based-methods",
+    "title": "Cluster algorithm",
+    "section": "Density-based methods",
+    "text": "Density-based methods\nk-means解决不了不规则形状的聚类。于是就有了Density-based methods来系统解决这个问题。该方法同时也对噪声数据的处理比较好。其原理简单说画圈，其中要定义两个参数，一个是圈的最大半径，一个是圈里最少应容纳几个点。最后在一个圈里的，就是一个类。DBSCAN (Density-Based SpatiaI Clustering of Applications with Noise) 就是其中的典型，可惜参数设置也是个问题，对这两个参数的设置非常敏感。DBSCAN 的扩展叫OPTICS (Ordering Points To ldentify Clustering Structure) 通过优先对高密度(high density) 进行搜索，然后根据高密度的特点设置参数，改善了DBSCAN的不足。\n\nexample\n\n其核心思想是在数据空间中找到分散开的密集区域，简单来说就是画圈，其中要定义两个参数，一个是圈的最大半径，一个是一个圈里面最少应该容纳多少个点。\n\n从数据集中随机选择核心点。\n\n以核心点为圆心，做半径为V的圆，圆内圈入点的个数满足密度阈值的核心点称为核心对象,每一个核心对象的对应的圈都是一个簇。\n\n合并这些相互重合的簇。"
+  },
+  {
+    "objectID": "note/2022-07-10-cluster-algorithm/index.html#grid-based-method",
+    "href": "note/2022-07-10-cluster-algorithm/index.html#grid-based-method",
+    "title": "Cluster algorithm",
+    "section": "Grid-based method",
+    "text": "Grid-based method\n\nexample\n\n根据网格的聚类其原理是将数据空间划分为网格单元，将数据对象映射到网格单元中，并计算每个单元的密度。根据预设阈值来判断每个网格单元是不是高密度单元，由邻近的稠密单元组成“类”。\n1.将数据空间划分为网格单元。\n2.依照设置的阈值，判定网格单元是否稠密。\n3.合并相邻稠密的网格单元为一类。"
+  },
+  {
+    "objectID": "note/2022-07-10-cluster-algorithm/index.html#model-based-methods",
+    "href": "note/2022-07-10-cluster-algorithm/index.html#model-based-methods",
+    "title": "Cluster algorithm",
+    "section": "Model-based methods",
+    "text": "Model-based methods\n这一类方去主要是指基于概率模型的方法和基于神经网络模型的方法，尤其以基于概率模型的方法居多。这里的概率模型主要指概率生成模型(generative Model)，同一”类” 的数据属于同一种概率分布。这种方法的优点就是对” 类” 的划分不那么”坚硬”，而是以概率形式表现，每一类的特征也可以用参数来表达；但缺点就是执行效率不高，特别是分布数量很多并且数据量很少的时候。其中最典型、也最常用的方法就是高斯混合模型(GMM, Gaussian Mixture Models)。基于神经网络模型的方法主要就是指SO(SeIfOrganized Maps) 了。"
+  },
+  {
+    "objectID": "note/2022-07-10-cluster-algorithm/index.html#外部评价指标",
+    "href": "note/2022-07-10-cluster-algorithm/index.html#外部评价指标",
+    "title": "Cluster algorithm",
+    "section": "外部评价指标",
+    "text": "外部评价指标\n\n聚类纯度(purity) 与准确率异曲同工，其总体思想就是用聚类正确的数目除以总的样本数，因此常被称为准确率。\n\n\\[\nP = \\sum_k\\frac{max\\ groud\\ truth\\ number\\ in\\ cluster\\ k }{total\\ number}\n\\]\n\nRand Index\n\n定义簇(cluster，cluster result), 类(classification, groud truth)。\nprecision,你发现的阳性有多少是真的阳性。\nRecall,放出去的阳性，你找回了多少。\nTP = 同簇同类的数目\nTN = 不同簇不同类的数目\nFP = 同簇不同类的数目\nFN = 不同簇同类的数目\n\\[ RI = \\frac{TP + TN}{TP + TN + FP + FN} \\] \\[ Precision = \\frac{TP}{TP + FP} \\] \\[ Recall = \\frac{TP}{TP + FN} \\] \\[ F_\\beta = \\frac{(\\beta^2 + 1)}{\\beta^2}\\frac{(Precision * Recall)}{Precision + Recall} \\]\n在这里 \\(RI\\) 和 \\(F_\\beta\\) 的取值范围均为\\([0,1]\\), 越大表示聚类效果越好。一般用得较多的是\\(F1\\)，这里 \\(\\beta =1\\)\n\n调整兰德系数(adjusted Rand Index)\n\n\\[\nARI = \\frac{\\sum_i\\sum_j\\tbinom{n_{ij}}{2} - \\left[ \\sum_i\\tbinom{a_i}{2} \\sum_b\\tbinom{b_j}{2} \\right] \\bigg/ \\tbinom{n}{2}} {\\frac{1}{2} * \\left[ \\sum_i\\tbinom{a_i}{2} \\sum_j\\tbinom{b_j}{2} \\right] - \\left[ \\sum_i\\tbinom{a_i}{2} \\sum_j\\tbinom{b_j}{2} \\right] \\bigg/ \\tbinom{n}{2}}\n\\]\n考虑\\(A\\)在三个cluster中数量分别为5, 1, 2. \\(B\\)在三个cluster中数量分别为1, 4, 0. \\(C\\)在三个cluster中的数量分别为0, 1, 3.\nX, Y1, Y2, Y3, sums\nX1, 5, 1, 2, a1=8\nX2, 1, 4, 0, a2=5\nX3, 0, 1, 3, a3=4\nsums, b1=6, b2=6,b3=5\n\\[\n\\sum_i\\sum_j\\tbinom{n_{ij}}{2} = \\tbinom{5}{2} + \\tbinom{2}{2} + \\tbinom{4}{2} + \\tbinom{3}{2} = 20  \n\\] \\[\n\\sum_i\\tbinom{a_i}{2} = \\tbinom{8}{2} + \\tbinom{5}{2} + \\tbinom{4}{2} = 44  \n\\] \\[\n\\sum_j\\tbinom{b_j}{2} = \\tbinom{6}{2} + \\tbinom{6}{2} + \\tbinom{5}{2} = 40\n\\]\n\\[\nARI = \\frac{20 - 44 * 40 / 136 }{0.5 * (44 + 40) - 44 * 40 / 136 } = 0.24\n\\]"
+  },
+  {
+    "objectID": "note/2022-07-10-cluster-algorithm/index.html#内部评价指标",
+    "href": "note/2022-07-10-cluster-algorithm/index.html#内部评价指标",
+    "title": "Cluster algorithm",
+    "section": "内部评价指标",
+    "text": "内部评价指标\n内部评价指标基本都基于簇内距离，与簇间距离的比值，只是这些距离的含义不同。\n\n轮廓系数(Sihouette Coefficient Index) \\[\ns(i) = \\frac{b(i) - a(i)}{max\\{a(i), b(i) \\}}\n\\]\n\n\\[\ns = \\frac{1}{n} \\sum_i^n s_i\n\\]\n\\(i\\)代表一个样本点，其中\\(a(i)\\)是该样本点在簇类与其它点的均值距离，\\(b(i)\\)是该样本点与其最近的簇的样本点的距离均值，这里所谓的距离最近的簇是该点与其它簇的中心点的距离最近的簇。可以看出\\(s\\)的取值范围为\\(\\left[-1, 1 \\right]\\)\n\nCalinski-Harabasz Index(方差比准则) \\[\nW = \\sum_{k=1}^{k}\\omega_k = \\sum_{k=1}^{K}\\sum_{x\\in C_k} (x - c_k)^2\n\\]\n\n\\[\nB = \\sum_{k=1}^{k} b_k = \\sum_{k=1}^{k} n_k(c_k - c)^2\n\\]\n\\[\ns = \\frac{B}{K - 1} \\bigg/ \\frac{W}{n - K} = \\frac{B}{W} \\cdot \\frac{n - K}{k - 1}\n\\]\n其中\\(\\omega_k\\)是簇\\(k\\)中所有点与该簇中心点的距离和，\\(b_k\\)是簇\\(k\\)的中心点与所有样本中心点距离乘以簇\\(k\\)的样本点数目。其中\\(c_k\\)为簇\\(k\\)的簇中心，\\(c\\)为所有样本点的中心。\\(K\\)为聚类得到的簇总数，\\(n\\)为样本数目，\\(n_k\\)为簇\\(k\\)的样本数目。\n\nDavies-Bouldin Index\n\n簇内直径与簇间距离的比值。\n首先定义簇内直径\\(s_i\\)等于簇\\(i\\)中所有点与簇中心点的距离均值，簇\\(i\\)与簇\\(j\\)之间的距离为\\(d_{ij}\\),等于簇\\(i\\)与簇\\(j\\)中心点之间的距离。\n\\[\nR_{ij} = \\frac{s_i + s_j}{d_{ij}}\n\\]\n\\[\nDB = \\frac{1}{K} \\sum_{i,j=1}^K max_{i\\neq j} R_{ij}\n\\]\n\\(DB\\)指数的取值范围在\\(\\left[0, +\\infty\\right]\\)，结果越小聚类效果越好。"
+  },
+  {
     "objectID": "note/2022-07-17-statistics/index.html",
     "href": "note/2022-07-17-statistics/index.html",
     "title": "Statistics",
@@ -347,7 +158,7 @@
     "href": "note/2022-07-17-statistics/index.html#第二章-概率",
     "title": "Statistics",
     "section": "第二章 概率",
-    "text": "第二章 概率\nStandard definition: proportion of times this event occurs in many repetitions.\nSubjective probability: not based on experiments, different people assign different subjective probabilities to the same event.\nFour basic rules\n\nComplement rule: P(A does not occur) = 1 - P(A)\n\n\nRules for equally likely outcomes: \\(P(A) = \\frac{ number\\ of\\ outcomes\\ in\\ A}{n}\\)\n\n\nAddition rule: \\(A\\) and \\(B\\) are mutually exclusive(don’t occure at the same time), then: \\[ P(A or B) = P(A) + P(B)\\]\n\n\nMultiplication rule: A and B are independent(one occures doesn’t change the probability that the other occurs),then: \\[P(A and B) = P(A)(B)\\]\n\n条件概率（conditional probability) \\[ P(B|A) = \\frac{P(A and B)}{P(A)} \\] General multiplication rule: \\(P(A and B) = P(A)P(B|A)\\), special case where A and B are independent: \\(P(A and B) = P(A)P(B)\\).\nBayes’s rule Bayesian analysis\nFalse positives case warner’s randomized response model"
+    "text": "第二章 概率\nStandard definition: proportion of times this event occurs in many repetitions.\nSubjective probability: not based on experiments, different people assign different subjective probabilities to the same event.\nFour basic rules\n\nComplement rule: P(A does not occur) = 1 - P(A)\n\n\nRules for equally likely outcomes: \\(P(A) = \\frac{\nnumber\\ of\\ outcomes\\ in\\ A}{n}\\)\n\n\nAddition rule: \\(A\\) and \\(B\\) are mutually exclusive(don’t occure at the same time), then: \\[ P(A or B) = P(A) + P(B)\\]\n\n\nMultiplication rule: A and B are independent(one occures doesn’t change the probability that the other occurs),then: \\[P(A and B) = P(A)(B)\\]\n\n条件概率（conditional probability) \\[ P(B|A) = \\frac{P(A and B)}{P(A)} \\] General multiplication rule: \\(P(A and B) = P(A)P(B|A)\\), special case where A and B are independent: \\(P(A and B) = P(A)P(B)\\).\nBayes’s rule Bayesian analysis\nFalse positives case warner’s randomized response model"
   },
   {
     "objectID": "note/2022-07-17-statistics/index.html#第三章-正态分布与二项分布",
@@ -361,7 +172,7 @@
     "href": "note/2022-07-17-statistics/index.html#第四章-样本分布",
     "title": "Statistics",
     "section": "第四章 样本分布",
-    "text": "第四章 样本分布\nExpected value of the sample average , E(\\(\\bar{x}_N\\)) is the population average. Standard error: statistic’s sd(其实就是样本统计量的标准差), tells us roughly how far off the statistic will be from it expected value.\nExpected value and SE for average &gt; E(\\(\\bar{x}_N\\)) = \\(\\mu\\) (Square root law), \\(SE(\\bar{x}_n) = \\frac{\\sigma}{\\sqrt{n}}\\)\n\n\nMore lager sample size n, more smaller SE, it can be used to determine sample size to get desired accuarcy\nSE don’t depend on the size of the population, only on the size of the sample.\n\n\nExpected value and SE for sum &gt; $E(S_n) = n$ , \\(SE(S_n) = \\sqrt{n}\\sigma\\)\nExpected value and SE for percentages Framework for counting and classifying: \\[\nE(percentage\\ of\\ 1s) = 1\\mu100%\n\\frac{\\sigma}{\\sqrt{n}} 100%\n\\]\nExpected value and SE when simulating A random variable X that is simulated has K possible outcomes , \\(\\mu = \\sum_{i=1}^k x_i P(X = x_i), \\sigma^2 = \\sum{i=1}^k (x_i - \\mu)^2 P(X = x_i)\\)"
+    "text": "第四章 样本分布\nExpected value of the sample average , E(\\(\\bar{x}_N\\)) is the population average. Standard error: statistic’s sd(其实就是样本统计量的标准差), tells us roughly how far off the statistic will be from it expected value.\nExpected value and SE for average &gt; E(\\(\\bar{x}_N\\)) = \\(\\mu\\) (Square root law), \\(SE(\\bar{x}_n) = \\frac{\\sigma}{\\sqrt{n}}\\)\n\n\nMore lager sample size n, more smaller SE, it can be used to determine sample size to get desired accuarcy\nSE don’t depend on the size of the population, only on the size of the sample.\n\n\nExpected value and SE for sum &gt; $E(S_n) = n$ , \\(SE(S_n) = \\sqrt{n}\\sigma\\)\nExpected value and SE for percentages Framework for counting and classifying: \\[\nE(percentage\\ of\\ 1s) = 1\\mu100%\n\\frac{\\sigma}{\\sqrt{n}} 100%\n\\]\nExpected value and SE when simulating A random variable X that is simulated has K possible outcomes , \\(\\mu = \\sum_{i=1}^k x_i P(X = x_i),  \\sigma^2 =\n\\sum{i=1}^k (x_i - \\mu)^2 P(X = x_i)\\)"
   },
   {
     "objectID": "note/2022-07-17-statistics/index.html#第一章-线性回归",
@@ -441,39 +252,375 @@
     "text": "xgboost\n构造目标函数\n假设已经训练了\\(K\\)棵树，则对于第\\(i\\)个样本（最终)预测值为： \\[\\hat{y}_{i} = \\sum_{k=1}^{K}f_{k}(x_i), f_k \\in \\mathcal{F}\\] 目标函数： \\[\nobj = \\sum_{i=1}^{n}l(y_i, \\hat{y}_i) + \\sum_{k=1}^{K}\\Omega(f_k)\n\\] 对于\\(K\\)个模型的优化是叠加式训练；给定\\(x_i\\)： \\(\\hat{y_i}^{(0)}= 0 \\leftarrow\\) (default case)\n\\(\\hat{y_i}^{(1)}= \\hat{y_i}^{(0)} + f_{1}(x_i)\\) \\(\\hat{y_i}^{(2)}= \\hat{y_i}^{(0)} + f_{1}(x_i) + f_{2}(x_i)\\)\n…… \\(\\hat{y_i}^{(k)}= \\hat{y_i}^{(0)} + f_{1}(x_i) + f_{2}(x_i) + ... + f_{k-1}(x_i) + f_{k}(x_i) \\rightarrow \\hat{y_i}^{(k)} = \\hat{y}^{(k-1)} + f_{k}(x_k)\\) 当训练第\\(k\\)树时，目标函数写作： \\[\nobj_k = \\sum_{i=1}^{n}l(y_i, \\hat{y}^{(k-1)} + f_{k}(x_k)) + \\sum_{j=1}^{K-1}\\Omega(f_j) + \\Omega(f_k) \\rightarrow  \\sum_{i=1}^{n}l(y_i, \\hat{y}^{(k-1)} + f_{k}(x_k)) +  \\Omega(f_k)\n\\]\n目标函数直接优化难，如何近似?（talor expansion)\n\\[obj_k = \\sum_{i}^{n} \\left[l(y_i, \\hat{y_i}^{(k-1)}) + \\partial_{\\hat{y_i}^{(k-1)})}l(y_i, \\hat{y_i}^{(k-1)}) *f_{k}(x_i) + \\frac{1}{2}\\partial_{\\hat{y_i}^{(k-1)})}^{2}l(y_i, \\hat{y_i}^{(k-1)}) *f_{k}^{2}(x_i)\\right] + \\Omega(f_k)  \\\\\n= \\sum_{i}^{n} \\left[ g_{i} *f_{k}(x_i) + \\frac{1}{2}h_i*f_{k}^{2}(x_i)\\right] + \\Omega(f_k)\n\\]\nNote: \\(g_i\\)以及\\(h_i\\)就是残差的一种形式，传递给第\\(k\\)个模型训练的方向；记住\\(g_i\\)以及\\(h_i\\)是样本\\(i\\)具有两个常量可以帮助后面的理解。\n如何把树的结构引入目标函数\n参数化一棵树： 定义： \\(q(x_i) \\rightarrow\\) 样本\\(x_i\\)在树的哪个叶节点。 \\(\\omega \\rightarrow\\) 叶节点的权重值（值） 那么\\(\\omega_{q(x_i)} \\rightarrow\\) 样本\\(x_i\\)的预测值\\(f_k(x_i) = \\omega_{q(x_i)}\\) \\(I_j \\rightarrow\\) 在叶子节点\\(j\\)的样本集合。 \\[\\Omega(f_k) = \\gamma T + \\frac{1}{2}\\lambda\\sum_{j=1}^{T}\\omega_j\\]\n新的目标函数： \\[\n  obj_k = \\sum_{i}^{n} \\left[ g_{i} *f_{k}(x_i) + \\frac{1}{2}h_i*f_{k}^{2}(x_i)\\right] + \\Omega(f_k) \\\\ = \\sum_{i}^{n} \\left[ g_{i} *\\omega_{q(x_i)} + \\omega_{q(x_i)}^{2}(x_i)\\right] + \\gamma T + \\frac{1}{2}\\lambda\\sum_{j=1}^{T}\\omega_j \\\\ = \\sum_{j}^T \\left[(\\sum_{i \\in I_j}g_i)\\omega_j + \\frac{1}{2}(\\sum_{i \\in I_j}h_i + \\lambda)\\omega_{j}^2 \\right] + \\gamma T\n\\]\nNote：这里的关键在于上面提到的\\(g_i\\)以及\\(h_i\\)是样本\\(i\\)所具有的一个常量，观察目标函数可以知道，其值就是每个样本的\\(g_i\\)和\\(h_i\\)与其叶子节点\\(\\omega_j\\)值的乘积之和。目标函数形式的改变就是从样本遍历其和变为从叶子节点遍历其和。 定义\\(G_j = \\sum_{i \\in I_j}g_{i}\\), \\(H_j = \\sum_{i \\in I_j}h_{i}\\): \\[\nobj_k = \\sum_{j=1}^T \\left[ G_{i}\\omega_j + \\frac{1}{2}(H_{i} + \\lambda)\\omega_{j}^2 \\right] + \\gamma T\n\\] Note: 可以看到最后的目标函数就是，某个叶子节点的样本集合一阶导数之和该节点权重值 + 二阶导数之和该节点权重值的平方。注意\\(G_i\\)以及\\(H_i\\)的都是常数。\n利用贪心算法求解树的生长过程。\n注意\\(G_i\\)以及\\(H_i\\)的都是常数，最后的目标函数实际熵就是一个形如\\(b + ax^2\\)的二次函数，二次函数为了取得最大值，其\\(x\\)取值为：\\(\\omega_{j}* = - \\frac{G_i}{H_i + \\lambda} + \\gamma T\\)，那么目标函数取值为\\(-\\frac{1}{2} \\sum_{j=1}^{T}\\frac{G_{i}^2}{H_i + \\lambda}\\)。如之前提到的决策树的生长，这里的生长，和其类似，不过分割的准则变成了\\(obj\\)；每一次分割就是使得\\(\\Delta_{obj}\\)最大的方向。"
   },
   {
-    "objectID": "note/2023-15-data-transformation/index.html",
-    "href": "note/2023-15-data-transformation/index.html",
+    "objectID": "note/2023-10-15-data-transformation/index.html",
+    "href": "note/2023-10-15-data-transformation/index.html",
     "title": "数据变换技巧",
     "section": "",
     "text": "对数变换：即将原始数据\\(X\\)的对数值作为新的分析数据：\n\\[\nX' = lgX\n\\]\n当原始数据中有小于1及零的数据时，亦可取\n\\[\nX' = lg(X + 1)\n\\]\n还可根据需要选用\n\\[\nX' = lg(X + k) \\ 或 \\ X' = lg(k - X)\n\\]\n对数变化常用于：1. 使服从对数正态的数据正态化。如环境中某些污染物的分布，人体中某些微量元素的分布等，可用对数比变换改善其正态性。2. 使数据达到方差齐性，特别是各样本的标准差与均数成比例或变异系数CV接近一个常数时。\n平方根变换: 即将原始数据\\(X\\)的平方根作为新的分析数据：\n\\[\nX' = \\sqrt{X}\n\\]\n当原始数据有小值或零值时，亦可用\n\\[\nX' = \\sqrt{X + 0.5}\n\\]\n平方根变换常用于：1. 使服从Possion分布的计数资料或轻度偏态的资料正态化，例如放射性物质在单位时间内的放射次数，某些发病率较低的疾病在时间或地域上的发病例数等，可用平方根变换使其正态化。2. 当样本的方差与均数正相关时，可使资料达到方差齐性。\n倒数变换: 即将原始数据\\(X\\)的倒数作为新的分析数据：\n\\[\nX' = \\frac{1}{X}\n\\]\n倒数变换常用于数据两端波动较大的资料，可使极端值的影响减小。"
   },
   {
-    "objectID": "note/2023-15-data-transformation/index.html#删除元组",
-    "href": "note/2023-15-data-transformation/index.html#删除元组",
+    "objectID": "note/2023-10-15-data-transformation/index.html#删除元组",
+    "href": "note/2023-10-15-data-transformation/index.html#删除元组",
     "title": "数据变换技巧",
     "section": "删除元组",
     "text": "删除元组\n也就是将存在遗漏信息属性值的对象（元组，记录）删除，从而得到一个完备的信息表 。这种方法简单易行， 在对象有多个属性缺失值、被删除的含缺失值的对象与初始数据集的数据量相比非常小的情况下非常有效，类标号缺失时通常使用该方法。\n然而，这种方法却有很大的局限性。 它以减少历史数据来换取信息的完备，会丢弃大量隐藏在这些对象中的信息。 在初始数据集包含的对象很少的情况下，删除少量对象足以严重影响信息的客观性和结果的正确性；因此，当缺失数据所占比例较大，特别当遗漏数据非随机分布时，这种方法可能导致数据发生偏离，从而引出错误的结论。\n说明:删除元组，或者直接删除该列特征，有时候会导致性能下降。"
   },
   {
-    "objectID": "note/2023-15-data-transformation/index.html#数据补齐",
-    "href": "note/2023-15-data-transformation/index.html#数据补齐",
+    "objectID": "note/2023-10-15-data-transformation/index.html#数据补齐",
+    "href": "note/2023-10-15-data-transformation/index.html#数据补齐",
     "title": "数据变换技巧",
     "section": "数据补齐",
     "text": "数据补齐\n这类方法是用一定的值去填充空值，从而使信息表完备化。通常基于统计学原理， 根据初始数据集中其余对象取值的分布情况来对一个缺失值进行填充 。数据挖掘中常用的有以下几种补齐方法：\n人工填写（filling manually) 由于最了解数据的还是用户自己，因此这个方法产生数据偏离最小，可能是填充效果最好的一种。然而一般来说，该方法很费时，当数据规模很大、空值很多的时候，该方法是不可行的。\n特殊值填充（Treating Missing Attribute values as Special values） 将空值作为一种特殊的属性值来处理，它不同于其他的任何属性值 。如所有的空值都用“unknown”填充。这样将形成另一个有趣的概念， 可能导致严重的数据偏离，一般不推荐使用 。\n平均值填充（Mean/Mode Completer) 将初始数据集中的属性分为数值属性和非数值属性来分别进行处理 。 如果空值是数值型的，就根据该属性在其他所有对象的取值的平均值来填充该缺失的属性值； 如果空值是非数值型的，就根据统计学中的众数原理 ，用该属性在其他所有对象的取值次数最多的值(即出现频率最高的值)来补齐该缺失的属性值。与其相似的另一种方法叫条件平均值填充法（Conditional Mean Completer）。在该方法中，用于求平均的值并不是从数据集的所有对象中取，而是从与该对象具有相同决策属性值的对象中取得。 这两种数据的补齐方法，其基本的出发点都是一样的，以最大概率可能的取值来补充缺失的属性值，只是在具体方法上有一点不同。与其他方法相比，它是用现存数据的多数信息来推测缺失值。\n热卡填充（Hot deck imputation，或就近补齐) 对于一个包含空值的对象，热卡填充法在完整数据中找到一个与它最相似的对象，然后用这个相似对象的值来进行填充。不同的问题可能会选用不同的标准来对相似进行判定。该方法概念上很简单，且利用了数据间的关系来进行空值估计。这个方法的缺点在于难以定义相似标准，主观因素较多。\nK最近距离邻法（K-means clustering) 先根据欧式距离或相关分析来确定距离具有缺失数据样本最近的K个样本，将这K个值加权平均来估计该样本的缺失数据。\n使用所有可能的值填充（Assigning All Possible values of the Attribute） 用空缺属性值的所有可能的属性取值来填充，能够得到较好的补齐效果。但是，当数据量很大或者遗漏的属性值较多时，其计算的代价很大，可能的测试方案很多。\n组合完整化方法（Combinatorial Completer） 用空缺属性值的所有可能的属性取值来试，并从最终属性的约简结果中选择最好的一个作为填补的属性值。这是以约简为目的的数据补齐方法，能够得到好的约简结果；但是，当数据量很大或者遗漏的属性值较多时，其计算的代价很大。\n回归（Regression） 基于完整的数据集，建立回归方程。对于包含空值的对象，将已知属性值代入方程来估计未知属性值，以此估计值来进行填充。当变量不是线性相关时会导致有偏差的估计。\n期望值最大化方法（Expectation maximization，EM） EM算法是一种在不完全数据情况下计算极大似然估计或者后验分布的迭代算法。在每一迭代循环过程中交替执行两个步骤：E步（Excepctaion step,期望步），在给定完全数据和前一次迭代所得到的参数估计的情况下计算完全数据对应的对数似然函数的条件期望；M步（Maximzation step，极大化步），用极大化对数似然函数以确定参数的值，并用于下步的迭代。算法在E步和M步之间不断迭代直至收敛，即两次迭代之间的参数变化小于一个预先给定的阈值时结束。该方法可能会陷入局部极值，收敛速度也不是很快，并且计算很复杂。\n多重填补（Multiple Imputation，MI） 多重填补方法分为三个步骤： 为每个空值产生一套可能的填补值，这些值反映了无响应模型的不确定性；每个值都被用来填补数据集中的缺失值，产生若干个完整数据集合。 每个填补数据集合都用针对完整数据集的统计方法进行统计分析。 对来自各个填补数据集的结果进行综合，产生最终的统计推断，这一推断考虑到了由于数据填补而产生的不确定性。该方法将空缺值视为随机样本，这样计算出来的统计推断可能受到空缺值的不确定性的影响。该方法的计算也很复杂。\nC4.5方法 通过寻找属性间的关系来对遗失值填充。它寻找之间具有最大相关性的两个属性，其中没有遗失值的一个称为代理属性，另一个称为原始属性，用代理属性决定原始属性中的遗失值。这种基于规则归纳的方法只能处理基数较小的名词型属性。\n就几种基于统计的方法而言，删除元组法和平均值法差于热卡填充法、期望值最大化方法和多重填充法；回归是比较好的一种方法，但仍比不上hot deck和EM；EM缺少MI包含的不确定成分。值得注意的是，这些方法直接处理的是模型参数的估计而不是空缺值预测本身。它们合适于处理无监督学习的问题，而对有监督学习来说，情况就不尽相同了。譬如，你可以删除包含空值的对象用完整的数据集来进行训练，但预测时你却不能忽略包含空值的对象。另外，C4.5和使用所有可能的值填充方法也有较好的补齐效果，人工填写和特殊值填充则是一般不推荐使用的。"
   },
   {
-    "objectID": "note/2023-15-data-transformation/index.html#不处理",
-    "href": "note/2023-15-data-transformation/index.html#不处理",
+    "objectID": "note/2023-10-15-data-transformation/index.html#不处理",
+    "href": "note/2023-10-15-data-transformation/index.html#不处理",
     "title": "数据变换技巧",
     "section": "不处理",
     "text": "不处理\n补齐处理只是将未知值补以我们的主观估计值，不一定完全符合客观事实，在对不完备信息进行补齐处理的同时，我们或多或少地改变了原始的信息系统。而且，对空值不正确的填充往往将新的噪声引入数据中，使挖掘任务产生错误的结果。因此，在许多情况下，我们还是希望在保持原始信息不发生变化的前提下对信息系统进行处理。\n不处理缺失值，直接在包含空值的数据上进行数据挖掘的方法包括贝叶斯网络和人工神经网络等。\n贝叶斯网络提供了一种自然的表示变量间因果信息的方法，用来发现数据间的潜在关系。在这个网络中，用节点表示变量，有向边表示变量间的依赖关系。贝叶斯网络仅适合于对领域知识具有一定了解的情况，至少对变量间的依赖关系较清楚的情况。否则直接从数据中学习贝叶斯网的结构不但复杂性较高（随着变量的增加，指数级增加），网络维护代价昂贵，而且它的估计参数较多，为系统带来了高方差，影响了它的预测精度。\n人工神经网络可以有效的对付缺失值，但人工神经网络在这方面的研究还有待进一步深入展开。\n知乎上的一种方案：\n4.把变量映射到高维空间。比如性别，有男、女、缺失三种情况，则映射成3个变量：是否男、是否女、是否缺失。连续型变量也可以这样处理。比如Google、百度的CTR预估模型，预处理时会把所有变量都这样处理，达到几亿维。这样做的好处是完整保留了原始数据的全部信息、不用考虑缺失值、不用考虑线性不可分之类的问题。缺点是计算量大大提升。 而且只有在样本量非常大的时候效果才好，否则会因为过于稀疏，效果很差。"
   },
   {
-    "objectID": "note/2023-15-data-transformation/index.html#总结",
-    "href": "note/2023-15-data-transformation/index.html#总结",
+    "objectID": "note/2023-10-15-data-transformation/index.html#总结",
+    "href": "note/2023-10-15-data-transformation/index.html#总结",
     "title": "数据变换技巧",
     "section": "总结",
     "text": "总结\n大多数数据挖掘系统都是在数据挖掘之前的数据预处理阶段采用第一、第二类方法来对空缺数据进行处理。并不存在一种处理空值的方法可以适合于任何问题。无论哪种方式填充，都无法避免主观因素对原系统的影响，并且在空值过多的情形下将系统完备化是不可行的。从理论上来说，贝叶斯考虑了一切，但是只有当数据集较小或满足某些条件（如多元正态分布）时完全贝叶斯分析才是可行的。而现阶段人工神经网络方法在数据挖掘中的应用仍很有限。值得一提的是，采用不精确信息处理数据的不完备性已得到了广泛的研究。不完备数据的表达方法所依据的理论主要有可信度理论、概率论、模糊集合论、可能性理论，D-S的证据理论等。"
+  },
+  {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html",
+    "href": "note/2022-06-10-probability-distribution.qmd/index.html",
+    "title": "Probability distribution",
+    "section": "",
+    "text": "多重伯努利实验中，已知事件事件 \\(A\\) 成功的概率为 \\(p\\)，且实验次数 \\(n\\) 固定 ，那么随机变量 \\(X\\) —— 事件 \\(A\\) 发生次数 \\(X\\) ： \\[ P(X = k) = C_n^k p^k(1-p)^{n-k}, k = 0,1,...,n. \\] 记为：\\[X \\sim b(n,p)\\] \\[E(X) = np\\] \\[ D(X) = np(1-p)\\]\n\n二项分布的特殊分布 两点分布Bernoulli Distribution ，即一重伯努利实验：\n\n\n\n\n多重伯努利实验中，已知事件 \\(A\\) 发生的概率为\\(p\\)，那么当事件 \\(A\\) 第 \\(r\\) 次发生，那么随机变量 \\(X\\) —— 伯努利实验次数： \\[P(X = K) = C_{k-1}^{r-1}p^r(1-p)^{k-r}, k = r,r+1,... \\] 记作：\\(X \\sim Nb(r,p)\\) \\[E(X) = \\frac{r}{p}\\] \\[D(X) = \\frac{r(1-p)}{p^2}\\]\n\n负二项分布的特殊分布 几何分布（Geometric Distrirution)，即当 \\(r = 1\\) 时的负二项分布。 记为：\\(X \\sim Ge(p)\\)\n\n\n\n\n不放回的随机抽样，设有\\(N\\)件产品，其中中\\(M\\)件不合格品，从中不放回的随机抽取\\(n\\)件，则其中的不合格的件数服从超几何分布： \\[P(X = k) = \\frac{C_M^K C_{N-M}^{n-k}}{C_N^n} \\]\n记为：\\(X \\sim h(n,N,M)\\) \\[E(X) = n\\frac{M}{N}\\] \\[D(X) = \\frac{nM(N-M)(N-n)}{N^2(N-1)}\\]\n\n\n\n涉及到单位时间，面积，体积的计数过程，数量\\(X\\): \\[ P(X=k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}  \\] 记为：\\[ X \\sim  P(\\lambda) \\] \\[E(X) = \\lambda)\\] \\[D(X) = \\lambda\\]"
+  },
+  {
+    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#二项分布binomial-distribution",
+    "href": "note/2022-06-10-probability-distribution.qmd/index.html#二项分布binomial-distribution",
+    "title": "Probability distribution",
+    "section": "",
+    "text": "多重伯努利实验中，已知事件事件 \\(A\\) 成功的概率为 \\(p\\)，且实验次数 \\(n\\) 固定 ，那么随机变量 \\(X\\) —— 事件 \\(A\\) 发生次数 \\(X\\) ： \\[ P(X = k) = C_n^k p^k(1-p)^{n-k}, k = 0,1,...,n. \\] 记为：\\[X \\sim b(n,p)\\] \\[E(X) = np\\] \\[ D(X) = np(1-p)\\]\n\n二项分布的特殊分布 两点分布Bernoulli Distribution ，即一重伯努利实验："
+  },
+  {
+    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#负二项分布negative-binomial-distribution",
+    "href": "note/2022-06-10-probability-distribution.qmd/index.html#负二项分布negative-binomial-distribution",
+    "title": "Probability distribution",
+    "section": "",
+    "text": "多重伯努利实验中，已知事件 \\(A\\) 发生的概率为\\(p\\)，那么当事件 \\(A\\) 第 \\(r\\) 次发生，那么随机变量 \\(X\\) —— 伯努利实验次数： \\[P(X = K) = C_{k-1}^{r-1}p^r(1-p)^{k-r}, k = r,r+1,... \\] 记作：\\(X \\sim Nb(r,p)\\) \\[E(X) = \\frac{r}{p}\\] \\[D(X) = \\frac{r(1-p)}{p^2}\\]\n\n负二项分布的特殊分布 几何分布（Geometric Distrirution)，即当 \\(r = 1\\) 时的负二项分布。 记为：\\(X \\sim Ge(p)\\)"
+  },
+  {
+    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#超几何分布",
+    "href": "note/2022-06-10-probability-distribution.qmd/index.html#超几何分布",
+    "title": "Probability distribution",
+    "section": "",
+    "text": "不放回的随机抽样，设有\\(N\\)件产品，其中中\\(M\\)件不合格品，从中不放回的随机抽取\\(n\\)件，则其中的不合格的件数服从超几何分布： \\[P(X = k) = \\frac{C_M^K C_{N-M}^{n-k}}{C_N^n} \\]\n记为：\\(X \\sim h(n,N,M)\\) \\[E(X) = n\\frac{M}{N}\\] \\[D(X) = \\frac{nM(N-M)(N-n)}{N^2(N-1)}\\]"
+  },
+  {
+    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#泊松分布possion-distribution",
+    "href": "note/2022-06-10-probability-distribution.qmd/index.html#泊松分布possion-distribution",
+    "title": "Probability distribution",
+    "section": "",
+    "text": "涉及到单位时间，面积，体积的计数过程，数量\\(X\\): \\[ P(X=k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}  \\] 记为：\\[ X \\sim  P(\\lambda) \\] \\[E(X) = \\lambda)\\] \\[D(X) = \\lambda\\]"
+  },
+  {
+    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#正态分布",
+    "href": "note/2022-06-10-probability-distribution.qmd/index.html#正态分布",
+    "title": "Probability distribution",
+    "section": "正态分布",
+    "text": "正态分布\n正态分布含有两个参数 \\(\\mu\\)，\\(\\sigma\\), 其中 \\(\\mu\\) 为位置参数，控制曲线在 \\(x\\) 轴上的位置；\\(\\sigma\\)为尺度参数，用于控制曲线的参数。 记为：\\(X \\sim N(\\mu,\\sigma)\\) \\(E(X) = \\mu\\), \\(D(X) = \\sigma^2\\)\n概率密度函数： \\[ p(x) = \\frac{1}{\\sqrt{2 \\pi}\\sigma} e^{- \\frac{(x - \\mu)^2}   {2\\sigma^2}} \\] 分布函数： \\[ F(x) = \\int_{-\\infty}^x p(t)dt = \\int_{-\\infty}^x \\frac{1}{\\sqrt{2\\pi}\\sigma} e^{- \\frac{(t-\\mu^2)}{2\\sigma}}dt \\]"
+  },
+  {
+    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#均匀分布",
+    "href": "note/2022-06-10-probability-distribution.qmd/index.html#均匀分布",
+    "title": "Probability distribution",
+    "section": "均匀分布",
+    "text": "均匀分布\n记为：\\(X \\sim U(a,b)\\) \\(E(X) = \\frac{a+b}{2}\\)，\\(D(X) = \\frac{(b-a)^2}{12}\\)"
+  },
+  {
+    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#指数分布",
+    "href": "note/2022-06-10-probability-distribution.qmd/index.html#指数分布",
+    "title": "Probability distribution",
+    "section": "指数分布",
+    "text": "指数分布\n记为：\\(X \\sim Exp(\\lambda)\\) \\(E(X) = \\frac{1}{\\lambda}\\)，\\(D(x) = \\frac{1}{\\lambda^2}\\)"
+  },
+  {
+    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#伽玛分布",
+    "href": "note/2022-06-10-probability-distribution.qmd/index.html#伽玛分布",
+    "title": "Probability distribution",
+    "section": "伽玛分布",
+    "text": "伽玛分布\n记为：\\(X \\sim Ga(\\alpha,\\lambda)\\) \\(E(X) = \\frac{\\alpha}{\\lambda}\\)， \\(D(X) = \\frac{\\alpha}{\\lambda^2}\\)"
+  },
+  {
+    "objectID": "note/2022-06-10-probability-distribution.qmd/index.html#贝塔分布",
+    "href": "note/2022-06-10-probability-distribution.qmd/index.html#贝塔分布",
+    "title": "Probability distribution",
+    "section": "贝塔分布",
+    "text": "贝塔分布\n记为：\\(X \\sim Be(a,b)\\) \\(E(X) = \\frac{a}{a+b}\\)， \\(D(x) = \\frac{ab}{(a+b)^2 (a+b+1)}\\)"
+  },
+  {
+    "objectID": "note/2023-10-01-hypothesis-test/index.html#数值变量",
+    "href": "note/2023-10-01-hypothesis-test/index.html#数值变量",
+    "title": "Hypothesis Test",
+    "section": "数值变量",
+    "text": "数值变量\n频数分布图形： range / n 取整数。\n\n正态分布数据选用算术均值，方差/标准差/变异系数描述其分布。\n理论公式：\n计算公式：\n\n\n标准差，变异系数是同单位的。变异系数用于不同尺度，均值相差较大的数据。 方差/标准差/变异系数的计算都依赖于均值的计算。\n\n\n对数正态分布数据选用几何均值，全距/四分位数。\n理论公式：\n计算公式：\n任意其它分布选用中位数，全距/四分位数"
+  },
+  {
+    "objectID": "note/2023-10-01-hypothesis-test/index.html#分类变量",
+    "href": "note/2023-10-01-hypothesis-test/index.html#分类变量",
+    "title": "Hypothesis Test",
+    "section": "分类变量",
+    "text": "分类变量\n分类变量数据主要依赖于各种相对数描述，包括proportion, rate, ration.其中rate主要涉及到时间的概念。\n\n数据的标准化法 直接化法，按总人口统一人口数。 间接法， 每组死亡人数与预期死亡人数之比互相比较。\n动态数列 定基/环比，变化/增长（-1），平均发展速度，平均变化速度。"
+  },
+  {
+    "objectID": "note/2023-10-01-hypothesis-test/index.html#小于等于2个样本的情况",
+    "href": "note/2023-10-01-hypothesis-test/index.html#小于等于2个样本的情况",
+    "title": "Hypothesis Test",
+    "section": "小于等于2个样本的情况",
+    "text": "小于等于2个样本的情况\n\n单样本 - 样本均值总体均值的比较。\n理论公式\n\\[\n\\frac{\\bar{X} - \\mu}{\\sigma/\\sqrt{n}} \\sim N(0, 1).\n\\tag{1}\\]\n当总体为正态变量或依赖于中心极限定理时（CLT)，该公式成立。\n\n中心极限定理描述了在大样本情况下样本均值服从于正态分布这一事实。\n\n\\(\\sigma\\)未知时\n\\[\n\\frac{\\bar{X} - \\mu}{S/\\sqrt{n}} \\sim t(n-1).\n\\]\n当\\(n \\rightarrow \\infty\\), \\(t\\)分布近似于正态分布，计算时可用\\(z\\)分布替代\\(t\\)分布。\n\n\n配对样本均值比较\n\\[\nt(\\upsilon) = \\frac{\\mid\\bar{d} - 0 \\mid}{S_\\bar{d}} = \\frac{\\bar{d}}{S_\\bar{d}}, \\upsilon = 对子数 - 1.\n\\]\n\n\n两独立样本比较\n理论公式\n\\[\n  \\frac{(\\bar{X} - \\bar{Y}) - (\\mu_1 - \\mu_2)}{\\sqrt{(\\frac{\\sigma_1^2}{n_1} + \\frac{\\sigma_2^2}{n_2})}} \\sim N(0, 1).\n  \\tag{2}\\]\n样本数\\(n\\)足够大\\((n_1 &gt; 100, n_2 &gt; 100)\\)\n\n此时\\(s_1^2 \\approx \\sigma_1^2, s_2^2 \\approx \\sigma_2^2.\\)\n\n\n\\[\n  Z = \\frac{\\mid \\bar{X_1} - \\bar{X_2} \\mid}{S_{\\bar{X_1} - \\bar{X_2}}}, S_{\\bar{X_1} - \\bar{X_2}} = \\sqrt{S_1^2/n_1 + S_2^2/n_2}.\n  \\]\n方差齐\\(\\sigma_1 = \\sigma_2\\)\n\\[\nt = \\frac{\\mid \\bar{X_1} - \\bar{X_2} \\mid}{S_{\\bar{X_1} - \\bar{X_2}}}, \\upsilon = n_1 + n_2 - 2.\n\\]\n式中两样本均数之差的标准误：\\(S_{\\bar{X_1} - \\bar{X_2}} = \\sqrt{S_c^2(\\frac{1}{n_1} + \\frac{2}{n_2})}.\\)\n其中合并标准差的平方： \\(S_c^2 = \\frac{S_1^2(n_1 - 1) + S_2^2(n_2 - 1)}{n_1 + n_2 - 2}\\)\n方差不齐\n\\[\nt^\\prime = \\frac{\\bar{X_1} - \\bar{X_2}}{\\sqrt{\\frac{S_1^2}{n_1} + \\frac{S_2^2}{n_2}}}\n\\]\n通过Satterhwaite法，对自由度进行校正\n\\[\n\\upsilon = \\frac{(S_{\\bar{X_1}}^2  + S_{\\bar{X_2}}^2)^2}{\\frac{S_{\\bar{X_1}}^4}{n1 - 1} + \\frac{S_{\\bar{X_2}}^4}{n_2 - 1}}\n\\]\n\n\nR中实现t-test\n正态性检验\n\nwith(sleep, {\n  print(shapiro.test(extra))\n  qqnorm(extra)\n  qqline(extra)\n})\n\n\n    Shapiro-Wilk normality test\n\ndata:  extra\nW = 0.94607, p-value = 0.3114\n\n\n\n\n\n\n\n\n\nOne Sample t-test\n\nt.test(extra ~ 1, mu = 0, data = sleep)\n\n\n    One Sample t-test\n\ndata:  extra\nt = 3.413, df = 19, p-value = 0.002918\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 0.5955845 2.4844155\nsample estimates:\nmean of x \n     1.54 \n\n\nTwo Sample t-test(\\(\\sigma_1^2 = \\sigma_2^2\\))\nvar-test1\n1 更多方差齐性检验的方法可以参考这里\nvar.test(extra ~ group, data = sleep, alternative = \"two.sided\")\n\n\n    F test to compare two variances\n\ndata:  extra by group\nF = 0.79834, num df = 9, denom df = 9, p-value = 0.7427\nalternative hypothesis: true ratio of variances is not equal to 1\n95 percent confidence interval:\n 0.198297 3.214123\nsample estimates:\nratio of variances \n         0.7983426 \n\n\n\nt.test(extra ~ group, data = sleep, var.equal = TRUE)\n\n\n    Two Sample t-test\n\ndata:  extra by group\nt = -1.8608, df = 18, p-value = 0.07919\nalternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0\n95 percent confidence interval:\n -3.363874  0.203874\nsample estimates:\nmean in group 1 mean in group 2 \n           0.75            2.33 \n\n\nWelch Two Sample t-test\n\nt.test(extra ~ group, data = sleep, var.equal = FALSE)\n\n\n    Welch Two Sample t-test\n\ndata:  extra by group\nt = -1.8608, df = 17.776, p-value = 0.07939\nalternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0\n95 percent confidence interval:\n -3.3654832  0.2054832\nsample estimates:\nmean in group 1 mean in group 2 \n           0.75            2.33 \n\n\nPaired t-test\n\nsleep2 &lt;- reshape(sleep, direction = \"wide\", idvar = \"ID\", timevar = \"group\")\nt.test(Pair(extra.1, extra.2) ~ 1, data = sleep2)\n\n\n    Paired t-test\n\ndata:  Pair(extra.1, extra.2)\nt = -4.0621, df = 9, p-value = 0.002833\nalternative hypothesis: true mean difference is not equal to 0\n95 percent confidence interval:\n -2.4598858 -0.7001142\nsample estimates:\nmean difference \n          -1.58 \n\n\n其它参数：\n\nalternative: 备择假设，two.sided, less, greater.\n\n\n\nAssumptions\nFrom wikipedia:\n\nFor exactness, the t-test and Z-test require normality of the sample means(Theorem 1), and the t-test additionally requires that the sample variance follows a scaled \\(\\chi^2\\) distribution, and that the sample mean and sample variance be statistically independent(Theorem 2). Normality of the individual data values is not required if these conditions are met. By the central limit theorem, sample means of moderately large samples are often well-approximated by a normal distribution even if the data are not normally distributed. For non-normal data, the distribution of the sample variance may deviate substantially from a \\(\\chi^2\\) distribution.\nHowever, if the sample size is large, Slutsky’s theorem implies that the distribution of the sample variance has little effect on the distribution of the test statistic. That is as sample size\n\n\\({\\displaystyle {\\sqrt {n}}({\\bar {X}}-\\mu )\\xrightarrow {d} N\\left(0,\\sigma ^{2}\\right)}\\) as per the Central limit theorem.\n\\({\\displaystyle s^{2}\\xrightarrow {p} \\sigma ^{2}}\\) as per the Law of large numbers.\n\\({\\displaystyle \\therefore {\\frac {{\\sqrt {n}}({\\bar {X}}-\\mu )}{s}}\\xrightarrow {d} N(0,1)}\\)\n\n\n可以简单地理解为，大样本情况下， 依据中心极限定理，样本均值总是符合 Equation 1 以及 Equation 2。 进一步地，依据大数定理，\\(s^2 \\approx \\sigma^2\\), 所以大样本下无论什么总体其样本均值统计量都服从于正态分布，而大样本下的正态分布近似于\\(t\\)分布。"
+  },
+  {
+    "objectID": "note/2023-10-01-hypothesis-test/index.html#大于等于3个样本的情况",
+    "href": "note/2023-10-01-hypothesis-test/index.html#大于等于3个样本的情况",
+    "title": "Hypothesis Test",
+    "section": "大于等于3个样本的情况",
+    "text": "大于等于3个样本的情况\n\n总体均值的比较\n\nANOVA\n原理：\n\nIf the group means are drawn from populations with the same mean values, the variance between the group means should be lower than the variance of the samples, following the central limit theorem - wikipedia\n\nAssumptions\n\n正态总体\n方差齐性\n样本独立性\n\n如t-test的assumption类似，推导出F分布的前提是正态分布以及方差齐性。但在实际使用过程之中，方差分析具有稳健性，对正态分布的要求并不是很严格2。\n2 Tiku (1971) found that “the non-normal theory power of F is found to differ from the normal theory power by a correction term which decreases sharply with increasing sample size.” The problem of non-normality, especially in large samples, is far less serious than popular articles would suggest - wikipedia\nOnw-Way-ANOVA-Table\n\n\n\n\n\n\n\n\n\n\n\\(variation \\: source\\)\n\\(SS\\)\n\\(\\upsilon\\)\n\\(MS\\)\n\\(F\\)\n\\(P\\)\n\n\n\n\n\\(Treatment(Between \\: groups)\\)\n\\(\\sum_{i=1}^an_i(\\bar{Y_i}-\\bar{Y})^2\\)\n\\(a - 1\\)\n\\(\\frac{\\sum_{i=1}^an_i(\\bar{Y_i}-\\bar{Y})^2}{a -1}\\)\n\\(\\frac{MS_{between \\: group}}{MS_{within \\: group}}\\)\n\n\n\n\\(Individual\\: random \\:var iation(within\\: groups)\\)\n\\(\\sum_{i=1}^{a}\\sum_{j=1}^{n_i}(Y_{ij} - \\bar{Y}_i)^2\\)\n\\(N - a\\)\n\\(\\frac{\\sum_{i=1}^{a}\\sum_{j=1}^{n_i}(Y_{ij} - \\bar{Y}_i)^2}{N - a}\\)\n\n\n\n\n\\(Total \\: variation\\)\n\\(\\sum_{i=1}^n\\sum_{j=1}^{n_i}(Y_{ij} - \\bar{Y})^2\\)\n\\(N - 1\\)\n\\(\\frac{\\sum_{i=1}^n\\sum_{j=1}^{n_i}(Y_{ij} - \\bar{Y})^2}{N - 1}\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n单因素方差分分析(one way ANOVA-analysis of variance)\n\\[\nF = \\frac{MS_{组间}}{MS_{组内}} = \\frac{SS_{组间}/\\upsilon_{组间}}{SS_{组内}/\n\\upsilon_{组内}}\n\\]\n随机区组设计地方差分析\n\n分组以后再进行随机化，分组地原因在于不同地组别特征对于观测指标有影响。实际上这里有两个因素对观测结果有影响，所以方差分析时也有两个假设。\n\n\n\nR中实现One Way ANOVA\n\nlibrary(data.table)\nset.seed(2023)\ndt &lt;- data.table(\n  group = sample(x = factor(c(\"control\", \"treat1\", \"treat2\")), 99, replace = TRUE),\n  value = rnorm(n = 99, 1.2, sd = 0.2)\n)\n\ncar::leveneTest(value ~ group, data = dt) # 方差齐性检验\n\nLevene's Test for Homogeneity of Variance (center = median)\n      Df F value Pr(&gt;F)\ngroup  2  0.2487 0.7803\n      96               \n\n\n\n(res &lt;- aov(value ~ group, data = dt)) # one way anova\n\nCall:\n   aov(formula = value ~ group, data = dt)\n\nTerms:\n                   group Residuals\nSum of Squares  0.011514  3.671180\nDeg. of Freedom        2        96\n\nResidual standard error: 0.1955542\nEstimated effects may be unbalanced\n\nsummary(res)\n\n            Df Sum Sq Mean Sq F value Pr(&gt;F)\ngroup        2  0.012 0.00576   0.151   0.86\nResiduals   96  3.671 0.03824               \n\n\nRandomized block design ANOVA\n\ndt2 &lt;- data.table::data.table(\n  group = sample(x = factor(c(\"control\", \"treat1\", \"treat2\")), 99, replace = TRUE),\n  block = sample(x = factor(c(\"control\", \"treat1\", \"treat2\")), 99, replace = TRUE),\n  value = rnorm(n = 99, 1.2, sd = 0.2)\n)\nres &lt;- aov(value ~ block + group, data = dt2)\nsummary(res)\n\n            Df Sum Sq Mean Sq F value Pr(&gt;F)\nblock        2  0.054 0.02711   0.766  0.468\ngroup        2  0.087 0.04333   1.224  0.299\nResiduals   94  3.327 0.03539               \n\n\n\n\n\n均数之间的多重比较\n方差分析对各处理组均数是否相等总的检验，在\\(H_0\\)被拒绝以后，需要确定究竟是哪些处理组之间存在差异，此时需要进行均数之间的多重比较，这就涉及到累计Ⅰ率。\n当\\(a\\)个处理组均数需要两两比较时候，共需要比较\\(c = a![2!(a-1)!].\\) 设每次检验的检验的检验水准为\\(\\alpha\\),累积Ⅰ型错误概率为\\('\\alpha\\)\n\\[\n'\\alpha = 1 - (1 - \\alpha)^c\n\\]\n\n均数之间任意两组的比较\nSNK(student Newman-Keuls)法 又称\\(q\\)检验\n\n将各组的平均值按由小到大的顺序排列。\n计算过两个平均之间的差值以及组间跨度\\(r\\)\n按下列公式计算统计量\\(q\\).\n\n\\[\nq = \\frac{{\\bar{Y_i} - \\bar{Y_h}}}{\\sqrt{\\frac{MS_{within \\: group}}{2}(\\frac{1}{n_i} + \\frac{1}{n_h})}}\n\\]\n其中\\(\\bar{Y_i}, \\bar{Y_h}\\)及\\(n_i, n_h\\)分别是两个比较组的均数以及样本例数， \\(MS_{within \\: group}\\)为进行方差分析得到的组内均方。\n\nlibrary(agricolae)\ndata(sweetpotato)\nmodel &lt;- aov(yield ~ virus, data = sweetpotato)\nout &lt;- SNK.test(model, \"virus\",\n  console = TRUE,\n  main = \"Yield of sweetpotato. Dealt with different virus\"\n)\n\n\nStudy: Yield of sweetpotato. Dealt with different virus\n\nStudent Newman Keuls Test\nfor yield \n\nMean Square Error:  22.48917 \n\nvirus,  means\n\n      yield      std r       se  Min  Max   Q25  Q50   Q75\ncc 24.40000 3.609709 3 2.737953 21.7 28.5 22.35 23.0 25.75\nfc 12.86667 2.159475 3 2.737953 10.6 14.9 11.85 13.1 14.00\nff 36.33333 7.333030 3 2.737953 28.0 41.8 33.60 39.2 40.50\noo 36.90000 4.300000 3 2.737953 32.1 40.4 35.15 38.2 39.30\n\nAlpha: 0.05 ; DF Error: 8 \n\nCritical Range\n        2         3         4 \n 8.928965 11.064170 12.399670 \n\nMeans with the same letter are not significantly different.\n\n      yield groups\noo 36.90000      a\nff 36.33333      a\ncc 24.40000      b\nfc 12.86667      c\n\nprint(SNK.test(model, \"virus\", group = FALSE))\n\n$statistics\n   MSerror Df   Mean      CV\n  22.48917  8 27.625 17.1666\n\n$parameters\n  test name.t ntr alpha\n   SNK  virus   4  0.05\n\n$snk\n     Table CriticalRange\n2 3.261182      8.928965\n3 4.041036     11.064170\n4 4.528810     12.399670\n\n$means\n      yield      std r       se  Min  Max   Q25  Q50   Q75\ncc 24.40000 3.609709 3 2.737953 21.7 28.5 22.35 23.0 25.75\nfc 12.86667 2.159475 3 2.737953 10.6 14.9 11.85 13.1 14.00\nff 36.33333 7.333030 3 2.737953 28.0 41.8 33.60 39.2 40.50\noo 36.90000 4.300000 3 2.737953 32.1 40.4 35.15 38.2 39.30\n\n$comparison\n         difference pvalue signif.        LCL        UCL\ncc - fc  11.5333333 0.0176       *   2.604368  20.462299\ncc - ff -11.9333333 0.0151       * -20.862299  -3.004368\ncc - oo -12.5000000 0.0291       * -23.564170  -1.435830\nfc - ff -23.4666667 0.0008     *** -34.530836 -12.402497\nfc - oo -24.0333333 0.0012      ** -36.433003 -11.633664\nff - oo  -0.5666667 0.8873          -9.495632   8.362299\n\n$groups\nNULL\n\nattr(,\"class\")\n[1] \"group\"\n\n# version old SNK.test()\ndf &lt;- df.residual(model)\nMSerror &lt;- deviance(model) / df\nout &lt;- with(sweetpotato, SNK.test(yield, virus, df, MSerror, group = TRUE))\nprint(out$groups)\n\n      yield groups\noo 36.90000      a\nff 36.33333      a\ncc 24.40000      b\nfc 12.86667      c\n\n\nSNK法的检验效能介于Bonferroni和Tukey法之间的；当比较均值的组数较多时，Tukey法更有效，组数较少时，ferroni法更有效。\n\n\n处理组与对照组的比较\nDunnett-t检验\n\\(t_D\\)统计量\n\\[\nt_D = \\frac{\\bar{Y_i} - \\bar{Y_c}}{\\sqrt{MS_{within \\: group} \\times (\\frac{1}{n}_i + \\frac{1}{n_c})}}\n\\]\n其中\\(\\bar{Y_i}, \\bar{Y_c}\\)及\\(n_i, n_c\\)分别是实验组与对照组的均数以及样本例数， \\(MS_{within \\: group}\\)为进行方差分析得到的组内均方。\n\nset.seed(23)\ndata &lt;- data.frame(\n  Group = rep(c(\"control\", \"Test1\", \"Test2\"), each = 10),\n  value = c(rnorm(10), rnorm(10), rnorm(10))\n)\ndata$Group &lt;- as.factor(data$Group)\n\nboxplot(value ~ Group,\n  data = data,\n  main = \"Product Values\",\n  xlab = \"Groups\",\n  ylab = \"Value\",\n  col = \"red\",\n  border = \"black\"\n)\n\n\n\n\n\n\n\nmodel &lt;- aov(value ~ Group, data = data)\nsummary(model)\n\n            Df Sum Sq Mean Sq F value Pr(&gt;F)  \nGroup        2  4.407  2.2036    3.71 0.0377 *\nResiduals   27 16.035  0.5939                 \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nlibrary(DescTools)\n\n\nAttaching package: 'DescTools'\n\n\nThe following object is masked from 'package:data.table':\n\n    %like%\n\nDunnettTest(x = data$value, g = data$Group)\n\n\n  Dunnett's test for comparing several treatments with a control :  \n    95% family-wise confidence level\n\n$control\n                    diff    lwr.ci      upr.ci   pval    \nTest1-control -0.8742469 -1.678514 -0.06998022 0.0320 *  \nTest2-control -0.7335283 -1.537795  0.07073836 0.0768 .  \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
+  },
+  {
+    "objectID": "note/2023-10-01-hypothesis-test/index.html#r-中实现chi2-test",
+    "href": "note/2023-10-01-hypothesis-test/index.html#r-中实现chi2-test",
+    "title": "Hypothesis Test",
+    "section": "R 中实现\\(\\chi^2-test\\)",
+    "text": "R 中实现\\(\\chi^2-test\\)\n拟合优度检验 当提供一个向量或者一个一维矩阵时进行拟合优度检验。\n\nchisq.test(x = c(2, 5, 4, 9))\n\n\n    Chi-squared test for given probabilities\n\ndata:  c(2, 5, 4, 9)\nX-squared = 5.2, df = 3, p-value = 0.1577\n\n\n\\(R\\times C\\)的检验 当提供一个至少\\(2\\times2\\)的矩阵时，则进行\\(R\\times C\\)列联表的检验-或许检验的目的不同，但它们的计算公式都是相同的。\n\nchisq.test(x = matrix(data = c(1, 5, 6, 7, 2, 9, 0, 4), nrow = 2))\n\nWarning in chisq.test(x = matrix(data = c(1, 5, 6, 7, 2, 9, 0, 4), nrow = 2)):\nChi-squared approximation may be incorrect\n\n\n\n    Pearson's Chi-squared test\n\ndata:  matrix(data = c(1, 5, 6, 7, 2, 9, 0, 4), nrow = 2)\nX-squared = 4.7123, df = 3, p-value = 0.1941\n\n\n配对的\\(\\chi^2\\) test - McNemar test\n\ndata &lt;- matrix(c(30, 12, 40, 18),\n  nrow = 2,\n  dimnames = list(\n    \"After Video\" = c(\"Support\", \"Do Not Support\"),\n    \"Before Video\" = c(\"Support\", \"Do Not Support\")\n  )\n)\ndata\n\n                Before Video\nAfter Video      Support Do Not Support\n  Support             30             40\n  Do Not Support      12             18\n\nmcnemar.test(data)\n\n\n    McNemar's Chi-squared test with continuity correction\n\ndata:  data\nMcNemar's chi-squared = 14.019, df = 1, p-value = 0.000181\n\n\nFisher test in r\n\ndat &lt;- data.frame(\n  \"smoke_no\" = c(7, 0),\n  \"smoke_yes\" = c(2, 5),\n  row.names = c(\"Athlete\", \"Non-athlete\"),\n  stringsAsFactors = FALSE\n)\ncolnames(dat) &lt;- c(\"Non-smoker\", \"Smoker\")\n\ndat\n\n            Non-smoker Smoker\nAthlete              7      2\nNon-athlete          0      5\n\nfisher.test(dat)\n\n\n    Fisher's Exact Test for Count Data\n\ndata:  dat\np-value = 0.02098\nalternative hypothesis: true odds ratio is not equal to 1\n95 percent confidence interval:\n 1.449481      Inf\nsample estimates:\nodds ratio \n       Inf"
+  },
+  {
+    "objectID": "note/2023-10-01-hypothesis-test/index.html#数值变量配对检验或者单样本检验wilcoxon-signed-rank-test",
+    "href": "note/2023-10-01-hypothesis-test/index.html#数值变量配对检验或者单样本检验wilcoxon-signed-rank-test",
+    "title": "Hypothesis Test",
+    "section": "数值变量配对检验或者单样本检验（Wilcoxon Signed Rank Test)",
+    "text": "数值变量配对检验或者单样本检验（Wilcoxon Signed Rank Test)\n秩和计算\n\n\n\n\n\nid\ngroupA\ngroupB\ndiff\n\n\n\n\n1\n0.3403843\n10.2112855\n9.8709012\n\n\n2\n2.2945442\n11.6454913\n9.3509470\n\n\n3\n-1.4399976\n9.7297898\n11.1697873\n\n\n4\n-1.7497818\n0.0718725\n1.8216542\n\n\n5\n1.3936650\n-1.0793342\n-2.4729991\n\n\n6\n2.5325010\n-3.1460297\n-5.6785307\n\n\n7\n5.9229420\n5.4615812\n-0.4613608\n\n\n8\n-2.0288062\n4.8894129\n6.9182191\n\n\n9\n4.5832491\n7.5673896\n2.9841404\n\n\n10\n2.6986250\n3.8522318\n1.1536068\n\n\n\n\n\n依差值的绝对值从小到大编秩。编秩时遇到差值为0的舍去不计，同时样本例数\\(n -  1\\); 遇到绝对值差值相等差数，符号相同则顺次编秩，符号相反则取平均秩次，再给秩次冠以原差值的正负号。分别计算出正负秩次\\(T_+, T_-,\\)任取其中一个作为统计量秩和\\(T\\)\n\\(n \\le 50\\) 查表\n\\(n \\ge 50\\) 正态近似\n\\[\nZ = \\frac{\\mid T - n(n + 1)/4  \\mid - 0.5}{\\sqrt{n(n+1)(2n+1)/24}}\n\\]\n当相同差值数较多时（不包括差值为0的值)，校正式\n\\[\nZ = \\frac{\\mid T - n(n + 1)/4  \\mid - 0.5}{\\sqrt{n(n+1)(2n+1)/24 - \\frac{\\sum(t_j^3 - t_j)}{48}}}\n\\]\n其中\\(t_j\\)是第\\(j\\)个相同差值的个数。"
+  },
+  {
+    "objectID": "note/2023-10-01-hypothesis-test/index.html#两个样本的检验wilcoxon-rank-sum-test---equivalent-to-mann-whitney-test",
+    "href": "note/2023-10-01-hypothesis-test/index.html#两个样本的检验wilcoxon-rank-sum-test---equivalent-to-mann-whitney-test",
+    "title": "Hypothesis Test",
+    "section": "两个样本的检验（Wilcoxon Rank Sum Test - equivalent to Mann Whitney test)",
+    "text": "两个样本的检验（Wilcoxon Rank Sum Test - equivalent to Mann Whitney test)\n将两组原始数据分别从小到大排队，再将两组数据由小到大统一编秩，若有同组相同数据则顺序编秩，若有不同组别相同数据则取平均秩次。记两组中样本例数较小的为\\(n_1,\\) 其秩和为统计量\\(T.\\)\n查\\(T\\)界值表。\n\\(n_1\\)或\\(n_2 - n_1\\)超出表的范围 正态近似\n\\[\nZ = \\frac{\\mid T - n_1(N+1)/2 \\mid - 0.5}{n_{1}n_{2}(N+1)/12}\n\\]\n相同秩次过多时，采用校正式。\n\\[\nZ_c = Z\\sqrt{C},\n\\]\n其中\\(C = 1 - \\sum(t_j^3 - t_j) / (N^3 - N).\\)"
+  },
+  {
+    "objectID": "note/2023-10-01-hypothesis-test/index.html#大于两个样本的检验",
+    "href": "note/2023-10-01-hypothesis-test/index.html#大于两个样本的检验",
+    "title": "Hypothesis Test",
+    "section": "大于两个样本的检验",
+    "text": "大于两个样本的检验\n单向有序分类变量多个变量或者多个数值变量的检验（Kruskal–Wallis test)\n构造\\(H\\)统计量：假设有\\(a\\)个组，第\\(i\\)组的样本量\\(n_i,\\)N为各组样本量之和，将各组数据合并，编秩次，秩次 相同的取平均值。\\(R_{ij}\\)为第\\(i\\)个组的第\\(j\\)个个体的秩次，\\(\\bar{R_i}\\)为第\\(i\\)个组的平均秩次，\\(\\bar{R}\\)为总平均秩次。\n没有相同秩次时，秩次服从均匀分布：\n\\[\nH =\\frac{12}{N(N + 1)}(\\sum\\frac{R_i^2}{n_i}) - 3(N+1).\n\\]\n相同秩次过多时，上诉以均匀分布为基础推导的公式需要进行校正：\n\\[\nH_c = H/C,\n\\]\n其中\\(C = 1 - \\sum(t_j^3 - t_j) / (N^3 - N).\\)\n\\(n_i\\)与\\(a\\)较小时 直接计算或者查表。\n\\(n\\)较大时 \\(H\\) 近似服从于 \\(\\chi^2_{a-1}.\\)\n随机区组的Friedman秩和检验（Friedman Test）\n在区组(行）内进行编秩，有相同的则取平均秩次。\\(i\\)代表不同的区组，\\(j\\)代表不同地处理水平。\n\\[\nM = \\frac{\\sum_{j=1}^{a}n(\\bar{R}_j - \\bar{R})^2}{\\sum_{j=1}^{a}\\sum_{i=1}^{n}(R_{ij} - \\bar{R})^2 / n(a-1)}\n\\]\n当相同秩过多时可以进行校正，校正系数为\n\\[\nC = 1 - \\sum_{j=1}^{a}\\sum_{p=1}^{l_i}(t_{jp}^3 - t_{jp})/[na(a^2 -1 )]\n\\]\n\\[\nM_c = M/C\n\\]\n当\\(n\\)以及\\(a\\)较小时 直接查表或精确计算\n\\(n\\)较大时 \\(M\\) 近似服从于 \\(\\chi^2_{a-1}.\\)"
+  },
+  {
+    "objectID": "note/2023-10-01-hypothesis-test/index.html#r中实现秩和检验",
+    "href": "note/2023-10-01-hypothesis-test/index.html#r中实现秩和检验",
+    "title": "Hypothesis Test",
+    "section": "R中实现秩和检验",
+    "text": "R中实现秩和检验\n单样本或者配对样本的Wilcoxon Signed Rank Test\n\nx &lt;- c(1.83, 0.50, 1.62, 2.48, 1.68, 1.88, 1.55, 3.06, 1.30)\ny &lt;- c(0.878, 0.647, 0.598, 2.05, 1.06, 1.29, 1.06, 3.14, 1.29)\ndepression &lt;- data.frame(first = x, second = y, change = y - x)\n\nwilcox.test(change ~ 1, data = depression) # one sample\n\n\n    Wilcoxon signed rank exact test\n\ndata:  change\nV = 5, p-value = 0.03906\nalternative hypothesis: true location is not equal to 0\n\nwilcox.test(Pair(first, second) ~ 1, data = depression) # paired sample\n\n\n    Wilcoxon signed rank exact test\n\ndata:  Pair(first, second)\nV = 40, p-value = 0.03906\nalternative hypothesis: true location shift is not equal to 0\n\n\n独立两样本的Mann Whitney test\n\nx &lt;- c(0.80, 0.83, 1.89, 1.04, 1.45, 1.38, 1.91, 1.64, 0.73, 1.46)\ny &lt;- c(1.15, 0.88, 0.90, 0.74, 1.21)\nwilcox.test(x, y, alternative = \"g\") # greater\n\n\n    Wilcoxon rank sum exact test\n\ndata:  x and y\nW = 35, p-value = 0.1272\nalternative hypothesis: true location shift is greater than 0\n\n\n多样本的kruskal Wallis test\n\nrequire(graphics)\nboxplot(Ozone ~ Month, data = airquality)\n\n\n\n\n\n\n\nkruskal.test(Ozone ~ Month, data = airquality)\n\n\n    Kruskal-Wallis rank sum test\n\ndata:  Ozone by Month\nKruskal-Wallis chi-squared = 29.267, df = 4, p-value = 6.901e-06\n\n\n随机区组设计的Friedman test\n\n## Hollander & Wolfe (1973), p. 140ff.\n## Comparison of three methods (\"round out\", \"narrow angle\", and\n##  \"wide angle\") for rounding first base.  For each of 18 players\n##  and the three method, the average time of two runs from a point on\n##  the first base line 35ft from home plate to a point 15ft short of\n##  second base is recorded.\nRoundingTimes &lt;-\n  matrix(\n    c(\n      5.40, 5.50, 5.55,\n      5.85, 5.70, 5.75,\n      5.20, 5.60, 5.50,\n      5.55, 5.50, 5.40,\n      5.90, 5.85, 5.70,\n      5.45, 5.55, 5.60,\n      5.40, 5.40, 5.35,\n      5.45, 5.50, 5.35,\n      5.25, 5.15, 5.00,\n      5.85, 5.80, 5.70,\n      5.25, 5.20, 5.10,\n      5.65, 5.55, 5.45,\n      5.60, 5.35, 5.45,\n      5.05, 5.00, 4.95,\n      5.50, 5.50, 5.40,\n      5.45, 5.55, 5.50,\n      5.55, 5.55, 5.35,\n      5.45, 5.50, 5.55,\n      5.50, 5.45, 5.25,\n      5.65, 5.60, 5.40,\n      5.70, 5.65, 5.55,\n      6.30, 6.30, 6.25\n    ),\n    nrow = 22,\n    byrow = TRUE,\n    dimnames = list(\n      1:22,\n      c(\"Round Out\", \"Narrow Angle\", \"Wide Angle\")\n    )\n  )\nfriedman.test(RoundingTimes)\n\n\n    Friedman rank sum test\n\ndata:  RoundingTimes\nFriedman chi-squared = 11.143, df = 2, p-value = 0.003805\n\n## =&gt; strong evidence against the null that the methods are equivalent\n##    with respect to speed\nwb &lt;- aggregate(warpbreaks$breaks,\n  by = list(\n    w = warpbreaks$wool,\n    t = warpbreaks$tension\n  ),\n  FUN = mean\n)\nwb\n\n  w t        x\n1 A L 44.55556\n2 B L 28.22222\n3 A M 24.00000\n4 B M 28.77778\n5 A H 24.55556\n6 B H 18.77778\n\nfriedman.test(wb$x, wb$w, wb$t)\n\n\n    Friedman rank sum test\n\ndata:  wb$x, wb$w and wb$t\nFriedman chi-squared = 0.33333, df = 1, p-value = 0.5637\n\nfriedman.test(x ~ w | t, data = wb)\n\n\n    Friedman rank sum test\n\ndata:  x and w and t\nFriedman chi-squared = 0.33333, df = 1, p-value = 0.5637"
+  },
+  {
+    "objectID": "note/2022-08-10-linear-dimension-reduction/index.html",
+    "href": "note/2022-08-10-linear-dimension-reduction/index.html",
+    "title": "Liner dimension reduction",
+    "section": "",
+    "text": "线性降维方法主要就是PCA(principal componet analysis)以及SVD(sigular value decomposition),以及PCA的扩展MDS(Multtidimensional Scaling)。PCA与MDS的差别在于PCA考虑的是样本的特征，寻求在低维空间下保留方差较大的特征的信息，所以通过对特征之间的协方差矩阵进行特征值分解矩阵，得到在低维空间下能够保留方差较大特征的正交基，是对特征的线性组合，而MDS考虑的是样本之间的相似度矩阵，通过对相似度矩阵矩阵进行特征分解找到在低维空间下能够保留样本最大距离的正交基。"
+  },
+  {
+    "objectID": "note/2022-08-10-linear-dimension-reduction/index.html#pcoa",
+    "href": "note/2022-08-10-linear-dimension-reduction/index.html#pcoa",
+    "title": "Liner dimension reduction",
+    "section": "PCoA",
+    "text": "PCoA\n考虑一个样本的dissimilarity matrix,也就是一个含有样本之间距离或不相似度量的矩阵,记为D。\n\nThe Torgerson method\n\n首先对D进行double centering得到double-centered matrix,记为B。然后对矩阵B进行奇异值分解。\ndouble centering1): \\[\nD^2 = \\left[d_{ij}^2 \\right]\n\\] double centering2): \\[\nB = -\\frac{1}{2}CD^{2}C\n\\] 其中\\(C = I - \\frac{1}{n}J_n\\)\n\nThe iterative method\n该方法更加实用，可以用于非欧式距离矩阵。\n\n\\[\nStress_D(x_1, x_2, ..., x_N) = \\left(\\sum_{i\\neq j\\neq 1, ..., N} \\left(d_{ij} - ||x_i - x_j|| \\right)^2 \\right)^{\\frac{1}{2}}\n\\]"
+  },
+  {
+    "objectID": "note/2022-08-10-linear-dimension-reduction/index.html#空间变换",
+    "href": "note/2022-08-10-linear-dimension-reduction/index.html#空间变换",
+    "title": "Liner dimension reduction",
+    "section": "空间变换",
+    "text": "空间变换\n考虑一个向量\\(a\\)，\\(\\begin{bmatrix} -1 \\\\ 2 \\end{bmatrix}\\)，左乘一个矩阵\\(M\\)，\\(\\begin{bmatrix} 3 & 1 \\\\ 1 & 2 \\end{bmatrix}\\)\n首先从空间变化的角度理解矩阵相乘。所谓的空间变化，就是对原空间的映射, 即原空间\\(A\\)经过变化\\(M\\)，变为\\(B\\)。这里假设的是，无论是这个向量，还是矩阵都是从同一组基的视角来表示的，我们将这组基记为\\(\\begin{bmatrix} i & j \\end{bmatrix}\\)，向量\\(\\begin{bmatrix} -1 \\\\ 2 \\end{bmatrix}\\)在基\\(i\\)上的分量就是\\(-1\\)，在基\\(j\\)上的分量就是\\(2\\)。这组基下的所有向量都是依赖于该基的，所以空间的变换直接用基的变换表示即可。矩阵\\(M\\)的列向量表示的含义就是经过空间变化以后，原来的一组基向量在基\\(i, j\\)下的表示。因为变化是整个空间的变化，所有向量的变化都是一致的，所以我们只需要用原向量在原基的每个分量乘以新的基即可:\n\\[\n-1 * \\begin{bmatrix} 3 \\\\ 1 \\end{bmatrix} +\n2 * \\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix}\n\\]\n结论：\n\n对于左乘的矩阵\\(A\\)的每一列，我们可以认为是原基在空间变换\\(A\\)以后用原基表示的原基的映射。\n\n\n行列式\n\n行列式\\(det(A)\\)给出了由\\(A\\)表示的映射引起的缩放因子和方向。数值代表缩放因子，正负号代表变换的方向。当行列式等于1时，由\\(A\\)定义的线性变换是等值的和保持方向的。\n如果一个n阶方阵的行列式为0，也就证明这个行列式不满秩。也就是说组成行列式的列向量是线性相关的，那么这n个列向量张成的空间便是n维空间的一个投影，维度等于秩。\n\\(det(A) = 0\\), 变换A使得空间的维度被压缩了。\n\n非方阵\n\n非方阵没有行列式。按照空间变化，非方阵一定使得空间的维度发生了变化，无法衡量变换的大小，因此没有行列式。例如一个\\(3*2\\)的矩阵可以将一个二维平面的向量映射为三维空间中的一个平面上的向量。而一个\\(2*3\\)的矩阵可以将一个三维空间的向量映射为二维平面上的一个向量，考虑整个三维空间就是将原空间做了一个投影。\n\n矩阵的逆\n\n矩阵不一定存在逆。可以求逆的矩阵叫做可逆矩阵，也叫非奇异矩阵。矩阵为非奇异矩阵的充要条件是矩阵存在行列式且不为0。可以这样理解：矩阵的作用是空间变换，其实就类似于一个函数。（这里说映射更标准些）矩阵求逆就类似于求反函数。当矩阵为不存在行列式或者行列式为0时，代表变换发生了降维，其映射关系不是一对一的关系，是多对一的关系，因此无法求逆或没有意义。\n\\(A^{-1}\\)所代表的变换恰好是\\(A\\)变换的逆过程。\n求解\\(Ax = b\\)的几何意义，就是找到一个向量\\(x\\)使得在\\(A\\)的变换下，\\(x\\)被映射为\\(b\\)。如果\\(A\\)为满秩矩阵，则有唯一解\\(x = A^{-1}B\\) ，也就是对\\(B\\)施加逆变换即可找到\\(x\\)"
+  },
+  {
+    "objectID": "note/2022-08-10-linear-dimension-reduction/index.html#基变换",
+    "href": "note/2022-08-10-linear-dimension-reduction/index.html#基变换",
+    "title": "Liner dimension reduction",
+    "section": "基变换",
+    "text": "基变换\n矩阵相乘同样可以从基变化的角度看。假设一个向量\\(a\\)，其在基\\(u, v\\)下的表示为 \\(\\begin{bmatrix} 2 \\\\ 1 \\end{bmatrix}\\)。如果我们想从另一组基\\(i, j\\)来表示应该怎么做呢？实际上我们只需要把基\\(u, v\\)用基\\(i,j\\)表示即可。假设基\\(u\\)用\\(i, j\\)表示为 \\(\\begin{bmatrix} -1 \\\\ 2 \\end{bmatrix}\\)，\\(v\\)用\\(i, j\\)表示为\\(\\begin{bmatrix} -2 \\\\ 1 \\end{bmatrix}\\)，构成矩阵\\(P\\)。那么把向量变化到\\(i, j\\)的视角下，就是简单的矩阵左乘向量（这里用到了空间变化的思想，即左乘矩阵的列是基向量）：\n\\[\n2 * \\begin{bmatrix} -1 \\\\ 2 \\end{bmatrix} +\n1 * \\begin{bmatrix} -2 \\\\ 1 \\end{bmatrix}\n\\]\n如果我们想把基\\(i, j\\)下的向量从基\\(u, v\\)的视角来观察呢？答案是对于\\(i, j\\)视角下的向量我们只需要左乘\\(P^{-1}\\)，即逆矩阵可以理解为两种视角的相互转换。\n既然从不同的视角看向量有不同的表示，从不同的视角看空间变化，也有不同的表示。考虑在基\\(u, v\\)下的一个空间变化表示为\\(M\\)，那么在基\\(i, j\\)下，该变化怎么表示呢。我们可以考虑先变换到基\\(i, j\\)的视角，然后进行变换，最后回到\\(u, v\\)的视角。即：\n\\[\nM = P^{-1}AP \\rightarrow A = PMP^{-1}\n\\]\n结论：\n\n对于左乘矩阵\\(A\\)，我们可以认为其每一列是用新基视角表示原基的表示。\n这说明对于形如\\(A = PMP^{-1}\\)的式子，我们可以直观的认为是视角转换下的同一变换。\n\n符号约定： 小写字母\\(x, i, j, u, v\\)代表列向量。\n基变化，如何把基\\((i, j)\\)下的坐标转化为另一组基\\((u, v)\\)下的坐标，实际上只需要将基\\((i, j)\\)用基\\((u, v)\\)进行表示，然后左乘向量\\(x\\)即可。"
+  },
+  {
+    "objectID": "note/2022-08-10-linear-dimension-reduction/index.html#特征分解",
+    "href": "note/2022-08-10-linear-dimension-reduction/index.html#特征分解",
+    "title": "Liner dimension reduction",
+    "section": "特征分解",
+    "text": "特征分解\n考虑方阵\\(A\\)，\\(A\\)代表了一个空间变换，空间的变换只对该矩阵的特征向量起到缩放作用。那么\\(A\\)所代表的空间变换，我们可以考虑先把向量\\(x\\)转化为用矩阵\\(A\\)的特征向量构成的基底表示，即\\(Q^{-1}x\\)，其中\\(Q\\)为方阵\\(A\\)的特征向量构成的矩阵（为什么是\\(Q^{-1}\\)而不是\\(Q\\)?因为特征向量是从原矩阵求解而来，它们都是在同一视角下的表示，要变化到特征向量的视角则是其逆\\(Q^{-1}\\))。那么矩阵\\(A\\)对这个新的\\(x\\)，即\\(Q^{-1}x\\)的作用就仅仅是缩放（在每个维度上进行缩放），这个缩放用一个新的矩阵\\(\\Sigma\\)表示，其为对角矩阵，对角线上即是对应的特征值，那么现在整个变化记为\\(\\Sigma\\)\\(Q^{-1}x\\)。完成变化后，我们回到原来的基的视角，即左乘\\(Q\\)，整个变化即如下： \\[\nAx = Q\\Sigma{Q^{-1}}{x} \\longrightarrow A = Q\\Sigma{Q^{-1}}\n\\]"
+  },
+  {
+    "objectID": "note/2022-08-10-linear-dimension-reduction/index.html#奇异值分解",
+    "href": "note/2022-08-10-linear-dimension-reduction/index.html#奇异值分解",
+    "title": "Liner dimension reduction",
+    "section": "奇异值分解",
+    "text": "奇异值分解\n考虑向量\\(\\begin{bmatrix} v_1 & v_2 \\end{bmatrix}\\)，其为一组正交的向量，如果其在经历空间变换\\(M\\)以后仍然映射为一组正交的向量\\(\\begin{bmatrix} U_1 & U_2 \\end{bmatrix}\\)。那么，我们直接在向量\\(\\begin{bmatrix} U_1 & U_2 \\end{bmatrix}\\)的方向上选择一组基\\(\\begin{bmatrix} u_1 & u_2 \\end{bmatrix}\\)，那么向量\\(\\begin{bmatrix} v_1 & v_2 \\end{bmatrix}\\)，在经历空间变化以后，在基\\(\\begin{bmatrix} u_1 & u_2 \\end{bmatrix}\\)上的表示为，\\(\\begin{bmatrix} u_1 & u_2 \\end{bmatrix} * \\begin{bmatrix} \\sigma_1 & 0 \\\\ 0 & \\sigma_2 \\end{bmatrix}\\)。即：\n\\[\nM[v_1, v_2] = [u_1, u_2] * \\begin{bmatrix} \\sigma_1 & 0 \\\\ 0 & \\sigma_2 \\end{bmatrix} \\rightarrow\nMV = U\\Sigma \\rightarrow  M = U\\Sigma V^T\n\\]\n如此，对于奇异值分解，我们有如下的直观理解：对于矩阵\\(M\\),其对一组向量\\(V\\)在变换以后仍然为正交的向量。在进行变换的时候考虑直接转换到向量\\(V\\)的视角之下，然后进行缩放\\(\\Sigma\\)，以及其它变换\\(E\\)（旋转，投影），最后变换回原来的视角。即：\n\\[\nM = VE\\Sigma V^T \\rightarrow M = U\\Sigma V^T\n\\]\n可以看到奇异值与特征值分解的区别在于，选择的视角不同。当选择特征向量视角时，变换只会有缩放即\\(\\Sigma\\)变换，当选择任意的正交向量视角时，变换不仅包含缩放还含有旋转以及投影等即\\(E\\Sigma\\)。\n需要注意的是，虽然对于特征分解以及奇异值分解从视角转换的角度去解释了。但是，矩阵分解同样可以从空间变换的角度理解。例如对于奇异值分解有如下解释：\n第一个变换\\(V^{T}\\)将单位正交向量\\(v_1, v_2\\)转到水平和垂直方向、\\(\\Sigma\\)相当于对\\(v_1, v_2\\)进行放缩、\\(U\\)将放缩后的向量旋转到最后的位置。\n\n基变换以及空间变换的统一"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html",
+    "href": "note/2024-07-01-linear-algebra/index.html",
+    "title": "线性代数",
+    "section": "",
+    "text": "矩阵为矩形数表；\nm * n 矩阵， n 阶方阵， 零矩阵， 列矩阵(列向量)， 行矩阵（行向量），主对角线，次（副）对角线。\n\\[\n\\begin{bmatrix}\na_{11} & a_{12} & a_{13} \\\\\n0 & a_{22} & a_{23} \\\\\n0 & 0 & a_{33} \\\\\n\\end{bmatrix}\n\\]\n上三角矩阵\n\\[\n\\begin{bmatrix}\na_{11} & 0 & 0 \\\\\na_{21} & a_{22} & 0 \\\\\na_{31} & a_{32} & a_{33} \\\\\n\\end{bmatrix}\n\\]\n下三角矩阵。\n上下三角矩阵统称为三角矩阵。\n\\[\n\\begin{bmatrix}\na_{11} & 0 & 0 \\\\\n0 & a_{22} & 0 \\\\\n0 & 0 & a_{33} \\\\\n\\end{bmatrix}\n\\]\n对角矩阵\n\\[\n\\begin{bmatrix}\n1 & 0 & 0 \\\\\n0 & 1 & 0 \\\\\n0 & 0 & 1 \\\\\n\\end{bmatrix}\n\\]\n单位矩阵E, I。\n\n\n\n\\[{c_{ij}=a_{ij}+b_{ij}}\\]\n矩阵加法\n矩阵数乘。\n矩阵加法和数乘统称为矩阵的线性运算。\n\n\n\n\n\\(AB = 0 \\not\\Rightarrow A = 0 \\text{ 或 } B = 0\\)\n\\(A \\cdot B \\neq B \\cdot A\\)\n\\(ABC = (AB)C\\)\n\\(A(B + C) = AB + AC\\)\n\\(k(AB) = A(kB) = ABk\\)\n\n空间位置不能变，时间次序可以变。\n\\[\nx + 2y = 3 \\\\\n4x + 5y = 6\n\\]\n线性方程组的矩阵表示，系数矩阵，变量矩阵，常数矩阵。 线性变化的矩阵表示。\n\n\n\n反对称矩阵 \\(A^T = -A\\) , 一定为方阵，，对角线一定为0.\n\n\n\n\\[\n\\begin{equation}\nA_{n}B_{n} = B_{n}A_{n} = E_n\n\\end{equation}\n\\]\n逆只能存在方阵之中，且不一定可逆。逆具有唯一性。\n\\[\n\\begin{align*}\n(A^{-1})^{-1} &= A \\\\\n(AB)^{-1} &= B^{-1}A^{-1} \\\\\n(A^{-1})^T &= (A^T)^{-1}\n\\end{align*}\n\\]\n矩阵逆运算规律如上。矩阵的上标运算可以任意交换位置。\n\n\n\n非分块矩阵可以认为每个元素都是一个只有一个数的块。\n\\[\n\\alpha_1x_1 + \\alpha_2x_2 = b\n\\]\n利用分块矩阵表示线性方程组。\n\n\n\n矩阵初等变换，实际上就是方程组系数消元的抽象过程，初等变换的一系列矩阵称为等价矩阵。\n\\[\n\\begin{equation}\n\\begin{bmatrix}\n1 & 0 \\\\\n0 & 1\n\\end{bmatrix}\n\\xrightarrow{\\text{行变换}}\n\\begin{bmatrix}\n0 & 1 \\\\\n1 & 0\n\\end{bmatrix}\n\\end{equation}\n\\]\n初等方阵 : 定义为单位矩阵\\(E\\)经过一次初等变换所形成的方阵\\(P\\)。\n若 \\(P\\) 为初等方阵， \\(PA=B\\)， 则\\(A \\rightarrow B\\)的变化等价于\\(E \\rightarrow P\\)的初等行变换。若\\(AP = B\\)， 则\\(A  \\rightarrow B\\) 等价于 \\(E \\rightarrow P\\)的初等列变换。实际上这里描述了的是一个初等变换可由一个初等方阵来定义。\n初等方阵的逆矩阵：\n通过交换单位矩阵的第 \\(i\\) 行和第 \\(j\\) 行得到的初等矩阵 \\(E_{ij}\\) 可以表示为：\n\\[\nE_{ij} = \\begin{bmatrix}\n1 & 0 & \\cdots & 0 & \\cdots & 0 & \\cdots & 0 \\\\\n0 & 1 & \\cdots & 0 & \\cdots & 0 & \\cdots & 0 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots & \\ddots & \\vdots & \\ddots & \\vdots \\\\\n0 & 0 & \\cdots & 0 & \\cdots & 1 & \\cdots & 0 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots & \\ddots & \\vdots & \\ddots & \\vdots \\\\\n0 & 0 & \\cdots & 1 & \\cdots & 0 & \\cdots & 0 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots & \\ddots & \\vdots & \\ddots & \\vdots \\\\\n0 & 0 & \\cdots & 0 & \\cdots & 0 & \\cdots & 1\n\\end{bmatrix}\n\\]\n其逆矩阵也是通过交换同样的两行得到的，即 \\(E_{ij}^{-1} = E_{ij}\\)。\n将单位矩阵的第 \\(i\\) 行乘以一个非零常数 \\(k\\) 得到的初等矩阵 \\(E_i(k)\\) 可以表示为：\n\\[\nE_i(k) = \\begin{bmatrix}\n1 & 0 & \\cdots & 0 \\\\\n0 & 1 & \\cdots & 0 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n0 & 0 & \\cdots & k \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n0 & 0 & \\cdots & 0 \\\\\n\\end{bmatrix}\n\\]\n其逆矩阵是将第 \\(i\\) 行乘以 \\(1/k\\)，即 \\(E_i(k)^{-1} = E_i(1/k)\\)。\n将单位矩阵的第 \\(i\\) 行加上第 \\(j\\) 行的 \\(k\\) 倍得到的初等矩阵 \\(E_{ij}(k)\\) 可以表示为：\n\\[\nE_{ij}(k) = \\begin{bmatrix}\n1 & 0 & \\cdots & 0 \\\\\n0 & 1 & \\cdots & 0 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n0 & k & \\cdots & 1 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n0 & 0 & \\cdots & 0 \\\\\n\\end{bmatrix}\n\\]\n其逆矩阵是将第 \\(i\\) 行减去第 \\(j\\) 行的 \\(k\\) 倍， 即 \\(E_{ij}(k)^{-1} = E_{ij}(-k)\\)。\n\\[\n\\begin{equation}\n\\begin{bmatrix}\na_{11} & a_{12} & 1 & 0 \\\\\na_{21} & a_{22} & 0 & 1\n\\end{bmatrix}\n\\xrightarrow{\\text{初等行变换}}\n\\begin{bmatrix}\n1 & 0 & a_{11}^{-1} & -a_{12}a_{11}^{-1} \\\\\n0 & 1 & -a_{21}a_{11}^{-1} & a_{11}^{-1}(a_{11}a_{22}-a_{12}a_{21})\n\\end{bmatrix}\n\\end{equation}\n\\]\n求解：将矩阵经过初等变换为单位矩阵，同样的变化作用于单位矩阵的结果就是其拟矩阵。\n\n\n\n逆序数：在一个排列 \\(a_1, a_2, \\ldots, a_n\\) 中，如果存在一对 \\(i, j\\)，满足 \\(i &lt; j\\) 且 \\(a_i &gt; a_j\\)，那么这对 $ (a_i, a_j) $ 称为一个逆序对。排列中所有逆序对的个数称为该排列的逆序数。\n例如，对于排列 \\(3, 1, 2\\)，它的逆序对有 $ (3, 1) $ 和 $ (3, 2) $，所以它的逆序数是 2。\n形式化地，设排列为 $ = (_1, _2, , _n) $，则逆序数定义为：\n\\[ \\text{Inv}(\\sigma) = \\sum_{1 \\leq i &lt; j \\leq n} \\mathbf{1}_{\\sigma_i &gt; \\sigma_j} \\]\n其中 \\(\\mathbf{1}_{\\sigma_i &gt; \\sigma_j}\\) 是指示函数，当 \\(\\sigma_i &gt; \\sigma_j\\) 时取值为 1，否则取值为 0。。\n余子式：设 \\(A\\) 是一个 \\(n \\times n\\) 的矩阵，\\(A_{ij}\\) 是 \\(A\\) 中去掉第 \\(i\\) 行和第 \\(j\\) 列后剩下的 \\((n-1) \\times (n-1)\\) 子矩阵。那么，\\(A\\) 的 \\((i, j)\\) 元素对应的余子式定义为：\n\\[ M_{ij} = \\det(A_{ij}) \\]\n其中 \\(\\det(A_{ij})\\) 表示 \\(A_{ij}\\) 的行列式。\n代数余子式：设 \\(A\\) 是一个 \\(n \\times n\\) 的矩阵，\\(A_{ij}\\) 是 \\(A\\) 中去掉第 \\(i\\) 行和第 \\(j\\) 列后剩下的 \\((n-1) \\times (n-1)\\) 子矩阵。那么，\\(A\\) 的 \\((i, j)\\) 元素对应的代数余子式定义为：\n\\[ C_{ij} = (-1)^{i+j} \\det(A_{ij}) \\]\n行列式： 行列式（Determinant）是一个函数，将方阵映射到标量，记作 \\(\\det(A)\\) 或 \\(|A|\\)。设 \\(A\\) 是一个 \\(n \\times n\\) 的方阵，那么 \\(A\\) 的行列式 \\(\\det(A)\\) 定义为：\n\\[\n\\det(A) = \\sum_{\\sigma \\in S_n} (\\text{sgn}(\\sigma) \\prod_{i=1}^{n} a_{i,\\sigma(i)})\n\\]\n其中，\\(S_n\\) 表示所有 \\(n\\) 个元素的排列，\\(\\sigma\\) 是一个排列，\\(\\text{sgn}(\\sigma)\\) 表示排列 \\(\\sigma\\) 的符号，\\(a_{i,\\sigma(i)}\\) 表示矩阵 \\(A\\) 在第 \\(i\\) 行第 \\(\\sigma(i)\\) 列的元素。对于 n 阶方阵 \\(A\\)，其行列式可通过以下方法计算：\n\n三角矩阵：对于三角矩阵，行列式是对角线上元素的代数余子式。\n展开法：通过任意一行（或列）的元素进行展开。例如，第 \\(i\\) 行的展开公式为：\n\\[\n\\det(A) = \\sum_{j=1}^{n} (-1)^{i+j} a_{ij} \\det(A_{ij})\n\\]\n其中，\\(a_{ij}\\) 是矩阵 \\(A\\) 中第 \\(i\\) 行第 \\(j\\) 列的元素，\\(A_{ij}\\) 是删除了第 \\(i\\) 行和第 \\(j\\) 列的子矩阵。\n\n行列式的基本性质包括：\n\n转置相等：\\(\\det(A) = \\det(A^T)\\)\n换行变号：交换行列式的两行（列），行列式变号。\n乘数乘行：行列式的某一行（列）乘以常数，行列式也乘以该常数。\n倍加相等：行列式中某一行（列）的常数倍加到另一行（列），行列式不变。\n拆分分行：行列式可以按行或列拆分。\n零性质：行列式中某一行（列）全为零，行列式为零。\n\n行列式按行展开的两个定理（待补充）\n\n\n\n伴随矩阵： 伴随矩阵是与原矩阵密切相关的一个矩阵，它由原矩阵的代数余子式构成。对于一个 n 阶方阵 \\(A\\)，其伴随矩阵记作 \\(adj(A)\\)，它的每个元素 \\(a_{ij}\\) 都是由原矩阵 \\(A\\) 的代数余子式 \\(C_{ij}\\) 替换得到的。具体来说，伴随矩阵的第 \\(i\\) 行第 \\(j\\) 列的元素是原矩阵第 \\(j\\) 行第 \\(i\\) 列的代数余子式，即 \\(adj(A)_{ij} = C_{ji}\\)。\n伴随矩阵与原矩阵的行列式之间有如下关系：\n\\[\nA \\cdot adj(A) = \\det(A) \\cdot I\n\\]\n其中，\\(I\\) 是单位矩阵，\\(\\det(A)\\) 是矩阵 \\(A\\) 的行列式。这个关系表明，伴随矩阵可以用于计算矩阵的逆，当 \\(\\det(A) \\neq 0\\) 时，矩阵 \\(A\\) 可逆，且其逆矩阵 \\(A^{-1}\\) 可以通过伴随矩阵来计算：\n\\[\nA^{-1} = \\frac{1}{\\det(A)} \\cdot adj(A)\n\\]\n\n\n\n矩阵的秩（Rank）可以通过其最高阶非零子式来定义。设 \\(A\\) 是一个 \\(m \\times n\\) 的矩阵。矩阵的秩是 \\(A\\) 中阶数最大的非零子式的阶数。具体定义如下：\n设 \\(A\\) 是一个 \\(m \\times n\\) 的矩阵，若 \\(A\\) 中存在一个 \\(k \\times k\\) 的子矩阵（即从 \\(A\\) 中取出 \\(k\\) 行 \\(k\\) 列构成的子矩阵）的行列式不为零，但所有 \\(k+1 \\times k+1\\) 的子矩阵的行列式均为零，则称矩阵 \\(A\\) 的秩为 \\(k\\)。\n换句话说： \\[\n\\text{rank}(A) = k\n\\] 其中 \\(k\\) 是满足矩阵 \\(A\\) 中存在 \\(k \\times k\\) 非零行列式的最大整数。\n行阶梯矩阵（Row Echelon Matrix）： 行阶梯型矩阵是一种特殊形式的矩阵，它满足以下条件：\n\n所有零行（全为零的行）都排在非零行的下面。\n每一非零行的首个非零元素（称为主元）位于其前一行的主元的右边。\n\n\\[\n\\begin{bmatrix}\n1 & 2 & 0 & 3 \\\\\n0 & 1 & 4 & 5 \\\\\n0 & 0 & 0 & 6 \\\\\n0 & 0 & 0 & 0 \\\\\n\\end{bmatrix}\n\\]\n行最简形矩阵（Reduced Row Echelon Form, RREF）： 行最简形矩阵（Reduced Row Echelon Form, RREF）是行阶梯矩阵的进一步简化形式，满足以下条件：\n\n它是一个行阶梯矩阵。\n每个主元所在列的其他元素均为零。\n每个主元为1。\n\n\\[\n\\begin{bmatrix}\n1 & 0 & 2 & 0 \\\\\n0 & 1 & -1 & 0 \\\\\n0 & 0 & 0 & 1 \\\\\n0 & 0 & 0 & 0 \\\\\n\\end{bmatrix}\n\\]\n初等变化不改变矩阵的秩，将矩阵经过初等变换为最简形矩阵可用于求矩阵的秩\n\n\n\n克莱姆法则（Cramer’s Rule）: 克莱姆法则是一种用行列式求解线性方程组的方法。假设我们有一个线性方程组：\n\\[\n\\begin{cases}\na_{11}x_1 + a_{12}x_2 + \\cdots + a_{1n}x_n = b_1 \\\\\na_{21}x_1 + a_{22}x_2 + \\cdots + a_{2n}x_n = b_2 \\\\\n\\vdots \\\\\na_{n1}x_1 + a_{n2}x_2 + \\cdots + a_{nn}x_n = b_n\n\\end{cases}\n\\]\n我们可以将其表示为矩阵形式：\n\\[\nA \\mathbf{x} = \\mathbf{b}\n\\]\n其中，\\(A\\) 是系数矩阵，\\(\\mathbf{x}\\) 是未知数向量，\\(\\mathbf{b}\\) 是常数向量：\n\\[\nA = \\begin{bmatrix}\na_{11} & a_{12} & \\cdots & a_{1n} \\\\\na_{21} & a_{22} & \\cdots & a_{2n} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\na_{n1} & a_{n2} & \\cdots & a_{nn}\n\\end{bmatrix},\n\\quad\n\\mathbf{x} = \\begin{bmatrix}\nx_1 \\\\\nx_2 \\\\\n\\vdots \\\\\nx_n\n\\end{bmatrix},\n\\quad\n\\mathbf{b} = \\begin{bmatrix}\nb_1 \\\\\nb_2 \\\\\n\\vdots \\\\\nb_n\n\\end{bmatrix}\n\\]\n克莱姆法则指出，如果行列式 \\(\\text{det}(A) \\neq 0\\)，那么线性方程组有唯一解，每个未知数 \\(x_i\\) 的解可以通过以下公式求得：\n\\[\nx_i = \\frac{\\text{det}(A_i)}{\\text{det}(A)}\n\\]\n其中，矩阵 \\(A_i\\) 是将矩阵 \\(A\\) 的第 \\(i\\) 列替换为向量 \\(\\mathbf{b}\\) 后得到的矩阵。\n对于非齐次线性方程组 $ A = $，其解的判定如下：\n\n如果 \\(\\det(A) \\neq 0\\), 则方程组有唯一解。\n如果 \\(\\det(A) = 0\\)，则方程组有无穷多解，或者无解。\n\n对于齐次线性方程组 $ A = $，其解的判定如下：\n\n如果 \\(\\det(A) \\neq 0\\) 则方程组只有零解。\n如果 \\(\\det(A) = 0\\) ，则方程组有无穷多非零解。\n\n利用初等行变换解线性方程组：对于增广矩阵的初等行变换本质就是高斯消元法的抽象，得到最终的线性方程组。\n对于非齐次线性方程组 $ A = $，其解的判定如下：\n\n如果 $ (A) = ([A|]) = n $，其中 $ n $ 是方程组的未知数个数，则方程组有唯一解。\n如果 $ (A) = ([A|]) &lt; n $，则方程组有无穷多解。\n如果 $ (A) ([A|]) $，则方程组无解。\n\n对于齐次线性方程组 $ A = $，其解的判定如下：\n\n如果 $ (A) = n $，其中 $ n $ 是方程组的未知数个数，则方程组只有零解。\n如果 $ (A) &lt; n $，则方程组有无穷多非零解。\n\n\n\n\n向量 一个向量完全由其基向量以及各基向量方向上的标量决定，例如向量\\(\\alpha = [a, b]\\), 表示其在两个基 \\(i, j\\) 的倍数。\n矩阵 一个矩阵代表了空间的变化，为了确定一个向量在变换后的位置，只需要追踪基向量的位置。实际上矩阵\\(A = [e_1|e2]\\)的每个列向量\\(e_1, e2\\)就是变换后的基向量。将每个基向量\\(e_1, e2\\)乘以原向量\\(\\alpha\\)每个方向上的标量，再加起来就得到变换后的向量\\(\\beta\\).\n初等变换 向量的线性组合，重新组合后的向量仍然在同一向量空间。\n\\(\\beta = ae_1 + be_2\\)\n行列式 行列式的几何含义空间变换以后由基向量所张成空间的变化比例。\\(|A| = 0\\)，则说明\\(A\\)并不是满秩的，会造成空间的降维，其行列式为0，且由于发生了空间的坍缩，由低维空间返回到原高维空间是不可能得，即其逆变换不存在，即\\(A^{-1}\\)不存在。所以实际上行列式，秩，是对矩阵所张成空间的维度的不同角度的描述。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#定义",
+    "href": "note/2024-07-01-linear-algebra/index.html#定义",
+    "title": "线性代数",
+    "section": "",
+    "text": "矩阵为矩形数表；\nm * n 矩阵， n 阶方阵， 零矩阵， 列矩阵(列向量)， 行矩阵（行向量），主对角线，次（副）对角线。\n\\[\n\\begin{bmatrix}\na_{11} & a_{12} & a_{13} \\\\\n0 & a_{22} & a_{23} \\\\\n0 & 0 & a_{33} \\\\\n\\end{bmatrix}\n\\]\n上三角矩阵\n\\[\n\\begin{bmatrix}\na_{11} & 0 & 0 \\\\\na_{21} & a_{22} & 0 \\\\\na_{31} & a_{32} & a_{33} \\\\\n\\end{bmatrix}\n\\]\n下三角矩阵。\n上下三角矩阵统称为三角矩阵。\n\\[\n\\begin{bmatrix}\na_{11} & 0 & 0 \\\\\n0 & a_{22} & 0 \\\\\n0 & 0 & a_{33} \\\\\n\\end{bmatrix}\n\\]\n对角矩阵\n\\[\n\\begin{bmatrix}\n1 & 0 & 0 \\\\\n0 & 1 & 0 \\\\\n0 & 0 & 1 \\\\\n\\end{bmatrix}\n\\]\n单位矩阵E, I。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#矩阵线性运算",
+    "href": "note/2024-07-01-linear-algebra/index.html#矩阵线性运算",
+    "title": "线性代数",
+    "section": "",
+    "text": "\\[{c_{ij}=a_{ij}+b_{ij}}\\]\n矩阵加法\n矩阵数乘。\n矩阵加法和数乘统称为矩阵的线性运算。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#矩阵乘法",
+    "href": "note/2024-07-01-linear-algebra/index.html#矩阵乘法",
+    "title": "线性代数",
+    "section": "",
+    "text": "\\(AB = 0 \\not\\Rightarrow A = 0 \\text{ 或 } B = 0\\)\n\\(A \\cdot B \\neq B \\cdot A\\)\n\\(ABC = (AB)C\\)\n\\(A(B + C) = AB + AC\\)\n\\(k(AB) = A(kB) = ABk\\)\n\n空间位置不能变，时间次序可以变。\n\\[\nx + 2y = 3 \\\\\n4x + 5y = 6\n\\]\n线性方程组的矩阵表示，系数矩阵，变量矩阵，常数矩阵。 线性变化的矩阵表示。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#矩阵转置",
+    "href": "note/2024-07-01-linear-algebra/index.html#矩阵转置",
+    "title": "线性代数",
+    "section": "",
+    "text": "反对称矩阵 \\(A^T = -A\\) , 一定为方阵，，对角线一定为0."
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#矩阵的逆",
+    "href": "note/2024-07-01-linear-algebra/index.html#矩阵的逆",
+    "title": "线性代数",
+    "section": "",
+    "text": "\\[\n\\begin{equation}\nA_{n}B_{n} = B_{n}A_{n} = E_n\n\\end{equation}\n\\]\n逆只能存在方阵之中，且不一定可逆。逆具有唯一性。\n\\[\n\\begin{align*}\n(A^{-1})^{-1} &= A \\\\\n(AB)^{-1} &= B^{-1}A^{-1} \\\\\n(A^{-1})^T &= (A^T)^{-1}\n\\end{align*}\n\\]\n矩阵逆运算规律如上。矩阵的上标运算可以任意交换位置。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#分块矩阵",
+    "href": "note/2024-07-01-linear-algebra/index.html#分块矩阵",
+    "title": "线性代数",
+    "section": "",
+    "text": "非分块矩阵可以认为每个元素都是一个只有一个数的块。\n\\[\n\\alpha_1x_1 + \\alpha_2x_2 = b\n\\]\n利用分块矩阵表示线性方程组。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#初等变换",
+    "href": "note/2024-07-01-linear-algebra/index.html#初等变换",
+    "title": "线性代数",
+    "section": "",
+    "text": "矩阵初等变换，实际上就是方程组系数消元的抽象过程，初等变换的一系列矩阵称为等价矩阵。\n\\[\n\\begin{equation}\n\\begin{bmatrix}\n1 & 0 \\\\\n0 & 1\n\\end{bmatrix}\n\\xrightarrow{\\text{行变换}}\n\\begin{bmatrix}\n0 & 1 \\\\\n1 & 0\n\\end{bmatrix}\n\\end{equation}\n\\]\n初等方阵 : 定义为单位矩阵\\(E\\)经过一次初等变换所形成的方阵\\(P\\)。\n若 \\(P\\) 为初等方阵， \\(PA=B\\)， 则\\(A \\rightarrow B\\)的变化等价于\\(E \\rightarrow P\\)的初等行变换。若\\(AP = B\\)， 则\\(A  \\rightarrow B\\) 等价于 \\(E \\rightarrow P\\)的初等列变换。实际上这里描述了的是一个初等变换可由一个初等方阵来定义。\n初等方阵的逆矩阵：\n通过交换单位矩阵的第 \\(i\\) 行和第 \\(j\\) 行得到的初等矩阵 \\(E_{ij}\\) 可以表示为：\n\\[\nE_{ij} = \\begin{bmatrix}\n1 & 0 & \\cdots & 0 & \\cdots & 0 & \\cdots & 0 \\\\\n0 & 1 & \\cdots & 0 & \\cdots & 0 & \\cdots & 0 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots & \\ddots & \\vdots & \\ddots & \\vdots \\\\\n0 & 0 & \\cdots & 0 & \\cdots & 1 & \\cdots & 0 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots & \\ddots & \\vdots & \\ddots & \\vdots \\\\\n0 & 0 & \\cdots & 1 & \\cdots & 0 & \\cdots & 0 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots & \\ddots & \\vdots & \\ddots & \\vdots \\\\\n0 & 0 & \\cdots & 0 & \\cdots & 0 & \\cdots & 1\n\\end{bmatrix}\n\\]\n其逆矩阵也是通过交换同样的两行得到的，即 \\(E_{ij}^{-1} = E_{ij}\\)。\n将单位矩阵的第 \\(i\\) 行乘以一个非零常数 \\(k\\) 得到的初等矩阵 \\(E_i(k)\\) 可以表示为：\n\\[\nE_i(k) = \\begin{bmatrix}\n1 & 0 & \\cdots & 0 \\\\\n0 & 1 & \\cdots & 0 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n0 & 0 & \\cdots & k \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n0 & 0 & \\cdots & 0 \\\\\n\\end{bmatrix}\n\\]\n其逆矩阵是将第 \\(i\\) 行乘以 \\(1/k\\)，即 \\(E_i(k)^{-1} = E_i(1/k)\\)。\n将单位矩阵的第 \\(i\\) 行加上第 \\(j\\) 行的 \\(k\\) 倍得到的初等矩阵 \\(E_{ij}(k)\\) 可以表示为：\n\\[\nE_{ij}(k) = \\begin{bmatrix}\n1 & 0 & \\cdots & 0 \\\\\n0 & 1 & \\cdots & 0 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n0 & k & \\cdots & 1 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n0 & 0 & \\cdots & 0 \\\\\n\\end{bmatrix}\n\\]\n其逆矩阵是将第 \\(i\\) 行减去第 \\(j\\) 行的 \\(k\\) 倍， 即 \\(E_{ij}(k)^{-1} = E_{ij}(-k)\\)。\n\\[\n\\begin{equation}\n\\begin{bmatrix}\na_{11} & a_{12} & 1 & 0 \\\\\na_{21} & a_{22} & 0 & 1\n\\end{bmatrix}\n\\xrightarrow{\\text{初等行变换}}\n\\begin{bmatrix}\n1 & 0 & a_{11}^{-1} & -a_{12}a_{11}^{-1} \\\\\n0 & 1 & -a_{21}a_{11}^{-1} & a_{11}^{-1}(a_{11}a_{22}-a_{12}a_{21})\n\\end{bmatrix}\n\\end{equation}\n\\]\n求解：将矩阵经过初等变换为单位矩阵，同样的变化作用于单位矩阵的结果就是其拟矩阵。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#行列式",
+    "href": "note/2024-07-01-linear-algebra/index.html#行列式",
+    "title": "线性代数",
+    "section": "",
+    "text": "逆序数：在一个排列 \\(a_1, a_2, \\ldots, a_n\\) 中，如果存在一对 \\(i, j\\)，满足 \\(i &lt; j\\) 且 \\(a_i &gt; a_j\\)，那么这对 $ (a_i, a_j) $ 称为一个逆序对。排列中所有逆序对的个数称为该排列的逆序数。\n例如，对于排列 \\(3, 1, 2\\)，它的逆序对有 $ (3, 1) $ 和 $ (3, 2) $，所以它的逆序数是 2。\n形式化地，设排列为 $ = (_1, _2, , _n) $，则逆序数定义为：\n\\[ \\text{Inv}(\\sigma) = \\sum_{1 \\leq i &lt; j \\leq n} \\mathbf{1}_{\\sigma_i &gt; \\sigma_j} \\]\n其中 \\(\\mathbf{1}_{\\sigma_i &gt; \\sigma_j}\\) 是指示函数，当 \\(\\sigma_i &gt; \\sigma_j\\) 时取值为 1，否则取值为 0。。\n余子式：设 \\(A\\) 是一个 \\(n \\times n\\) 的矩阵，\\(A_{ij}\\) 是 \\(A\\) 中去掉第 \\(i\\) 行和第 \\(j\\) 列后剩下的 \\((n-1) \\times (n-1)\\) 子矩阵。那么，\\(A\\) 的 \\((i, j)\\) 元素对应的余子式定义为：\n\\[ M_{ij} = \\det(A_{ij}) \\]\n其中 \\(\\det(A_{ij})\\) 表示 \\(A_{ij}\\) 的行列式。\n代数余子式：设 \\(A\\) 是一个 \\(n \\times n\\) 的矩阵，\\(A_{ij}\\) 是 \\(A\\) 中去掉第 \\(i\\) 行和第 \\(j\\) 列后剩下的 \\((n-1) \\times (n-1)\\) 子矩阵。那么，\\(A\\) 的 \\((i, j)\\) 元素对应的代数余子式定义为：\n\\[ C_{ij} = (-1)^{i+j} \\det(A_{ij}) \\]\n行列式： 行列式（Determinant）是一个函数，将方阵映射到标量，记作 \\(\\det(A)\\) 或 \\(|A|\\)。设 \\(A\\) 是一个 \\(n \\times n\\) 的方阵，那么 \\(A\\) 的行列式 \\(\\det(A)\\) 定义为：\n\\[\n\\det(A) = \\sum_{\\sigma \\in S_n} (\\text{sgn}(\\sigma) \\prod_{i=1}^{n} a_{i,\\sigma(i)})\n\\]\n其中，\\(S_n\\) 表示所有 \\(n\\) 个元素的排列，\\(\\sigma\\) 是一个排列，\\(\\text{sgn}(\\sigma)\\) 表示排列 \\(\\sigma\\) 的符号，\\(a_{i,\\sigma(i)}\\) 表示矩阵 \\(A\\) 在第 \\(i\\) 行第 \\(\\sigma(i)\\) 列的元素。对于 n 阶方阵 \\(A\\)，其行列式可通过以下方法计算：\n\n三角矩阵：对于三角矩阵，行列式是对角线上元素的代数余子式。\n展开法：通过任意一行（或列）的元素进行展开。例如，第 \\(i\\) 行的展开公式为：\n\\[\n\\det(A) = \\sum_{j=1}^{n} (-1)^{i+j} a_{ij} \\det(A_{ij})\n\\]\n其中，\\(a_{ij}\\) 是矩阵 \\(A\\) 中第 \\(i\\) 行第 \\(j\\) 列的元素，\\(A_{ij}\\) 是删除了第 \\(i\\) 行和第 \\(j\\) 列的子矩阵。\n\n行列式的基本性质包括：\n\n转置相等：\\(\\det(A) = \\det(A^T)\\)\n换行变号：交换行列式的两行（列），行列式变号。\n乘数乘行：行列式的某一行（列）乘以常数，行列式也乘以该常数。\n倍加相等：行列式中某一行（列）的常数倍加到另一行（列），行列式不变。\n拆分分行：行列式可以按行或列拆分。\n零性质：行列式中某一行（列）全为零，行列式为零。\n\n行列式按行展开的两个定理（待补充）"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#伴随矩阵",
+    "href": "note/2024-07-01-linear-algebra/index.html#伴随矩阵",
+    "title": "线性代数",
+    "section": "",
+    "text": "伴随矩阵： 伴随矩阵是与原矩阵密切相关的一个矩阵，它由原矩阵的代数余子式构成。对于一个 n 阶方阵 \\(A\\)，其伴随矩阵记作 \\(adj(A)\\)，它的每个元素 \\(a_{ij}\\) 都是由原矩阵 \\(A\\) 的代数余子式 \\(C_{ij}\\) 替换得到的。具体来说，伴随矩阵的第 \\(i\\) 行第 \\(j\\) 列的元素是原矩阵第 \\(j\\) 行第 \\(i\\) 列的代数余子式，即 \\(adj(A)_{ij} = C_{ji}\\)。\n伴随矩阵与原矩阵的行列式之间有如下关系：\n\\[\nA \\cdot adj(A) = \\det(A) \\cdot I\n\\]\n其中，\\(I\\) 是单位矩阵，\\(\\det(A)\\) 是矩阵 \\(A\\) 的行列式。这个关系表明，伴随矩阵可以用于计算矩阵的逆，当 \\(\\det(A) \\neq 0\\) 时，矩阵 \\(A\\) 可逆，且其逆矩阵 \\(A^{-1}\\) 可以通过伴随矩阵来计算：\n\\[\nA^{-1} = \\frac{1}{\\det(A)} \\cdot adj(A)\n\\]"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#矩阵的秩",
+    "href": "note/2024-07-01-linear-algebra/index.html#矩阵的秩",
+    "title": "线性代数",
+    "section": "",
+    "text": "矩阵的秩（Rank）可以通过其最高阶非零子式来定义。设 \\(A\\) 是一个 \\(m \\times n\\) 的矩阵。矩阵的秩是 \\(A\\) 中阶数最大的非零子式的阶数。具体定义如下：\n设 \\(A\\) 是一个 \\(m \\times n\\) 的矩阵，若 \\(A\\) 中存在一个 \\(k \\times k\\) 的子矩阵（即从 \\(A\\) 中取出 \\(k\\) 行 \\(k\\) 列构成的子矩阵）的行列式不为零，但所有 \\(k+1 \\times k+1\\) 的子矩阵的行列式均为零，则称矩阵 \\(A\\) 的秩为 \\(k\\)。\n换句话说： \\[\n\\text{rank}(A) = k\n\\] 其中 \\(k\\) 是满足矩阵 \\(A\\) 中存在 \\(k \\times k\\) 非零行列式的最大整数。\n行阶梯矩阵（Row Echelon Matrix）： 行阶梯型矩阵是一种特殊形式的矩阵，它满足以下条件：\n\n所有零行（全为零的行）都排在非零行的下面。\n每一非零行的首个非零元素（称为主元）位于其前一行的主元的右边。\n\n\\[\n\\begin{bmatrix}\n1 & 2 & 0 & 3 \\\\\n0 & 1 & 4 & 5 \\\\\n0 & 0 & 0 & 6 \\\\\n0 & 0 & 0 & 0 \\\\\n\\end{bmatrix}\n\\]\n行最简形矩阵（Reduced Row Echelon Form, RREF）： 行最简形矩阵（Reduced Row Echelon Form, RREF）是行阶梯矩阵的进一步简化形式，满足以下条件：\n\n它是一个行阶梯矩阵。\n每个主元所在列的其他元素均为零。\n每个主元为1。\n\n\\[\n\\begin{bmatrix}\n1 & 0 & 2 & 0 \\\\\n0 & 1 & -1 & 0 \\\\\n0 & 0 & 0 & 1 \\\\\n0 & 0 & 0 & 0 \\\\\n\\end{bmatrix}\n\\]\n初等变化不改变矩阵的秩，将矩阵经过初等变换为最简形矩阵可用于求矩阵的秩"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#线性方程组的矩阵抽象",
+    "href": "note/2024-07-01-linear-algebra/index.html#线性方程组的矩阵抽象",
+    "title": "线性代数",
+    "section": "",
+    "text": "克莱姆法则（Cramer’s Rule）: 克莱姆法则是一种用行列式求解线性方程组的方法。假设我们有一个线性方程组：\n\\[\n\\begin{cases}\na_{11}x_1 + a_{12}x_2 + \\cdots + a_{1n}x_n = b_1 \\\\\na_{21}x_1 + a_{22}x_2 + \\cdots + a_{2n}x_n = b_2 \\\\\n\\vdots \\\\\na_{n1}x_1 + a_{n2}x_2 + \\cdots + a_{nn}x_n = b_n\n\\end{cases}\n\\]\n我们可以将其表示为矩阵形式：\n\\[\nA \\mathbf{x} = \\mathbf{b}\n\\]\n其中，\\(A\\) 是系数矩阵，\\(\\mathbf{x}\\) 是未知数向量，\\(\\mathbf{b}\\) 是常数向量：\n\\[\nA = \\begin{bmatrix}\na_{11} & a_{12} & \\cdots & a_{1n} \\\\\na_{21} & a_{22} & \\cdots & a_{2n} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\na_{n1} & a_{n2} & \\cdots & a_{nn}\n\\end{bmatrix},\n\\quad\n\\mathbf{x} = \\begin{bmatrix}\nx_1 \\\\\nx_2 \\\\\n\\vdots \\\\\nx_n\n\\end{bmatrix},\n\\quad\n\\mathbf{b} = \\begin{bmatrix}\nb_1 \\\\\nb_2 \\\\\n\\vdots \\\\\nb_n\n\\end{bmatrix}\n\\]\n克莱姆法则指出，如果行列式 \\(\\text{det}(A) \\neq 0\\)，那么线性方程组有唯一解，每个未知数 \\(x_i\\) 的解可以通过以下公式求得：\n\\[\nx_i = \\frac{\\text{det}(A_i)}{\\text{det}(A)}\n\\]\n其中，矩阵 \\(A_i\\) 是将矩阵 \\(A\\) 的第 \\(i\\) 列替换为向量 \\(\\mathbf{b}\\) 后得到的矩阵。\n对于非齐次线性方程组 $ A = $，其解的判定如下：\n\n如果 \\(\\det(A) \\neq 0\\), 则方程组有唯一解。\n如果 \\(\\det(A) = 0\\)，则方程组有无穷多解，或者无解。\n\n对于齐次线性方程组 $ A = $，其解的判定如下：\n\n如果 \\(\\det(A) \\neq 0\\) 则方程组只有零解。\n如果 \\(\\det(A) = 0\\) ，则方程组有无穷多非零解。\n\n利用初等行变换解线性方程组：对于增广矩阵的初等行变换本质就是高斯消元法的抽象，得到最终的线性方程组。\n对于非齐次线性方程组 $ A = $，其解的判定如下：\n\n如果 $ (A) = ([A|]) = n $，其中 $ n $ 是方程组的未知数个数，则方程组有唯一解。\n如果 $ (A) = ([A|]) &lt; n $，则方程组有无穷多解。\n如果 $ (A) ([A|]) $，则方程组无解。\n\n对于齐次线性方程组 $ A = $，其解的判定如下：\n\n如果 $ (A) = n $，其中 $ n $ 是方程组的未知数个数，则方程组只有零解。\n如果 $ (A) &lt; n $，则方程组有无穷多非零解。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#几何直观",
+    "href": "note/2024-07-01-linear-algebra/index.html#几何直观",
+    "title": "线性代数",
+    "section": "",
+    "text": "向量 一个向量完全由其基向量以及各基向量方向上的标量决定，例如向量\\(\\alpha = [a, b]\\), 表示其在两个基 \\(i, j\\) 的倍数。\n矩阵 一个矩阵代表了空间的变化，为了确定一个向量在变换后的位置，只需要追踪基向量的位置。实际上矩阵\\(A = [e_1|e2]\\)的每个列向量\\(e_1, e2\\)就是变换后的基向量。将每个基向量\\(e_1, e2\\)乘以原向量\\(\\alpha\\)每个方向上的标量，再加起来就得到变换后的向量\\(\\beta\\).\n初等变换 向量的线性组合，重新组合后的向量仍然在同一向量空间。\n\\(\\beta = ae_1 + be_2\\)\n行列式 行列式的几何含义空间变换以后由基向量所张成空间的变化比例。\\(|A| = 0\\)，则说明\\(A\\)并不是满秩的，会造成空间的降维，其行列式为0，且由于发生了空间的坍缩，由低维空间返回到原高维空间是不可能得，即其逆变换不存在，即\\(A^{-1}\\)不存在。所以实际上行列式，秩，是对矩阵所张成空间的维度的不同角度的描述。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#定义以及定理",
+    "href": "note/2024-07-01-linear-algebra/index.html#定义以及定理",
+    "title": "线性代数",
+    "section": "定义以及定理",
+    "text": "定义以及定理\n线性组合：线性组合是指通过对向量进行加权求和得到一个新的向量。假设有向量 \\(\\mathbf{v}_1, \\mathbf{v}_2, \\ldots, \\mathbf{v}_n\\) 和系数 \\(c_1, c_2, \\ldots, c_n\\)，它们的线性组合表示为：\n\\[\\mathbf{v} = c_1 \\mathbf{v}_1 + c_2 \\mathbf{v}_2 + \\cdots + c_n \\mathbf{v}_n\\]\n线性表示：线性表示是指一个向量可以表示为其他向量的线性组合。假设向量 \\(\\mathbf{v}\\) 可以表示为向量 \\(\\mathbf{v}_1, \\mathbf{v}_2, \\ldots, \\mathbf{v}_n\\) 的线性组合，则有：\n\\[\\mathbf{v} = c_1 \\mathbf{v}_1 + c_2 \\mathbf{v}_2 + \\cdots + c_n \\mathbf{v}_n\\]\n线性相关: 一组向量 \\(\\{\\mathbf{v}_1, \\mathbf{v}_2, \\ldots, \\mathbf{v}_n\\}\\) 被称为线性相关，如果存在一组不全为零的标量 \\(c_1, c_2, \\ldots, c_n\\)，使得这些向量的线性组合为零向量：\n\\[c_1 \\mathbf{v}_1 + c_2 \\mathbf{v}_2 + \\cdots + c_n \\mathbf{v}_n = \\mathbf{0}\\]\n换句话说，如果至少有一个向量可以表示为其他向量的线性组合，则这些向量是线性相关的。对应于齐次方程组有非零解。\n线性无关：一组向量 \\(\\{\\mathbf{v}_1, \\mathbf{v}_2, \\ldots, \\mathbf{v}_n\\}\\) 被称为线性无关，如果只有当所有标量 \\(c_1, c_2, \\ldots, c_n\\) 均为零时，这些向量的线性组合才为零向量：\n\\[c_1 \\mathbf{v}_1 + c_2 \\mathbf{v}_2 + \\cdots + c_n \\mathbf{v}_n = \\mathbf{0} \\implies c_1 = c_2 = \\cdots = c_n = 0\\]\n换句话说，任何一个向量都不能表示为其他向量的线性组合，则这些向量是线性无关的。对应于齐次方程组只有零解。\n假设我们有一组线性无关的向量 \\(\\{\\mathbf{v}_1, \\mathbf{v}_2, \\ldots, \\mathbf{v}_n\\}\\)。这些向量的线性组合只有在所有系数都为零时，才会等于零向量：\n\\[c_1 \\mathbf{v}_1 + c_2 \\mathbf{v}_2 + \\cdots + c_n \\mathbf{v}_n = \\mathbf{0} \\implies c_1 = c_2 = \\cdots = c_n = 0\\]\n现在，假设我们引入一个新向量 \\(\\mathbf{u}\\)。如果将这个新向量加到上述向量组中后变得线性相关，则有：\n\\[c_1 \\mathbf{v}_1 + c_2 \\mathbf{v}_2 + \\cdots + c_n \\mathbf{v}_n + c_{n+1} \\mathbf{u} = \\mathbf{0}\\]\n并且存在不全为零的系数 \\(c_1, c_2, \\ldots, c_n, c_{n+1}\\) 使得上式成立。\n由于 \\(\\{\\mathbf{v}_1, \\mathbf{v}_2, \\ldots, \\mathbf{v}_n\\}\\) 是线性无关的，因此 \\(\\mathbf{u}\\) 可以唯一地表示为这些向量的线性组合。\n向量组的部分与整体定理：整体线性无关，那么部分线性无关；部分线性相关，那么整体线性相关。\n向量组的伸长与缩短定理：短线性无关，那么长线性无关；长线性相关关，那么短线性相关。\n极大无关组与向量组的秩：向量组中无关向量的数量，数量上等于矩阵的秩。\n等价向量组：向量组与它的任意极大无关组等价。\n向量组的秩与向量组的线性表示定理： 如果向量组 \\(\\alpha_1, \\alpha_2 ...\\) , 可由向量组 \\(\\beta_1, \\beta_2 ..\\) 表示，那么 \\(rank(B) &gt;= rank(A)\\) .\n向量空间: 是一个由向量构成的集合，这个集合对于向量的加法和标量乘法是封闭的。更正式地说，一个集合 \\(V\\) 配备了一对操作：加法（记作 \\(+\\)）和标量乘法（记作 \\(\\cdot\\)），如果满足以下性质，则称 \\(V\\) 为一个向量空间：\n\n封闭性：对于所有 \\(\\mathbf{u}, \\mathbf{v} \\in V\\)，有 \\(\\mathbf{u} + \\mathbf{v} \\in V\\) 和 \\(c \\cdot \\mathbf{u} \\in V\\)，其中 \\(c\\) 是任意标量。\n结合律：对于所有 \\(\\mathbf{u}, \\mathbf{v}, \\mathbf{w} \\in V\\)，有 \\((\\mathbf{u} + \\mathbf{v}) + \\mathbf{w} = \\mathbf{u} + (\\mathbf{v} + \\mathbf{w})\\)。\n交换律：对于所有 \\(\\mathbf{u}, \\mathbf{v} \\in V\\)，有 \\(\\mathbf{u} + \\mathbf{v} = \\mathbf{v} + \\mathbf{u}\\)。\n存在零向量：存在一个向量 \\(\\mathbf{0} \\in V\\)，使得对于所有 \\(\\mathbf{v} \\in V\\)，有 \\(\\mathbf{v} + \\mathbf{0} = \\mathbf{v}\\)。\n存在加法的逆元：对于每个 \\(\\mathbf{v} \\in V\\)，存在一个向量 \\(-\\mathbf{v} \\in V\\)，使得 \\(\\mathbf{v} + (-\\mathbf{v}) = \\mathbf{0}\\)。\n标量乘法的分配律：对于所有 \\(c, d\\) 是标量，和所有 \\(\\mathbf{u}, \\mathbf{v} \\in V\\)，有 \\(c \\cdot (\\mathbf{u} + \\mathbf{v}) = c \\cdot \\mathbf{u} + c \\cdot \\mathbf{v}\\) 和 \\((c + d) \\cdot \\mathbf{u} = c \\cdot \\mathbf{u} + d \\cdot \\mathbf{u}\\)。\n标量乘法的单位元：对于所有 \\(\\mathbf{v} \\in V\\)，有 \\(1 \\cdot \\mathbf{v} = \\mathbf{v}\\)，其中 \\(1\\) 是标量乘法的单位元。\n\n向量在基下的坐标: 在向量空间中，一个向量 \\(\\mathbf{v}\\) 可以通过基 \\(\\{\\mathbf{e}_1, \\mathbf{e}_2, \\ldots, \\mathbf{e}_n\\}\\) 下的坐标来唯一表示。如果 \\(\\mathbf{v}\\) 可以表示为基向量的线性组合，那么存在一组系数 \\(x_1, x_2, \\ldots, x_n\\) 使得：\n\\[\\mathbf{v} = x_1 \\mathbf{e}_1 + x_2 \\mathbf{e}_2 + \\cdots + x_n \\mathbf{e}_n\\]\n系数 \\(x_1, x_2, \\ldots, x_n\\) 就是向量 \\(\\mathbf{v}\\) 在基 \\(\\{\\mathbf{e}_1, \\mathbf{e}_2, \\ldots, \\mathbf{e}_n\\}\\) 下的坐标。\n过渡矩阵: 过渡矩阵是一个与基变换相关的矩阵。如果有两组基 \\(\\{\\mathbf{e}_1, \\mathbf{e}_2, \\ldots, \\mathbf{e}_n\\}\\) 和 \\(\\{\\mathbf{f}_1, \\mathbf{f}_2, \\ldots, \\mathbf{f}_n\\}\\)，过渡矩阵 \\(P\\) 是一个矩阵，它的列是第二个基向量在第一个基下的坐标。如果 \\(\\mathbf{f}_i\\) 在基 \\(\\{\\mathbf{e}_1, \\mathbf{e}_2, \\ldots, \\mathbf{e}_n\\}\\) 下的坐标是列向量 \\(\\mathbf{p}_i\\)，那么过渡矩阵 \\(P\\) 可以表示为：\n\\[P = [\\mathbf{p}_1 | \\mathbf{p}_2 | \\ldots | \\mathbf{p}_n]\\]\n过渡矩阵可以用来转换一个向量在两个基下的坐标。\n向量的内积: 两个向量 \\(\\mathbf{u}\\) 和 \\(\\mathbf{v}\\) 的内积（点积）是一个标量，定义为：\n\\[\\mathbf{u} \\cdot \\mathbf{v} = u_1v_1 + u_2v_2 + \\cdots + u_nv_n\\]\n内积也可以表示为：\n\\[\\mathbf{u} \\cdot \\mathbf{v} = \\|\\mathbf{u}\\| \\|\\mathbf{v}\\| \\cos \\theta\\]\n其中 \\(\\theta\\) 是向量 \\(\\mathbf{u}\\) 和 \\(\\mathbf{v}\\) 之间的夹角。\n向量的长度（范数）: 向量 \\(\\mathbf{v}\\) 的长度或范数是向量的内积的平方根，通常指欧几里得范数：\n\\[\\|\\mathbf{v}\\| = \\sqrt{\\mathbf{v} \\cdot \\mathbf{v}} = \\sqrt{v_1^2 + v_2^2 + \\cdots + v_n^2}\\]\n向量的夹角: 两个非零向量 \\(\\mathbf{u}\\) 和 \\(\\mathbf{v}\\) 之间的夹角 \\(\\theta\\) 可以通过它们的内积和范数来计算：\n\\[\\cos \\theta = \\frac{\\mathbf{u} \\cdot \\mathbf{v}}{\\|\\mathbf{u}\\| \\|\\mathbf{v}\\|}\\]\n正交基: 如果一组基向量中的任意两个都是正交的，即它们的内积为零，那么这组基称为正交基。对于正交基 \\(\\{\\mathbf{e}_1, \\mathbf{e}_2, \\ldots, \\mathbf{e}_n\\}\\)，满足：\n\\[\\mathbf{e}_i \\cdot \\mathbf{e}_j = 0 \\quad \\text{for } i \\neq j\\]\n标准正交基: 如果正交基中的每个基向量的长度都是 1，那么这组基称为标准正交基。对于标准正交基 \\(\\{\\mathbf{e}_1, \\mathbf{e}_2, \\ldots, \\mathbf{e}_n\\}\\)，满足：\n\\[\\mathbf{e}_i \\cdot \\mathbf{e}_j = \\delta_{ij}\\]\n其中 \\(\\delta_{ij}\\) 是克罗内克 delta 函数。\n正交矩阵：正交矩阵是一个方阵，其列向量构成一个标准正交基。对于一个 \\(n \\times n\\) 的正交矩阵 \\(Q\\)，\\(Q^TQ = E\\) ;它满足以下条件：\n\n列向量是线性无关的。\n列向量的长度都是 1。\n列向量与自身正交，即对于任意两个不同的列向量 \\(\\mathbf{q}_i\\) 和 \\(\\mathbf{q}_j\\)（\\(i \\neq j\\)），满足：\n\\[\n\\mathbf{q}_i \\cdot \\mathbf{q}_j = \\delta_{ij}\n\\]\n\n其中 \\(\\delta_{ij}\\) 是克罗内克 delta 函数。\n正交矩阵的性质:\n\n正交矩阵上标运算也是正交矩阵。\n正交矩阵的转置等于其逆矩阵，即 \\(Q^T = Q^{-1}\\)。\n正交矩阵的列向量构成标准正交基，因此其列向量的内积都是单位矩阵 \\(I\\)。\n正交矩阵的行列式等于 ±1，即 \\(det(Q) = \\pm 1\\)。\n正交矩阵的奇异值都是 1 或 -1。\n正交矩阵的特征值是 ±1。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#向量空间下的线性方程组",
+    "href": "note/2024-07-01-linear-algebra/index.html#向量空间下的线性方程组",
+    "title": "线性代数",
+    "section": "向量空间下的线性方程组",
+    "text": "向量空间下的线性方程组\n方程组表示 (System of Equations): 线性方程组可以直接以方程的形式表示。假设有 \\(n\\) 个方程和 \\(m\\) 个未知数 \\(x_1, x_2, \\ldots, x_m\\)，方程组形式如下：\n\\[\n\\begin{cases}\na_{11} x_1 + a_{12} x_2 + \\cdots + a_{1m} x_m = b_1 \\\\\na_{21} x_1 + a_{22} x_2 + \\cdots + a_{2m} x_m = b_2 \\\\\n\\vdots \\\\\na_{n1} x_1 + a_{n2} x_2 + \\cdots + a_{nm} x_m = b_n \\\\\n\\end{cases}\n\\]\n矩阵表示 (Matrix Form): 使用矩阵表示，可以将上述线性方程组表示为：\n\\[ A \\mathbf{x} = \\mathbf{b} \\]\n其中，矩阵 \\(A\\) 和向量 \\(\\mathbf{x}\\)、\\(\\mathbf{b}\\) 分别为：\n\\[ A = \\begin{pmatrix}\na_{11} & a_{12} & \\cdots & a_{1m} \\\\\na_{21} & a_{22} & \\cdots & a_{2m} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\na_{n1} & a_{n2} & \\cdots & a_{nm}\n\\end{pmatrix},\n\\quad\n\\mathbf{x} = \\begin{pmatrix}\nx_1 \\\\\nx_2 \\\\\n\\vdots \\\\\nx_m\n\\end{pmatrix},\n\\quad\n\\mathbf{b} = \\begin{pmatrix}\nb_1 \\\\\nb_2 \\\\\n\\vdots \\\\\nb_n\n\\end{pmatrix}\n\\]\n向量表示 (Vector Form): 向量表示法强调线性组合的观点，可以写成：\n\\[ a_{1} \\mathbf{x}_1 + a_{2} \\mathbf{x}_2 + \\cdots + a_{m} \\mathbf{x}_m = \\mathbf{b} \\]\n其中 \\(a_{i}\\) 表示向量 $ _i $ 的系数。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#齐次方程组的解",
+    "href": "note/2024-07-01-linear-algebra/index.html#齐次方程组的解",
+    "title": "线性代数",
+    "section": "齐次方程组的解",
+    "text": "齐次方程组的解\n齐次方程组是由线性方程组成的方程组，其形式如下：\n\\[Ax = 0\\]\n假设 \\(\\xi_1\\) , \\(\\xi_2\\) 是其解向量， 那么 \\(k\\xi_1\\), \\(\\xi_1 + \\xi_2\\), \\(k\\xi_1 + k\\xi_2\\)也是其解向量, 这些所有的向量构成解空间，其中任意一组解称为其基础解系，也就是解空间的一组基。\n其中 \\(A\\) 是一个 \\(m \\times n\\) 的矩阵，\\(x\\) 是一个 \\(n \\times 1\\) 的列向量。齐次方程组的通解是指满足方程组的解的集合。对于齐次方程组，如果 \\(A\\) 的秩 \\(r(A) &lt; n\\)，则齐次方程组有非零解。这些解可以表示为 \\(A\\) 的零空间的基向量的线性组合，其解的向量个数为 \\(n - r(A)\\) 即：\n\\[x = c_1 \\mathbf{v}_1 + c_2 \\mathbf{v}_2 + \\cdots + c_k \\mathbf{v}_k\\]\n其中 \\(c_1, c_2, \\ldots, c_k\\) 是任意常数，\\(\\mathbf{v}_1, \\mathbf{v}_2, \\ldots, \\mathbf{v}_k\\) 是 \\(A\\) 的零空间的基向量。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#非齐次方程组的通解",
+    "href": "note/2024-07-01-linear-algebra/index.html#非齐次方程组的通解",
+    "title": "线性代数",
+    "section": "非齐次方程组的通解",
+    "text": "非齐次方程组的通解\n导出组： 非齐次方程组对应的齐次方程组。\n\n若 \\(\\epsilon_1, \\epsilon_2\\) 是 非齐次方程组的两个解， 则 \\(\\epsilon_1 - \\epsilon_2\\) 是其导出组 \\(Ax = 0\\) 的解。\n若 \\(\\epsilon\\) 是非齐次线性方程组 \\(Ax = b\\)的的解， \\(\\psi\\) 是其导出组的解， 那么 \\(n + \\psi\\) 是 \\(Ax=b\\) 的解。\n\n非齐次方程组是由线性方程组成的方程组，其形式如下：\n\\[Ax = b\\]\n其中 \\(A\\) 是一个 \\(m \\times n\\) 的矩阵，\\(x\\) 是一个 \\(n \\times 1\\) 的列向量，\\(b\\) 是一个 \\(m \\times 1\\) 的列向量。非齐次方程组的通解是指满足方程组的解的集合。对于非齐次方程组，如果 \\(A\\) 的秩 \\(r(A) = n\\)，则方程组有唯一解。这个解可以表示为 \\(A\\) 的零空间的基向量的线性组合加上 \\(A\\) 的零空间的补空间的基向量的线性组合，即：\n\\[x = c_1 \\mathbf{v}_1 + c_2 \\mathbf{v}_2 + \\cdots + c_k \\mathbf{v}_k + d_1 \\mathbf{w}_1 + d_2 \\mathbf{w}_2 + \\cdots + d_m \\mathbf{w}_m\\]\n其中 \\(c_1, c_2, \\ldots, c_k, d_1, d_2, \\ldots, d_m\\) 是任意常数，\\(\\mathbf{v}_1, \\mathbf{v}_2, \\ldots, \\mathbf{v}_k\\) 是 \\(A\\) 的零空间的基向量，\\(\\mathbf{w}_1, \\mathbf{w}_2, \\ldots, \\mathbf{w}_m\\) 是 \\(A\\) 的零空间的补空间的基向量。\n非齐次线性方程组的通解就是：导出组的通解 + 其一个特解。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#几何直观-1",
+    "href": "note/2024-07-01-linear-algebra/index.html#几何直观-1",
+    "title": "线性代数",
+    "section": "几何直观",
+    "text": "几何直观\n向量 空间中有方向的箭头。\n点积 向量\\(\\alpha\\)投影到\\(\\beta\\)上的长度与与向量\\(\\beta\\)长度的乘积。对于点积运算，向量总是对应一个对偶向量，其为\\(\\alpha^T\\)，也就是说点积也可以理解为向量\\(beta\\)经过线性变换\\(\\alpha^T\\)后，压缩为一个一维的向量。如果\\(||\\alpha|| = 1\\)，则\\(\\alpha, \\beta\\)的点积为\\(beta\\)在单位基向量\\(\\alpha\\)的表示。这个应用在PCA等线性降维方法中。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#特征值eigenvalues特征向量eigenvectors",
+    "href": "note/2024-07-01-linear-algebra/index.html#特征值eigenvalues特征向量eigenvectors",
+    "title": "线性代数",
+    "section": "特征值（Eigenvalues）特征向量（Eigenvectors）",
+    "text": "特征值（Eigenvalues）特征向量（Eigenvectors）\n特征值是线性代数中矩阵理论的一个基本概念。对于一个给定的方阵 \\(A\\)，特征值是满足方程 \\(Av = \\lambda v\\) 的数 \\(\\lambda\\)，其中 \\(v\\) 是非零向量，称为特征向量。特征值揭示了矩阵的某些代数属性，比如矩阵的行列式和迹（对角线元素之和）与特征值有关。\n特征向量 是与特征值相关联的非零向量，它表示了矩阵 \\(A\\) 在某个方向上的拉伸或压缩的比例。当一个矩阵作用在它的特征向量上时，结果是该特征向量的标量倍，这个标量就是相应的特征值。\n由定义可得：\n\\[(A - \\lambda E)v = 0\\]\n由特征值的的定义，$v $, 则该齐次方程组有非零解，即 \\(|A - \\lambda E| = 0\\), 可求得特征值，将特征值代入 \\((A - \\lambda E)v = 0\\) 即可得到该特征值对应的特征向量。\n关于特征值的定理：\n\n特征值的和等于矩阵的迹 \\(tr(A)\\) 。\n特征值的积等于矩阵行列式。\n考虑一个变换 \\(f\\) 其作用于矩阵 \\(A\\), 那么其对应的特征值有同样的变换，但是 \\(f(\\lambda)\\) 对应的特征向量不变。\n矩阵互不相等的特征值对应的特征向量是线性无关的。\n几何重数不大于代数重数。\n转置矩阵的特征值相等。\n若n阶矩阵 \\(g(A) = 0\\)， 那么其所有特征值 \\(g(\\lambda) = 0\\)\n\n关于实对称矩阵特征值的定理：\n\n不同特征值对应特征向量两两正交。\n几何重数等于其代数重数。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#相似矩阵-矩阵对角相似化",
+    "href": "note/2024-07-01-linear-algebra/index.html#相似矩阵-矩阵对角相似化",
+    "title": "线性代数",
+    "section": "相似矩阵 矩阵对角相似化",
+    "text": "相似矩阵 矩阵对角相似化\n矩阵 \\(A\\) 与 \\(B\\) 相似 定义为:\n\\[B = P^{-1}AP\\]\n相似矩阵的性质：\n\n\\(A\\) 与 \\(B\\) 等价。\n\\(R(A) = R(B)\\)\n\\(determinant(A) = determinant(B)\\)\n\\(|A| = |B|\\)\n\\(tr(A) = tr(B)\\)\n\\(f(A) ~ f(B)\\)\n\n相似对角化 将矩阵 \\(A\\) 与 一个对角矩阵 \\(\\Lambda\\) 进行相似。实际上， 对于形如 \\(P^{-1}AP\\) 的矩阵变化或者相似的过程，其几何含义为将 \\(A\\) 所表示的线性变化 转换为以矩阵 \\(P\\) 的列向量的为基向量的坐标系下的线性变化。相似矩阵为同一线性变化在不同基下的描述。特别地，为了得到与 \\(\\Lambda\\) 的相似，那么选择\\(A\\)的特征向量构成的基，则该线性变化在特征基的描述下即为对角矩阵。\n\\[P^{-1}AP = \\Lambda\\]\n相似对角化充要条件：\n\nn个线性无关的特征向量\n代数重数等于几何重数。\n\n求解：矩阵\\(P\\)就是\\(A\\)的特征向量按列构成的矩阵。\n实对称矩阵的相似对角化，对于实对称矩阵\\(A\\)，总可以找到其正交的特征向量，并将其单位化为正交矩阵 \\(Q\\)，使得其相似对角化：\n\\(Q^{-1}AQ = \\Lambda \\rightarrow Q^{T}AQ = \\Lambda\\)"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#二次型",
+    "href": "note/2024-07-01-linear-algebra/index.html#二次型",
+    "title": "线性代数",
+    "section": "二次型",
+    "text": "二次型\n二次型定义为二次多项式函数的矩阵形式，其中\\(A\\)为实对称矩阵。\n\\[\nf = x^TAx\n\\]\n合同矩阵 对于合同矩阵，矩阵\\(A\\)实际上为一个 \\((0, 2)\\)的张量，其是空间或流形几何一个量，称之为度规，形如\\(C^TAC\\)的形式实际上是将某个度规，转化为以矩阵\\(C\\)的列向量为基的坐标下的描述。而对于二次型而言，该矩阵为实对称矩阵， 形似上其相似与合同一致。\n\\(B = C^TAC\\)\n二次型化为标准形：\n\n令 \\(x = Cy\\), 则 \\(x^TAx = y^TQ^TAQy\\)，其中矩阵\\(c\\)为特征向量对应的单位特征向量。(实际上为相似对角化的过程， 实对称矩阵的相似和合同一致)\n配方法。\n\n惯性定理：无论怎样的可逆的线性变换使得其为标准二次型，其正，负平方项的个数一样。\n正定（负定）矩阵：假设有二次型\\(f\\), 若\\(f &gt; 0\\)， 则为正定矩阵 \\(f &gt;= 0\\)则为负正定矩阵。"
+  },
+  {
+    "objectID": "note/2024-07-01-linear-algebra/index.html#几何直观-2",
+    "href": "note/2024-07-01-linear-algebra/index.html#几何直观-2",
+    "title": "线性代数",
+    "section": "几何直观",
+    "text": "几何直观\n等价矩阵 对于形如\\(PAQ = B\\)形式的变换，其中\\(P, Q\\)为可逆矩阵。左乘一个可逆矩阵等价于进行初等行变换，右乘一个可逆矩阵等价于进行初等列变换。几何上，\\(B\\)是\\(A\\)经过初等变换得到的矩阵，两者等价意味着个矩阵所张成的行空间与列空间是等价的。\n相似矩阵 对于形如 \\(P^{-1}AP\\) 的矩阵变化或者相似的过程，其几何含义为将 \\(A\\) 所表示的线性变化 转换为以矩阵 \\(P\\) 的列向量的为基向量的坐标系下的线性变化。相似矩阵为同一线性变化在不同基下的描述。特别地，为了得到与 \\(\\Lambda\\) 的相似，那么选择\\(A\\)的特征向量构成的基，则该线性变化在特征基的描述下即为对角矩阵。\n合同矩阵 对于形如 \\(P^TAP\\) 的形式，矩阵\\(A\\)实际上为一个 \\((0, 2)\\)的张量，其是空间或流形几何一个量，称之为度规，形如\\(C^TAC\\)的形式实际上是将某个度规，转化为以矩阵\\(C\\)的列向量为基的坐标下的描述。特别地，对于二次型而言，该矩阵为实对称矩阵， 形似上其相似与合同一致。"
   },
   {
     "objectID": "slides/2023-09-10-introduction/index.html#提要",
@@ -642,5 +789,12 @@
     "title": "Introduction",
     "section": "",
     "text": "在线浏览 doc.cying.org/slides/2023-09-10-introduction/\n源文件 doc.cying.org/slides/2023-09-10-introduction/index.qmd"
+  },
+  {
+    "objectID": "note.html",
+    "href": "note.html",
+    "title": "Note",
+    "section": "",
+    "text": "线性代数\n\n\n\n\n\n\n\n\n\n\n\nJul 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n数据变换技巧\n\n\n\n\n\n\n\n\n\n\n\nOct 15, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nHypothesis Test\n\n\n假设检验实践\n\n\n\n\n\n\n\n\nOct 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nXgboost\n\n\n\n\n\n\n\n\n\n\n\nOct 7, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nLiner dimension reduction\n\n\n\n\n\n\n\n\n\n\n\nAug 10, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics\n\n\n\n\n\n\n\n\n\n\n\nJul 17, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nCluster algorithm\n\n\n\n\n\n\n\n\n\n\n\nJul 10, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nRNA Seq\n\n\n\n\n\n\n\n\n\n\n\nJun 25, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nProbability distribution\n\n\n\n\n\n\n\n\n\n\n\nJun 10, 2022\n\n\n\n\n\n\nNo matching items"
   }
 ]

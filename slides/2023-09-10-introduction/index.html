@@ -8,9 +8,9 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.339">
+  <meta name="generator" content="quarto-1.5.52">
 
-  <title>snow and rain - Introduction</title>
+  <title>snow and rain – Introduction</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,7 +30,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -41,7 +41,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -69,7 +69,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -83,7 +83,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -520,16 +520,16 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
 <section id="r包easybio" class="slide level2">
 <h2>R包easybio</h2>
 <p>统一的接口： <code>analyze</code>函数</p>
-<div class="sourceCode" id="cb1" data-code-line-numbers="1|2|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>x <span class="ot">&lt;-</span> <span class="fu">analyze</span>(data, <span class="st">'go'</span>) <span class="co"># 自动分配合适的函数</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>p <span class="ot">&lt;-</span> <span class="fu">plot</span>(x) <span class="co"># 扩展的plot泛型函数</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a>p <span class="sc">+</span> virids<span class="sc">::</span><span class="fu">viridis_scale_color</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>) <span class="co"># 自定义细节部分</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-code-line-numbers="1|2|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">analyze</span>(data, <span class="st">'go'</span>) <span class="co"># 自动分配合适的函数</span></span>
+<span id="cb1-2"><a></a>p <span class="ot">&lt;-</span> <span class="fu">plot</span>(x) <span class="co"># 扩展的plot泛型函数</span></span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a>p <span class="sc">+</span> virids<span class="sc">::</span><span class="fu">viridis_scale_color</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>) <span class="co"># 自定义细节部分</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="section-5" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p>泛型函数</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb2-1" class="hljs-ln-code"><a href="#cb2-1"></a>sloop<span class="sc">::</span><span class="fu">s3_methods_generic</span>(<span class="at">x =</span> <span class="st">"plot"</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb2-1" class="hljs-ln-code"><a></a>sloop<span class="sc">::</span><span class="fu">s3_methods_generic</span>(<span class="at">x =</span> <span class="st">"plot"</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   generic class         visible source             
@@ -544,7 +544,7 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
 <h2 data-id="quarto-animate-title"></h2>
 <p>泛型函数</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>sloop<span class="sc">::</span><span class="fu">s3_methods_generic</span>(<span class="at">x =</span> <span class="st">"plot"</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>sloop<span class="sc">::</span><span class="fu">s3_methods_generic</span>(<span class="at">x =</span> <span class="st">"plot"</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   generic class         visible source             
@@ -555,15 +555,15 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
 </div>
 </div>
 <p><code>analyze</code>函数内部调用<code>bio.</code>泛型函数</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>analyze <span class="ot">&lt;-</span> <span class="cf">function</span>(x, type, ...) {</span>
-<span id="cb6-2"><a href="#cb6-2"></a>  bio.<span class="sc">*</span>()</span>
-<span id="cb6-3"><a href="#cb6-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>analyze <span class="ot">&lt;-</span> <span class="cf">function</span>(x, type, ...) {</span>
+<span id="cb6-2"><a></a>  bio.<span class="sc">*</span>()</span>
+<span id="cb6-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="section-7" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p>泛型函数</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>sloop<span class="sc">::</span><span class="fu">s3_methods_generic</span>(<span class="at">x =</span> <span class="st">"plot"</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>sloop<span class="sc">::</span><span class="fu">s3_methods_generic</span>(<span class="at">x =</span> <span class="st">"plot"</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   generic class         visible source             
@@ -574,39 +574,39 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
 </div>
 </div>
 <p><code>analyze</code>函数内部调用<code>bio.</code>泛型函数</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>analyze <span class="ot">&lt;-</span> <span class="cf">function</span>(x, type, ...) {</span>
-<span id="cb9-2"><a href="#cb9-2"></a>  bio.<span class="sc">*</span>()</span>
-<span id="cb9-3"><a href="#cb9-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>analyze <span class="ot">&lt;-</span> <span class="cf">function</span>(x, type, ...) {</span>
+<span id="cb9-2"><a></a>  bio.<span class="sc">*</span>()</span>
+<span id="cb9-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>添加新的分析方法</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>bio.<span class="sc">*</span> <span class="er">&lt;</span><span class="sc">-</span> <span class="cf">function</span>(...) {}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>bio.<span class="sc">*</span> <span class="er">&lt;</span><span class="sc">-</span> <span class="cf">function</span>(...) {}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="artist" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Artist</h2>
 <p>数据到几何美学的映射(map)</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb11-1" class="hljs-ln-code"><a href="#cb11-1"></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(x, y), ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb11-1" class="hljs-ln-code"><a></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(x, y), ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="artist-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Artist</h2>
 <p>数据到几何美学的映射(map)</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb12-1" class="hljs-ln-code"><a href="#cb12-1"></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(x, y), ...) <span class="co"># 数据空间到美学空间的映射</span></span>
-<span id="cb12-2" class="hljs-ln-code"><a href="#cb12-2"></a></span>
-<span id="cb12-3" class="hljs-ln-code"><a href="#cb12-3"></a>draw <span class="ot">&lt;-</span> Artist<span class="sc">$</span><span class="fu">new</span>() <span class="co"># 创建一个实例</span></span>
-<span id="cb12-4" class="hljs-ln-code"><a href="#cb12-4"></a>p <span class="ot">&lt;-</span> draw<span class="sc">$</span><span class="fu">point</span>(x, y, ....) <span class="co"># 绘图</span></span>
-<span id="cb12-5" class="hljs-ln-code"><a href="#cb12-5"></a></span>
-<span id="cb12-6" class="hljs-ln-code"><a href="#cb12-6"></a>p <span class="sc">+</span> <span class="fu">theme</span>(...) <span class="co"># 自定义</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb12-1" class="hljs-ln-code"><a></a><span class="fu">geom_point</span>(<span class="fu">aes</span>(x, y), ...) <span class="co"># 数据空间到美学空间的映射</span></span>
+<span id="cb12-2" class="hljs-ln-code"><a></a></span>
+<span id="cb12-3" class="hljs-ln-code"><a></a>draw <span class="ot">&lt;-</span> Artist<span class="sc">$</span><span class="fu">new</span>() <span class="co"># 创建一个实例</span></span>
+<span id="cb12-4" class="hljs-ln-code"><a></a>p <span class="ot">&lt;-</span> draw<span class="sc">$</span><span class="fu">point</span>(x, y, ....) <span class="co"># 绘图</span></span>
+<span id="cb12-5" class="hljs-ln-code"><a></a></span>
+<span id="cb12-6" class="hljs-ln-code"><a></a>p <span class="sc">+</span> <span class="fu">theme</span>(...) <span class="co"># 自定义</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="artist-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Artist</h2>
 <p>数据到几何美学的映射(map)</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">geom_points</span>(<span class="fu">aes</span>(x, y), ...) <span class="co"># 数据空间到美学空间的映射</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a></span>
-<span id="cb13-3"><a href="#cb13-3"></a>draw <span class="ot">&lt;-</span> Artist<span class="sc">$</span><span class="fu">new</span>() <span class="co"># 创建一个实例</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a>p <span class="ot">&lt;-</span> draw<span class="sc">$</span><span class="fu">points</span>(x, y, ....) <span class="co"># 绘图</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a></span>
-<span id="cb13-6"><a href="#cb13-6"></a>p <span class="sc">+</span> <span class="fu">theme</span>() <span class="co"># 自定义</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">geom_points</span>(<span class="fu">aes</span>(x, y), ...) <span class="co"># 数据空间到美学空间的映射</span></span>
+<span id="cb13-2"><a></a></span>
+<span id="cb13-3"><a></a>draw <span class="ot">&lt;-</span> Artist<span class="sc">$</span><span class="fu">new</span>() <span class="co"># 创建一个实例</span></span>
+<span id="cb13-4"><a></a>p <span class="ot">&lt;-</span> draw<span class="sc">$</span><span class="fu">points</span>(x, y, ....) <span class="co"># 绘图</span></span>
+<span id="cb13-5"><a></a></span>
+<span id="cb13-6"><a></a>p <span class="sc">+</span> <span class="fu">theme</span>() <span class="co"># 自定义</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>添加新分析方法</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>draw<span class="sc">$</span>scatter_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(){ </span>
-<span id="cb14-2"><a href="#cb14-2"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>draw<span class="sc">$</span>scatter_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(){ </span>
+<span id="cb14-2"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="section-8" class="slide level2">
 <h2></h2>
@@ -614,8 +614,10 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
 <p>在线浏览 <em>doc.cying.org/slides/2023-09-10-introduction/</em></p>
 <p>源文件 <em>doc.cying.org/slides/2023-09-10-introduction/index.qmd</em></p>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -900,18 +902,7 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -943,7 +934,47 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/snowGlint\.github\.io\/doc\.cying\.org\/");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -980,7 +1011,11 @@ knitr + pandoc \rightarrow Rmarkdown \: or \: Quarto
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
