@@ -1,6 +1,6 @@
 ---
 title: "Probability distribution"
-date: "`r Sys.Date()`"
+date: "2022-06-10"
 format:
     html: 
       self-contained: false

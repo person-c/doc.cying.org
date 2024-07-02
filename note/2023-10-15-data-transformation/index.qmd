@@ -1,6 +1,6 @@
 ---
 title: "数据变换技巧"
-date: "`r Sys.Date()`"
+date: "2023-10-15"
 format:
     html: 
       self-contained: false

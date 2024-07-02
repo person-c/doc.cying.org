@@ -1,6 +1,6 @@
 ---
 title: "Cluster algorithm"
-date: "`r Sys.Date()`"
+date: "2022-07-10"
 format:
     html: 
       self-contained: false

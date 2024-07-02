@@ -1,6 +1,6 @@
 ---
 title: "Statistics"
-date: "`r Sys.Date()`"
+date: "2022-07-17"
 format:
     html: 
       self-contained: false

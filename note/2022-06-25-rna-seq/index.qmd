@@ -1,6 +1,6 @@
 ---
 title: "RNA Seq"
-date: "`r Sys.Date()`"
+date: "2022-06-25"
 format:
     html: 
       self-contained: false
