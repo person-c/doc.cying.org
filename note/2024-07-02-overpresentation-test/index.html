@@ -180,7 +180,15 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#hypergeometric-distribution-test" id="toc-hypergeometric-distribution-test" class="nav-link active" data-scroll-target="#hypergeometric-distribution-test">Hypergeometric distribution test</a></li>
+  <li><a href="#gsea" id="toc-gsea" class="nav-link" data-scroll-target="#gsea">GSEA</a></li>
+  <li><a href="#ssgsea" id="toc-ssgsea" class="nav-link" data-scroll-target="#ssgsea">ssGSEA</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -290,6 +298,8 @@ window.Quarto = {
 </header>
 
 
+<section id="hypergeometric-distribution-test" class="level1">
+<h1>Hypergeometric distribution test</h1>
 <p>假设共有4条通路分别为A, B, C, D. 其中A, B, C通路含有分别有10个基因，D通路有26个基因。4条通路， 即整个背景基因集总共的基因（去重）数目为26。</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2024</span>)</span>
@@ -371,8 +381,26 @@ window.Quarto = {
 <pre><code>[1] "10/26"</code></pre>
 </div>
 </div>
+</section>
+<section id="gsea" class="level1">
+<h1>GSEA</h1>
+<p>给定一个由包含 <span class="math inline">\(N\)</span> 个基因, 由高到低排序的基因列表 <span class="math inline">\(L = [g_1, g_2,...,g_N]\)</span>. 考虑一个基因集 <span class="math inline">\(S\)</span>，如果其所含基因在<span class="math inline">\(L\)</span>中均匀排列，那么其与这个排序无关。定义<span class="math inline">\(S\)</span>在这个rank中总的hit score为：</p>
+<p><span class="math display">\[ N_R = \sum_{g_j \in G}|g_j|^p \]</span></p>
+<p>沿rank从<span class="math inline">\(1 \rightarrow i \rightarrow N\)</span>， 第<span class="math inline">\(i\)</span>步：</p>
+<p><span class="math inline">\(P_{hit}(S, i) = \sum_{j &lt;= i, g_j \in G}\frac{|r_j|^p}{N_R}\)</span></p>
+<p><span class="math inline">\(P_{miss}(S, i) = \sum_{j &lt;= i, g_j \notin G}\frac{1}{N - N_h}\)</span></p>
+<p>富集分数（Enrichment score, ES)定义为 <span class="math inline">\(P_{hit}(S, i) - P_{miss}(S, i)\)</span>与0偏离的最大值。</p>
+<p><strong>假设检验</strong> 置换检验，对<span class="math inline">\(L\)</span>或者表型进行置换得到<span class="math inline">\(ES\)</span>的分布函数进行检验。</p>
+</section>
+<section id="ssgsea" class="level1">
+<h1>ssGSEA</h1>
+<p>单样本的富集分析得分(ssGSEA score)定义为<span class="math inline">\(i\)</span>上每一步积分：</p>
+<p><span class="math inline">\(ssGSEA = \sum_{i}^{N}(P_{hit} - P_{miss})\)</span></p>
+<p>归一化的ssGSEA score 定义为：</p>
+<p><span class="math inline">\(\sum_{i}^{N}\frac{(P_{hit} - P_{miss})}{max(ssGSEA) - min(ssGSEA))}\)</span></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
