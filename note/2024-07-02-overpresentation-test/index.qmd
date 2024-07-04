@@ -13,6 +13,9 @@ reference-location: margin
 citation-location: margin
 ---
 
+
+# Hypergeometric distribution test
+
 假设共有4条通路分别为A, B, C, D. 其中A, B, C通路含有分别有10个基因，D通路有26个基因。4条通路， 即整个背景基因集总共的基因（去重）数目为26。
 
 ```{r}
@@ -66,3 +69,29 @@ y@result[.("A"), pvalue, on = .(ID)] == pvalue
 (GeneRation <- paste0(q + 1, "/", k))
 (BgRation <- paste0(m, "/", m + n))
 ```
+
+# GSEA
+
+给定一个由包含 $N$ 个基因, 由高到低排序的基因列表 $L = [g_1, g_2,...,g_N]$. 考虑一个基因集 $S$，如果其所含基因在$L$中均匀排列，那么其与这个排序无关。定义$S$在这个rank中总的hit score为：
+
+$$ N_R = \sum_{g_j \in G}|g_j|^p $$
+
+沿rank从$1 \rightarrow i \rightarrow N$， 第$i$步：
+
+$P_{hit}(S, i) = \sum_{j <= i, g_j \in G}\frac{|r_j|^p}{N_R}$
+
+$P_{miss}(S, i) = \sum_{j <= i, g_j \notin G}\frac{1}{N - N_h}$
+
+富集分数（Enrichment score, ES)定义为 $P_{hit}(S, i) - P_{miss}(S, i)$与0偏离的最大值。
+
+**假设检验** 置换检验，对$L$或者表型进行置换得到$ES$的分布函数进行检验。
+
+# ssGSEA
+
+单样本的富集分析得分(ssGSEA score)定义为$i$上每一步积分：
+
+$ssGSEA = \sum_{i}^{N}(P_{hit} - P_{miss})$
+
+归一化的ssGSEA score 定义为：
+
+$\sum_{i}^{N}\frac{(P_{hit} - P_{miss})}{max(ssGSEA) - min(ssGSEA))}$
