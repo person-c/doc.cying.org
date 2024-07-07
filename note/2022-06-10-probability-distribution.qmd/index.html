@@ -281,16 +281,14 @@ window.Quarto = {
 <section id="二项分布binomial-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="二项分布binomial-distribution">二项分布(Binomial Distribution)</h2>
 <p>多重伯努利实验中，已知事件事件 <span class="math inline">\(A\)</span> 成功的概率为 <span class="math inline">\(p\)</span>，且实验次数 <span class="math inline">\(n\)</span> 固定 ，那么随机变量 <span class="math inline">\(X\)</span> —— 事件 <span class="math inline">\(A\)</span> 发生次数 <span class="math inline">\(X\)</span> ： <span class="math display">\[ P(X = k) = C_n^k p^k(1-p)^{n-k}, k = 0,1,...,n. \]</span> 记为：<span class="math display">\[X \sim b(n,p)\]</span> <span class="math display">\[E(X) = np\]</span> <span class="math display">\[ D(X) = np(1-p)\]</span></p>
-<blockquote class="blockquote">
-<p>二项分布的特殊分布 <strong>两点分布Bernoulli Distribution</strong> ，即一重伯努利实验：</p>
-</blockquote>
+<p><strong>两点分布(Bernoulli Distribution)</strong> ，即一重伯努利实验,为二项分布的特殊分布。</p>
 </section>
 <section id="负二项分布negative-binomial-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="负二项分布negative-binomial-distribution">负二项分布(Negative Binomial Distribution)</h2>
-<p>多重伯努利实验中，已知事件 <span class="math inline">\(A\)</span> 发生的概率为<span class="math inline">\(p\)</span>，那么当事件 <span class="math inline">\(A\)</span> 第 <span class="math inline">\(r\)</span> 次发生，那么随机变量 <span class="math inline">\(X\)</span> —— 伯努利实验次数： <span class="math display">\[P(X = K) = C_{k-1}^{r-1}p^r(1-p)^{k-r}, k = r,r+1,... \]</span> 记作：<span class="math inline">\(X \sim Nb(r,p)\)</span> <span class="math display">\[E(X) = \frac{r}{p}\]</span> <span class="math display">\[D(X) = \frac{r(1-p)}{p^2}\]</span></p>
-<blockquote class="blockquote">
-<p>负二项分布的特殊分布 <strong>几何分布（Geometric Distrirution)</strong>，即当 <span class="math inline">\(r = 1\)</span> 时的负二项分布。 记为：<span class="math inline">\(X \sim Ge(p)\)</span></p>
-</blockquote>
+<p>多重伯努利实验中，已知事件 <span class="math inline">\(A\)</span> 发生的概率为 <span class="math inline">\(p\)</span>，那么当事件 <span class="math inline">\(A\)</span> 第 <span class="math inline">\(r\)</span> 次发生，那么随机变量 <span class="math inline">\(X\)</span> —— 伯努利实验次数： <span class="math display">\[P(X = K) = C_{k-1}^{r-1}p^r(1-p)^{k-r}, k = r,r+1,... \]</span> 记作：<span class="math inline">\(X \sim Nb(r,p)\)</span> <span class="math display">\[E(X) = \frac{r}{p}\]</span> <span class="math display">\[D(X) = \frac{r(1-p)}{p^2}\]</span></p>
+<p><strong>几何分布(Geometric Distrirution)</strong>为负二项分布的特殊分布 ，即当 <span class="math inline">\(r = 1\)</span> 时的负二项分布。</p>
+<p>记为：</p>
+<p><span class="math display">\[X \sim Ge(p)\]</span></p>
 </section>
 <section id="超几何分布" class="level2">
 <h2 class="anchored" data-anchor-id="超几何分布">超几何分布</h2>
@@ -299,23 +297,37 @@ window.Quarto = {
 </section>
 <section id="泊松分布possion-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="泊松分布possion-distribution">泊松分布(Possion Distribution)</h2>
-<p>涉及到单位时间，面积，体积的计数过程，数量<span class="math inline">\(X\)</span>: <span class="math display">\[ P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!}  \]</span> 记为：<span class="math display">\[ X \sim  P(\lambda) \]</span> <span class="math display">\[E(X) = \lambda)\]</span> <span class="math display">\[D(X) = \lambda\]</span></p>
+<p>涉及到单位时间，面积，体积的计数过程，数量<span class="math inline">\(X\)</span>: <span class="math display">\[ P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!}  \]</span></p>
+<p>记为： <span class="math display">\[ X \sim  P(\lambda) \]</span> <span class="math display">\[E(X) = \lambda\]</span> <span class="math display">\[D(X) = \lambda\]</span></p>
 </section>
 </section>
 <section id="连续分布" class="level1">
 <h1>连续分布</h1>
 <section id="正态分布" class="level2">
 <h2 class="anchored" data-anchor-id="正态分布">正态分布</h2>
-<p>正态分布含有两个参数 <span class="math inline">\(\mu\)</span>，<span class="math inline">\(\sigma\)</span>, 其中 <span class="math inline">\(\mu\)</span> 为位置参数，控制曲线在 <span class="math inline">\(x\)</span> 轴上的位置；<span class="math inline">\(\sigma\)</span>为尺度参数，用于控制曲线的参数。 记为：<span class="math inline">\(X \sim N(\mu,\sigma)\)</span> <span class="math inline">\(E(X) = \mu\)</span>, <span class="math inline">\(D(X) = \sigma^2\)</span></p>
-<p>概率密度函数： <span class="math display">\[ p(x) = \frac{1}{\sqrt{2 \pi}\sigma} e^{- \frac{(x - \mu)^2}   {2\sigma^2}} \]</span> 分布函数： <span class="math display">\[ F(x) = \int_{-\infty}^x p(t)dt = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}\sigma} e^{- \frac{(t-\mu^2)}{2\sigma}}dt \]</span></p>
+<p>正态分布含有两个参数 <span class="math inline">\(\mu\)</span>，<span class="math inline">\(\sigma\)</span>, 其中 <span class="math inline">\(\mu\)</span> 为位置参数，控制曲线在 <span class="math inline">\(x\)</span> 轴上的位置；<span class="math inline">\(\sigma\)</span>为尺度参数，用于控制曲线的参数。 记为：</p>
+<p><span class="math display">\[X \sim N(\mu,\sigma)\]</span> <span class="math display">\[E(X) = \mu\]</span> <span class="math display">\[D(X) = \sigma^2\]</span></p>
+<p>概率密度函数： <span class="math display">\[ p(x) = \frac{1}{\sqrt{2 \pi}\sigma} e^{- \frac{(x - \mu)^2}   {2\sigma^2}} \]</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>分布函数： <span class="math display">\[ F(x) = \int_{-\infty}^x p(t)dt = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}\sigma} e^{- \frac{(t-\mu^2)}{2\sigma}}dt \]</span></p>
 </section>
 <section id="均匀分布" class="level2">
 <h2 class="anchored" data-anchor-id="均匀分布">均匀分布</h2>
-<p>记为：<span class="math inline">\(X \sim U(a,b)\)</span> <span class="math inline">\(E(X) = \frac{a+b}{2}\)</span>，<span class="math inline">\(D(X) = \frac{(b-a)^2}{12}\)</span></p>
+<p>记为： <span class="math display">\[X \sim U(a,b)\]</span> <span class="math display">\[E(X) = \frac{a+b}{2}\]</span> <span class="math display">\[D(X) = \frac{(b-a)^2}{12}\]</span></p>
 </section>
 <section id="指数分布" class="level2">
 <h2 class="anchored" data-anchor-id="指数分布">指数分布</h2>
-<p>记为：<span class="math inline">\(X \sim Exp(\lambda)\)</span> <span class="math inline">\(E(X) = \frac{1}{\lambda}\)</span>，<span class="math inline">\(D(x) = \frac{1}{\lambda^2}\)</span></p>
+<p>记为： <span class="math display">\[X \sim Exp(\lambda)\]</span></p>
+<p><span class="math display">\[E(X) = \frac{1}{\lambda}\]</span></p>
+<p><span class="math display">\[D(x) = \frac{1}{\lambda^2}\]</span></p>
 </section>
 <section id="伽玛分布" class="level2">
 <h2 class="anchored" data-anchor-id="伽玛分布">伽玛分布</h2>

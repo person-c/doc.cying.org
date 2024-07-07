@@ -161,6 +161,8 @@ window.Quarto = {
   <li><a href="#初等变换" id="toc-初等变换" class="nav-link" data-scroll-target="#初等变换">初等变换</a></li>
   <li><a href="#行列式" id="toc-行列式" class="nav-link" data-scroll-target="#行列式">行列式</a></li>
   <li><a href="#伴随矩阵" id="toc-伴随矩阵" class="nav-link" data-scroll-target="#伴随矩阵">伴随矩阵</a></li>
+  <li><a href="#对角矩阵副对角相关公式" id="toc-对角矩阵副对角相关公式" class="nav-link" data-scroll-target="#对角矩阵副对角相关公式">对角矩阵（副对角）相关公式</a></li>
+  <li><a href="#矩阵运算规律总结" id="toc-矩阵运算规律总结" class="nav-link" data-scroll-target="#矩阵运算规律总结">矩阵运算规律总结</a></li>
   <li><a href="#矩阵的秩" id="toc-矩阵的秩" class="nav-link" data-scroll-target="#矩阵的秩">矩阵的秩</a></li>
   <li><a href="#矩阵视角下的线性方程组" id="toc-矩阵视角下的线性方程组" class="nav-link" data-scroll-target="#矩阵视角下的线性方程组">矩阵视角下的线性方程组</a></li>
   <li><a href="#几何直观" id="toc-几何直观" class="nav-link" data-scroll-target="#几何直观">几何直观</a></li>
@@ -332,6 +334,7 @@ a_{11} &amp; 0 &amp; 0 \\
 <h2 class="anchored" data-anchor-id="矩阵线性运算">矩阵线性运算</h2>
 <p><span class="math display">\[{c_{ij}=a_{ij}+b_{ij}}\]</span></p>
 <p><strong>矩阵加法</strong></p>
+<p><span class="math display">\[ C_{ij} = ac_{ij}\]</span></p>
 <p><strong>矩阵数乘</strong>。</p>
 <p>矩阵加法和数乘统称为矩阵的线性运算。</p>
 </section>
@@ -391,6 +394,13 @@ a_{12} &amp; a_{22} &amp; \cdots &amp; a_{m2} \\
 a_{1n} &amp; a_{2n} &amp; \cdots &amp; a_{mn} \\
 \end{bmatrix}
 \]</span></p>
+<ul>
+<li><span class="math inline">\((A^T)^T = A\)</span></li>
+<li><span class="math inline">\((A + B)^T = A^T + B^T\)</span></li>
+<li><span class="math inline">\((kA)^T = kA^T\)</span></li>
+<li><span class="math inline">\((AB)^T = B^TA^T\)</span></li>
+</ul>
+<p>对称矩阵 <span class="math inline">\(A^T = A\)</span>, 一定为方阵。</p>
 <p>反对称矩阵 <span class="math inline">\(A^T = -A\)</span> , 一定为方阵，对角线一定为0.</p>
 </section>
 <section id="矩阵的逆" class="level2">
@@ -404,6 +414,8 @@ A_{n}B_{n} = B_{n}A_{n} = E_n
 <p><span class="math display">\[
 \begin{align*}
 (A^{-1})^{-1} &amp;= A \\
+(A + B)^{-1} &amp;= ? \\
+(kA)^{-1} &amp;= k^{-1}A^{-1} \\
 (AB)^{-1} &amp;= B^{-1}A^{-1} \\
 (A^{-1})^T &amp;= (A^T)^{-1}
 \end{align*}
@@ -416,7 +428,7 @@ A_{n}B_{n} = B_{n}A_{n} = E_n
 <p><span class="math display">\[
 \alpha_1x_1 + \alpha_2x_2 = b
 \]</span></p>
-<p>利用分块矩阵表示线性方程组。</p>
+<p>分块矩阵可用于矩阵的抽象运算，利用分块矩阵表示线性方程组如上。</p>
 </section>
 <section id="初等变换" class="level2">
 <h2 class="anchored" data-anchor-id="初等变换">初等变换</h2>
@@ -434,8 +446,7 @@ A_{n}B_{n} = B_{n}A_{n} = E_n
 \end{bmatrix}
 \end{equation}
 \]</span></p>
-<p><strong>初等方阵</strong> 单位矩阵<span class="math inline">\(E\)</span>经过一次初等变换所形成的方阵<span class="math inline">\(P\)</span>。</p>
-<p>若 <span class="math inline">\(P\)</span> 为初等方阵， <span class="math inline">\(PA=B\)</span>， 则<span class="math inline">\(A \rightarrow B\)</span>的变化等价于<span class="math inline">\(E \rightarrow P\)</span>的初等行变换。若<span class="math inline">\(AP = B\)</span>， 则<span class="math inline">\(A  \rightarrow B\)</span> 等价于 <span class="math inline">\(E \rightarrow P\)</span>的初等列变换。实际上这里描述的是一个初等变换可由一个初等方阵来定义。</p>
+<p><strong>初等方阵</strong> 单位矩阵 <span class="math inline">\(E\)</span> 经过一次初等变换所形成的方阵<span class="math inline">\(P\)</span>。 若 <span class="math inline">\(P\)</span> 为初等方阵， <span class="math inline">\(PA=B\)</span>， 则<span class="math inline">\(A \rightarrow B\)</span>的变化等价于 <span class="math inline">\(E \rightarrow P\)</span> 的初等行变换。若<span class="math inline">\(AP = B\)</span>， 则 <span class="math inline">\(A \rightarrow B\)</span> 等价于 <span class="math inline">\(E \rightarrow P\)</span> 的初等列变换。实际上这里描述的是一个初等变换可由一个初等方阵来定义。</p>
 <p><strong>初等方阵的逆矩阵</strong></p>
 <p>通过交换单位矩阵的第 <span class="math inline">\(i\)</span> 行和第 <span class="math inline">\(j\)</span> 行得到的初等矩阵 <span class="math inline">\(E_{ij}\)</span> 可以表示为：</p>
 <p><span class="math display">\[
@@ -502,7 +513,7 @@ a_{21} &amp; a_{22} &amp; 0 &amp; 1
 <p>其中 <span class="math inline">\(\det(A_{ij})\)</span> 表示 <span class="math inline">\(A_{ij}\)</span> 的行列式。</p>
 <p><strong>代数余子式</strong> 设 <span class="math inline">\(A\)</span> 是一个 <span class="math inline">\(n \times n\)</span> 的矩阵，<span class="math inline">\(A_{ij}\)</span> 是 <span class="math inline">\(A\)</span> 中去掉第 <span class="math inline">\(i\)</span> 行和第 <span class="math inline">\(j\)</span> 列后剩下的 <span class="math inline">\((n-1) \times (n-1)\)</span> 子矩阵。那么，<span class="math inline">\(A\)</span> 的 <span class="math inline">\((i, j)\)</span> 元素对应的代数余子式定义为：</p>
 <p><span class="math display">\[ C_{ij} = (-1)^{i+j} \det(A_{ij}) \]</span></p>
-<p><strong>行列式</strong> 行列式（Determinant）是一个函数，将方阵映射到标量，记作 <span class="math inline">\(\det(A)\)</span> 或 <span class="math inline">\(|A|\)</span>。设 <span class="math inline">\(A\)</span> 是一个 <span class="math inline">\(n \times n\)</span> 的方阵，那么 <span class="math inline">\(A\)</span> 的行列式 <span class="math inline">\(\det(A)\)</span> 定义为：</p>
+<p><strong>行列式</strong> 行列式（Determinant）是一个函数，将方阵映射到标量，其共有 <span class="math inline">\(n!\)</span> 项, 其中每一项为不同行不同列元素的积；每一项的正负由排列的逆序数决定。 记作 <span class="math inline">\(\det(A)\)</span> 或 <span class="math inline">\(|A|\)</span>。设 <span class="math inline">\(A\)</span> 是一个 <span class="math inline">\(n \times n\)</span> 的方阵，那么 <span class="math inline">\(A\)</span> 的行列式 <span class="math inline">\(\det(A)\)</span> 定义为：</p>
 <p><span class="math display">\[
 \det(A) = \sum_{\sigma \in S_n} (\text{sgn}(\sigma) \prod_{i=1}^{n} a_{i,\sigma(i)})
 \]</span></p>
@@ -513,30 +524,80 @@ a_{21} &amp; a_{22} &amp; 0 &amp; 1
 <p><span class="math display">\[
 \det(A) = \sum_{j=1}^{n} (-1)^{i+j} a_{ij} \det(A_{ij})
 \]</span></p>
-<p>其中，<span class="math inline">\(a_{ij}\)</span> 是矩阵 <span class="math inline">\(A\)</span> 中第 <span class="math inline">\(i\)</span> 行第 <span class="math inline">\(j\)</span> 列的元素，<span class="math inline">\(A_{ij}\)</span> 是删除了第 <span class="math inline">\(i\)</span> 行和第 <span class="math inline">\(j\)</span> 列的子矩阵。</p></li>
+<p>其中，<span class="math inline">\(a_{ij}\)</span> 是矩阵 <span class="math inline">\(A\)</span> 中第 <span class="math inline">\(i\)</span> 行第 <span class="math inline">\(j\)</span> 列的元素，<span class="math inline">\(A_{ij}\)</span> 是删除了第 <span class="math inline">\(i\)</span> 行和第 <span class="math inline">\(j\)</span> 列的子矩阵。</p>
+<p>如果按第 <span class="math inline">\(i\)</span> 行展开得到代数余子式，分别乘以 第 <span class="math inline">\(j (j \neq i)\)</span> 行对应的元素，其等于0</p></li>
 </ul>
 <p><strong>行列式的基本性质包括</strong></p>
 <ul>
 <li>转置相等 <span class="math inline">\(\det(A) = \det(A^T)\)</span></li>
-<li>换行变号交换行列式的两行（列），行列式变号。</li>
+<li>换行变号 交换行列式的两行（列），行列式变号。</li>
 <li>乘数乘行 行列式的某一行（列）乘以常数，行列式也乘以该常数。</li>
 <li>倍加相等 行列式中某一行（列）的常数倍加到另一行（列），行列式不变。</li>
 <li>拆分分行 行列式可以按行或列拆分。</li>
-<li>零性质 行列式中某一行（列）全为零，行列式为零。</li>
+<li>零性质 行列式中某一行（列）全为零，或有行或者列成比例，行列式为零。</li>
 </ul>
-<p>行列式按行展开的两个定理（待补充）</p>
+<p><strong>行列式运算规律如下</strong></p>
+<ul>
+<li><span class="math inline">\(|AB| = |A||B|\)</span></li>
+<li><span class="math inline">\(|kA| = k^n|A|\)</span></li>
+<li>分块的对角矩阵的行列式等于对角线元素上的分块的行列式的乘积。</li>
+</ul>
+<p><strong>行列式计算</strong></p>
+<ul>
+<li>对角，三角行列式， 次(副)对角元素乘积 <span class="math inline">\(\rightarrow\)</span> 对角线乘积（正负由逆序数决定）</li>
+<li>分块矩阵的行列式。</li>
+<li>一杠一星，两杠一星行列式 <span class="math inline">\(\rightarrow\)</span> 只有对角元素项。</li>
+<li>箭头行列式，弓形行列式 <span class="math inline">\(\rightarrow\)</span> 列变换为第一列为0， 列变换为对角行列式。</li>
+<li>同行（列）行列式 <span class="math inline">\(\rightarrow\)</span> 列，行变换为箭头行列式。</li>
+<li><span class="math inline">\(X\)</span> 形行列式 <span class="math inline">\(\rightarrow\)</span></li>
+<li><span class="math inline">\(ab\)</span> 矩阵。</li>
+<li>范德蒙行列式 <span class="math inline">\(\rightarrow\)</span> 确定不变行。</li>
+</ul>
+<p><span class="math display">\[
+V_n = \begin{vmatrix}
+1      &amp; 1      &amp; 1      &amp; \cdots &amp; 1      \\
+x_1    &amp; x_2    &amp; x_3    &amp; \cdots &amp; x_n    \\
+x_1^2  &amp; x_2^2  &amp; x_3^2  &amp; \cdots &amp; x_n^2  \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+x_1^{n-1} &amp; x_2^{n-1} &amp; x_3^{n-1} &amp; \cdots &amp; x_n^{n-1}
+\end{vmatrix}
+\]</span></p>
 </section>
 <section id="伴随矩阵" class="level2">
 <h2 class="anchored" data-anchor-id="伴随矩阵">伴随矩阵</h2>
-<p><strong>伴随矩阵</strong>： 伴随矩阵是与原矩阵密切相关的一个矩阵，它由原矩阵的代数余子式构成。对于一个 n 阶方阵 <span class="math inline">\(A\)</span>，其伴随矩阵记作 <span class="math inline">\(adj(A)\)</span>，它的每个元素 <span class="math inline">\(a_{ij}\)</span> 都是由原矩阵 <span class="math inline">\(A\)</span> 的代数余子式 <span class="math inline">\(C_{ij}\)</span> 替换得到的。具体来说，伴随矩阵的第 <span class="math inline">\(i\)</span> 行第 <span class="math inline">\(j\)</span> 列的元素是原矩阵第 <span class="math inline">\(j\)</span> 行第 <span class="math inline">\(i\)</span> 列的代数余子式，即 <span class="math inline">\(adj(A)_{ij} = C_{ji}\)</span>。</p>
+<p><strong>伴随矩阵</strong> 伴随矩阵是与原矩阵密切相关的一个矩阵，它由原矩阵的代数余子式构成。对于一个 n 阶方阵 <span class="math inline">\(A\)</span>，其伴随矩阵记作 <span class="math inline">\(adj(A)\)</span>，它的每个元素 <span class="math inline">\(a_{ij}\)</span> 都是由原矩阵 <span class="math inline">\(A\)</span> 的代数余子式 <span class="math inline">\(C_{ij}\)</span> 替换得到的。具体来说，伴随矩阵的第 <span class="math inline">\(i\)</span> 行第 <span class="math inline">\(j\)</span> 列的元素是原矩阵第 <span class="math inline">\(j\)</span> 行第 <span class="math inline">\(i\)</span> 列的代数余子式，即 <span class="math inline">\(adj(A)_{ij} = C_{ji}\)</span>。</p>
 <p>伴随矩阵与原矩阵的行列式之间有如下关系：</p>
 <p><span class="math display">\[
-A \cdot adj(A) = \det(A) \cdot I
+A \cdot adj(A) = adj(A) \cdot A  = \det(A) \cdot I
 \]</span></p>
 <p>其中，<span class="math inline">\(I\)</span> 是单位矩阵，<span class="math inline">\(\det(A)\)</span> 是矩阵 <span class="math inline">\(A\)</span> 的行列式。这个关系表明，伴随矩阵可以用于计算矩阵的逆，当 <span class="math inline">\(\det(A) \neq 0\)</span> 时，矩阵 <span class="math inline">\(A\)</span> 可逆，且其逆矩阵 <span class="math inline">\(A^{-1}\)</span> 可以通过伴随矩阵来计算：</p>
 <p><span class="math display">\[
 A^{-1} = \frac{1}{\det(A)} \cdot adj(A)
 \]</span></p>
+</section>
+<section id="对角矩阵副对角相关公式" class="level2">
+<h2 class="anchored" data-anchor-id="对角矩阵副对角相关公式">对角矩阵（副对角）相关公式</h2>
+<p>对角矩阵 <span class="math inline">\(A, B\)</span></p>
+<ul>
+<li><span class="math inline">\(AB\)</span> = <span class="math inline">\(BA\)</span> <span class="math inline">\(\rightarrow\)</span> 对角线元素的乘积。</li>
+<li>对角矩阵的幂 <span class="math inline">\(\rightarrow\)</span> 对角线元素的幂。</li>
+<li>逆 <span class="math inline">\(\rightarrow\)</span> 对角线元素的倒数。</li>
+<li>行列式 <span class="math inline">\(\rightarrow\)</span> 对角线元素的乘积。</li>
+</ul>
+<p>副对角矩阵</p>
+<ul>
+<li>逆 <span class="math inline">\(\rightarrow\)</span> 副对角元素的倒数，转置。</li>
+<li>行列式 <span class="math inline">\(\rightarrow\)</span> 副对角线元素乘积，正负由逆序数确定。</li>
+</ul>
+<p><strong>分块对角矩阵相关公式</strong> 同上。副对角分块矩阵的行列式为 <span class="math inline">\(-1^{m \cdot n}|A||B|\)</span></p>
+</section>
+<section id="矩阵运算规律总结" class="level2">
+<h2 class="anchored" data-anchor-id="矩阵运算规律总结">矩阵运算规律总结</h2>
+<ul>
+<li><span class="math inline">\((A + B)\)</span> 的上标运算，只有转置有公式。</li>
+<li>伴随矩阵的运算全都来源于其定义。</li>
+<li>若 <span class="math inline">\(AB = BA = E\)</span>, 则 <span class="math inline">\((A + B)\)</span> 的幂次运算可按二项式展开。</li>
+</ul>
 </section>
 <section id="矩阵的秩" class="level2">
 <h2 class="anchored" data-anchor-id="矩阵的秩">矩阵的秩</h2>
@@ -572,6 +633,12 @@ A^{-1} = \frac{1}{\det(A)} \cdot adj(A)
 0 &amp; 0 &amp; 0 &amp; 0 \\
 \end{bmatrix}
 \]</span></p>
+<p><strong>矩阵秩的性质如下</strong></p>
+<ul>
+<li><span class="math inline">\(R(AB) &lt;= R(A) \text{以及}  R(B)\)</span></li>
+<li><span class="math inline">\(R(AB) &gt;= R(A) + R(B) - n\)</span> (若 <span class="math inline">\(AB = 0, R(A) + R(B) &lt;= n\)</span> )</li>
+<li><span class="math inline">\(R(A^*) = n , 1, 0 \space (R(A) = n, R(A) = n - 1,R(A) &lt; n - 1\)</span></li>
+</ul>
 <p><strong>初等变化不改变矩阵的秩，将矩阵经过初等变换为最简形矩阵可用于求矩阵的秩</strong></p>
 </section>
 <section id="矩阵视角下的线性方程组" class="level2">
@@ -627,12 +694,24 @@ x_i = \frac{\text{det}(A_i)}{\text{det}(A)}
 <li>如果 <span class="math inline">\(\det(A) \neq 0\)</span> 则方程组只有零解。</li>
 <li>如果 <span class="math inline">\(\det(A) = 0\)</span> ，则方程组有无穷多非零解。</li>
 </ul>
+<p><strong>高斯消元法（初等变换）解方程组</strong> 高斯消元法的抽象就是对矩阵的初等变换。</p>
+<p>对于非齐次方程组，其解的判定如下：</p>
+<ul>
+<li>若 <span class="math inline">\(rank([A, b]) &gt; rank(A)\)</span>， 方程组无解 - 方程角度出现了矛盾方程。</li>
+<li>若 <span class="math inline">\(rank([A, b]) = rank(A)\)</span>, 若<span class="math inline">\(A_{mn}\)</span>, <span class="math inline">\(rank(A) &lt; n\)</span> 则有无穷多解，<span class="math inline">\(rank(A) = n\)</span>, 则只有唯一解。 - 方程角度 <span class="math inline">\(rank(A)\)</span> 就是方程组的的约束条件， <span class="math inline">\(n\)</span> 就是未知数的个数</li>
+</ul>
+<p>齐次方程组，其解的判定如下：</p>
+<ul>
+<li>若 <span class="math inline">\(rank(A_{mn}) = n\)</span>, 则只有零解。</li>
+<li>若 <span class="math inline">\(rank(A_{mn}) &lt; n\)</span>, 则有非零解。</li>
+</ul>
 </section>
 <section id="几何直观" class="level2">
 <h2 class="anchored" data-anchor-id="几何直观">几何直观</h2>
 <p><strong>向量</strong> 一个向量完全由其基向量以及各基向量方向上的标量决定，例如向量<span class="math inline">\(\alpha = [a, b]\)</span>, 表示其在两个基 <span class="math inline">\(i, j\)</span> 的倍数。</p>
 <p><strong>矩阵</strong> 一个矩阵代表了空间的变化，为了确定一个向量在变换后的位置，只需要追踪基向量的位置。实际上矩阵<span class="math inline">\(A = [e_1|e_2]\)</span>的每个列向量<span class="math inline">\(e_1, e_2\)</span>就是变换后的基向量。将每个基向量<span class="math inline">\(e_1, e_2\)</span>乘以原向量<span class="math inline">\(\alpha\)</span>每个方向上的标量<span class="math inline">\(a, b\)</span>，再加起来就得到变换后的向量<span class="math inline">\(\beta\)</span>.</p>
 <p><strong>初等变换</strong> 向量的线性组合，重新组合后的向量仍然在同一向量空间。</p>
+<p><strong>行列式倍加相等</strong> 向量的重新线性组合。</p>
 <p><span class="math display">\[\beta = ae_1 + be_2\]</span></p>
 <p><strong>行列式</strong> 行列式的几何含义空间变换以后由基向量所张成空间的变化比例。<span class="math inline">\(|A| = 0\)</span>，则说明<span class="math inline">\(A\)</span>并不是满秩的，会造成空间的降维，其行列式为0，且由于发生了空间的坍缩，由低维空间返回到原高维空间是不可能得，即其逆变换不存在，即<span class="math inline">\(A^{-1}\)</span>不存在。所以实际上行列式，秩，是对矩阵所张成空间的维度的不同角度的描述。</p>
 </section>
@@ -658,10 +737,12 @@ x_i = \frac{\text{det}(A_i)}{\text{det}(A)}
 <p>并且存在不全为零的系数 <span class="math inline">\(c_1, c_2, \ldots, c_n, c_{n+1}\)</span> 使得上式成立。</p>
 <p>由于 <span class="math inline">\(\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}\)</span> 是线性无关的，<strong>因此 <span class="math inline">\(\mathbf{u}\)</span> 可以唯一地表示为这些向量的线性组合</strong>。</p>
 <p><strong>向量组的部分与整体定理</strong> 整体线性无关，那么部分线性无关；部分线性相关，那么整体线性相关。</p>
-<p><strong>向量组的伸长与缩短定理</strong> 短线性无关，那么长线性无关；长线性相关关，那么短线性相关。</p>
+<p><strong>向量组的伸长与缩短定理</strong> 短线性无关，那么长线性无关；长线性相关，那么短线性相关。</p>
 <p><strong>极大无关组与向量组的秩</strong> 向量组中无关向量的数量，数量上等于矩阵的秩。</p>
+<p><strong>向量个数与向量维数</strong></p>
 <p><strong>等价向量组</strong> 向量组与它的任意极大无关组等价。</p>
 <p><strong>向量组的秩与向量组的线性表示定理</strong> 如果向量组 <span class="math inline">\(\alpha_1, \alpha_2 ...\)</span> , 可由向量组 <span class="math inline">\(\beta_1, \beta_2 ..\)</span> 表示，那么 <span class="math inline">\(rank(B) &gt;= rank(A)\)</span> .</p>
+<p><strong>向量组的臃肿与紧凑定理</strong></p>
 <p><strong>向量空间</strong> 是一个由向量构成的集合，这个集合对于向量的加法和标量乘法是封闭的。更正式地说，一个集合 <span class="math inline">\(V\)</span> 配备了一对操作：加法（记作 <span class="math inline">\(+\)</span>）和标量乘法（记作 <span class="math inline">\(\cdot\)</span>），如果满足以下性质，则称 <span class="math inline">\(V\)</span> 为一个向量空间：</p>
 <ul>
 <li>封闭性, 对于所有 <span class="math inline">\(\mathbf{u}, \mathbf{v} \in V\)</span>，有 <span class="math inline">\(\mathbf{u} + \mathbf{v} \in V\)</span> 和 <span class="math inline">\(c \cdot \mathbf{u} \in V\)</span>，其中 <span class="math inline">\(c\)</span> 是任意标量。</li>
@@ -706,7 +787,8 @@ x_i = \frac{\text{det}(A_i)}{\text{det}(A)}
 <ul>
 <li>正交矩阵上标运算也是正交矩阵。</li>
 <li>正交矩阵的转置等于其逆矩阵，即 <span class="math inline">\(Q^T = Q^{-1}\)</span>。</li>
-<li>正交矩阵的列向量构成标准正交基，因此其列向量的内积都是单位矩阵 <span class="math inline">\(I\)</span>。</li>
+<li>若 <span class="math inline">\(A, B\)</span> 都为正交矩阵， 则 <span class="math inline">\(AB\)</span> 及 <span class="math inline">\(BA\)</span> 都是正交矩阵。</li>
+<li><span class="math inline">\((A\alpha, A\beta) = (\alpha, \beta), ||A\alpha|| = ||\alpha||, &lt;A|\alpha, A\beta&gt; = &lt;\alpha, \beta&gt;\)</span></li>
 <li>正交矩阵的行列式等于 ±1，即 <span class="math inline">\(det(Q) = \pm 1\)</span>。</li>
 <li>正交矩阵的奇异值都是 1 或 -1。</li>
 <li>正交矩阵的特征值是 ±1。</li>
@@ -761,7 +843,7 @@ b_n
 <p>导出组，非齐次方程组对应的齐次方程组。</p>
 <ul>
 <li>若 <span class="math inline">\(\xi_1, \xi_2\)</span> 是 非齐次方程组的两个解， 则 <span class="math inline">\(\xi_1 - \xi_2\)</span> 是其导出组 <span class="math inline">\(Ax = 0\)</span> 的解。</li>
-<li>若 <span class="math inline">\(\xi\)</span> 是非齐次线性方程组 <span class="math inline">\(Ax = b\)</span>的的解， <span class="math inline">\(\psi\)</span> 是其导出组的解， 那么 <span class="math inline">\(n + \psi\)</span> 是 <span class="math inline">\(Ax=b\)</span> 的解。</li>
+<li>若 <span class="math inline">\(n\)</span> 是非齐次线性方程组 <span class="math inline">\(Ax = b\)</span>的的解， <span class="math inline">\(\xi\)</span> 是其导出组的解， 那么 <span class="math inline">\(\xi + n\)</span> 是 <span class="math inline">\(Ax=b\)</span> 的解。</li>
 </ul>
 <p>非齐次方程组是由线性方程组成的方程组，其形式如下：</p>
 <p><span class="math display">\[Ax = b\]</span></p>
@@ -774,6 +856,8 @@ b_n
 <h2 class="anchored" data-anchor-id="几何直观-1">几何直观</h2>
 <p><strong>向量</strong> 空间中有方向的箭头。</p>
 <p><strong>点积</strong> 向量<span class="math inline">\(\alpha\)</span>投影到<span class="math inline">\(\beta\)</span>上的长度与与向量 <span class="math inline">\(\beta\)</span> 长度的乘积。对于点积运算，向量总是对应一个对偶向量，其为<span class="math inline">\(\alpha^T\)</span>，也就是说点积也可以理解为向量<span class="math inline">\(\beta\)</span>经过线性变换<span class="math inline">\(\alpha^T\)</span>后，压缩为一个一维的向量。如果<span class="math inline">\(||\alpha|| = 1\)</span>，则<span class="math inline">\(\alpha, \beta\)</span>的点积为 <span class="math inline">\(\beta\)</span> 在单位基向量<span class="math inline">\(\alpha\)</span>的表示。这个应用在PCA等线性降维方法中。</p>
+<p><strong>齐次方程组的自由变量</strong> 列向量的个数 - 列向量的极大无关组。多余的向量的系数可以任意取，最后由极大无关组，即这个空间的基向量，决定最终的系数。</p>
+<p><strong>线性方程组的向量张成的空间</strong> 无解，则说明 <span class="math inline">\(\alpha_1, \alpha_2, ..., \alpha_n\)</span> 与 <span class="math inline">\(b\)</span> 不在同一个向量空间， 若有解则说明 <span class="math inline">\(\alpha_1, \alpha_2, ..., \alpha_n\)</span> 与 <span class="math inline">\(b\)</span> 在同一个向量空间。进一步地， 若 <span class="math inline">\(\alpha_1, \alpha_2, ..., \alpha_n\)</span> 的数量大于 <span class="math inline">\(A\)</span> 空间维数，则有多余的向量，那么 构成 <span class="math inline">\(b\)</span> 的方式则不止一个； 若 <span class="math inline">\(\alpha_1, \alpha_2, ..., \alpha_n\)</span> 的数量等于 <span class="math inline">\(A\)</span> 空间维数，则只有一种表示方法。</p>
 </section>
 </section>
 <section id="矩阵变换" class="level1">
@@ -793,10 +877,11 @@ b_n
 <li>矩阵互不相等的特征值对应的特征向量是线性无关的。</li>
 <li>几何重数不大于代数重数。</li>
 <li>转置矩阵的特征值相等。</li>
-<li>若n阶矩阵 <span class="math inline">\(g(A) = 0\)</span>， 那么其所有特征值 <span class="math inline">\(g(\lambda) = 0\)</span></li>
+<li>若 <span class="math inline">\(n\)</span> 阶矩阵 <span class="math inline">\(g(A) = 0\)</span>， 那么其所有特征值 <span class="math inline">\(g(\lambda) = 0\)</span></li>
 </ul>
 <p><strong>关于实对称矩阵特征值的定理</strong></p>
 <ul>
+<li>特征值都是实数，对应的特征向量也是实向量。</li>
 <li>不同特征值对应特征向量两两正交。</li>
 <li>几何重数等于其代数重数。</li>
 </ul>
@@ -809,6 +894,7 @@ b_n
 <ul>
 <li><span class="math inline">\(A\)</span> 与 <span class="math inline">\(B\)</span> 等价。</li>
 <li><span class="math inline">\(R(A) = R(B)\)</span></li>
+<li><span class="math inline">\(\lambda_A = \lambda_B\)</span></li>
 <li><span class="math inline">\(determinant(A) = determinant(B)\)</span></li>
 <li><span class="math inline">\(|A| = |B|\)</span></li>
 <li><span class="math inline">\(tr(A) = tr(B)\)</span></li>
@@ -818,11 +904,11 @@ b_n
 <p><span class="math display">\[P^{-1}AP = \Lambda\]</span></p>
 <p><strong>相似对角化充要条件</strong>：</p>
 <ul>
-<li>n个线性无关的特征向量</li>
+<li><span class="math inline">\(n\)</span> 个线性无关的特征向量</li>
 <li>代数重数等于几何重数。</li>
 </ul>
-<p><strong>求解</strong>：矩阵<span class="math inline">\(P\)</span>就是<span class="math inline">\(A\)</span>的特征向量按列构成的矩阵。</p>
-<p><strong>实对称矩阵的相似对角化</strong>，对于实对称矩阵<span class="math inline">\(A\)</span>，总可以找到其正交的特征向量，并将其单位化为正交矩阵 <span class="math inline">\(Q\)</span>，使得其相似对角化：</p>
+<p><strong>求解</strong> 矩阵<span class="math inline">\(P\)</span>就是<span class="math inline">\(A\)</span>的特征向量按列构成的矩阵。</p>
+<p><strong>实对称矩阵的相似对角化</strong> 对于实对称矩阵<span class="math inline">\(A\)</span>，总可以找到其正交的特征向量，并将其单位化为正交矩阵 <span class="math inline">\(Q\)</span>，使得其相似对角化：</p>
 <p><span class="math inline">\(Q^{-1}AQ = \Lambda \rightarrow Q^{T}AQ = \Lambda\)</span></p>
 </section>
 <section id="二次型" class="level2">
@@ -833,13 +919,25 @@ f = x^TAx
 \]</span></p>
 <p><strong>合同矩阵</strong> 对于合同矩阵，矩阵<span class="math inline">\(A\)</span>实际上为一个 <span class="math inline">\((0, 2)\)</span>的张量，其是空间或流形几何一个量，称之为度规，形如<span class="math inline">\(C^TAC\)</span>的形式实际上是将某个度规，转化为以矩阵<span class="math inline">\(C\)</span>的列向量为基的坐标下的描述。而对于二次型而言，该矩阵为实对称矩阵， 形似上其相似与合同一致。</p>
 <p><span class="math inline">\(B = C^TAC\)</span></p>
+<ul>
+<li><span class="math inline">\(r(A) = r(B)\)</span></li>
+<li>若 <span class="math inline">\(A\)</span> 为对称矩阵，那么 <span class="math inline">\(B\)</span> 也为对称矩阵。</li>
+</ul>
 <p><strong>二次型化为标准形</strong>：</p>
 <ul>
-<li>令 <span class="math inline">\(x = Cy\)</span>, 则 <span class="math inline">\(x^TAx = y^TQ^TAQy\)</span>，其中矩阵<span class="math inline">\(c\)</span>为特征向量对应的单位特征向量。(实际上为相似对角化的过程， 实对称矩阵的相似和合同一致)</li>
+<li>令 <span class="math inline">\(x = Qy\)</span>, 则 <span class="math inline">\(x^TAx = y^TQ^TAQy\)</span>，其中矩阵 <span class="math inline">\(Q\)</span> 为矩阵 <span class="math inline">\(A\)</span> 特征向量对应的单位正交特征向量。(实际上为实对称矩阵相似对角化的过程， 实对称矩阵的相似和合同一致)</li>
 <li>配方法。</li>
 </ul>
 <p><strong>惯性定理</strong>：无论怎样的可逆的线性变换使得其为标准二次型，其正，负平方项的个数一样。</p>
 <p><strong>正定（负定）矩阵</strong>：假设有二次型<span class="math inline">\(f\)</span>, 若<span class="math inline">\(f &gt; 0\)</span>， 则为正定矩阵 <span class="math inline">\(f &gt;= 0\)</span>则为负正定矩阵。</p>
+<p><strong>正定矩阵的性质如下</strong></p>
+<p><strong>负定矩阵的性质如下</strong></p>
+<p><strong>等价，相似，合同的判定</strong></p>
+<ul>
+<li>秩相等，则等价；反之，亦成立。</li>
+<li>特征值相等，则可与同一个对角矩阵相似，则相似。</li>
+<li>正负惯性指数，或者正负特征值一致，则合同。</li>
+</ul>
 </section>
 <section id="几何直观-2" class="level2">
 <h2 class="anchored" data-anchor-id="几何直观-2">几何直观</h2>
