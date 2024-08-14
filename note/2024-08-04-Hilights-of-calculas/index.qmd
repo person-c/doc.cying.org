@@ -1,5 +1,5 @@
 ---
-title: Hilights of Calculus
+title: Highlights of Calculus
 date: '2024-08-07'
 ---
 
