@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-08-07">
+
+<title>snow and rain - Hilights of Calculus</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../static/css/font.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">snow and rain</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../note.html"> 
+<span class="menu-text">Note</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../slides.html"> 
+<span class="menu-text">Slides</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#epsilon-delta-for-limits" id="toc-epsilon-delta-for-limits" class="nav-link active" data-scroll-target="#epsilon-delta-for-limits"><span class="math inline">\(\epsilon, \delta\)</span> for Limits</a></li>
+  <li><a href="#fundamental-theorem-of-calculus" id="toc-fundamental-theorem-of-calculus" class="nav-link" data-scroll-target="#fundamental-theorem-of-calculus">Fundamental Theorem of Calculus</a></li>
+  <li><a href="#derivatives-of-ex-sinx-cosx-xn" id="toc-derivatives-of-ex-sinx-cosx-xn" class="nav-link" data-scroll-target="#derivatives-of-ex-sinx-cosx-xn">Derivatives of <span class="math inline">\(e^x, \sin{x}, \cos{x}, x^n\)</span></a>
+  <ul class="collapse">
+  <li><a href="#exponential-function" id="toc-exponential-function" class="nav-link" data-scroll-target="#exponential-function">Exponential Function</a></li>
+  <li><a href="#trigonometric-function" id="toc-trigonometric-function" class="nav-link" data-scroll-target="#trigonometric-function">Trigonometric Function</a></li>
+  <li><a href="#product-rule-quotient-rule-derivaitives-to-power-function" id="toc-product-rule-quotient-rule-derivaitives-to-power-function" class="nav-link" data-scroll-target="#product-rule-quotient-rule-derivaitives-to-power-function">Product Rule, Quotient Rule, Derivaitives to Power Function</a></li>
+  </ul></li>
+  <li><a href="#chain-rule-and-derivatives-of-inverse-function-lnx-sin-1x-cos-1x" id="toc-chain-rule-and-derivatives-of-inverse-function-lnx-sin-1x-cos-1x" class="nav-link" data-scroll-target="#chain-rule-and-derivatives-of-inverse-function-lnx-sin-1x-cos-1x">Chain Rule, and Derivatives of Inverse Function <span class="math inline">\(\ln{x}, \sin^{-1}x, \cos^{-1}x\)</span></a>
+  <ul class="collapse">
+  <li><a href="#chain-rule" id="toc-chain-rule" class="nav-link" data-scroll-target="#chain-rule">Chain Rule</a></li>
+  <li><a href="#logarithmic-function" id="toc-logarithmic-function" class="nav-link" data-scroll-target="#logarithmic-function">Logarithmic Function</a></li>
+  <li><a href="#derivatives-for-lnx-sin-1x-cos-1x" id="toc-derivatives-for-lnx-sin-1x-cos-1x" class="nav-link" data-scroll-target="#derivatives-for-lnx-sin-1x-cos-1x">Derivatives for <span class="math inline">\(\ln{x}, \sin^{-1}{x}, \cos^{-1}{x}\)</span></a></li>
+  </ul></li>
+  <li><a href="#growth-rate-and-logarithmic-plot" id="toc-growth-rate-and-logarithmic-plot" class="nav-link" data-scroll-target="#growth-rate-and-logarithmic-plot">Growth Rate and Logarithmic Plot</a></li>
+  <li><a href="#linear-approximationnewtons-method" id="toc-linear-approximationnewtons-method" class="nav-link" data-scroll-target="#linear-approximationnewtons-method">Linear Approximation/Newton’s Method</a></li>
+  <li><a href="#power-serieseulers-great-formula" id="toc-power-serieseulers-great-formula" class="nav-link" data-scroll-target="#power-serieseulers-great-formula">Power Series/Euler’s Great Formula</a></li>
+  <li><a href="#differential-equations" id="toc-differential-equations" class="nav-link" data-scroll-target="#differential-equations">Differential Equations</a>
+  <ul class="collapse">
+  <li><a href="#differential-equations-of-motion" id="toc-differential-equations-of-motion" class="nav-link" data-scroll-target="#differential-equations-of-motion">Differential Equations of Motion</a></li>
+  <li><a href="#differential-equations-of-growth" id="toc-differential-equations-of-growth" class="nav-link" data-scroll-target="#differential-equations-of-growth">Differential Equations of Growth</a></li>
+  </ul></li>
+  <li><a href="#six-functions-six-rules-and-six-theorems" id="toc-six-functions-six-rules-and-six-theorems" class="nav-link" data-scroll-target="#six-functions-six-rules-and-six-theorems">Six Functions, Six Rules, and Six Theorems</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<script>
+
+  // load font(from yihui.org)
+
+  (function (d) {
+
+    // https://www.kirupa.com/html5/detect_whether_font_is_installed.htm
+
+    let canvas = document.createElement('canvas');
+
+    let context = canvas.getContext('2d');
+
+    let text = 'abcdefghijklmnopqrstuvwxyz0123456789';
+
+    context.font = '72px monospace';
+
+    let size = context.measureText(text).width;
+
+    let fonts = [' SC', ' CN', ' TC', ' TW', ''];
+
+    for (let i = 0; i < fonts.length; i++) {
+
+      context.font = "72px '" + 'Source Han Serif' + fonts[i] + "', monospace";
+
+      // no need to load TypeKit if Source Hans Serif has been installed
+
+      if (context.measureText(text).width != size) return;
+
+    }
+
+    let config = { kitId: 'kwz5xar', scriptTimeout: 3000, async: true },
+
+      h = d.documentElement,
+
+      t = setTimeout(function () {
+
+        h.className =
+
+          h.className.replace(/\bwf-loading\b/g, '') + ' wf-inactive';
+
+      }, config.scriptTimeout),
+
+      tk = d.createElement('script'),
+
+      f = false,
+
+      s = d.getElementsByTagName('script')[0],
+
+      a;
+
+    h.className += ' wf-loading';
+
+    tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+
+    tk.async = true;
+
+    tk.onload = tk.onreadystatechange = function () {
+
+      a = this.readyState;
+
+      if (f || (a && a != 'complete' && a != 'loaded')) return;
+
+      f = true;
+
+      clearTimeout(t);
+
+      try {
+
+        Typekit.load(config);
+
+      } catch (e) {}
+
+    };
+
+    s.parentNode.insertBefore(tk, s);
+
+  })(document);
+
+</script>
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Hilights of Calculus</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 7, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="epsilon-delta-for-limits" class="level1">
+<h1><span class="math inline">\(\epsilon, \delta\)</span> for Limits</h1>
+<p>Danger case:</p>
+<p><span class="math display">\[
+\begin{align}
+\infty - \infty \\
+0 \cdot \infty \\
+\frac{0}{0} \\
+0^0 \text{ or } 1^\infty
+\end{align}
+\]</span></p>
+<p>L’Hospital Rule:</p>
+<p><span class="math display">\[
+\frac{f(x)}{g(x)} \rightarrow \frac{\frac{\Delta{f}}{\Delta{x}}}{\frac{\Delta{g}}{\Delta{x}}} \rightarrow \frac{f'}{g'}
+\]</span></p>
+<p>For any small <span class="math inline">\(\epsilon\)</span> chosen, we can find <span class="math inline">\(\delta  &gt; 0\)</span>, so that if <span class="math inline">\(|f(x) - f(a)| &lt; \epsilon\)</span>, then <span class="math inline">\(|f(x) - f(a)| &lt; \delta\)</span></p>
+</section>
+<section id="fundamental-theorem-of-calculus" class="level1">
+<h1>Fundamental Theorem of Calculus</h1>
+<p><span class="math display">\[
+\begin{align}
+f'(x)  &amp;= \frac{f(x + \Delta{x}) - f(x)}{\Delta{x}} \\
+&amp;= \frac{df}{dx}, \text{When} \space \Delta{x} \rightarrow 0
+\end{align}
+\]</span></p>
+<p>Here, <span class="math inline">\(\Delta{x}\)</span> means two point difference in <span class="math inline">\(x\)</span>, <span class="math inline">\(df\)</span> means difference in function value caused by the differenc in <span class="math inline">\(x\)</span>。 <span class="math inline">\(\Delta{x} \rightarrow 0\)</span> 就是代数到微积分的过程。</p>
+<p>考虑函数值 <span class="math inline">\(x\)</span> 在 点 <span class="math inline">\(x_1, x_2, ..., x_n\)</span> 的函数值 <span class="math inline">\(f_1, f_2, ..., f_n\)</span>, 进而考虑其两者之间的差值 <span class="math inline">\((f_2 - f_1) + (f_3 - f_2) + \dots + (f_n - f_{n-1)} = f_n - f_1\)</span>。从这里可以简单的理解为，你可以将一个函数，利用其差值累加还原为原函数的值，这就是积分的过程；</p>
+<p><span class="math display">\[
+\begin{align}
+\sum{\Delta{y}} &amp;= y_{\text{last}} - y_{\text{first}} \\
+f(x) &amp;= \int{f'(x)dx} = \sum{\frac{\Delta{y}}{\Delta{x}} \cdot \Delta{x}} , \text{Where} \space f'(x)dx = df, \text{when} \Delta{x} \rightarrow 0
+\end{align}
+\]</span></p>
+<p>从这里可以看出，对于导函数可将其视为用高度函数表示原函数的函数，其高度与其底部“面积”的乘积表示了其空间大小，即原函数的差值。</p>
+<p>对于微分还有另一种理解为变换的视角，即从一个函数变换到另一个函数-线性映射，这个映射操作的符号记做 <span class="math inline">\(\frac{d}{dx}\)</span>, 它将 <span class="math inline">\(y\)</span> 进行变换到 <span class="math inline">\(y'\)</span>, <span class="math inline">\(y' =  \frac{d}{dx} \cdot y\)</span></p>
+<p>二阶导数的定义如下：</p>
+<p><span class="math display">\[
+y'' = \frac{d^2y}{dx^2}
+\]</span></p>
+<p>对于这里的符号解释如下：</p>
+<blockquote class="blockquote">
+<p>对于 <span class="math inline">\(dx^2\)</span>, 只是对于 <span class="math inline">\(x\)</span> 只是进行了两次除法操作即 <span class="math inline">\(\frac{\Delta{\Delta{f}}}{\Delta{x} \cdot \Delta{x}}\)</span>，但是对于 <span class="math inline">\(y\)</span> 而言则是在第一次的<span class="math inline">\(df\)</span>之上再次取差值即 <span class="math inline">\(d(df)\)</span>,也就是求差值这个操作 <span class="math inline">\(d\)</span>(diffence) 重复了两次。</p>
+</blockquote>
+<p><span class="math display">\[
+\begin{align}
+f''(x) &gt; 0 &amp;\rightarrow \text{convex function} \\
+f''(x) &lt; 0 &amp;\rightarrow \text{concave function}
+\end{align}
+\]</span></p>
+<p>关于一阶，以及二阶导数的主要应用在于寻找各个特殊的点。</p>
+<p><span class="math display">\[
+\begin{align}
+f'(x) &amp;\rightarrow \text{stationary point} \\
+f''(x) &amp;  \rightarrow \text{inflection point} \\
+f'(x) = 0, \text{and} f''(x) &gt; 0 &amp;\rightarrow \text{Local max} \\
+f'(x) = 0, \text{and} f''(x) &lt; 0 &amp;\rightarrow \text{Local min}
+\end{align}
+\]</span></p>
+<p>对于函数的最值，则需要比较所有极值点以及边界点确定。</p>
+</section>
+<section id="derivatives-of-ex-sinx-cosx-xn" class="level1">
+<h1>Derivatives of <span class="math inline">\(e^x, \sin{x}, \cos{x}, x^n\)</span></h1>
+<section id="exponential-function" class="level2">
+<h2 class="anchored" data-anchor-id="exponential-function">Exponential Function</h2>
+<p>Key: Which function’s derivatives are equal to the function itself?</p>
+<p><span class="math display">\[
+\frac{df}{dx} = y \rightarrow \text{first differential equation}
+\]</span></p>
+<p>Construction:</p>
+<p><span class="math display">\[
+\begin{align}
+y(x) = 1 + x + \frac{1}{2}x^2 + \frac{1}{3 \cdot{2} \cdot{1}}x^3 + \dots + \frac{1}{n!}x^n + \dots \\
+\frac{df}{dx} =  1 + x + \frac{1}{2}x^2 + \frac{1}{3 \cdot{2} \cdot{1}}x^3 + \dots + \frac{1}{n!}x^n + \dots
+\end{align}
+\]</span></p>
+<p>这里思想在于当 <span class="math inline">\(\text{when} \space x = 0, e^x = 1\)</span>, 那么其导数也为 <span class="math inline">\(1\)</span>; 导数为 <span class="math inline">\(1\)</span>，原函数为什么其导数才为 <span class="math inline">\(1\)</span> 呢？如此反复迭代；显然当 <span class="math inline">\(n \rightarrow \infty\)</span>， 两式才相等。该级数称之为指数级数。</p>
+<p><span class="math display">\[
+e^x =  1 + x + \frac{1}{2}x^2 + \frac{1}{3 \cdot{2} \cdot{1}}x^3 + \dots + \frac{1}{n!}x^n + \dots
+\]</span></p>
+<p>set <span class="math inline">\(x = 0\)</span>, <span class="math inline">\(e = 1 + 1 + \dots = 2.71828... \rightarrow \text{Euler's Number}\)</span></p>
+<p>用指数级数可证明指数函数下面的性质</p>
+<p><span class="math display">\[
+e^{a} \cdot e^{b} = e^{a + b}
+\]</span></p>
+<p>Euler’s Number 也可以通过如下方式计算得到</p>
+<p><span class="math display">\[
+e = (1 + \frac{1}{N + 1})^N, \text{When}  \space N \rightarrow \infty
+\]</span></p>
+<p>对于该式子的展开基于二项式定理(Binomial Theorem).</p>
+<p><span class="math display">\[
+\frac{dy}{dx} = y
+\]</span></p>
+<p><span class="math display">\[
+y = f(x) = 1 + x + \frac{1}{2}x^2 + ... + \frac{1}{n!}x^n + ... = e
+\]</span></p>
+</section>
+<section id="trigonometric-function" class="level2">
+<h2 class="anchored" data-anchor-id="trigonometric-function">Trigonometric Function</h2>
+<p>三角函数起源于勾股定理</p>
+<p><span class="math display">\[
+\begin{align}
+a^2 + b^2 &amp;= c^2 \\
+(\frac{a}{c})^2 + (\frac{b}{c})^2 &amp;= 1\\
+(\sin{\theta})^2 + (\cos{\theta})^2 &amp;= 1\\
+\end{align}
+\]</span></p>
+<p>三角函数求导关键在于用半径为1的圆描述周期运动，以及其中的三角形。</p>
+<p>下面给两个重要的极限</p>
+<p><span class="math display">\[
+\begin{align}
+\sin{\theta} &amp;&lt; \theta  \rightarrow \frac{\sin{\theta}}{\theta} &lt; 1\\
+\tan{\theta} &amp;&gt; \theta \rightarrow \frac{\sin{\theta}}{\theta} &gt; \cos{\theta}\\
+\frac{\sin{\theta}}{\theta} &amp;= 1, \text{when} \space \theta \rightarrow 0
+\end{align}
+\]</span></p>
+<p>前两个式子可由弧度制的弧长和面积证明，该极限可认为是 <span class="math inline">\(\sin{0}\)</span> 处的导数, 由上面两个式子夹逼准则定义。</p>
+<p>下面给出另一个重要的极限。</p>
+<p><span class="math display">\[
+\frac{\cos{\theta} - 1}{\theta}  = 1, \text{when} \space \theta \rightarrow 0
+\]</span></p>
+<p>该极限可认为是 <span class="math inline">\(\cos{0}\)</span> 处的导数。</p>
+<p><span class="math display">\[
+\begin{align}
+\frac{\Delta{\sin{x}}}{\Delta{x}} &amp;= \frac{\sin{(x + \Delta{x})} - \sin {x}}{\Delta{x}} \\
+&amp;= \frac{\sin{x}(\cos{\Delta{x} - 1})}{\Delta{x}} + \frac{\sin\Delta{x} \cos{x}}{\Delta{x}} \\
+&amp;= \cos{x}
+\end{align}
+\]</span></p>
+<p>仿照上例子可得到 <span class="math inline">\(\cos{\theta}\)</span> 的导数；下面不加证明地给出 <span class="math inline">\(\cos{x}\)</span> 的导数</p>
+<p><span class="math display">\[
+\frac{d\cos{x}}{dx} = - \sin{x}
+\]</span></p>
+</section>
+<section id="product-rule-quotient-rule-derivaitives-to-power-function" class="level2">
+<h2 class="anchored" data-anchor-id="product-rule-quotient-rule-derivaitives-to-power-function">Product Rule, Quotient Rule, Derivaitives to Power Function</h2>
+<p><span class="math inline">\(q(x) = f(x)g(x)\)</span></p>
+<p>考虑边长分别为 <span class="math inline">\(f(x), g(x)\)</span>, 的长方形，当两边分别改变 <span class="math inline">\(\Delta x\)</span>， 其面积的变化：</p>
+<p><span class="math display">\[
+\Delta\text{area} = f(x)g(x + \Delta{x}) - g(x)) + g(x)(f(x + \Delta{x} - f(x))) + \Delta{x}^2
+\]</span></p>
+<p>When <span class="math inline">\(\Delta{x} \rightarrow 0\)</span>,</p>
+<p><span class="math display">\[
+\begin{align}
+dq &amp;= f(x)dg + g(x)df \\
+\frac{dq}{dx} &amp;= f(x)\frac{dg}{dx} + g(x)\frac{df}{dx}
+\end{align}
+\]</span></p>
+<p>Quation rule 可由乘法法则推导得到。</p>
+<p><span class="math display">\[
+\frac{f(x)}{g(x)} = \frac{f(x)g' - g(x)f'}{g(x)^2}
+\]</span></p>
+</section>
+</section>
+<section id="chain-rule-and-derivatives-of-inverse-function-lnx-sin-1x-cos-1x" class="level1">
+<h1>Chain Rule, and Derivatives of Inverse Function <span class="math inline">\(\ln{x}, \sin^{-1}x, \cos^{-1}x\)</span></h1>
+<section id="chain-rule" class="level2">
+<h2 class="anchored" data-anchor-id="chain-rule">Chain Rule</h2>
+<p><span class="math display">\[
+f'(y(x)) = \frac{df}{dx} = \frac{df}{dy}\frac{dy}{dx}
+\]</span></p>
+<p>对于偶函数，其导数为奇函数。对于奇函数，其导数为偶函数。</p>
+<p><span class="math display">\[
+y = f(x) \rightarrow x = f^{-1}(y)
+\]</span></p>
+<p>需要注意的是只有在单调区间内，才有逆函数，且 <span class="math inline">\(f\)</span> 与 <span class="math inline">\(f^{-1}\)</span> 的函数图像关于原点对称。</p>
+</section>
+<section id="logarithmic-function" class="level2">
+<h2 class="anchored" data-anchor-id="logarithmic-function">Logarithmic Function</h2>
+<p>指数函数的逆函数为对数函数，其求的是指数的值。</p>
+<p><span class="math display">\[
+x = \ln{y}
+\]</span></p>
+<p>其具有如下性质</p>
+<p><span class="math display">\[
+\begin{align}
+\ln{ab} &amp;= \ln{a} + \ln{b} \\
+\ln{y^n} &amp;= n\ln{y}
+\end{align}
+\]</span></p>
+</section>
+<section id="derivatives-for-lnx-sin-1x-cos-1x" class="level2">
+<h2 class="anchored" data-anchor-id="derivatives-for-lnx-sin-1x-cos-1x">Derivatives for <span class="math inline">\(\ln{x}, \sin^{-1}{x}, \cos^{-1}{x}\)</span></h2>
+<p>set</p>
+<p><span class="math display">\[
+\begin{align}
+y = e^x \\
+x = \ln{y}
+\end{align}
+\]</span></p>
+<p>Then <span class="math display">\[
+\begin{align}
+y = e^x \rightarrow e^{\ln{y}} = y \\
+e^{\ln{y}} \cdot \frac{d\ln{y}}{dy} = 1, \text{Where} \space e^{\ln{y}} = y\\
+\end{align}
+\]</span></p>
+<p>set</p>
+<p><span class="math display">\[
+\begin{align}
+y &amp;= \sin{x} \\
+x &amp;= \sin^{-1}{y}
+\end{align}
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{align}
+\sin{\sin^{-1}{y}}  &amp;= y\\
+\cos{\sin^{-1}{y}} \cdot \frac{d \sin^{-1}y}{y} &amp;= 1, \text{Where} \cos{\sin^{-1}{y}} = \frac{1}{\sqrt{1 - y^2}}
+\end{align}
+\]</span></p>
+<p>Note that the <span class="math inline">\(\sin^{-1}y\)</span> is an angle.</p>
+<p>Give the <span class="math inline">\(\frac{d\cos^{-1}y}{dy}\)</span> without proof.</p>
+<p><span class="math display">\[
+\frac{d\cos^{-1}y}{dy} = -\frac{1}{\sqrt{1 - y^2}}
+\]</span></p>
+<p>Note that:</p>
+<p><span class="math display">\[
+\frac{d\cos^{-1}y}{dy}  + \frac{d\sin^{-1}y}{dy} = 0
+\]</span></p>
+<p>Where <span class="math inline">\(\theta + \alpha = \frac{\pi}{2}\)</span> is a constant.</p>
+<p>Some other deritivites:</p>
+<p><span class="math display">\[
+\begin{align}
+\frac{d\arctan{x}}{x} = \frac{1}{1 + x^2} \\
+\frac{d \space \text{acrcot} \space {x}}{x} = -\frac{1}{1 + x^2} \\
+\frac{d{a^x}}{x} = a^{x} \ln{a}
+\end{align}
+\]</span></p>
+<p>Converion between different base. <span class="math display">\[
+\begin{align}
+\log_a{|x|} &amp;= \frac{1}{x\ln{a}} \\
+\log_{a}{b} &amp;= \frac{\ln{b}}{\ln{a}} = \frac{\log_n{b}}{\log_n{a}}
+\end{align}
+\]</span></p>
+</section>
+</section>
+<section id="growth-rate-and-logarithmic-plot" class="level1">
+<h1>Growth Rate and Logarithmic Plot</h1>
+<p>各函数的增长速度如下，其倒数就是减慢的速度。 <span class="math display">\[
+\begin{align}
+&amp;CX\dots \space &amp;x^2, x^3 \dots \space &amp;2^x, e^x, 10^x \dots &amp;x! \space x^x \\
+&amp;\text{Linear}  &amp;\text{Polynomial}  \space &amp;\text{Exponential} &amp;\text{Factorial}
+\end{align}
+\]</span></p>
+<p>对数尺度能够处理极大或者极小( <span class="math inline">\(x \rightarrow 0\)</span> )的值, 但是该尺度下是没有 <span class="math inline">\(0\)</span> 的。</p>
+<p>对数尺度能够将非线性问题转换为线性问题</p>
+<p><span class="math display">\[
+\begin{align}
+y = AX^n \rightarrow \log{y} = \log{A} + n\log{X}, \text{logarithmic plot}  \\
+y = B10^{Cx} \rightarrow \log{y} = \log{B} + Cx, \text{semi-logarithmic plot}
+\end{align}
+\]</span></p>
+<p>$$$$</p>
+</section>
+<section id="linear-approximationnewtons-method" class="level1">
+<h1>Linear Approximation/Newton’s Method</h1>
+<p><span class="math display">\[
+f(x) = f(a) + f'(a)(x - a)
+\]</span></p>
+<p><span class="math display">\[
+F(x) = 0 \rightarrow x - a = \frac{F(a)}{F'(a)}
+\]</span></p>
+<p>The core of Newton’s method is iteration.</p>
+</section>
+<section id="power-serieseulers-great-formula" class="level1">
+<h1>Power Series/Euler’s Great Formula</h1>
+<p>幂级数的核心在于用多项式进行函数的近似，用多项式近似的好处在于其 <span class="math inline">\(n\)</span> 阶导数只和第 <span class="math inline">\(n\)</span> 阶项有关，其它在此之前的多项式都为0，第 <span class="math inline">\(n\)</span> 阶项的系数为 <span class="math inline">\(n!\)</span>。</p>
+<p>考虑指数级数，在 <span class="math inline">\(0\)</span> 处的 <span class="math inline">\(0, 1, 2, \dots, n\)</span> 导数值。</p>
+<p><span class="math display">\[
+1, 1, 1, \dots, 1
+\]</span></p>
+<p>为了匹配这个系数，对于幂函数的 <span class="math inline">\(n\)</span> 阶项的导数系数 <span class="math inline">\(n!\)</span> 除 <span class="math inline">\(n!\)</span> 则可匹配每一阶的系数。</p>
+<p><span class="math display">\[
+e^x = 1 + x + \frac{1}{2}x^2 + \dots + \frac{1}{n!}x^n + \dots
+\]</span></p>
+<p>仿照上例，给出 <span class="math inline">\(\sin{x}, \cos{x}\)</span> 的幂级数</p>
+<p><span class="math display">\[
+\begin{align}
+\sin x &amp;= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!} \\
+\cos x &amp;= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!}
+\end{align}
+\]</span></p>
+<p>对于欧拉公式，可由上面三个级数给出</p>
+<p><span class="math display">\[
+e^{i\theta} = 1 + ix + \frac{1}{2}(ix)^2 + \frac{1}{6}(ix)^3 + \dots
+\]</span></p>
+<p>整理之后可见，右边即为 <span class="math inline">\(\sin{x},\cos{x}\)</span> 的幂级数。</p>
+<p><span class="math display">\[
+e^{i\theta} = \cos{x} + i \sin{x}
+\]</span></p>
+<p>欧拉公式给出了在横轴为实数，纵轴为复数的复平面上，数据之间的关系。</p>
+<p>下面给出两个其它重要的幂级数</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;\text{Geometrix series}  \space \frac{1}{1 -x} = 1 + x + x^2 + \dots + x^n + \dots, \text{Where} \space 0 &lt; |x| &lt; 1 \\
+&amp;\text{Integrated from the above equation} - \ln{(1 - x)} = x + \frac{1}{2}x^2 + \frac{1}{3}x^3 + \dots \text{Where } x &lt; 1
+\end{align}
+\]</span></p>
+</section>
+<section id="differential-equations" class="level1">
+<h1>Differential Equations</h1>
+<section id="differential-equations-of-motion" class="level2">
+<h2 class="anchored" data-anchor-id="differential-equations-of-motion">Differential Equations of Motion</h2>
+<p>Linear, and Second order equation.</p>
+<p><span class="math display">\[
+m\frac{d^2y}{dt^2} + 2r\frac{dy}{dt} + ky = 0
+\]</span></p>
+<p>When <span class="math inline">\(m = 0\)</span></p>
+<p><span class="math display">\[
+\frac{dy}{dt} = ay \rightarrow y = ce^{at}
+\]</span></p>
+<p>When <span class="math inline">\(r = 0\)</span></p>
+<p><span class="math display">\[
+\frac{d^2y}{dt^2} = \frac{k}{m}y  = -\omega^2y \rightarrow y = C\cos{\omega{t}} + D\sin{\omega{t}}
+\]</span></p>
+<p>When <span class="math inline">\(m = r = 0\)</span></p>
+<p><span class="math display">\[
+\frac{d^2y}{dt^2} = 0 \rightarrow y = C + Dt
+\]</span></p>
+<p>General solutaion - Try <span class="math inline">\(y = e^{\lambda{t}}\)</span></p>
+<p><span class="math display">\[
+m\lambda^2 + 2r\lambda + K = 0
+\]</span></p>
+<p>Three Cases:</p>
+<p><span class="math display">\[
+\begin{align}
+y'' + 6y' + 8y = 0 &amp;\rightarrow y(t) = Ce^{-2t} + De^{-4t} \\
+y'' + 6y' + 10y = 0 &amp;\rightarrow y(t) = Ce^{(-3 - i)t} + De^{(-3 + i)t} \\
+y'' + 6y' + 9 = 0 &amp;\rightarrow y(t) = Ce^{-3t} + Dte^{-3t}
+\end{align}
+\]</span></p>
+</section>
+<section id="differential-equations-of-growth" class="level2">
+<h2 class="anchored" data-anchor-id="differential-equations-of-growth">Differential Equations of Growth</h2>
+<p>The growth rate proportional to itself. <span class="math display">\[
+\begin{align}
+\frac{dy}{dt} &amp;= cy \\
+y(0) &amp;\rightarrow \text{Given start} \\
+y(t) &amp;= y(0)e^{ct}
+\end{align}
+\]</span></p>
+<p>Add source term:</p>
+<p><span class="math display">\[
+\begin{align}
+\frac{dy}{dt} &amp;= cy + s \space \text{Where} \space s \space \text{is source term} \\
+\frac{d{(y + \frac{s}{c}})}{dt} &amp;= c(y + \frac{s}{c}) \\
+y + \frac{s}{c} &amp;= (y(0) + \frac{s}{c})e^{ct}
+\end{align}
+\]</span></p>
+<p>For Linear eq, the solutions to eq have form below</p>
+<p><span class="math display">\[
+y(t) = y_{\text{particular}}(t) + y_{\text{right side 0}}(t)
+\]</span></p>
+<p>Specially for <span class="math inline">\(\frac{dy}{dt} = cy + s\)</span></p>
+<p><span class="math display">\[
+\begin{align}
+y_{\text{particular}} = -\frac{s}{c} \\
+y_{\text{set s = 0}} = Ae^{ct}
+\end{align}
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+y = -\frac{s}{c} + Ae^{ct}
+\]</span></p>
+<p>To find <span class="math inline">\(A\)</span>, put <span class="math inline">\(t = 0\)</span>, <span class="math inline">\(y(0) = \frac{s}{c} + A\)</span></p>
+<p>Non-linear equation for population:</p>
+<p><span class="math display">\[
+\frac{dp}{dt} = cp - sp^2
+\]</span></p>
+<p>To solve this equation, set <span class="math inline">\(y = \frac{1}{p}\)</span> to turn this equation to linear equation.</p>
+<p>Equation for predators and prey</p>
+<p><span class="math display">\[
+\begin{align}
+\frac{du}{dt} &amp;= - cu + suv \\
+\frac{dv}{dt} &amp;= cv - suv
+\end{align}
+\]</span></p>
+</section>
+</section>
+<section id="six-functions-six-rules-and-six-theorems" class="level1">
+<h1>Six Functions, Six Rules, and Six Theorems</h1>
+<p>Six Functions <span class="math display">\[
+\begin{align}
+\frac{1}{n + 1}x^{n + 1} &amp;\rightarrow x^n &amp;\rightarrow (n-1)x^{n-1} \\
+-\cos{x} &amp;\rightarrow \sin{x} &amp;\rightarrow \cos{x} \\
+\sin{x} &amp;\rightarrow \cos{x} &amp;\rightarrow -\sin{x} \\
+\frac{1}{c}e^{cx} &amp;\rightarrow e^{cx} &amp;\rightarrow ce^{cx} \\
+x\ln{x} -x &amp;\rightarrow \ln{x} &amp;\rightarrow \frac{1}{x} \text{power -1} \\
+\text{Ramp Function}
+\end{align}
+\]</span></p>
+<p>Six Rules <span class="math display">\[
+\begin{align}
+af(x) + bg(x) &amp;\rightarrow a\frac{df}{dx} + b\frac{dg}{dx} \\
+f(x)g(x) &amp;\rightarrow f(x)\frac{dg}{dx} + \frac{df}{dx}(gx) \\
+\frac{f(x)}{g(x)} &amp;\rightarrow \frac{gf' - fg'}{g^2} \\
+x = f^{-1}(y) &amp;\rightarrow \frac{dx}{dy} = \frac{1}{\frac{dy}{dx}} \\
+f(g(x)) &amp;\rightarrow \frac{df}{dy}\cdot \frac{dy}{dx} \\
+\text{L'Hospital} \space \frac{f}{g} = \frac{\frac{df}{dx}}{\frac{dg}{dx}} \text{When} \space x &amp;\rightarrow a, f(a), g(a) \rightarrow 0
+\end{align}
+\]</span></p>
+<p>Six Theorems</p>
+<ul>
+<li>Fundamental Theorem of Calculus</li>
+<li>Mean Values Theorem</li>
+<li>Taylors Series/Theorem</li>
+<li>Bionomial Theorem - Taylor at a = 0 <span class="math inline">\(\rightarrow\)</span> Pascal triangle</li>
+</ul>
+<p><span class="math display">\[
+f(x) = (1 + x)^p = 1 + px + \frac{p(p-1)}{2\cdot 1}x^2 + \dots
+\]</span></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/snowGlint\.github\.io\/doc\.cying\.org\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
