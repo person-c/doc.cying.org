@@ -11,7 +11,7 @@
     "href": "note.html",
     "title": "Note",
     "section": "",
-    "text": "Hilights of Calculus\n\n\n\n\n\n\n\n\n\n\n\nAug 7, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n富集分析\n\n\n\n\n\n\n\n\n\n\n\nJul 2, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n线性代数\n\n\n\n\n\n\n\n\n\n\n\nJul 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n数据变换技巧\n\n\n\n\n\n\n\n\n\n\n\nOct 15, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nHypothesis Test\n\n\n假设检验实践\n\n\n\n\n\n\n\n\nOct 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nXgboost\n\n\n\n\n\n\n\n\n\n\n\nOct 7, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nLiner dimension reduction\n\n\n\n\n\n\n\n\n\n\n\nAug 10, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics\n\n\n\n\n\n\n\n\n\n\n\nJul 17, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nCluster algorithm\n\n\n\n\n\n\n\n\n\n\n\nJul 10, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nRNA Seq\n\n\n\n\n\n\n\n\n\n\n\nJun 25, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nProbability distribution\n\n\n\n\n\n\n\n\n\n\n\nJun 10, 2022\n\n\n\n\n\n\nNo matching items"
+    "text": "Highlights of Calculus\n\n\n\n\n\n\n\n\n\n\n\nAug 7, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n富集分析\n\n\n\n\n\n\n\n\n\n\n\nJul 2, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n线性代数\n\n\n\n\n\n\n\n\n\n\n\nJul 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\n数据变换技巧\n\n\n\n\n\n\n\n\n\n\n\nOct 15, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nHypothesis Test\n\n\n假设检验实践\n\n\n\n\n\n\n\n\nOct 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nXgboost\n\n\n\n\n\n\n\n\n\n\n\nOct 7, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nLiner dimension reduction\n\n\n\n\n\n\n\n\n\n\n\nAug 10, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nStatistics\n\n\n\n\n\n\n\n\n\n\n\nJul 17, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nCluster algorithm\n\n\n\n\n\n\n\n\n\n\n\nJul 10, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nRNA Seq\n\n\n\n\n\n\n\n\n\n\n\nJun 25, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nProbability distribution\n\n\n\n\n\n\n\n\n\n\n\nJun 10, 2022\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "note/2024-07-02-overpresentation-test/index.html",
@@ -639,63 +639,63 @@
   {
     "objectID": "note/2024-08-04-Hilights-of-calculas/index.html",
     "href": "note/2024-08-04-Hilights-of-calculas/index.html",
-    "title": "Hilights of Calculus",
+    "title": "Highlights of Calculus",
     "section": "",
     "text": "Danger case:\n\\[\n\\begin{align}\n\\infty - \\infty \\\\\n0 \\cdot \\infty \\\\\n\\frac{0}{0} \\\\\n0^0 \\text{ or } 1^\\infty\n\\end{align}\n\\]\nL’Hospital Rule:\n\\[\n\\frac{f(x)}{g(x)} \\rightarrow \\frac{\\frac{\\Delta{f}}{\\Delta{x}}}{\\frac{\\Delta{g}}{\\Delta{x}}} \\rightarrow \\frac{f'}{g'}\n\\]\nFor any small \\(\\epsilon\\) chosen, we can find \\(\\delta  &gt; 0\\), so that if \\(|f(x) - f(a)| &lt; \\epsilon\\), then \\(|f(x) - f(a)| &lt; \\delta\\)"
   },
   {
     "objectID": "note/2024-08-04-Hilights-of-calculas/index.html#exponential-function",
     "href": "note/2024-08-04-Hilights-of-calculas/index.html#exponential-function",
-    "title": "Hilights of Calculus",
+    "title": "Highlights of Calculus",
     "section": "Exponential Function",
     "text": "Exponential Function\nKey: Which function’s derivatives are equal to the function itself?\n\\[\n\\frac{df}{dx} = y \\rightarrow \\text{first differential equation}\n\\]\nConstruction:\n\\[\n\\begin{align}\ny(x) = 1 + x + \\frac{1}{2}x^2 + \\frac{1}{3 \\cdot{2} \\cdot{1}}x^3 + \\dots + \\frac{1}{n!}x^n + \\dots \\\\\n\\frac{df}{dx} =  1 + x + \\frac{1}{2}x^2 + \\frac{1}{3 \\cdot{2} \\cdot{1}}x^3 + \\dots + \\frac{1}{n!}x^n + \\dots\n\\end{align}\n\\]\n这里思想在于当 \\(\\text{when} \\space x = 0, e^x = 1\\), 那么其导数也为 \\(1\\); 导数为 \\(1\\)，原函数为什么其导数才为 \\(1\\) 呢？如此反复迭代；显然当 \\(n \\rightarrow \\infty\\)， 两式才相等。该级数称之为指数级数。\n\\[\ne^x =  1 + x + \\frac{1}{2}x^2 + \\frac{1}{3 \\cdot{2} \\cdot{1}}x^3 + \\dots + \\frac{1}{n!}x^n + \\dots\n\\]\nset \\(x = 0\\), \\(e = 1 + 1 + \\dots = 2.71828... \\rightarrow \\text{Euler's Number}\\)\n用指数级数可证明指数函数下面的性质\n\\[\ne^{a} \\cdot e^{b} = e^{a + b}\n\\]\nEuler’s Number 也可以通过如下方式计算得到\n\\[\ne = (1 + \\frac{1}{N + 1})^N, \\text{When}  \\space N \\rightarrow \\infty\n\\]\n对于该式子的展开基于二项式定理(Binomial Theorem).\n\\[\n\\frac{dy}{dx} = y\n\\]\n\\[\ny = f(x) = 1 + x + \\frac{1}{2}x^2 + ... + \\frac{1}{n!}x^n + ... = e\n\\]"
   },
   {
     "objectID": "note/2024-08-04-Hilights-of-calculas/index.html#trigonometric-function",
     "href": "note/2024-08-04-Hilights-of-calculas/index.html#trigonometric-function",
-    "title": "Hilights of Calculus",
+    "title": "Highlights of Calculus",
     "section": "Trigonometric Function",
     "text": "Trigonometric Function\n三角函数起源于勾股定理\n\\[\n\\begin{align}\na^2 + b^2 &= c^2 \\\\\n(\\frac{a}{c})^2 + (\\frac{b}{c})^2 &= 1\\\\\n(\\sin{\\theta})^2 + (\\cos{\\theta})^2 &= 1\\\\\n\\end{align}\n\\]\n三角函数求导关键在于用半径为1的圆描述周期运动，以及其中的三角形。\n下面给两个重要的极限\n\\[\n\\begin{align}\n\\sin{\\theta} &&lt; \\theta  \\rightarrow \\frac{\\sin{\\theta}}{\\theta} &lt; 1\\\\\n\\tan{\\theta} &&gt; \\theta \\rightarrow \\frac{\\sin{\\theta}}{\\theta} &gt; \\cos{\\theta}\\\\\n\\frac{\\sin{\\theta}}{\\theta} &= 1, \\text{when} \\space \\theta \\rightarrow 0\n\\end{align}\n\\]\n前两个式子可由弧度制的弧长和面积证明，该极限可认为是 \\(\\sin{0}\\) 处的导数, 由上面两个式子夹逼准则定义。\n下面给出另一个重要的极限。\n\\[\n\\frac{\\cos{\\theta} - 1}{\\theta}  = 1, \\text{when} \\space \\theta \\rightarrow 0\n\\]\n该极限可认为是 \\(\\cos{0}\\) 处的导数。\n\\[\n\\begin{align}\n\\frac{\\Delta{\\sin{x}}}{\\Delta{x}} &= \\frac{\\sin{(x + \\Delta{x})} - \\sin {x}}{\\Delta{x}} \\\\\n&= \\frac{\\sin{x}(\\cos{\\Delta{x} - 1})}{\\Delta{x}} + \\frac{\\sin\\Delta{x} \\cos{x}}{\\Delta{x}} \\\\\n&= \\cos{x}\n\\end{align}\n\\]\n仿照上例子可得到 \\(\\cos{\\theta}\\) 的导数；下面不加证明地给出 \\(\\cos{x}\\) 的导数\n\\[\n\\frac{d\\cos{x}}{dx} = - \\sin{x}\n\\]"
   },
   {
     "objectID": "note/2024-08-04-Hilights-of-calculas/index.html#product-rule-quotient-rule-derivaitives-to-power-function",
     "href": "note/2024-08-04-Hilights-of-calculas/index.html#product-rule-quotient-rule-derivaitives-to-power-function",
-    "title": "Hilights of Calculus",
+    "title": "Highlights of Calculus",
     "section": "Product Rule, Quotient Rule, Derivaitives to Power Function",
     "text": "Product Rule, Quotient Rule, Derivaitives to Power Function\n\\(q(x) = f(x)g(x)\\)\n考虑边长分别为 \\(f(x), g(x)\\), 的长方形，当两边分别改变 \\(\\Delta x\\)， 其面积的变化：\n\\[\n\\Delta\\text{area} = f(x)g(x + \\Delta{x}) - g(x)) + g(x)(f(x + \\Delta{x} - f(x))) + \\Delta{x}^2\n\\]\nWhen \\(\\Delta{x} \\rightarrow 0\\),\n\\[\n\\begin{align}\ndq &= f(x)dg + g(x)df \\\\\n\\frac{dq}{dx} &= f(x)\\frac{dg}{dx} + g(x)\\frac{df}{dx}\n\\end{align}\n\\]\nQuation rule 可由乘法法则推导得到。\n\\[\n\\frac{f(x)}{g(x)} = \\frac{f(x)g' - g(x)f'}{g(x)^2}\n\\]"
   },
   {
     "objectID": "note/2024-08-04-Hilights-of-calculas/index.html#chain-rule",
     "href": "note/2024-08-04-Hilights-of-calculas/index.html#chain-rule",
-    "title": "Hilights of Calculus",
+    "title": "Highlights of Calculus",
     "section": "Chain Rule",
     "text": "Chain Rule\n\\[\nf'(y(x)) = \\frac{df}{dx} = \\frac{df}{dy}\\frac{dy}{dx}\n\\]\n对于偶函数，其导数为奇函数。对于奇函数，其导数为偶函数。\n\\[\ny = f(x) \\rightarrow x = f^{-1}(y)\n\\]\n需要注意的是只有在单调区间内，才有逆函数，且 \\(f\\) 与 \\(f^{-1}\\) 的函数图像关于原点对称。"
   },
   {
     "objectID": "note/2024-08-04-Hilights-of-calculas/index.html#logarithmic-function",
     "href": "note/2024-08-04-Hilights-of-calculas/index.html#logarithmic-function",
-    "title": "Hilights of Calculus",
+    "title": "Highlights of Calculus",
     "section": "Logarithmic Function",
     "text": "Logarithmic Function\n指数函数的逆函数为对数函数，其求的是指数的值。\n\\[\nx = \\ln{y}\n\\]\n其具有如下性质\n\\[\n\\begin{align}\n\\ln{ab} &= \\ln{a} + \\ln{b} \\\\\n\\ln{y^n} &= n\\ln{y}\n\\end{align}\n\\]"
   },
   {
     "objectID": "note/2024-08-04-Hilights-of-calculas/index.html#derivatives-for-lnx-sin-1x-cos-1x",
     "href": "note/2024-08-04-Hilights-of-calculas/index.html#derivatives-for-lnx-sin-1x-cos-1x",
-    "title": "Hilights of Calculus",
+    "title": "Highlights of Calculus",
     "section": "Derivatives for \\(\\ln{x}, \\sin^{-1}{x}, \\cos^{-1}{x}\\)",
     "text": "Derivatives for \\(\\ln{x}, \\sin^{-1}{x}, \\cos^{-1}{x}\\)\nset\n\\[\n\\begin{align}\ny = e^x \\\\\nx = \\ln{y}\n\\end{align}\n\\]\nThen \\[\n\\begin{align}\ny = e^x \\rightarrow e^{\\ln{y}} = y \\\\\ne^{\\ln{y}} \\cdot \\frac{d\\ln{y}}{dy} = 1, \\text{Where} \\space e^{\\ln{y}} = y\\\\\n\\end{align}\n\\]\nset\n\\[\n\\begin{align}\ny &= \\sin{x} \\\\\nx &= \\sin^{-1}{y}\n\\end{align}\n\\]\nThen\n\\[\n\\begin{align}\n\\sin{\\sin^{-1}{y}}  &= y\\\\\n\\cos{\\sin^{-1}{y}} \\cdot \\frac{d \\sin^{-1}y}{y} &= 1, \\text{Where} \\cos{\\sin^{-1}{y}} = \\frac{1}{\\sqrt{1 - y^2}}\n\\end{align}\n\\]\nNote that the \\(\\sin^{-1}y\\) is an angle.\nGive the \\(\\frac{d\\cos^{-1}y}{dy}\\) without proof.\n\\[\n\\frac{d\\cos^{-1}y}{dy} = -\\frac{1}{\\sqrt{1 - y^2}}\n\\]\nNote that:\n\\[\n\\frac{d\\cos^{-1}y}{dy}  + \\frac{d\\sin^{-1}y}{dy} = 0\n\\]\nWhere \\(\\theta + \\alpha = \\frac{\\pi}{2}\\) is a constant.\nSome other deritivites:\n\\[\n\\begin{align}\n\\frac{d\\arctan{x}}{x} = \\frac{1}{1 + x^2} \\\\\n\\frac{d \\space \\text{acrcot} \\space {x}}{x} = -\\frac{1}{1 + x^2} \\\\\n\\frac{d{a^x}}{x} = a^{x} \\ln{a}\n\\end{align}\n\\]\nConverion between different base. \\[\n\\begin{align}\n\\log_a{|x|} &= \\frac{1}{x\\ln{a}} \\\\\n\\log_{a}{b} &= \\frac{\\ln{b}}{\\ln{a}} = \\frac{\\log_n{b}}{\\log_n{a}}\n\\end{align}\n\\]"
   },
   {
     "objectID": "note/2024-08-04-Hilights-of-calculas/index.html#differential-equations-of-motion",
     "href": "note/2024-08-04-Hilights-of-calculas/index.html#differential-equations-of-motion",
-    "title": "Hilights of Calculus",
+    "title": "Highlights of Calculus",
     "section": "Differential Equations of Motion",
     "text": "Differential Equations of Motion\nLinear, and Second order equation.\n\\[\nm\\frac{d^2y}{dt^2} + 2r\\frac{dy}{dt} + ky = 0\n\\]\nWhen \\(m = 0\\)\n\\[\n\\frac{dy}{dt} = ay \\rightarrow y = ce^{at}\n\\]\nWhen \\(r = 0\\)\n\\[\n\\frac{d^2y}{dt^2} = \\frac{k}{m}y  = -\\omega^2y \\rightarrow y = C\\cos{\\omega{t}} + D\\sin{\\omega{t}}\n\\]\nWhen \\(m = r = 0\\)\n\\[\n\\frac{d^2y}{dt^2} = 0 \\rightarrow y = C + Dt\n\\]\nGeneral solutaion - Try \\(y = e^{\\lambda{t}}\\)\n\\[\nm\\lambda^2 + 2r\\lambda + K = 0\n\\]\nThree Cases:\n\\[\n\\begin{align}\ny'' + 6y' + 8y = 0 &\\rightarrow y(t) = Ce^{-2t} + De^{-4t} \\\\\ny'' + 6y' + 10y = 0 &\\rightarrow y(t) = Ce^{(-3 - i)t} + De^{(-3 + i)t} \\\\\ny'' + 6y' + 9 = 0 &\\rightarrow y(t) = Ce^{-3t} + Dte^{-3t}\n\\end{align}\n\\]"
   },
   {
     "objectID": "note/2024-08-04-Hilights-of-calculas/index.html#differential-equations-of-growth",
     "href": "note/2024-08-04-Hilights-of-calculas/index.html#differential-equations-of-growth",
-    "title": "Hilights of Calculus",
+    "title": "Highlights of Calculus",
     "section": "Differential Equations of Growth",
     "text": "Differential Equations of Growth\nThe growth rate proportional to itself. \\[\n\\begin{align}\n\\frac{dy}{dt} &= cy \\\\\ny(0) &\\rightarrow \\text{Given start} \\\\\ny(t) &= y(0)e^{ct}\n\\end{align}\n\\]\nAdd source term:\n\\[\n\\begin{align}\n\\frac{dy}{dt} &= cy + s \\space \\text{Where} \\space s \\space \\text{is source term} \\\\\n\\frac{d{(y + \\frac{s}{c}})}{dt} &= c(y + \\frac{s}{c}) \\\\\ny + \\frac{s}{c} &= (y(0) + \\frac{s}{c})e^{ct}\n\\end{align}\n\\]\nFor Linear eq, the solutions to eq have form below\n\\[\ny(t) = y_{\\text{particular}}(t) + y_{\\text{right side 0}}(t)\n\\]\nSpecially for \\(\\frac{dy}{dt} = cy + s\\)\n\\[\n\\begin{align}\ny_{\\text{particular}} = -\\frac{s}{c} \\\\\ny_{\\text{set s = 0}} = Ae^{ct}\n\\end{align}\n\\]\nThen\n\\[\ny = -\\frac{s}{c} + Ae^{ct}\n\\]\nTo find \\(A\\), put \\(t = 0\\), \\(y(0) = \\frac{s}{c} + A\\)\nNon-linear equation for population:\n\\[\n\\frac{dp}{dt} = cp - sp^2\n\\]\nTo solve this equation, set \\(y = \\frac{1}{p}\\) to turn this equation to linear equation.\nEquation for predators and prey\n\\[\n\\begin{align}\n\\frac{du}{dt} &= - cu + suv \\\\\n\\frac{dv}{dt} &= cv - suv\n\\end{align}\n\\]"
   },
