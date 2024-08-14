@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://person-c.github.io/doc.cying.org/index.html</loc>
-    <lastmod>2024-08-14T13:56:48.812Z</lastmod>
-  </url>
-  <url>
-    <loc>https://person-c.github.io/doc.cying.org/note/2022-07-17-statistics/index.html</loc>
-    <lastmod>2024-08-14T13:56:48.812Z</lastmod>
-  </url>
-  <url>
-    <loc>https://person-c.github.io/doc.cying.org/note/2022-06-10-probability-distribution.qmd/index.html</loc>
-    <lastmod>2024-08-14T13:56:48.812Z</lastmod>
-  </url>
-  <url>
-    <loc>https://person-c.github.io/doc.cying.org/note/2022-08-10-linear-dimension-reduction/index.html</loc>
-    <lastmod>2024-08-14T13:56:48.812Z</lastmod>
-  </url>
-  <url>
-    <loc>https://person-c.github.io/doc.cying.org/note/2023-10-15-data-transformation/index.html</loc>
-    <lastmod>2024-08-14T13:56:48.816Z</lastmod>
-  </url>
-  <url>
-    <loc>https://person-c.github.io/doc.cying.org/note/2022-10-07-xgboost/index.html</loc>
-    <lastmod>2024-08-14T13:56:48.812Z</lastmod>
+    <loc>https://person-c.github.io/doc.cying.org/slides.html</loc>
+    <lastmod>2024-02-29T03:41:05.802Z</lastmod>
   </url>
   <url>
     <loc>https://person-c.github.io/doc.cying.org/note.html</loc>
-    <lastmod>2024-08-14T13:56:48.812Z</lastmod>
-  </url>
-  <url>
-    <loc>https://person-c.github.io/doc.cying.org/slides/2023-09-10-introduction/index.html</loc>
-    <lastmod>2024-08-14T13:56:48.828Z</lastmod>
-  </url>
-  <url>
-    <loc>https://person-c.github.io/doc.cying.org/about.html</loc>
-    <lastmod>2024-08-14T13:56:48.812Z</lastmod>
-  </url>
-  <url>
-    <loc>https://person-c.github.io/doc.cying.org/slides.html</loc>
-    <lastmod>2024-08-14T13:56:48.816Z</lastmod>
-  </url>
-  <url>
-    <loc>https://person-c.github.io/doc.cying.org/note/2024-07-01-linear-algebra/index.html</loc>
-    <lastmod>2024-08-14T13:56:48.816Z</lastmod>
+    <lastmod>2024-02-29T03:41:05.329Z</lastmod>
   </url>
   <url>
     <loc>https://person-c.github.io/doc.cying.org/note/2024-07-02-overpresentation-test/index.html</loc>
-    <lastmod>2024-08-14T13:56:48.816Z</lastmod>
+    <lastmod>2024-07-04T13:46:32.169Z</lastmod>
   </url>
   <url>
-    <loc>https://person-c.github.io/doc.cying.org/note/2022-07-10-cluster-algorithm/index.html</loc>
-    <lastmod>2024-08-14T13:56:48.812Z</lastmod>
+    <loc>https://person-c.github.io/doc.cying.org/note/2023-10-15-data-transformation/index.html</loc>
+    <lastmod>2024-07-02T14:50:42.414Z</lastmod>
   </url>
   <url>
-    <loc>https://person-c.github.io/doc.cying.org/note/2024-08-04-Hilights-of-calculas/index.html</loc>
-    <lastmod>2024-08-14T13:56:48.816Z</lastmod>
+    <loc>https://person-c.github.io/doc.cying.org/note/2022-10-07-xgboost/index.html</loc>
+    <lastmod>2024-07-02T14:50:36.053Z</lastmod>
   </url>
   <url>
-    <loc>https://person-c.github.io/doc.cying.org/note/2023-10-01-hypothesis-test/index.html</loc>
-    <lastmod>2024-08-14T13:56:48.816Z</lastmod>
+    <loc>https://person-c.github.io/doc.cying.org/note/2022-07-17-statistics/index.html</loc>
+    <lastmod>2024-07-02T14:50:50.115Z</lastmod>
   </url>
   <url>
     <loc>https://person-c.github.io/doc.cying.org/note/2022-06-25-rna-seq/index.html</loc>
-    <lastmod>2024-08-14T13:56:48.812Z</lastmod>
+    <lastmod>2024-07-02T14:50:57.280Z</lastmod>
+  </url>
+  <url>
+    <loc>https://person-c.github.io/doc.cying.org/index.html</loc>
+    <lastmod>2024-02-29T03:41:05.329Z</lastmod>
+  </url>
+  <url>
+    <loc>https://person-c.github.io/doc.cying.org/about.html</loc>
+    <lastmod>2024-02-29T03:41:05.329Z</lastmod>
+  </url>
+  <url>
+    <loc>https://person-c.github.io/doc.cying.org/note/2022-06-10-probability-distribution.qmd/index.html</loc>
+    <lastmod>2024-07-15T14:11:08.548Z</lastmod>
+  </url>
+  <url>
+    <loc>https://person-c.github.io/doc.cying.org/note/2022-07-10-cluster-algorithm/index.html</loc>
+    <lastmod>2024-07-02T14:50:54.471Z</lastmod>
+  </url>
+  <url>
+    <loc>https://person-c.github.io/doc.cying.org/note/2022-08-10-linear-dimension-reduction/index.html</loc>
+    <lastmod>2024-07-02T14:50:46.099Z</lastmod>
+  </url>
+  <url>
+    <loc>https://person-c.github.io/doc.cying.org/note/2023-10-01-hypothesis-test/index.html</loc>
+    <lastmod>2024-07-02T13:40:58.350Z</lastmod>
+  </url>
+  <url>
+    <loc>https://person-c.github.io/doc.cying.org/note/2024-07-01-linear-algebra/index.html</loc>
+    <lastmod>2024-07-07T07:56:40.254Z</lastmod>
+  </url>
+  <url>
+    <loc>https://person-c.github.io/doc.cying.org/note/2024-08-04-Hilights-of-calculas/index.html</loc>
+    <lastmod>2024-08-14T08:24:17.997Z</lastmod>
+  </url>
+  <url>
+    <loc>https://person-c.github.io/doc.cying.org/slides/2023-09-10-introduction/index.html</loc>
+    <lastmod>2024-03-04T05:41:35.695Z</lastmod>
   </url>
 </urlset>

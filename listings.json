@@ -1,5 +1,11 @@
 [
   {
+    "listing": "/slides.html",
+    "items": [
+      "/slides/2023-09-10-introduction/index.html"
+    ]
+  },
+  {
     "listing": "/note.html",
     "items": [
       "/note/2024-08-04-Hilights-of-calculas/index.html",
@@ -13,12 +19,6 @@
       "/note/2022-07-10-cluster-algorithm/index.html",
       "/note/2022-06-25-rna-seq/index.html",
       "/note/2022-06-10-probability-distribution.qmd/index.html"
-    ]
-  },
-  {
-    "listing": "/slides.html",
-    "items": [
-      "/slides/2023-09-10-introduction/index.html"
     ]
   }
 ]
