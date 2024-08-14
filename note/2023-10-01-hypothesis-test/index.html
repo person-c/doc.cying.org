@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2023-10-01">
 
-<title>snow and rain - Hypothesis Test</title>
+<title>Hypothesis Test – snow and rain</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -102,7 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -132,7 +132,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../static/css/font.css">
+<link rel="stylesheet" href="static\css\font.css">
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -148,7 +148,7 @@ window.Quarto = {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -171,7 +171,7 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -230,86 +230,6 @@ window.Quarto = {
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
-<script>
-
-  // load font(from yihui.org)
-
-  (function (d) {
-
-    // https://www.kirupa.com/html5/detect_whether_font_is_installed.htm
-
-    let canvas = document.createElement('canvas');
-
-    let context = canvas.getContext('2d');
-
-    let text = 'abcdefghijklmnopqrstuvwxyz0123456789';
-
-    context.font = '72px monospace';
-
-    let size = context.measureText(text).width;
-
-    let fonts = [' SC', ' CN', ' TC', ' TW', ''];
-
-    for (let i = 0; i < fonts.length; i++) {
-
-      context.font = "72px '" + 'Source Han Serif' + fonts[i] + "', monospace";
-
-      // no need to load TypeKit if Source Hans Serif has been installed
-
-      if (context.measureText(text).width != size) return;
-
-    }
-
-    let config = { kitId: 'kwz5xar', scriptTimeout: 3000, async: true },
-
-      h = d.documentElement,
-
-      t = setTimeout(function () {
-
-        h.className =
-
-          h.className.replace(/\bwf-loading\b/g, '') + ' wf-inactive';
-
-      }, config.scriptTimeout),
-
-      tk = d.createElement('script'),
-
-      f = false,
-
-      s = d.getElementsByTagName('script')[0],
-
-      a;
-
-    h.className += ' wf-loading';
-
-    tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
-
-    tk.async = true;
-
-    tk.onload = tk.onreadystatechange = function () {
-
-      a = this.readyState;
-
-      if (f || (a && a != 'complete' && a != 'loaded')) return;
-
-      f = true;
-
-      clearTimeout(t);
-
-      try {
-
-        Typekit.load(config);
-
-      } catch (e) {}
-
-    };
-
-    s.parentNode.insertBefore(tk, s);
-
-  })(document);
-
-</script>
-
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -609,7 +529,7 @@ mean difference
 <li>样本独立性</li>
 </ul>
 <p>如t-test的assumption类似，推导出F分布的前提是正态分布以及方差齐性。但在实际使用过程之中，方差分析具有稳健性，对正态分布的要求并不是很严格<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
-<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Tiku (1971) found that “the non-normal theory power of F is found to differ from the normal theory power by a correction term which decreases sharply with increasing sample size.” The problem of non-normality, especially in large samples, is far less serious than popular articles would suggest - <a href="https://en.wikipedia.org/wiki/One-way_analysis_of_variance">wikipedia</a></p></div></div><table class="table">
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Tiku (1971) found that “the non-normal theory power of F is found to differ from the normal theory power by a correction term which decreases sharply with increasing sample size.” The problem of non-normality, especially in large samples, is far less serious than popular articles would suggest - <a href="https://en.wikipedia.org/wiki/One-way_analysis_of_variance">wikipedia</a></p></div></div><table class="caption-top table">
 <caption>Onw-Way-ANOVA-Table</caption>
 <colgroup>
 <col style="width: 16%">
@@ -1070,7 +990,7 @@ odds ratio
 <p>秩和计算</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: right;">id</th>
@@ -1425,18 +1345,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1468,7 +1377,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/person-c\.github\.io\/doc\.cying\.org\/");
@@ -1476,7 +1407,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
