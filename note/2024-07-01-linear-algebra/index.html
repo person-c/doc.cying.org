@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2024-07-01">
 
-<title>snow and rain - 线性代数</title>
+<title>Raining - Linear Algebra</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,7 +109,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">snow and rain</span>
+    <span class="navbar-title">Raining</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -156,9 +156,8 @@ window.Quarto = {
   <li><a href="#矩阵线性运算" id="toc-矩阵线性运算" class="nav-link" data-scroll-target="#矩阵线性运算">矩阵线性运算</a></li>
   <li><a href="#矩阵乘法" id="toc-矩阵乘法" class="nav-link" data-scroll-target="#矩阵乘法">矩阵乘法</a></li>
   <li><a href="#矩阵转置" id="toc-矩阵转置" class="nav-link" data-scroll-target="#矩阵转置">矩阵转置</a></li>
-  <li><a href="#矩阵的逆" id="toc-矩阵的逆" class="nav-link" data-scroll-target="#矩阵的逆">矩阵的逆</a></li>
   <li><a href="#分块矩阵" id="toc-分块矩阵" class="nav-link" data-scroll-target="#分块矩阵">分块矩阵</a></li>
-  <li><a href="#初等变换" id="toc-初等变换" class="nav-link" data-scroll-target="#初等变换">初等变换</a></li>
+  <li><a href="#矩阵的逆与矩阵的初等变化" id="toc-矩阵的逆与矩阵的初等变化" class="nav-link" data-scroll-target="#矩阵的逆与矩阵的初等变化">矩阵的逆与矩阵的初等变化</a></li>
   <li><a href="#行列式" id="toc-行列式" class="nav-link" data-scroll-target="#行列式">行列式</a></li>
   <li><a href="#伴随矩阵" id="toc-伴随矩阵" class="nav-link" data-scroll-target="#伴随矩阵">伴随矩阵</a></li>
   <li><a href="#对角矩阵副对角相关公式" id="toc-对角矩阵副对角相关公式" class="nav-link" data-scroll-target="#对角矩阵副对角相关公式">对角矩阵（副对角）相关公式</a></li>
@@ -179,6 +178,21 @@ window.Quarto = {
   <li><a href="#相似矩阵-矩阵对角相似化" id="toc-相似矩阵-矩阵对角相似化" class="nav-link" data-scroll-target="#相似矩阵-矩阵对角相似化">相似矩阵 矩阵对角相似化</a></li>
   <li><a href="#二次型" id="toc-二次型" class="nav-link" data-scroll-target="#二次型">二次型</a></li>
   <li><a href="#几何直观-2" id="toc-几何直观-2" class="nav-link" data-scroll-target="#几何直观-2">几何直观</a></li>
+  </ul></li>
+  <li><a href="#矩阵分解" id="toc-矩阵分解" class="nav-link" data-scroll-target="#矩阵分解">矩阵分解</a>
+  <ul class="collapse">
+  <li><a href="#a-lu" id="toc-a-lu" class="nav-link" data-scroll-target="#a-lu"><span class="math inline">\(A = LU\)</span></a></li>
+  <li><a href="#a-plambda-p-1" id="toc-a-plambda-p-1" class="nav-link" data-scroll-target="#a-plambda-p-1"><span class="math inline">\(A = P\Lambda P^{-1}\)</span></a></li>
+  <li><a href="#a-usigma-v" id="toc-a-usigma-v" class="nav-link" data-scroll-target="#a-usigma-v"><span class="math inline">\(A = U\Sigma V^*\)</span></a></li>
+  </ul></li>
+  <li><a href="#线性代数的应用" id="toc-线性代数的应用" class="nav-link" data-scroll-target="#线性代数的应用">线性代数的应用</a>
+  <ul class="collapse">
+  <li><a href="#线性降维" id="toc-线性降维" class="nav-link" data-scroll-target="#线性降维">线性降维</a>
+  <ul class="collapse">
+  <li><a href="#pca" id="toc-pca" class="nav-link" data-scroll-target="#pca">PCA</a></li>
+  <li><a href="#mds" id="toc-mds" class="nav-link" data-scroll-target="#mds">MDS</a></li>
+  <li><a href="#pcoa" id="toc-pcoa" class="nav-link" data-scroll-target="#pcoa">PCoA</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -268,7 +282,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">线性代数</h1>
+<h1 class="title">Linear Algebra</h1>
 </div>
 
 
@@ -303,7 +317,7 @@ a_{11} &amp; a_{12} &amp; a_{13} \\
 0 &amp; 0 &amp; a_{33} \\
 \end{bmatrix}
 \]</span></p>
-<p>上三角矩阵</p>
+<p>上三角矩阵 <span class="math inline">\(U\)</span>.</p>
 <p><span class="math display">\[
 \begin{bmatrix}
 a_{11} &amp; 0 &amp; 0 \\
@@ -311,7 +325,7 @@ a_{21} &amp; a_{22} &amp; 0 \\
 a_{31} &amp; a_{32} &amp; a_{33} \\
 \end{bmatrix}
 \]</span></p>
-<p>下三角矩阵。</p>
+<p>下三角矩阵 <span class="math inline">\(L\)</span>.</p>
 <p>上下三角矩阵统称为三角矩阵。</p>
 <p><span class="math display">\[
 \begin{bmatrix}
@@ -320,7 +334,7 @@ a_{11} &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; a_{33} \\
 \end{bmatrix}
 \]</span></p>
-<p>对角矩阵</p>
+<p>对角矩阵 <span class="math inline">\(\Lambda\)</span>.</p>
 <p><span class="math display">\[
 \begin{bmatrix}
 1 &amp; 0 &amp; 0 \\
@@ -328,14 +342,12 @@ a_{11} &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 1 \\
 \end{bmatrix}
 \]</span></p>
-<p>单位矩阵E, I。</p>
+<p>单位矩阵 <span class="math inline">\(E, I\)</span>.</p>
 </section>
 <section id="矩阵线性运算" class="level2">
 <h2 class="anchored" data-anchor-id="矩阵线性运算">矩阵线性运算</h2>
-<p><span class="math display">\[{c_{ij}=a_{ij}+b_{ij}}\]</span></p>
-<p><strong>矩阵加法</strong></p>
-<p><span class="math display">\[ C_{ij} = ac_{ij}\]</span></p>
-<p><strong>矩阵数乘</strong>。</p>
+<p><span class="math display">\[ {c_{ij}=a_{ij}+b_{ij}} \]</span></p>
+<p><span class="math display">\[ C_{ij} = ac_{ij} \]</span></p>
 <p>矩阵加法和数乘统称为矩阵的线性运算。</p>
 </section>
 <section id="矩阵乘法" class="level2">
@@ -374,6 +386,11 @@ x_2 \\
 \end{bmatrix}
 \]</span></p>
 <p><strong>线性方程组的矩阵表示</strong> 系数矩阵，变量矩阵，常数矩阵。</p>
+<p>对于矩阵乘法有如下理解：</p>
+<blockquote class="blockquote">
+<p>左边乘一个矩阵为对该矩阵列向量的线性组合，线性组合的系数为右侧矩阵的列，该视角最为常用，可用于判断线性方程组解的情况；右乘一个矩阵为对该矩阵的行向量的线性组合，线性组合的系数为左侧矩阵的行， 该视角可用于消元。</p>
+<p>矩阵乘法也可理解为每一列乘每一行得到多个矩阵，然后相加。</p>
+</blockquote>
 </section>
 <section id="矩阵转置" class="level2">
 <h2 class="anchored" data-anchor-id="矩阵转置">矩阵转置</h2>
@@ -403,8 +420,16 @@ a_{1n} &amp; a_{2n} &amp; \cdots &amp; a_{mn} \\
 <p>对称矩阵 <span class="math inline">\(A^T = A\)</span>, 一定为方阵。</p>
 <p>反对称矩阵 <span class="math inline">\(A^T = -A\)</span> , 一定为方阵，对角线一定为0.</p>
 </section>
-<section id="矩阵的逆" class="level2">
-<h2 class="anchored" data-anchor-id="矩阵的逆">矩阵的逆</h2>
+<section id="分块矩阵" class="level2">
+<h2 class="anchored" data-anchor-id="分块矩阵">分块矩阵</h2>
+<p>非分块矩阵可以认为每个元素都是一个只有一个数的块。</p>
+<p><span class="math display">\[
+\alpha_1x_1 + \alpha_2x_2 = b
+\]</span></p>
+<p>分块矩阵可用于矩阵的抽象运算，利用分块矩阵表示线性方程组如上。</p>
+</section>
+<section id="矩阵的逆与矩阵的初等变化" class="level2">
+<h2 class="anchored" data-anchor-id="矩阵的逆与矩阵的初等变化">矩阵的逆与矩阵的初等变化</h2>
 <p><span class="math display">\[
 \begin{equation}
 A_{n}B_{n} = B_{n}A_{n} = E_n
@@ -421,17 +446,6 @@ A_{n}B_{n} = B_{n}A_{n} = E_n
 \end{align*}
 \]</span></p>
 <p>矩阵逆运算规律如上。矩阵的上标运算可以任意交换位置。</p>
-</section>
-<section id="分块矩阵" class="level2">
-<h2 class="anchored" data-anchor-id="分块矩阵">分块矩阵</h2>
-<p>非分块矩阵可以认为每个元素都是一个只有一个数的块。</p>
-<p><span class="math display">\[
-\alpha_1x_1 + \alpha_2x_2 = b
-\]</span></p>
-<p>分块矩阵可用于矩阵的抽象运算，利用分块矩阵表示线性方程组如上。</p>
-</section>
-<section id="初等变换" class="level2">
-<h2 class="anchored" data-anchor-id="初等变换">初等变换</h2>
 <p><strong>矩阵初等变换</strong> 实际上就是方程组系数消元的抽象过程，初等变换的一系列矩阵称为等价矩阵。</p>
 <p><span class="math display">\[
 \begin{equation}
@@ -446,46 +460,13 @@ A_{n}B_{n} = B_{n}A_{n} = E_n
 \end{bmatrix}
 \end{equation}
 \]</span></p>
-<p><strong>初等方阵</strong> 单位矩阵 <span class="math inline">\(E\)</span> 经过一次初等变换所形成的方阵<span class="math inline">\(P\)</span>。 若 <span class="math inline">\(P\)</span> 为初等方阵， <span class="math inline">\(PA=B\)</span>， 则<span class="math inline">\(A \rightarrow B\)</span>的变化等价于 <span class="math inline">\(E \rightarrow P\)</span> 的初等行变换。若<span class="math inline">\(AP = B\)</span>， 则 <span class="math inline">\(A \rightarrow B\)</span> 等价于 <span class="math inline">\(E \rightarrow P\)</span> 的初等列变换。实际上这里描述的是一个初等变换可由一个初等方阵来定义。</p>
-<p><strong>初等方阵的逆矩阵</strong></p>
-<p>通过交换单位矩阵的第 <span class="math inline">\(i\)</span> 行和第 <span class="math inline">\(j\)</span> 行得到的初等矩阵 <span class="math inline">\(E_{ij}\)</span> 可以表示为：</p>
-<p><span class="math display">\[
-E_{ij} = \begin{bmatrix}
-1 &amp; 0 &amp; \cdots &amp; 0 &amp; \cdots &amp; 0 &amp; \cdots &amp; 0 \\
-0 &amp; 1 &amp; \cdots &amp; 0 &amp; \cdots &amp; 0 &amp; \cdots &amp; 0 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
-0 &amp; 0 &amp; \cdots &amp; 0 &amp; \cdots &amp; 1 &amp; \cdots &amp; 0 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
-0 &amp; 0 &amp; \cdots &amp; 1 &amp; \cdots &amp; 0 &amp; \cdots &amp; 0 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
-0 &amp; 0 &amp; \cdots &amp; 0 &amp; \cdots &amp; 0 &amp; \cdots &amp; 1
-\end{bmatrix}
-\]</span></p>
-<p>其逆矩阵也是通过交换同样的两行得到的，即 <span class="math inline">\(E_{ij}^{-1} = E_{ij}\)</span>。</p>
-<p>将单位矩阵的第 <span class="math inline">\(i\)</span> 行乘以一个非零常数 <span class="math inline">\(k\)</span> 得到的初等矩阵 <span class="math inline">\(E_i(k)\)</span> 可以表示为：</p>
-<p><span class="math display">\[
-E_i(k) = \begin{bmatrix}
-1 &amp; 0 &amp; \cdots &amp; 0 \\
-0 &amp; 1 &amp; \cdots &amp; 0 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-0 &amp; 0 &amp; \cdots &amp; k \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-0 &amp; 0 &amp; \cdots &amp; 0 \\
-\end{bmatrix}
-\]</span></p>
-<p>其逆矩阵是将第 <span class="math inline">\(i\)</span> 行乘以 <span class="math inline">\(1/k\)</span>，即 <span class="math inline">\(E_i(k)^{-1} = E_i(1/k)\)</span>。</p>
-<p>将单位矩阵的第 <span class="math inline">\(i\)</span> 行加上第 <span class="math inline">\(j\)</span> 行的 <span class="math inline">\(k\)</span> 倍得到的初等矩阵 <span class="math inline">\(E_{ij}(k)\)</span> 可以表示为：</p>
-<p><span class="math display">\[
-E_{ij}(k) = \begin{bmatrix}
-1 &amp; 0 &amp; \cdots &amp; 0 \\
-0 &amp; 1 &amp; \cdots &amp; 0 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-0 &amp; k &amp; \cdots &amp; 1 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-0 &amp; 0 &amp; \cdots &amp; 0 \\
-\end{bmatrix}
-\]</span></p>
-<p>其逆矩阵是将第 <span class="math inline">\(i\)</span> 行减去第 <span class="math inline">\(j\)</span> 行的 <span class="math inline">\(k\)</span> 倍， 即 <span class="math inline">\(E_{ij}(k)^{-1} = E_{ij}(-k)\)</span>。</p>
+<p><strong>初等方阵</strong> 单位矩阵 <span class="math inline">\(E\)</span> 经过一次初等变换所形成的方阵<span class="math inline">\(P\)</span>。 若 <span class="math inline">\(P\)</span> 为初等方阵， <span class="math inline">\(PA=B\)</span>， 则<span class="math inline">\(A \rightarrow B\)</span>的变化等价于 <span class="math inline">\(E \rightarrow P\)</span> 的初等行变换。若<span class="math inline">\(AP = B\)</span>， 则 <span class="math inline">\(A \rightarrow B\)</span> 等价于 <span class="math inline">\(E \rightarrow P\)</span> 的初等列变换。实际上这里描述的是一个初等变换可由一个初等方阵来定义；从矩阵乘法的行视角来看，就是对右侧矩阵行向量的线性组合。</p>
+<p>那么有初等方阵的逆矩阵：</p>
+<ol type="1">
+<li><p>通过交换单位矩阵的第 <span class="math inline">\(i\)</span> 行和第 <span class="math inline">\(j\)</span> 行得到的初等矩阵 <span class="math inline">\(E_{ij}\)</span>， 其逆矩阵也是通过交换同样的两行得到的，即 <span class="math inline">\(E_{ij}^{-1} = E_{ij}\)</span>。</p></li>
+<li><p>将单位矩阵的第 <span class="math inline">\(i\)</span> 行乘以一个非零常数 <span class="math inline">\(k\)</span> 得到的初等矩阵 <span class="math inline">\(E_i(k)\)</span>，其逆矩阵是将第 <span class="math inline">\(i\)</span> 行乘以 <span class="math inline">\(1/k\)</span>，即 <span class="math inline">\(E_i(k)^{-1} = E_i(1/k)\)</span>。</p></li>
+<li><p>将单位矩阵的第 <span class="math inline">\(i\)</span> 行加上第 <span class="math inline">\(j\)</span> 行的 <span class="math inline">\(k\)</span> 倍得到的初等矩阵 <span class="math inline">\(E_{ij}(k)\)</span>，其逆矩阵是将第 <span class="math inline">\(i\)</span> 行减去第 <span class="math inline">\(j\)</span> 行的 <span class="math inline">\(k\)</span> 倍， 即 <span class="math inline">\(E_{ij}(k)^{-1} = E_{ij}(-k)\)</span>。</p></li>
+</ol>
 <p><span class="math display">\[
 \begin{equation}
 \begin{bmatrix}
@@ -944,8 +925,84 @@ f = x^TAx
 <p><strong>等价矩阵</strong> 对于形如<span class="math inline">\(PAQ = B\)</span>形式的变换，其中<span class="math inline">\(P, Q\)</span>为可逆矩阵。左乘一个可逆矩阵等价于进行初等行变换，右乘一个可逆矩阵等价于进行初等列变换。几何上，<span class="math inline">\(B\)</span>是<span class="math inline">\(A\)</span>经过初等变换得到的矩阵，两者等价意味着个矩阵所张成的行空间与列空间是等价的。</p>
 <p><strong>相似矩阵</strong> 对于形如 <span class="math inline">\(P^{-1}AP\)</span> 的矩阵变化或者相似的过程，其几何含义为将 <span class="math inline">\(A\)</span> 所表示的线性变化 转换为以矩阵 <span class="math inline">\(P\)</span> 的列向量的为基向量的坐标系下的线性变化。相似矩阵为同一线性变化在不同基下的描述。特别地，为了得到与 <span class="math inline">\(\Lambda\)</span> 的相似，那么选择<span class="math inline">\(A\)</span>的特征向量构成的基，则该线性变化在特征基的描述下即为对角矩阵。</p>
 <p><strong>合同矩阵</strong> 对于形如 <span class="math inline">\(P^TAP\)</span> 的形式，矩阵<span class="math inline">\(A\)</span>实际上为一个 <span class="math inline">\((0, 2)\)</span>的张量，其是空间或流形几何一个量，称之为度规，形如<span class="math inline">\(C^TAC\)</span>的形式实际上是将某个度规，转化为以矩阵<span class="math inline">\(C\)</span>的列向量为基的坐标下的描述。特别地，对于二次型而言，该矩阵为实对称矩阵， 形似上其相似与合同一致。</p>
+</section>
+</section>
+<section id="矩阵分解" class="level1">
+<h1>矩阵分解</h1>
+<section id="a-lu" class="level2">
+<h2 class="anchored" data-anchor-id="a-lu"><span class="math inline">\(A = LU\)</span></h2>
+<p><span class="math inline">\(LU\)</span> 分解将矩阵分解为一个下三角以及上三角矩阵乘积；实际上，对于线性方程组进行高斯消元时，在不设计行交换时，每一次的行变换都可以用一个下三角矩阵表示，那么其乘积以及逆都是下三角矩阵 <span class="math inline">\(L\)</span>，该下三角矩阵，的每一个系数记录了每次操作的消元系数。</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+a_{21} &amp; 1 &amp; 0 \\
+a_{31} &amp; a_{32} &amp; 1 \\
+\end{bmatrix}
+\]</span></p>
+<p>如上矩阵表示在对一列进行消元时，进行的操作<span class="math inline">\(r_2 = r_2 + a_{21}r_1\)</span>, <span class="math inline">\(r_3 = a_{31}r_1\)</span>；在第二列进行消元时， <span class="math inline">\(r_3 = a_{32}r_2\)</span></p>
+</section>
+<section id="a-plambda-p-1" class="level2">
+<h2 class="anchored" data-anchor-id="a-plambda-p-1"><span class="math inline">\(A = P\Lambda P^{-1}\)</span></h2>
+<p>考虑方阵<span class="math inline">\(A\)</span>，<span class="math inline">\(A\)</span>代表了一个空间变换，空间的变换只对该矩阵的特征向量起到缩放作用。那么<span class="math inline">\(A\)</span>所代表的空间变换，我们可以考虑先把向量<span class="math inline">\(x\)</span>转化为用矩阵<span class="math inline">\(A\)</span>的特征向量构成的基底表示，即<span class="math inline">\(Q^{-1}x\)</span>，其中<span class="math inline">\(Q\)</span>为方阵<span class="math inline">\(A\)</span>的特征向量构成的矩阵（为什么是<span class="math inline">\(Q^{-1}\)</span>而不是<span class="math inline">\(Q\)</span>?因为特征向量是从原矩阵求解而来，它们都是在同一视角下的表示，要变化到特征向量的视角则是其逆<span class="math inline">\(Q^{-1}\)</span>)。那么矩阵<span class="math inline">\(A\)</span>对这个新的<span class="math inline">\(x\)</span>，即<span class="math inline">\(Q^{-1}x\)</span>的作用就仅仅是缩放（在每个维度上进行缩放），这个缩放用一个新的矩阵<span class="math inline">\(\Sigma\)</span>表示，其为对角矩阵，对角线上即是对应的特征值，那么现在整个变化记为<span class="math inline">\(\Sigma\)</span><span class="math inline">\(Q^{-1}x\)</span>。完成变化后，我们回到原来的基的视角，即左乘<span class="math inline">\(Q\)</span>，整个变化即如下： <span class="math display">\[
+Ax = Q\Sigma{Q^{-1}}{x} \longrightarrow A = Q\Sigma{Q^{-1}}
+\]</span></p>
+</section>
+<section id="a-usigma-v" class="level2">
+<h2 class="anchored" data-anchor-id="a-usigma-v"><span class="math inline">\(A = U\Sigma V^*\)</span></h2>
+<p>考虑向量 <span class="math inline">\(\begin{bmatrix} V_1 &amp; V_2 \end{bmatrix}\)</span>，其为一组正交的向量，如果其在经历空间变换 <span class="math inline">\(M\)</span> 以后仍然映射为一组正交的向量 <span class="math inline">\(\begin{bmatrix} U_1 &amp; U_2 \end{bmatrix}\)</span> 。那么，我们直接在向量 <span class="math inline">\(\begin{bmatrix} U_1 &amp; U_2 \end{bmatrix}\)</span>的方向上选择一组基 <span class="math inline">\(\begin{bmatrix} u_1 &amp; u_2 \end{bmatrix}\)</span>，那么向量<span class="math inline">\(\begin{bmatrix} v_1 &amp; v_2 \end{bmatrix}\)</span>，在经历空间变化以后，在基<span class="math inline">\(\begin{bmatrix} u_1 &amp; u_2 \end{bmatrix}\)</span> 上的表示为，<span class="math inline">\(\begin{bmatrix} u_1 &amp; u_2 \end{bmatrix} * \begin{bmatrix} \sigma_1 &amp; 0 \\ 0 &amp; \sigma_2 \end{bmatrix}\)</span>。即：</p>
+<p><span class="math display">\[
+M[v_1, v_2] = [u_1, u_2] * \begin{bmatrix} \sigma_1 &amp; 0 \\ 0 &amp; \sigma_2 \end{bmatrix} \rightarrow
+MV = U\Sigma \rightarrow  M = U\Sigma V^T
+\]</span></p>
+<p>如此，对于奇异值分解，我们有如下的直观理解：对于矩阵<span class="math inline">\(M\)</span>,其对一组向量<span class="math inline">\(V\)</span>在变换以后仍然为正交的向量。在进行变换的时候考虑直接转换到向量<span class="math inline">\(V\)</span>的视角之下，然后进行缩放<span class="math inline">\(\Sigma\)</span>，以及其它变换<span class="math inline">\(E\)</span>（旋转，投影），最后变换回原来的视角。即：</p>
+<p><span class="math display">\[
+M = VE\Sigma V^T \rightarrow M = U\Sigma V^T
+\]</span></p>
+<p>可以看到奇异值与特征值分解的区别在于，选择的视角不同。当选择特征向量视角时，变换只会有缩放即<span class="math inline">\(\Sigma\)</span>变换，当选择任意的正交向量视角时，变换不仅包含缩放还含有旋转以及投影等即<span class="math inline">\(E\Sigma\)</span>。</p>
+<p>需要注意的是，虽然对于特征分解以及奇异值分解从视角转换的角度去解释了。但是，矩阵分解同样可以从空间变换的角度理解。例如对于奇异值分解有如下解释：</p>
+<p>第一个变换<span class="math inline">\(V^{T}\)</span>将单位正交向量<span class="math inline">\(v_1, v_2\)</span>转到水平和垂直方向、<span class="math inline">\(\Sigma\)</span>相当于对<span class="math inline">\(v_1, v_2\)</span>进行放缩、<span class="math inline">\(U\)</span>将放缩后的向量旋转到最后的位置。</p>
+</section>
+</section>
+<section id="线性代数的应用" class="level1">
+<h1>线性代数的应用</h1>
+<section id="线性降维" class="level2">
+<h2 class="anchored" data-anchor-id="线性降维">线性降维</h2>
+<p>线性降维方法主要就是<em>PCA(principal componet analysis)</em>以及<em>SVD(sigular value decomposition)</em>,以及<em>PCA</em>的扩展<em>MDS(Multtidimensional Scaling)</em>。<em>PCA</em>与<em>MDS</em>的差别在于<em>PCA</em>考虑的是样本的特征，寻求在低维空间下保留方差较大的特征的信息，所以通过对特征之间的协方差矩阵进行特征值分解矩阵，得到在低维空间下能够保留方差较大特征的正交基，是对特征的线性组合，而<em>MDS</em>考虑的是样本之间的相似度矩阵，通过对相似度矩阵矩阵进行特征分解找到在低维空间下能够保留样本最大距离的正交基。</p>
+<section id="pca" class="level3">
+<h3 class="anchored" data-anchor-id="pca">PCA</h3>
+<p>样本矩阵<span class="math inline">\(m*n\)</span>，<span class="math inline">\(n\)</span>个样本，<span class="math inline">\(m\)</span>个特征。</p>
+<ol type="1">
+<li>计算样本矩阵协方差矩阵。</li>
+<li>协方差矩阵特征分解，找到使得协方差最大的方向。</li>
+<li>特征向量单位化(使得其长度为1)，特征向量与样本做点积，因为特征向量长度为1，其点积就是样本在特征向量方向上的投影长度，代表样本在这个方向上的坐标，选择多少个特征向量就为降到多少维。</li>
+</ol>
+</section>
+<section id="mds" class="level3">
+<h3 class="anchored" data-anchor-id="mds">MDS</h3>
+<p><em>MDS</em>是一类基于样本距离进行映射的方法。<em>MDS</em>针对不同类型的数据有不同的方法。<em>PCoA</em>是<em>MDS</em>针对于数值数据分析的方法。</p>
+</section>
+<section id="pcoa" class="level3">
+<h3 class="anchored" data-anchor-id="pcoa">PCoA</h3>
+<p>考虑一个样本的<em>dissimilarity matrix</em>,也就是一个含有样本之间距离或不相似度量的矩阵,记为<em>D</em>。</p>
+<ul>
+<li><em>The Torgerson method</em></li>
+</ul>
+<p>首先对<em>D</em>进行<em>double centering</em>得到<em>double-centered matrix</em>,记为<em>B</em>。然后对矩阵<em>B</em>进行奇异值分解。</p>
+<p><em>double centering1)</em>: <span class="math display">\[
+D^2 = \left[d_{ij}^2 \right]
+\]</span> <em>double centering2)</em>: <span class="math display">\[
+B = -\frac{1}{2}CD^{2}C
+\]</span> 其中<span class="math inline">\(C = I - \frac{1}{n}J_n\)</span></p>
+<ul>
+<li><em>The iterative method</em><br>
+该方法更加实用，可以用于非欧式距离矩阵。</li>
+</ul>
+<p><span class="math display">\[
+Stress_D(x_1, x_2, ..., x_N) = \left(\sum_{i\neq j\neq 1, ..., N} \left(d_{ij} - ||x_i - x_j|| \right)^2 \right)^{\frac{1}{2}}
+\]</span></p>
 
 
+</section>
 </section>
 </section>
 

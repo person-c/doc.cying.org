@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2022-08-10">
 
-<title>snow and rain - Liner dimension reduction</title>
+<title>Raining - Liner dimension reduction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,7 +109,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">snow and rain</span>
+    <span class="navbar-title">Raining</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -160,8 +160,6 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#空间变换" id="toc-空间变换" class="nav-link" data-scroll-target="#空间变换">空间变换</a></li>
   <li><a href="#基变换" id="toc-基变换" class="nav-link" data-scroll-target="#基变换">基变换</a></li>
-  <li><a href="#特征分解" id="toc-特征分解" class="nav-link" data-scroll-target="#特征分解">特征分解</a></li>
-  <li><a href="#奇异值分解" id="toc-奇异值分解" class="nav-link" data-scroll-target="#奇异值分解">奇异值分解</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -362,32 +360,8 @@ M = P^{-1}AP \rightarrow A = PMP^{-1}
 </ol>
 <p>符号约定： 小写字母<span class="math inline">\(x, i, j, u, v\)</span>代表列向量。</p>
 <p>基变化，如何把基<span class="math inline">\((i, j)\)</span>下的坐标转化为另一组基<span class="math inline">\((u, v)\)</span>下的坐标，实际上只需要将基<span class="math inline">\((i, j)\)</span>用基<span class="math inline">\((u, v)\)</span>进行表示，然后左乘向量<span class="math inline">\(x\)</span>即可。</p>
-</section>
-<section id="特征分解" class="level2">
-<h2 class="anchored" data-anchor-id="特征分解">特征分解</h2>
-<p>考虑方阵<span class="math inline">\(A\)</span>，<span class="math inline">\(A\)</span>代表了一个空间变换，空间的变换只对该矩阵的特征向量起到缩放作用。那么<span class="math inline">\(A\)</span>所代表的空间变换，我们可以考虑先把向量<span class="math inline">\(x\)</span>转化为用矩阵<span class="math inline">\(A\)</span>的特征向量构成的基底表示，即<span class="math inline">\(Q^{-1}x\)</span>，其中<span class="math inline">\(Q\)</span>为方阵<span class="math inline">\(A\)</span>的特征向量构成的矩阵（为什么是<span class="math inline">\(Q^{-1}\)</span>而不是<span class="math inline">\(Q\)</span>?因为特征向量是从原矩阵求解而来，它们都是在同一视角下的表示，要变化到特征向量的视角则是其逆<span class="math inline">\(Q^{-1}\)</span>)。那么矩阵<span class="math inline">\(A\)</span>对这个新的<span class="math inline">\(x\)</span>，即<span class="math inline">\(Q^{-1}x\)</span>的作用就仅仅是缩放（在每个维度上进行缩放），这个缩放用一个新的矩阵<span class="math inline">\(\Sigma\)</span>表示，其为对角矩阵，对角线上即是对应的特征值，那么现在整个变化记为<span class="math inline">\(\Sigma\)</span><span class="math inline">\(Q^{-1}x\)</span>。完成变化后，我们回到原来的基的视角，即左乘<span class="math inline">\(Q\)</span>，整个变化即如下： <span class="math display">\[
-Ax = Q\Sigma{Q^{-1}}{x} \longrightarrow A = Q\Sigma{Q^{-1}}
-\]</span></p>
-</section>
-<section id="奇异值分解" class="level2">
-<h2 class="anchored" data-anchor-id="奇异值分解">奇异值分解</h2>
-<p>考虑向量<span class="math inline">\(\begin{bmatrix} v_1 &amp; v_2 \end{bmatrix}\)</span>，其为一组正交的向量，如果其在经历空间变换<span class="math inline">\(M\)</span>以后仍然映射为一组正交的向量<span class="math inline">\(\begin{bmatrix} U_1 &amp; U_2 \end{bmatrix}\)</span>。那么，我们直接在向量<span class="math inline">\(\begin{bmatrix} U_1 &amp; U_2 \end{bmatrix}\)</span>的方向上选择一组基<span class="math inline">\(\begin{bmatrix} u_1 &amp; u_2 \end{bmatrix}\)</span>，那么向量<span class="math inline">\(\begin{bmatrix} v_1 &amp; v_2 \end{bmatrix}\)</span>，在经历空间变化以后，在基<span class="math inline">\(\begin{bmatrix} u_1 &amp; u_2 \end{bmatrix}\)</span>上的表示为，<span class="math inline">\(\begin{bmatrix} u_1 &amp; u_2 \end{bmatrix} * \begin{bmatrix} \sigma_1 &amp; 0 \\ 0 &amp; \sigma_2 \end{bmatrix}\)</span>。即：</p>
-<p><span class="math display">\[
-M[v_1, v_2] = [u_1, u_2] * \begin{bmatrix} \sigma_1 &amp; 0 \\ 0 &amp; \sigma_2 \end{bmatrix} \rightarrow
-MV = U\Sigma \rightarrow  M = U\Sigma V^T
-\]</span></p>
-<p>如此，对于奇异值分解，我们有如下的直观理解：对于矩阵<span class="math inline">\(M\)</span>,其对一组向量<span class="math inline">\(V\)</span>在变换以后仍然为正交的向量。在进行变换的时候考虑直接转换到向量<span class="math inline">\(V\)</span>的视角之下，然后进行缩放<span class="math inline">\(\Sigma\)</span>，以及其它变换<span class="math inline">\(E\)</span>（旋转，投影），最后变换回原来的视角。即：</p>
-<p><span class="math display">\[
-M = VE\Sigma V^T \rightarrow M = U\Sigma V^T
-\]</span></p>
-<p>可以看到奇异值与特征值分解的区别在于，选择的视角不同。当选择特征向量视角时，变换只会有缩放即<span class="math inline">\(\Sigma\)</span>变换，当选择任意的正交向量视角时，变换不仅包含缩放还含有旋转以及投影等即<span class="math inline">\(E\Sigma\)</span>。</p>
-<p>需要注意的是，虽然对于特征分解以及奇异值分解从视角转换的角度去解释了。但是，矩阵分解同样可以从空间变换的角度理解。例如对于奇异值分解有如下解释：</p>
-<p>第一个变换<span class="math inline">\(V^{T}\)</span>将单位正交向量<span class="math inline">\(v_1, v_2\)</span>转到水平和垂直方向、<span class="math inline">\(\Sigma\)</span>相当于对<span class="math inline">\(v_1, v_2\)</span>进行放缩、<span class="math inline">\(U\)</span>将放缩后的向量旋转到最后的位置。</p>
-<section id="基变换以及空间变换的统一" class="level4">
-<h4 class="anchored" data-anchor-id="基变换以及空间变换的统一">基变换以及空间变换的统一</h4>
 
 
-</section>
 </section>
 </section>
 

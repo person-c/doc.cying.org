@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2022-06-10">
 
-<title>snow and rain - Probability distribution</title>
+<title>Raining - Probability distribution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -143,7 +109,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">snow and rain</span>
+    <span class="navbar-title">Raining</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -199,6 +165,7 @@ window.Quarto = {
   <li><a href="#gamma-分布" id="toc-gamma-分布" class="nav-link" data-scroll-target="#gamma-分布"><span class="math inline">\(\Gamma\)</span> 分布</a></li>
   <li><a href="#beta-分布" id="toc-beta-分布" class="nav-link" data-scroll-target="#beta-分布"><span class="math inline">\(\beta\)</span> 分布</a></li>
   </ul></li>
+  <li><a href="#三大抽样分布" id="toc-三大抽样分布" class="nav-link" data-scroll-target="#三大抽样分布">三大抽样分布</a></li>
   </ul>
 </nav>
     </div>
@@ -314,14 +281,11 @@ window.Quarto = {
 <h1>离散分布</h1>
 <section id="二项分布binomial-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="二项分布binomial-distribution">二项分布(Binomial Distribution)</h2>
-<p>多重伯努利实验中，已知事件 <span class="math inline">\(A\)</span> 成功的概率为 <span class="math inline">\(p\)</span>，且实验次数 <span class="math inline">\(n\)</span> 固定 ，那么随机变量 <span class="math inline">\(X\)</span> —— 事件 <span class="math inline">\(A\)</span> 发生次数 <span class="math inline">\(X\)</span> ： <span class="math display">\[ P(X = k) = C_n^k p^k(1-p)^{n-k}, k = 0,1,...,n. \]</span> 记为：<span class="math display">\[X \sim b(n,p)\]</span> <span class="math display">\[E(X) = np\]</span> <span class="math display">\[ D(X) = np(1-p)\]</span></p>
+<p>多重伯努利实验中，已知事件 <span class="math inline">\(A\)</span> 成功的概率为 <span class="math inline">\(p\)</span>，且实验次数 <span class="math inline">\(n\)</span> 固定 ，那么随机变量 <span class="math inline">\(X\)</span> —— 事件 <span class="math inline">\(A\)</span> 发生次数 <span class="math inline">\(X\)</span> ： <span class="math display">\[ P(X = k) = C_n^k p^k(1-p)^{n-k}, k = 0,1,...,n. \]</span></p>
+<p>记为： <span class="math display">\[
+X \sim b(n,p) \text{ Where } E(X) = np, D(X) = np(1 - p)
+\]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dbinom</span>(x, <span class="dv">100</span>, <span class="fl">0.3</span>), <span class="dv">0</span>, <span class="dv">80</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dbinom</span>(x, <span class="dv">100</span>, <span class="fl">0.5</span>), <span class="dv">0</span>, <span class="dv">80</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">paste0</span>(<span class="st">"probe = "</span>, <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.5</span>)),</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -331,12 +295,6 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pbinom</span>(x, <span class="dv">100</span>, <span class="fl">0.3</span>), <span class="dv">0</span>, <span class="dv">80</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pbinom</span>(x, <span class="dv">100</span>, <span class="fl">0.5</span>), <span class="dv">0</span>, <span class="dv">80</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">paste0</span>(<span class="st">"probe = "</span>, <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.5</span>)),</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -349,7 +307,12 @@ window.Quarto = {
 </section>
 <section id="负二项分布negative-binomial-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="负二项分布negative-binomial-distribution">负二项分布(Negative Binomial Distribution)</h2>
-<p>多重伯努利实验中，已知事件 <span class="math inline">\(A\)</span> 发生的概率为 <span class="math inline">\(p\)</span>，那么当事件 <span class="math inline">\(A\)</span> 第 <span class="math inline">\(r\)</span> 次发生，那么随机变量 <span class="math inline">\(X\)</span> —— 伯努利实验次数： <span class="math display">\[P(X = K) = C_{k-1}^{r-1}p^r(1-p)^{k-r}, k = r,r+1,... \]</span> 记作：<span class="math inline">\(X \sim Nb(r,p)\)</span> <span class="math display">\[E(X) = \frac{r}{p}\]</span> <span class="math display">\[D(X) = \frac{r(1-p)}{p^2}\]</span></p>
+<p>多重伯努利实验中，已知事件 <span class="math inline">\(A\)</span> 发生的概率为 <span class="math inline">\(p\)</span>，那么当事件 <span class="math inline">\(A\)</span> 第 <span class="math inline">\(r\)</span> 次发生，那么随机变量 <span class="math inline">\(X\)</span> —— 伯努利实验次数： <span class="math display">\[
+P(X = K) = C_{k-1}^{r-1}p^r(1-p)^{k-r}, k = r,r+1,...
+\]</span></p>
+<p>记作： <span class="math display">\[
+X \sim Nb(r,p), \text{ Where } E(X) = \frac{r}{p}, D(X) = \frac{r(1-p)}{p^2}
+\]</span></p>
 <p><strong>几何分布(Geometric Distrirution)</strong>为负二项分布的特殊分布 ，即当 <span class="math inline">\(r = 1\)</span> 时的负二项分布。</p>
 <p>记为：</p>
 <p><span class="math display">\[X \sim Ge(p)\]</span></p>
@@ -373,13 +336,6 @@ window.Quarto = {
 <p><span class="math display">\[X \sim N(\mu,\sigma)\]</span> <span class="math display">\[E(X) = \mu\]</span> <span class="math display">\[D(X) = \sigma^2\]</span></p>
 <p>概率密度函数： <span class="math display">\[ p(x) = \frac{1}{\sqrt{2 \pi}\sigma} e^{- \frac{(x - \mu)^2}   {2\sigma^2}} \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x), <span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="dv">0</span>, <span class="dv">2</span>), <span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"topright"</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(<span class="st">"mean = 0, sd = "</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)),</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -390,13 +346,6 @@ window.Quarto = {
 </div>
 <p>分布函数： <span class="math display">\[ F(x) = \int_{-\infty}^x p(t)dt = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}\sigma} e^{- \frac{(t-\mu^2)}{2\sigma}}dt \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pnorm</span>(x, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pnorm</span>(x, <span class="dv">0</span>, <span class="dv">2</span>), <span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"topright"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(<span class="st">"mean = 0, sd = "</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)),</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -416,11 +365,6 @@ f(x) = \begin{cases}
 \end{cases}
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dunif</span>(x), <span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="st">"min = 0, max = 1"</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="st">"red"</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -437,11 +381,6 @@ F(x) = \begin{cases}
 \end{cases}
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">punif</span>(x), <span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="st">"min = 0, max = 1"</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="st">"red"</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -461,12 +400,6 @@ F(x) = \begin{cases}
 f(x; \lambda) = \lambda e^{-\lambda x} \quad \text{for } x \geq 0 \text{ and } \lambda &gt; 0.
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dexp</span>(x), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dexp</span>(x, <span class="at">rate =</span> <span class="dv">2</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">paste0</span>(<span class="st">"rate = "</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)),</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -479,12 +412,6 @@ f(x; \lambda) = \lambda e^{-\lambda x} \quad \text{for } x \geq 0 \text{ and } \
 F(x; \lambda) = 1 - e^{-\lambda x} \quad \text{for } x \geq 0 \text{ and } \lambda &gt; 0.
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pexp</span>(x), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pexp</span>(x, <span class="at">rate =</span> <span class="dv">2</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">paste0</span>(<span class="st">"rate = "</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -503,13 +430,6 @@ f(x; k, \theta) = \frac{x^{k-1}e^{-\frac{x}{\theta}}}{\theta^k \Gamma(k)} \quad 
 \]</span></p>
 <p>其中，<span class="math inline">\(k\)</span> 是形状参数（也称为度数），<span class="math inline">\(\theta\)</span> 是尺度参数（与标准差成比例），而 <span class="math inline">\(\Gamma(k)\)</span> 是伽马函数。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="dv">0</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="dv">1</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="dv">2</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"green"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">paste0</span>(<span class="st">"shape = "</span>, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)),</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -523,13 +443,6 @@ f(x; k, \theta) = \frac{x^{k-1}e^{-\frac{x}{\theta}}}{\theta^k \Gamma(k)} \quad 
 F(x; k, \theta) = \int_0^x \frac{t^{k-1}e^{-\frac{t}{\theta}}}{\theta^k \Gamma(k)} dt = \frac{\gamma(k, \frac{x}{\theta})}{\Gamma(k)} \quad \text{for } x &gt; 0 \text{ and } k, \theta &gt; 0.
 \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pgamma</span>(x, <span class="at">shape =</span> <span class="dv">0</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pgamma</span>(x, <span class="at">shape =</span> <span class="dv">1</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pgamma</span>(x, <span class="at">shape =</span> <span class="dv">2</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"green"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"bottomright"</span>,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">paste0</span>(<span class="st">"shape = "</span>, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)),</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -545,10 +458,48 @@ F(x; k, \theta) = \int_0^x \frac{t^{k-1}e^{-\frac{t}{\theta}}}{\theta^k \Gamma(k
 <p>密度函数</p>
 <p><span class="math display">\[f(x; \alpha, \beta) = \frac{x^{\alpha - 1}(1 - x)^{\beta - 1}}{B(\alpha, \beta)} \quad \text{for } 0 &lt; x &lt; 1 \text{ and } \alpha, \beta &gt; 0,\]</span></p>
 <p>分布函数</p>
-<p><span class="math display">\[F(x; \alpha, \beta) = I_x(\alpha, \beta) = \frac{B_x(\alpha, \beta)}{B(\alpha, \beta)} \quad \text{for } 0 \leq x \leq 1 \text{ and } \alpha, \beta &gt; 0,\]</span></p>
-
-
+<p><span class="math display">\[
+F(x; \alpha, \beta) = I_x(\alpha, \beta) = \frac{B_x(\alpha, \beta)}{B(\alpha, \beta)} \quad \text{for } 0 \leq x \leq 1 \text{ and } \alpha, \beta &gt; 0
+\]</span></p>
 </section>
+</section>
+<section id="三大抽样分布" class="level1">
+<h1>三大抽样分布</h1>
+<p>抽样分布指的是从总体中抽取样本，样本统计量的分布。这里首先给出三大抽样分布构造的定义；</p>
+<p>卡方分布为特殊的伽玛分布，在概率论中其定义如下：</p>
+<p><span class="math display">\[
+\chi = \gamma(\frac{n}{2}, \frac{1}{2})
+\]</span></p>
+<ul>
+<li>若 <span class="math inline">\(\left\{  X_i \right\}_{i=1}^n\)</span> 独立同分布于 <span class="math inline">\(N(0, 1)\)</span>， 那么 <span class="math inline">\(\sum{X_i^2} \sim \chi(n)\)</span>, 其 <span class="math inline">\(E(\chi^2) = n, Var(\chi^2) = 2n\)</span>.</li>
+<li>若有 <span class="math inline">\(\chi_1(m)\)</span>, <span class="math inline">\(\chi_2(n)\)</span>, 那么 <span class="math inline">\(\frac{\frac{\chi_1}{m}}{\frac{\chi_2}{n}} \sim F(m - 1, n -1).\)</span></li>
+<li>若有 <span class="math inline">\(X \sim \mathcal{N}(0, 1)\)</span>， 以及 <span class="math inline">\(\chi\)</span>, 那么 <span class="math inline">\(\frac{X}{\sqrt{\frac{\chi(n)}{n}}} \sim t(n-1)\)</span></li>
+</ul>
+<p>关于抽样分布的几个定理</p>
+<p><strong>定理一</strong></p>
+<p>若 <span class="math inline">\(\left\{ x_i \right\}_{i=1}^n\)</span> 是来自正态总体 <span class="math inline">\(\mathcal{N}(\mu, \sigma^2)\)</span> 的样本，其样本均值和方差分别为</p>
+<p><span class="math display">\[
+\bar{x} = \frac{1}{n}\sum{x_i}, s^2 = \frac{1}{n - 1}\sum{(x - \bar{x})^2}
+\]</span></p>
+<p>则：</p>
+<ol type="1">
+<li><span class="math inline">\(\bar{X}\)</span> 与 <span class="math inline">\(s^2\)</span> 相互独立。</li>
+<li><span class="math inline">\(\bar{X} \sim \mathcal{N}(\mu, \frac{1}{n}\sigma^2) \rightarrow \frac{\bar{X} - \mu}{\sigma \cdot \sqrt{\frac{1}{n}}} \sim \mathcal{N}(0, 1)\)</span></li>
+<li><span class="math inline">\((n-1)\frac{s^2}{\sigma^2} \sim \chi(n)\)</span></li>
+</ol>
+<p><strong>定理二</strong></p>
+<p>若 <span class="math inline">\(x, y\)</span> 分别是来自正态总体 <span class="math inline">\(X, Y\)</span> 的样本，其样本方差分别为 <span class="math inline">\(s_x, s_y\)</span>，则：</p>
+<p><span class="math display">\[
+\frac{s_x^{2}/\sigma_{x}^2}{s_y^{2} / \sigma_y^{2}} \sim F(m - 1, n - 1)
+\]</span></p>
+<p><strong>定理三</strong></p>
+<p>设 <span class="math inline">\(\left\{  X_i \right\}_{i=1}^n\)</span> 是来自正态总体 <span class="math inline">\(\mathcal{N}(\mu, \sigma)\)</span> 的样本，则：</p>
+<p><span class="math display">\[
+\frac{\bar{x} - \mu}{s \cdot \sqrt{\frac{1}{n}}} \sim t(n-1)
+\]</span></p>
+<p>test</p>
+
+
 </section>
 
 </main> <!-- /main -->
