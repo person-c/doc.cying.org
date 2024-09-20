@@ -2,6 +2,6 @@
 title: "."
 ---
 
-This is a Quarto website.
+This is a Quarto website. see Notes [here](https://doc.cying.org/note)
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
