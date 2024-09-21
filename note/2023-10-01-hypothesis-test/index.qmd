@@ -215,7 +215,6 @@ When $\sigma_1 \neq \sigma_2 \text{ or Unknown for it} \rightarrow \text{ Welch'
 
 1. $\upsilon = \frac{(\frac{s_1^2}{m} + \frac{s_2^2}{n})^2}{\frac{s_1^4}{m^2} + \frac{s_2^4}{n^2}}$
 
-### $t \text{Test in R}$
 
 ## $B(n, p)/Po(\lambda) \text{ Test}$
 
@@ -443,6 +442,55 @@ M_c = M/C
 $$
 
 当 $n$ 以及 $a$ 较小时直接查表或精确计算。$n$ 较大时 $M$ 近似服从于 $\chi^2_{a-1}.$
+
+# Correlation ann Linear Regression
+
+## Pearson/Spearman Correlation
+
+考虑两个连续的正态分布变量 $X, Y$, 那么其样本的 Pearson 积差相关系数(product-moment correlation coefficient):
+
+1. $r_p = \frac{\sum(X - \bar{X})(Y - \bar{Y})}{\sqrt{\sum{(X - \bar{X})^2} \sum{(Y - \bar{Y})^2}}}$
+2. $t_r = \frac{r - 0}{S_r},  \upsilon = n -2 \text{ Where } S_r = \sqrt{\frac{1-r^2}{n-2}}$
+
+对于相关有如下注意的问题：
+
+1. 分层数据合并假象，合并分层不改变其相关性时，才可以合并。
+2. 两个变量应该都是随机的，而不是控制一个变量，观察另一个变量的结果。
+
+
+对于非正态分布变量或者总体分布未知变量考虑使用 Spearman 等级相关(rank correlation)。将 $n$ 对观察值 $X_i, Y_i$ 由小到大编秩，则有：
+
+1. $r_s = 1 - \frac{6\sum_{i=1}^{n}d_{i}^2}{n(n^2-1)}$
+2. $t_r = \frac{r - 0}{S_r},  \upsilon = n -2 \text{ Where } S_r = \sqrt{\frac{1-r^2}{n-2}} \text{ When } n \ge 20$
+
+## Simple Linear Regression
+
+简单线性回归，即只有一个自变量的线性回归，其回归方程形式如下：
+
+1. $\hat{Y} = a + bX$
+2. $b  = \frac{\sum{(X - \bar{X})(Y - \bar{Y})}}{\sum{(X - \bar{X})^2}}$, $a = \bar{Y} - b\bar{X}$
+
+对参数 $b$ 有如下 $F$ 检验：
+
+1. $F = \frac{MS_{\text{regression}}}{MS_{\text{residuals}}}, \upsilon_{\text{regression}} = 1, \upsilon_{\text{residuls}} = n - 2$
+
+
+对参数 $b$ 同时有如下 $t$ 检验：
+
+1. $t_b = \frac{b-0}{S_b}, \upsilon = n - 2 \text{ Where } S_b = \frac{\sqrt{\frac{SS_{\text{residules}}}{n - 2}}}{\sqrt{\sum{(X - \bar{X})^2}}}$
+2. $t_b \pm t_{\alpha, \upsilon}(S_b)$
+
+
+对于拟合程度的判断可由决定系数确定：
+
+1. $R^2 = \frac{SS_\text{regressiion}}{SS_{\text{total}}}$
+
+对于拟合的回归方程，确定数值 $X_0$, 那么有：
+
+1. $\mu_{Y|X_0} = \hat{Y_0} \pm t_{\alpha, \upsilon} S\sqrt{\frac{1}{n} + \frac{(X - X_0)^2}{\sum{(X-\bar{X})^2}}}$
+2. $Y_0 = \hat{Y_0} \pm t_{\alpha, \upsilon}S\sqrt{1 + \frac{1}{n} + \frac{(X_0 - \bar{X})^2}{\sum{(X - \bar{X})^2}}}$
+
+利用上面的第二个式子可以进行统计控制，即如果想要将 $Y$ 控制在一定范围，则可以通过控制$X$ 将个体预测值控制在一定范围之中。
 
 # 关于假设检验中若干问题
 
