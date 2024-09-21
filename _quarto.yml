@@ -12,6 +12,7 @@ format:
     css: static/css/font.css
     toc: true
     include-before-body: static/js/font.html
+    self-contained-math: true
 
 
 execute:
