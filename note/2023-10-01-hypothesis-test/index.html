@@ -128,7 +128,6 @@ window.Quarto = {
   <li><a href="#one-smple-t-test" id="toc-one-smple-t-test" class="nav-link" data-scroll-target="#one-smple-t-test">One Smple <span class="math inline">\(t\)</span>-Test</a></li>
   <li><a href="#paired-t-test" id="toc-paired-t-test" class="nav-link" data-scroll-target="#paired-t-test">Paired <span class="math inline">\(t\)</span>-Test</a></li>
   <li><a href="#independent-two-sample-t-test" id="toc-independent-two-sample-t-test" class="nav-link" data-scroll-target="#independent-two-sample-t-test">Independent Two Sample <span class="math inline">\(t\)</span>-Test</a></li>
-  <li><a href="#t-texttest-in-r" id="toc-t-texttest-in-r" class="nav-link" data-scroll-target="#t-texttest-in-r"><span class="math inline">\(t \text{Test in R}\)</span></a></li>
   </ul></li>
   <li><a href="#bn-ppolambda-text-test" id="toc-bn-ppolambda-text-test" class="nav-link" data-scroll-target="#bn-ppolambda-text-test"><span class="math inline">\(B(n, p)/Po(\lambda) \text{ Test}\)</span></a></li>
   <li><a href="#aanlysis-of-variance" id="toc-aanlysis-of-variance" class="nav-link" data-scroll-target="#aanlysis-of-variance">Aanlysis of Variance</a>
@@ -151,6 +150,11 @@ window.Quarto = {
   <li><a href="#wilcoxon-rank-sum-testmann-whitney-test-for-independent-two-samples" id="toc-wilcoxon-rank-sum-testmann-whitney-test-for-independent-two-samples" class="nav-link" data-scroll-target="#wilcoxon-rank-sum-testmann-whitney-test-for-independent-two-samples">Wilcoxon Rank Sum Test/Mann Whitney Test for Independent Two Samples</a></li>
   <li><a href="#annova-for-rank" id="toc-annova-for-rank" class="nav-link" data-scroll-target="#annova-for-rank">ANNOVA for Rank</a></li>
   </ul></li>
+  </ul></li>
+  <li><a href="#correlation-ann-linear-regression" id="toc-correlation-ann-linear-regression" class="nav-link" data-scroll-target="#correlation-ann-linear-regression">Correlation ann Linear Regression</a>
+  <ul class="collapse">
+  <li><a href="#pearsonspearman-correlation" id="toc-pearsonspearman-correlation" class="nav-link" data-scroll-target="#pearsonspearman-correlation">Pearson/Spearman Correlation</a></li>
+  <li><a href="#simple-linear-regression" id="toc-simple-linear-regression" class="nav-link" data-scroll-target="#simple-linear-regression">Simple Linear Regression</a></li>
   </ul></li>
   <li><a href="#关于假设检验中若干问题" id="toc-关于假设检验中若干问题" class="nav-link" data-scroll-target="#关于假设检验中若干问题">关于假设检验中若干问题</a>
   <ul class="collapse">
@@ -418,9 +422,6 @@ window.Quarto = {
 <li><span class="math inline">\(\upsilon = \frac{(\frac{s_1^2}{m} + \frac{s_2^2}{n})^2}{\frac{s_1^4}{m^2} + \frac{s_2^4}{n^2}}\)</span></li>
 </ol>
 </section>
-<section id="t-texttest-in-r" class="level3">
-<h3 class="anchored" data-anchor-id="t-texttest-in-r"><span class="math inline">\(t \text{Test in R}\)</span></h3>
-</section>
 </section>
 <section id="bn-ppolambda-text-test" class="level2">
 <h2 class="anchored" data-anchor-id="bn-ppolambda-text-test"><span class="math inline">\(B(n, p)/Po(\lambda) \text{ Test}\)</span></h2>
@@ -637,6 +638,54 @@ M_c = M/C
 <p>当 <span class="math inline">\(n\)</span> 以及 <span class="math inline">\(a\)</span> 较小时直接查表或精确计算。<span class="math inline">\(n\)</span> 较大时 <span class="math inline">\(M\)</span> 近似服从于 <span class="math inline">\(\chi^2_{a-1}.\)</span></p>
 </section>
 </section>
+</section>
+</section>
+<section id="correlation-ann-linear-regression" class="level1">
+<h1>Correlation ann Linear Regression</h1>
+<section id="pearsonspearman-correlation" class="level2">
+<h2 class="anchored" data-anchor-id="pearsonspearman-correlation">Pearson/Spearman Correlation</h2>
+<p>考虑两个连续的正态分布变量 <span class="math inline">\(X, Y\)</span>, 那么其样本的 Pearson 积差相关系数(product-moment correlation coefficient):</p>
+<ol type="1">
+<li><span class="math inline">\(r_p = \frac{\sum(X - \bar{X})(Y - \bar{Y})}{\sqrt{\sum{(X - \bar{X})^2} \sum{(Y - \bar{Y})^2}}}\)</span></li>
+<li><span class="math inline">\(t_r = \frac{r - 0}{S_r},  \upsilon = n -2 \text{ Where } S_r = \sqrt{\frac{1-r^2}{n-2}}\)</span></li>
+</ol>
+<p>对于相关有如下注意的问题：</p>
+<ol type="1">
+<li>分层数据合并假象，合并分层不改变其相关性时，才可以合并。</li>
+<li>两个变量应该都是随机的，而不是控制一个变量，观察另一个变量的结果。</li>
+</ol>
+<p>对于非正态分布变量或者总体分布未知变量考虑使用 Spearman 等级相关(rank correlation)。将 <span class="math inline">\(n\)</span> 对观察值 <span class="math inline">\(X_i, Y_i\)</span> 由小到大编秩，则有：</p>
+<ol type="1">
+<li><span class="math inline">\(r_s = 1 - \frac{6\sum_{i=1}^{n}d_{i}^2}{n(n^2-1)}\)</span></li>
+<li><span class="math inline">\(t_r = \frac{r - 0}{S_r},  \upsilon = n -2 \text{ Where } S_r = \sqrt{\frac{1-r^2}{n-2}} \text{ When } n \ge 20\)</span></li>
+</ol>
+</section>
+<section id="simple-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="simple-linear-regression">Simple Linear Regression</h2>
+<p>简单线性回归，即只有一个自变量的线性回归，其回归方程形式如下：</p>
+<ol type="1">
+<li><span class="math inline">\(\hat{Y} = a + bX\)</span></li>
+<li><span class="math inline">\(b  = \frac{\sum{(X - \bar{X})(Y - \bar{Y})}}{\sum{(X - \bar{X})^2}}\)</span>, <span class="math inline">\(a = \bar{Y} - b\bar{X}\)</span></li>
+</ol>
+<p>对参数 <span class="math inline">\(b\)</span> 有如下 <span class="math inline">\(F\)</span> 检验：</p>
+<ol type="1">
+<li><span class="math inline">\(F = \frac{MS_{\text{regression}}}{MS_{\text{residuals}}}, \upsilon_{\text{regression}} = 1, \upsilon_{\text{residuls}} = n - 2\)</span></li>
+</ol>
+<p>对参数 <span class="math inline">\(b\)</span> 同时有如下 <span class="math inline">\(t\)</span> 检验：</p>
+<ol type="1">
+<li><span class="math inline">\(t_b = \frac{b-0}{S_b}, \upsilon = n - 2 \text{ Where } S_b = \frac{\sqrt{\frac{SS_{\text{residules}}}{n - 2}}}{\sqrt{\sum{(X - \bar{X})^2}}}\)</span></li>
+<li><span class="math inline">\(t_b \pm t_{\alpha, \upsilon}(S_b)\)</span></li>
+</ol>
+<p>对于拟合程度的判断可由决定系数确定：</p>
+<ol type="1">
+<li><span class="math inline">\(R^2 = \frac{SS_\text{regressiion}}{SS_{\text{total}}}\)</span></li>
+</ol>
+<p>对于拟合的回归方程，确定数值 <span class="math inline">\(X_0\)</span>, 那么有：</p>
+<ol type="1">
+<li><span class="math inline">\(\mu_{Y|X_0} = \hat{Y_0} \pm t_{\alpha, \upsilon} S\sqrt{\frac{1}{n} + \frac{(X - X_0)^2}{\sum{(X-\bar{X})^2}}}\)</span></li>
+<li><span class="math inline">\(Y_0 = \hat{Y_0} \pm t_{\alpha, \upsilon}S\sqrt{1 + \frac{1}{n} + \frac{(X_0 - \bar{X})^2}{\sum{(X - \bar{X})^2}}}\)</span></li>
+</ol>
+<p>利用上面的第二个式子可以进行统计控制，即如果想要将 <span class="math inline">\(Y\)</span> 控制在一定范围，则可以通过控制<span class="math inline">\(X\)</span> 将个体预测值控制在一定范围之中。</p>
 </section>
 </section>
 <section id="关于假设检验中若干问题" class="level1">
