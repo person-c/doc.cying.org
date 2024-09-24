@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -67,7 +67,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -171,45 +171,85 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 <script>
+
   // load font(from yihui.org)
+
   (function (d) {
+
     // https://www.kirupa.com/html5/detect_whether_font_is_installed.htm
+
     let canvas = document.createElement('canvas');
+
     let context = canvas.getContext('2d');
+
     let text = 'abcdefghijklmnopqrstuvwxyz0123456789';
+
     context.font = '72px monospace';
+
     let size = context.measureText(text).width;
+
     let fonts = [' SC', ' CN', ' TC', ' TW', ''];
+
     for (let i = 0; i < fonts.length; i++) {
+
       context.font = "72px '" + 'Source Han Serif' + fonts[i] + "', monospace";
+
       // no need to load TypeKit if Source Hans Serif has been installed
+
       if (context.measureText(text).width != size) return;
+
     }
+
     let config = { kitId: 'kwz5xar', scriptTimeout: 3000, async: true },
+
       h = d.documentElement,
+
       t = setTimeout(function () {
+
         h.className =
+
           h.className.replace(/\bwf-loading\b/g, '') + ' wf-inactive';
+
       }, config.scriptTimeout),
+
       tk = d.createElement('script'),
+
       f = false,
+
       s = d.getElementsByTagName('script')[0],
+
       a;
+
     h.className += ' wf-loading';
+
     tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+
     tk.async = true;
+
     tk.onload = tk.onreadystatechange = function () {
+
       a = this.readyState;
+
       if (f || (a && a != 'complete' && a != 'loaded')) return;
+
       f = true;
+
       clearTimeout(t);
+
       try {
+
         Typekit.load(config);
+
       } catch (e) {}
+
     };
+
     s.parentNode.insertBefore(tk, s);
+
   })(document);
+
 </script>
+
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -526,16 +566,16 @@ window.Quarto = {
 <h1>Non-parametric Statistics</h1>
 <section id="chi2-text-test" class="level2">
 <h2 class="anchored" data-anchor-id="chi2-text-test"><span class="math inline">\(\chi^2 \text{ Test}\)</span></h2>
-<p>卡方检验用于观测变量为无序分类变量时， 用于检验零假设下观测频数与理论频数之间的偏离如此大范围的概率（如果观测变量为有序的分类变量，则该使用秩相关的检验）该方法应用的条件如下：</p>
+<p>卡方检验用于观测变量为无序分类变量时， 用于检验零假设下观测频数与理论频数(将所有组合并为一个组计算出的每个结局的频率分布，然后乘以原组的频数)之间偏离如此大范围的概率（如果观测变量为有序的分类变量，则该使用秩相关的检验）。该方法应用的条件如下：</p>
 <blockquote class="blockquote">
 <ol type="1">
-<li><p>不宜有 <span class="math inline">\(\frac{1}{5}\)</span> 的格子数的理论频数小于 <span class="math inline">\(5\)</span>, 或有一个格子的理论平时小于1，否则将导致分析的偏性。可采取扩大含量，或者合并或者删除不符合条件的数据。后两者会损失信息，样本随机性，可能会影响推断结论。</p></li>
-<li><p>多个样本率（即多分组，观测变量为无序的二分类变量）的比较，显著的差异只能推断出这几组之间由总体的差异，但是不能推出其中两者之间是否存在差异。此时可将不组的数据两两组合重新进行卡方检验进行推断，此时的检验水准的计算公式为 <span class="math inline">\(\frac{\alpha}{k(k-1)/2 + 1}\)</span></p></li>
+<li><p>不宜有 <span class="math inline">\(\frac{1}{5}\)</span> 的格子数的理论频数小于 <span class="math inline">\(5\)</span>, 或有一个格子的理论频数小于1，否则将导致分析的偏性。可采取扩大样本含量，或者合并或者删除不符合条件的数据。后两者会损失信息，样本随机性，可能会影响推断结论。</p></li>
+<li><p>多个样本率（即多分组，观测变量为无序的二分类变量）的比较，显著的差异只能推断出这几组之间有总体的差异，但是不能推出其中两者之间是否存在差异。此时可将不同组的数据两两组合重新进行卡方检验进行推断，此时的检验水准的计算公式为 <span class="math inline">\(\frac{\alpha}{k(k-1)/2 + 1}\)</span></p></li>
 </ol>
 </blockquote>
 <p>考虑一个 <span class="math inline">\(R \cdot  C\)</span> 的列联表</p>
 <ol type="1">
-<li><span class="math inline">\(\chi^2 = \sum\frac{(O - E)^2}{E}, \text{Where} E_{rc}= \frac{n_{r}n_{c}}{n} \rightarrow \chi^2 = n(\sum(\frac{O^2}{n_{r}n_{c}} - 1)\)</span></li>
+<li><span class="math inline">\(\chi^2 = \sum\frac{(O - E)^2}{E}, \text{Where} E_{rc}= \frac{n_{r}n_{c}}{n} \rightarrow \chi^2 = n(\sum\frac{O^2}{n_{r}n_{c}} - 1)\)</span></li>
 </ol>
 <blockquote class="blockquote">
 <ol type="1">
@@ -547,21 +587,19 @@ window.Quarto = {
 <ol type="1">
 <li><span class="math inline">\(\chi^2 = \frac{(ad - bc)^2n}{(a+b)(c+d)(a+c)(b+d)}\)</span></li>
 </ol>
-<p>特别地， 当理论频数存在 <span class="math inline">\(1 &lt; E &lt; 5\)</span> 时有如下的改进：</p>
+<p>特别地， 当理论频数存在 <span class="math inline">\(1 &lt; E &lt; 5\)</span> 时有如下的 Yate correction for continuity：</p>
 <ol type="1">
-<li><span class="math inline">\(\chi^2 = \sum\frac{(\mid O - E \mid - 0.5)^2}{E}\)</span></li>
+<li><span class="math inline">\(\chi^2 = \sum\frac{(\mid O - E \mid - 0.5)^2}{E} = \frac{(|ad - bc| - \frac{n}{2})^2n}{(a+b)(c+d)(a+c)(b+d)}\)</span></li>
 </ol>
 <blockquote class="blockquote">
-<p>实际上Pearson卡方值是正态总体中一种连续性的变量，四格表资料的卡方值为不连续的值，卡方分布仅仅是对表格资料的统计量分布的近似分布。 当四格表中有小于5的期望值时，其卡方值偏大，减去 <span class="math inline">\(0.5\)</span> 进行Yate 的连续性校正公式</p>
+<p>实际上Pearson卡方值是正态总体中一种连续性的变量，四格表资料的卡方值为不连续的值，卡方分布仅仅是对表格资料的统计量分布的近似分布。 当四格表中有小于5的期望值时，其卡方值偏大，减去 <span class="math inline">\(0.5\)</span> 进行Yate 的连续性校正。</p>
 </blockquote>
 <p>若 <span class="math inline">\(n \le 40 \text{ or } E \le 1\)</span> 则采用Fisher确切概率法。</p>
 <ol type="1">
 <li><span class="math inline">\(P = \frac{\binom{a + c}{a}\binom{b + d}{b}}{\binom{n}{a + b}} = \frac{(a+b)!(a+c)!(b+c)!(b+d)!}{a!b!c!d!n!}\)</span></li>
 </ol>
 <blockquote class="blockquote">
-<ol type="1">
-<li>实际上fisher确切概率法给出了 <span class="math inline">\(R * C\)</span> 列联表的确切概率可以用于任意情况的检验；但是这里给出的是某一种情况的概率，为了求得比当前情况都更为极端的差值，在四格表资料中我们比较的两个样本率的比较，因此对于所有率的差值大于原假设的极端情况，我们需要计算所有的概率累加，得到发生如此极端值的概率。</li>
-</ol>
+<p>实际上fisher确切概率法给出了 <span class="math inline">\(R * C\)</span> 列联表的确切概率，可以用于任意情况的检验；但是这里给出的是某一种情况的概率，为了求得比当前情况都更为极端的差值，在四格表资料中我们比较的两个样本率的比较，因此对于所有率的差值大于原假设的极端情况，我们需要计算所有的概率累加，得到发生如此极端值的概率。</p>
 </blockquote>
 <p>当四格表资料为配对设计时，该检验称为 Mc-Nemar Test, 检验两者阳性率是否一致，该值完全由两组中阳性的频数决定，则：</p>
 <ol type="1">
@@ -759,7 +797,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -791,29 +840,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/person-c\.github\.io\/doc\.cying\.org\/");
@@ -821,7 +848,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-06-10">
 
-<title>Probability distribution</title>
+<title>Raining - Slides</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,27 +23,30 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -66,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -97,40 +128,56 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../static/css/font.css">
+<link rel="stylesheet" href="static/css/font.css">
 </head>
 
-<body>
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Raining</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./note.html"> 
+<span class="menu-text">Note</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./slides.html" aria-current="page"> 
+<span class="menu-text">Slides</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#离散分布" id="toc-离散分布" class="nav-link active" data-scroll-target="#离散分布">离散分布</a>
-  <ul class="collapse">
-  <li><a href="#二项分布binomial-distribution" id="toc-二项分布binomial-distribution" class="nav-link" data-scroll-target="#二项分布binomial-distribution">二项分布(Binomial Distribution)</a></li>
-  <li><a href="#负二项分布negative-binomial-distribution" id="toc-负二项分布negative-binomial-distribution" class="nav-link" data-scroll-target="#负二项分布negative-binomial-distribution">负二项分布(Negative Binomial Distribution)</a></li>
-  <li><a href="#超几何分布" id="toc-超几何分布" class="nav-link" data-scroll-target="#超几何分布">超几何分布</a></li>
-  <li><a href="#泊松分布possion-distribution" id="toc-泊松分布possion-distribution" class="nav-link" data-scroll-target="#泊松分布possion-distribution">泊松分布(Possion Distribution)</a></li>
-  </ul></li>
-  <li><a href="#连续分布" id="toc-连续分布" class="nav-link" data-scroll-target="#连续分布">连续分布</a>
-  <ul class="collapse">
-  <li><a href="#正态分布" id="toc-正态分布" class="nav-link" data-scroll-target="#正态分布">正态分布</a></li>
-  <li><a href="#均匀分布" id="toc-均匀分布" class="nav-link" data-scroll-target="#均匀分布">均匀分布</a></li>
-  <li><a href="#指数分布" id="toc-指数分布" class="nav-link" data-scroll-target="#指数分布">指数分布</a></li>
-  <li><a href="#gamma-分布" id="toc-gamma-分布" class="nav-link" data-scroll-target="#gamma-分布"><span class="math inline">\(\Gamma\)</span> 分布</a></li>
-  <li><a href="#beta-分布" id="toc-beta-分布" class="nav-link" data-scroll-target="#beta-分布"><span class="math inline">\(\beta\)</span> 分布</a></li>
-  </ul></li>
-  <li><a href="#三大抽样分布" id="toc-三大抽样分布" class="nav-link" data-scroll-target="#三大抽样分布">三大抽样分布</a></li>
-  </ul>
-</nav>
-    </div>
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 <script>
@@ -216,7 +263,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Probability distribution</h1>
+<h1 class="title">Slides</h1>
 </div>
 
 
@@ -224,12 +271,6 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">June 10, 2022</p>
-    </div>
-  </div>
   
     
   </div>
@@ -239,232 +280,37 @@ window.Quarto = {
 </header>
 
 
-<section id="离散分布" class="level1">
-<h1>离散分布</h1>
-<section id="二项分布binomial-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="二项分布binomial-distribution">二项分布(Binomial Distribution)</h2>
-<p>多重伯努利实验中，已知事件 <span class="math inline">\(A\)</span> 成功的概率为 <span class="math inline">\(p\)</span>，且实验次数 <span class="math inline">\(n\)</span> 固定 ，那么随机变量 <span class="math inline">\(X\)</span> —— 事件 <span class="math inline">\(A\)</span> 发生次数 <span class="math inline">\(X\)</span> ： <span class="math display">\[ P(X = k) = C_n^k p^k(1-p)^{n-k}, k = 0,1,...,n. \]</span></p>
-<p>记为： <span class="math display">\[
-X \sim b(n,p) \text{ Where } E(X) = np, D(X) = np(1 - p)
-\]</span></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>两点分布(Bernoulli Distribution)</strong> ，即一重伯努利实验,为二项分布的特殊分布。</p>
-</section>
-<section id="负二项分布negative-binomial-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="负二项分布negative-binomial-distribution">负二项分布(Negative Binomial Distribution)</h2>
-<p>多重伯努利实验中，已知事件 <span class="math inline">\(A\)</span> 发生的概率为 <span class="math inline">\(p\)</span>，那么当事件 <span class="math inline">\(A\)</span> 第 <span class="math inline">\(r\)</span> 次发生，那么随机变量 <span class="math inline">\(X\)</span> —— 伯努利实验次数： <span class="math display">\[
-P(X = K) = C_{k-1}^{r-1}p^r(1-p)^{k-r}, k = r,r+1,...
-\]</span></p>
-<p>记作： <span class="math display">\[
-X \sim Nb(r,p), \text{ Where } E(X) = \frac{r}{p}, D(X) = \frac{r(1-p)}{p^2}
-\]</span></p>
-<p><strong>几何分布(Geometric Distrirution)</strong>为负二项分布的特殊分布 ，即当 <span class="math inline">\(r = 1\)</span> 时的负二项分布。</p>
-<p>记为：</p>
-<p><span class="math display">\[X \sim Ge(p)\]</span></p>
-</section>
-<section id="超几何分布" class="level2">
-<h2 class="anchored" data-anchor-id="超几何分布">超几何分布</h2>
-<p>不放回的随机抽样，设有<span class="math inline">\(N\)</span>件产品，其中中<span class="math inline">\(M\)</span>件不合格品，从中不放回的随机抽取<span class="math inline">\(n\)</span>件，则其中的不合格的件数服从超几何分布： <span class="math display">\[P(X = k) = \frac{C_M^K C_{N-M}^{n-k}}{C_N^n} \]</span><br>
-记为：<span class="math inline">\(X \sim h(n,N,M)\)</span> <span class="math display">\[E(X) = n\frac{M}{N}\]</span> <span class="math display">\[D(X) = \frac{nM(N-M)(N-n)}{N^2(N-1)}\]</span></p>
-</section>
-<section id="泊松分布possion-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="泊松分布possion-distribution">泊松分布(Possion Distribution)</h2>
-<p>涉及到单位时间，面积，体积的计数过程，数量<span class="math inline">\(X\)</span>: <span class="math display">\[ P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!}  \]</span></p>
-<p>记为： <span class="math display">\[ X \sim  P(\lambda) \]</span> <span class="math display">\[E(X) = \lambda\]</span> <span class="math display">\[D(X) = \lambda\]</span></p>
-</section>
-</section>
-<section id="连续分布" class="level1">
-<h1>连续分布</h1>
-<section id="正态分布" class="level2">
-<h2 class="anchored" data-anchor-id="正态分布">正态分布</h2>
-<p>正态分布含有两个参数 <span class="math inline">\(\mu\)</span>，<span class="math inline">\(\sigma\)</span>, 其中 <span class="math inline">\(\mu\)</span> 为位置参数，控制曲线在 <span class="math inline">\(x\)</span> 轴上的位置；<span class="math inline">\(\sigma\)</span>为尺度参数，用于控制曲线的参数。 记为：</p>
-<p><span class="math display">\[X \sim N(\mu,\sigma)\]</span> <span class="math display">\[E(X) = \mu\]</span> <span class="math display">\[D(X) = \sigma^2\]</span></p>
-<p>概率密度函数： <span class="math display">\[ p(x) = \frac{1}{\sqrt{2 \pi}\sigma} e^{- \frac{(x - \mu)^2}   {2\sigma^2}} \]</span></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>分布函数： <span class="math display">\[ F(x) = \int_{-\infty}^x p(t)dt = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}\sigma} e^{- \frac{(t-\mu^2)}{2\sigma}}dt \]</span></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="均匀分布" class="level2">
-<h2 class="anchored" data-anchor-id="均匀分布">均匀分布</h2>
-<p>记为： <span class="math display">\[X \sim U(a,b)\]</span> <span class="math display">\[E(X) = \frac{a+b}{2}\]</span> <span class="math display">\[D(X) = \frac{(b-a)^2}{12}\]</span></p>
-<p><span class="math display">\[
-f(x) = \begin{cases}
-\frac{1}{b - a} &amp; \text{for } a \leq x \leq b, \\
-0 &amp; \text{otherwise}.
-\end{cases}
-\]</span></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><span class="math display">\[
-F(x) = \begin{cases}
-0 &amp; \text{for } x &lt; a, \\
-\frac{x - a}{b - a} &amp; \text{for } a \leq x &lt; b, \\
-1 &amp; \text{for } x \geq b.
-\end{cases}
-\]</span></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="指数分布" class="level2">
-<h2 class="anchored" data-anchor-id="指数分布">指数分布</h2>
-<p>记为： <span class="math display">\[X \sim Exp(\lambda)\]</span></p>
-<p><span class="math display">\[E(X) = \frac{1}{\lambda}\]</span></p>
-<p><span class="math display">\[D(x) = \frac{1}{\lambda^2}\]</span></p>
-<p>密度函数</p>
-<p><span class="math display">\[
-f(x; \lambda) = \lambda e^{-\lambda x} \quad \text{for } x \geq 0 \text{ and } \lambda &gt; 0.
-\]</span></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><span class="math display">\[
-F(x; \lambda) = 1 - e^{-\lambda x} \quad \text{for } x \geq 0 \text{ and } \lambda &gt; 0.
-\]</span></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="gamma-分布" class="level2">
-<h2 class="anchored" data-anchor-id="gamma-分布"><span class="math inline">\(\Gamma\)</span> 分布</h2>
-<p>记为：<span class="math inline">\(X \sim Ga(\alpha,\lambda)\)</span> <span class="math inline">\(E(X) = \frac{\alpha}{\lambda}\)</span>， <span class="math inline">\(D(X) = \frac{\alpha}{\lambda^2}\)</span></p>
-<p>密度函数</p>
-<p><span class="math display">\[
-f(x; k, \theta) = \frac{x^{k-1}e^{-\frac{x}{\theta}}}{\theta^k \Gamma(k)} \quad \text{for } x &gt; 0 \text{ and } k, \theta &gt; 0.
-\]</span></p>
-<p>其中，<span class="math inline">\(k\)</span> 是形状参数（也称为度数），<span class="math inline">\(\theta\)</span> 是尺度参数（与标准差成比例），而 <span class="math inline">\(\Gamma(k)\)</span> 是伽马函数。</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>分布函数</p>
-<p><span class="math display">\[
-F(x; k, \theta) = \int_0^x \frac{t^{k-1}e^{-\frac{t}{\theta}}}{\theta^k \Gamma(k)} dt = \frac{\gamma(k, \frac{x}{\theta})}{\Gamma(k)} \quad \text{for } x &gt; 0 \text{ and } k, \theta &gt; 0.
-\]</span></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="beta-分布" class="level2">
-<h2 class="anchored" data-anchor-id="beta-分布"><span class="math inline">\(\beta\)</span> 分布</h2>
-<p>记为：<span class="math inline">\(X \sim Be(a,b)\)</span> <span class="math inline">\(E(X) = \frac{a}{a+b}\)</span>， <span class="math inline">\(D(x) = \frac{ab}{(a+b)^2 (a+b+1)}\)</span></p>
-<p>密度函数</p>
-<p><span class="math display">\[f(x; \alpha, \beta) = \frac{x^{\alpha - 1}(1 - x)^{\beta - 1}}{B(\alpha, \beta)} \quad \text{for } 0 &lt; x &lt; 1 \text{ and } \alpha, \beta &gt; 0,\]</span></p>
-<p>分布函数</p>
-<p><span class="math display">\[
-F(x; \alpha, \beta) = I_x(\alpha, \beta) = \frac{B_x(\alpha, \beta)}{B(\alpha, \beta)} \quad \text{for } 0 \leq x \leq 1 \text{ and } \alpha, \beta &gt; 0
-\]</span></p>
-</section>
-</section>
-<section id="三大抽样分布" class="level1">
-<h1>三大抽样分布</h1>
-<p>抽样分布指的是从总体中抽取样本，样本统计量的分布。这里首先给出三大抽样分布构造的定义；</p>
-<p>卡方分布为特殊的伽玛分布，在概率论中其定义如下：</p>
-<p><span class="math display">\[
-\chi = \gamma(\frac{n}{2}, \frac{1}{2})
-\]</span></p>
-<ul>
-<li>若 <span class="math inline">\(\left\{  X_i \right\}_{i=1}^n\)</span> 独立同分布于 <span class="math inline">\(N(0, 1)\)</span>， 那么 <span class="math inline">\(\sum{X_i^2} \sim \chi(n)\)</span>, 其 <span class="math inline">\(E(\chi^2) = n, Var(\chi^2) = 2n\)</span>.</li>
-<li>若有 <span class="math inline">\(\chi_1(m)\)</span>, <span class="math inline">\(\chi_2(n)\)</span>, 那么 <span class="math inline">\(\frac{\frac{\chi_1}{m}}{\frac{\chi_2}{n}} \sim F(m - 1, n -1).\)</span></li>
-<li>若有 <span class="math inline">\(X \sim \mathcal{N}(0, 1)\)</span>， 以及 <span class="math inline">\(\chi\)</span>, 那么 <span class="math inline">\(\frac{X}{\sqrt{\frac{\chi(n)}{n}}} \sim t(n-1)\)</span></li>
-</ul>
-<p>关于抽样分布的几个定理</p>
-<p><strong>定理一</strong></p>
-<p>若 <span class="math inline">\(\left\{ x_i \right\}_{i=1}^n\)</span> 是来自正态总体 <span class="math inline">\(\mathcal{N}(\mu, \sigma^2)\)</span> 的样本，其样本均值和方差分别为</p>
-<p><span class="math display">\[
-\bar{x} = \frac{1}{n}\sum{x_i}, s^2 = \frac{1}{n - 1}\sum{(x - \bar{x})^2}
-\]</span></p>
-<p>则：</p>
-<ol type="1">
-<li><span class="math inline">\(\bar{X}\)</span> 与 <span class="math inline">\(s^2\)</span> 相互独立。</li>
-<li><span class="math inline">\(\bar{X} \sim \mathcal{N}(\mu, \frac{1}{n}\sigma^2) \rightarrow \frac{\bar{X} - \mu}{\sigma \cdot \sqrt{\frac{1}{n}}} \sim \mathcal{N}(0, 1)\)</span></li>
-<li><span class="math inline">\((n-1)\frac{s^2}{\sigma^2} \sim \chi(n)\)</span></li>
-</ol>
-<p><strong>定理二</strong></p>
-<p>若 <span class="math inline">\(x, y\)</span> 分别是来自正态总体 <span class="math inline">\(X, Y\)</span> 的样本，其样本方差分别为 <span class="math inline">\(s_x, s_y\)</span>，则：</p>
-<p><span class="math display">\[
-\frac{s_x^{2}/\sigma_{x}^2}{s_y^{2} / \sigma_y^{2}} \sim F(m - 1, n - 1)
-\]</span></p>
-<p><strong>定理三</strong></p>
-<p>设 <span class="math inline">\(\left\{  X_i \right\}_{i=1}^n\)</span> 是来自正态总体 <span class="math inline">\(\mathcal{N}(\mu, \sigma)\)</span> 的样本，则：</p>
-<p><span class="math display">\[
-\frac{\bar{x} - \mu}{s \cdot \sqrt{\frac{1}{n}}} \sim t(n-1)
-\]</span></p>
-<p>test</p>
 
 
-</section>
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1726761690144" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<a href="./slides/2023-09-10-introduction/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Introduction
+</h5>
+<div class="card-text listing-description">
+
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
