@@ -1,5 +1,5 @@
 ---
-title: "Liner dimension reduction"
+title: "Liner Dimension Reduction"
 date: "2022-08-10"
 format:
     html: 

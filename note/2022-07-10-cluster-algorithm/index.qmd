@@ -1,5 +1,5 @@
 ---
-title: "Cluster algorithm"
+title: "Cluster Algorithm"
 date: "2022-07-10"
 format:
     html: 
