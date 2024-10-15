@@ -1,16 +1,6 @@
 ---
 title: 'Linear Algebra'
 date: "2024-07-01"
-format:
-    html: 
-      self-contained: false
-      grid: 
-        margin-width: 350px
-execute: 
-  echo: true
-toc: true
-reference-location: margin
-citation-location: margin
 ---
 
 
@@ -87,10 +77,10 @@ Where $A_{ik}$ is the element in the $i$th row and $k$th column of matrix $A$, a
 空间位置不能变，时间次序可以变。
 
 $$
-\begin{align*}
+\begin{aligned}
 2x_1 + 3x_2 &= 8 \\
 x_1 - x_2 &= 1 \\
-\end{align*}
+\end{aligned}
 $$
 
 Can be represented in matrix form as:
@@ -165,21 +155,19 @@ $$
 ## 矩阵的逆与矩阵的初等变化
 
 $$
-\begin{equation}
 A_{n}B_{n} = B_{n}A_{n} = E_n
-\end{equation}
 $$
 
 逆只能存在方阵之中，且不一定可逆。逆具有唯一性。
 
 $$
-\begin{align*}
+\begin{aligned}
 (A^{-1})^{-1} &= A \\
 (A + B)^{-1} &= ? \\
 (kA)^{-1} &= k^{-1}A^{-1} \\
 (AB)^{-1} &= B^{-1}A^{-1} \\
 (A^{-1})^T &= (A^T)^{-1}
-\end{align*}
+\end{aligned}
 $$
 
 矩阵逆运算规律如上。矩阵的上标运算可以任意交换位置。
@@ -188,7 +176,6 @@ $$
 **矩阵初等变换** 实际上就是方程组系数消元的抽象过程，初等变换的一系列矩阵称为等价矩阵。
 
 $$
-\begin{equation}
 \begin{bmatrix}
 1 & 0 \\
 0 & 1
@@ -198,7 +185,6 @@ $$
 0 & 1 \\
 1 & 0
 \end{bmatrix}
-\end{equation}
 $$
 
 **初等方阵** 单位矩阵 $E$ 经过一次初等变换所形成的方阵$P$。 若 $P$ 为初等方阵， $PA=B$， 则$A \rightarrow B$的变化等价于 $E \rightarrow P$ 的初等行变换。若$AP = B$， 则 $A \rightarrow B$ 等价于 $E \rightarrow P$ 的初等列变换。实际上这里描述的是一个初等变换可由一个初等方阵来定义；从矩阵乘法的行视角来看，就是对右侧矩阵行向量的线性组合。
@@ -212,7 +198,6 @@ $$
 3. 将单位矩阵的第 $i$ 行加上第 $j$ 行的 $k$ 倍得到的初等矩阵 $E_{ij}(k)$，其逆矩阵是将第 $i$ 行减去第 $j$ 行的 $k$ 倍， 即 $E_{ij}(k)^{-1} = E_{ij}(-k)$。
 
 $$
-\begin{equation}
 \begin{bmatrix}
 a_{11} & a_{12} & 1 & 0 \\
 a_{21} & a_{22} & 0 & 1
@@ -222,7 +207,6 @@ a_{21} & a_{22} & 0 & 1
 1 & 0 & a_{11}^{-1} & -a_{12}a_{11}^{-1} \\
 0 & 1 & -a_{21}a_{11}^{-1} & a_{11}^{-1}(a_{11}a_{22}-a_{12}a_{21})
 \end{bmatrix}
-\end{equation}
 $$
 
 **逆矩阵的求法** 将矩阵经过初等变换为单位矩阵，同样的变化作用于单位矩阵的结果就是其逆矩阵。

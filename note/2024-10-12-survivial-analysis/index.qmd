@@ -46,10 +46,10 @@ $n年生存率 = \frac{活满n年的人数}{观察满n年的人数} \cdot 100 \%
 那么，其 $n$ 年生存率：
 
 $$
-\begin{align}
+\begin{aligned}
 _{n}P_{0} =& \prod_{x = 0}^{n-1} p_x \\
 S_{_{n}P_{0}} =& _{n}P_{0} \cdot \sqrt{\sum_{i = 0}^{n-1}{\frac{q_i}{p_i \cdot N_i}}}
-\end{align}
+\end{aligned}
 $$
 
 

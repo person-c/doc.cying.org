@@ -1,16 +1,6 @@
 ---
 title: "Data Tricks"
 date: "2023-10-15"
-format:
-    html: 
-      self-contained: false
-      grid: 
-        margin-width: 350px
-execute: 
-  echo: true
-toc: true
-reference-location: margin
-citation-location: margin
 ---
 
 # 参数统计中常用的数据变换

@@ -1,16 +1,6 @@
 ---
 title: "Probability Distribution"
 date: "2022-06-10"
-format:
-    html: 
-      self-contained: false
-      grid: 
-        margin-width: 350px
-execute: 
-  echo: false
-toc: true
-reference-location: margin
-citation-location: margin
 ---
 
 ```{r setup, include = FALSE}

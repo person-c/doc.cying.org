@@ -1,28 +1,7 @@
 ---
 title: "Xgboost"
 date: "2022-10-07"
-format:
-    html: 
-      self-contained: false
-      grid: 
-        margin-width: 350px
-execute: 
-  echo: true
-toc: true
-reference-location: margin
-citation-location: margin
 ---
-
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  echo = FALSE,
-  message = FALSE,
-  warning = FALSE,
-  cache = TRUE
-)
-```
 
 # 基模型
 
@@ -64,7 +43,7 @@ Note: 对于回归树而言，样本在某个节点的预测值就是该节点�
 
   在所有的观测值都为一类的时候，Gini不纯度的度量都为0.因此，所选择的拆分变量是使得父节点Gini不纯度和子节点的Gini不纯度差别最大的变量。子节点的Gini不纯度应该用各个子节点观测值数目比例对各个节点的Gini不纯度的加权平均来计算。
 
-何时停止树的生长按照某些确定的误判函数计算。例如控制参数cp，如果纯度改变达不到它的值，就不会再分叉了。另外还有一个复杂性（complexity parameter）的量$\alpha \in [0, \infi)$, 计算每增加一个变量到模型中的损失。
+何时停止树的生长按照某些确定的误判函数计算。例如控制参数cp，如果纯度改变达不到它的值，就不会再分叉了。另外还有一个复杂性（complexity parameter）的量 $\alpha \in [0, \infty)$, 计算每增加一个变量到模型中的损失。
 
 再如，从长成的树的终节点开始剪枝，每剪一次，看看误差是不是增加，如果超过要求则停止剪枝。
 

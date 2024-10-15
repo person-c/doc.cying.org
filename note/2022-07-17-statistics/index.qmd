@@ -1,16 +1,6 @@
 ---
 title: "Statistics"
 date: "2022-07-17"
-format:
-    html: 
-      self-contained: false
-      grid: 
-        margin-width: 350px
-execute: 
-  echo: true
-toc: true
-reference-location: margin
-citation-location: margin
 ---
 
 ```{r setup, include = FALSE}

@@ -1,16 +1,6 @@
 ---
 title: "Liner Dimension Reduction"
 date: "2022-08-10"
-format:
-    html: 
-      self-contained: false
-      grid: 
-        margin-width: 350px
-execute: 
-  echo: true
-toc: true
-reference-location: margin
-citation-location: margin
 ---
 
 

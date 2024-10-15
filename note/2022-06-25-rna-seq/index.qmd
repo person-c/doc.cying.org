@@ -1,16 +1,6 @@
 ---
 title: "RNA Seq"
 date: "2022-06-25"
-format:
-    html: 
-      self-contained: false
-      grid: 
-        margin-width: 350px
-execute: 
-  echo: true
-toc: true
-reference-location: margin
-citation-location: margin
 ---
 
 

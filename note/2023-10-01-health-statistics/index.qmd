@@ -1,17 +1,6 @@
 ---
 title: "Health Statistics"
 date: "2023-10-01"
-format:
-    html: 
-      self-contained: false
-      css: style.css
-      grid: 
-        margin-width: 350px
-execute: 
-  echo: false
-toc: true
-reference-location: margin
-citation-location: margin
 ---
 
 ------------------------------------------------------------------------
@@ -242,9 +231,13 @@ $$
 1. $\bar{x} \sim \mathcal{N}(\mu, \frac{1}{n}\sigma^2)  \rightarrow \frac{\bar{x} - \mu}{\sigma \cdot \sqrt{\frac{1}{n}}} \sim \mathcal{N}(0, 1)$
 2. $\frac{\bar{x} - \mu}{s \cdot \sqrt{\frac{1}{n}}} \sim t(n-1)$
 
+应用条件：
+
+1. 小样本正态分布，大样本。
+
 ### Paired $t$-Test
 
-$t(\upsilon) = \frac{\mid\bar{d} - 0 \mid}{s_\bar{d}} = \frac{\bar{d}}{s_\bar{d}}, \text{Where } \upsilon = 对子数 - 1, s_{\bar{d}} = s_d \cdot \sqrt{\frac{1}{n}}$
+$t(\upsilon) = \frac{\left|\bar{d} - 0\right|}{s_{\bar{d}}} = \frac{\bar{d}}{s_{\bar{d}}}, \text{ where } \upsilon = \text{对子数} - 1, s_{\bar{d}} = s_d \cdot \sqrt{\frac{1}{n}}$
 
 证明：
 
@@ -566,9 +559,4 @@ $$
 ## 假设检验与线性回归参数检验的等效性
 
 
-# 总结
-
-```{r}
-knitr::include_graphics("hypothesis-test01.svg")
-```
 
