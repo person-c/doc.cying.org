@@ -157,7 +157,7 @@ window.Quarto = {
   </ul></li>
   </ul></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -286,10 +286,10 @@ a_{11} &amp; 0 &amp; 0 \\
 </ul>
 <p>空间位置不能变，时间次序可以变。</p>
 <p><span class="math display">\[
-\begin{align*}
+\begin{aligned}
 2x_1 + 3x_2 &amp;= 8 \\
 x_1 - x_2 &amp;= 1 \\
-\end{align*}
+\end{aligned}
 \]</span></p>
 <p>Can be represented in matrix form as:</p>
 <p><span class="math display">\[
@@ -353,24 +353,21 @@ a_{1n} &amp; a_{2n} &amp; \cdots &amp; a_{mn} \\
 <section id="矩阵的逆与矩阵的初等变化" class="level2">
 <h2 class="anchored" data-anchor-id="矩阵的逆与矩阵的初等变化">矩阵的逆与矩阵的初等变化</h2>
 <p><span class="math display">\[
-\begin{equation}
 A_{n}B_{n} = B_{n}A_{n} = E_n
-\end{equation}
 \]</span></p>
 <p>逆只能存在方阵之中，且不一定可逆。逆具有唯一性。</p>
 <p><span class="math display">\[
-\begin{align*}
+\begin{aligned}
 (A^{-1})^{-1} &amp;= A \\
 (A + B)^{-1} &amp;= ? \\
 (kA)^{-1} &amp;= k^{-1}A^{-1} \\
 (AB)^{-1} &amp;= B^{-1}A^{-1} \\
 (A^{-1})^T &amp;= (A^T)^{-1}
-\end{align*}
+\end{aligned}
 \]</span></p>
 <p>矩阵逆运算规律如上。矩阵的上标运算可以任意交换位置。</p>
 <p><strong>矩阵初等变换</strong> 实际上就是方程组系数消元的抽象过程，初等变换的一系列矩阵称为等价矩阵。</p>
 <p><span class="math display">\[
-\begin{equation}
 \begin{bmatrix}
 1 &amp; 0 \\
 0 &amp; 1
@@ -380,7 +377,6 @@ A_{n}B_{n} = B_{n}A_{n} = E_n
 0 &amp; 1 \\
 1 &amp; 0
 \end{bmatrix}
-\end{equation}
 \]</span></p>
 <p><strong>初等方阵</strong> 单位矩阵 <span class="math inline">\(E\)</span> 经过一次初等变换所形成的方阵<span class="math inline">\(P\)</span>。 若 <span class="math inline">\(P\)</span> 为初等方阵， <span class="math inline">\(PA=B\)</span>， 则<span class="math inline">\(A \rightarrow B\)</span>的变化等价于 <span class="math inline">\(E \rightarrow P\)</span> 的初等行变换。若<span class="math inline">\(AP = B\)</span>， 则 <span class="math inline">\(A \rightarrow B\)</span> 等价于 <span class="math inline">\(E \rightarrow P\)</span> 的初等列变换。实际上这里描述的是一个初等变换可由一个初等方阵来定义；从矩阵乘法的行视角来看，就是对右侧矩阵行向量的线性组合。</p>
 <p>那么有初等方阵的逆矩阵：</p>
@@ -390,7 +386,6 @@ A_{n}B_{n} = B_{n}A_{n} = E_n
 <li><p>将单位矩阵的第 <span class="math inline">\(i\)</span> 行加上第 <span class="math inline">\(j\)</span> 行的 <span class="math inline">\(k\)</span> 倍得到的初等矩阵 <span class="math inline">\(E_{ij}(k)\)</span>，其逆矩阵是将第 <span class="math inline">\(i\)</span> 行减去第 <span class="math inline">\(j\)</span> 行的 <span class="math inline">\(k\)</span> 倍， 即 <span class="math inline">\(E_{ij}(k)^{-1} = E_{ij}(-k)\)</span>。</p></li>
 </ol>
 <p><span class="math display">\[
-\begin{equation}
 \begin{bmatrix}
 a_{11} &amp; a_{12} &amp; 1 &amp; 0 \\
 a_{21} &amp; a_{22} &amp; 0 &amp; 1
@@ -400,7 +395,6 @@ a_{21} &amp; a_{22} &amp; 0 &amp; 1
 1 &amp; 0 &amp; a_{11}^{-1} &amp; -a_{12}a_{11}^{-1} \\
 0 &amp; 1 &amp; -a_{21}a_{11}^{-1} &amp; a_{11}^{-1}(a_{11}a_{22}-a_{12}a_{21})
 \end{bmatrix}
-\end{equation}
 \]</span></p>
 <p><strong>逆矩阵的求法</strong> 将矩阵经过初等变换为单位矩阵，同样的变化作用于单位矩阵的结果就是其逆矩阵。</p>
 </section>

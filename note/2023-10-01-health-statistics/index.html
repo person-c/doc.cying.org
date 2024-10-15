@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2023-10-01">
 
-<title>Hypothesis Test</title>
+<title>Health Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,7 +98,6 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../static/css/font.css">
-<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -118,7 +117,11 @@ window.Quarto = {
   <li><a href="#数值变量" id="toc-数值变量" class="nav-link" data-scroll-target="#数值变量">数值变量</a></li>
   <li><a href="#分类变量" id="toc-分类变量" class="nav-link" data-scroll-target="#分类变量">分类变量</a></li>
   </ul></li>
+  <li><a href="#实验设计与调查研究" id="toc-实验设计与调查研究" class="nav-link" data-scroll-target="#实验设计与调查研究">实验设计与调查研究</a>
+  <ul class="collapse">
   <li><a href="#实验设计" id="toc-实验设计" class="nav-link" data-scroll-target="#实验设计">实验设计</a></li>
+  <li><a href="#调查研究" id="toc-调查研究" class="nav-link" data-scroll-target="#调查研究">调查研究</a></li>
+  </ul></li>
   <li><a href="#parametric-statistics" id="toc-parametric-statistics" class="nav-link" data-scroll-target="#parametric-statistics">Parametric Statistics</a>
   <ul class="collapse">
   <li><a href="#sampling-distribution-for-chi2-f-t" id="toc-sampling-distribution-for-chi2-f-t" class="nav-link" data-scroll-target="#sampling-distribution-for-chi2-f-t">Sampling Distribution for <span class="math inline">\(\chi^2, F, t\)</span></a></li>
@@ -164,9 +167,8 @@ window.Quarto = {
   <li><a href="#统计量计算的bootstrap以及置换检验" id="toc-统计量计算的bootstrap以及置换检验" class="nav-link" data-scroll-target="#统计量计算的bootstrap以及置换检验">统计量计算的Bootstrap以及置换检验</a></li>
   <li><a href="#假设检验与线性回归参数检验的等效性" id="toc-假设检验与线性回归参数检验的等效性" class="nav-link" data-scroll-target="#假设检验与线性回归参数检验的等效性">假设检验与线性回归参数检验的等效性</a></li>
   </ul></li>
-  <li><a href="#总结" id="toc-总结" class="nav-link" data-scroll-target="#总结">总结</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -213,7 +215,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hypothesis Test</h1>
+<h1 class="title">Health Statistics</h1>
 </div>
 
 
@@ -242,33 +244,86 @@ window.Quarto = {
 <p>首先了解数据的频数分布，选用合适的集中以及离散趋势描述数据。</p>
 <section id="数值变量" class="level2">
 <h2 class="anchored" data-anchor-id="数值变量">数值变量</h2>
-<p>频数分布图形： range / n 取整数。</p>
+<p>频数表的编制：</p>
+<ol type="1">
+<li>求全距。</li>
+<li>确定组数, <span class="math inline">\(range / n\)</span> 取整 <span class="math inline">\([x, x + n)\)</span>。</li>
+<li>列表划计。</li>
+</ol>
 <ul>
-<li><p>正态分布数据选用算术均值，方差/标准差/变异系数描述其分布。</p>
-<p>理论公式：<br>
-计算公式：</p></li>
+<li>对称或者正态分布数据选用算术均值描述其均值，方差/标准差/变异系数描述其离散程度。</li>
 </ul>
 <blockquote class="blockquote">
-<p>标准差，变异系数是同单位的。变异系数用于不同尺度，均值相差较大的数据。 方差/标准差/变异系数的计算都依赖于均值的计算。</p>
+<p>标准差，变异系数是同单位的。变异系数用于不同尺度，均值相差较大的数据直接相互比较。 方差/标准差/变异系数的计算都依赖于均值的计算。</p>
+<ol type="1">
+<li><span class="math inline">\(CV = \frac{S}{\bar{X}} \cdot 100\%\)</span></li>
+</ol>
 </blockquote>
 <ul>
-<li><p>对数正态分布数据选用几何均值，全距/四分位数。</p>
-<p>理论公式：<br>
-计算公式：</p></li>
-<li><p>任意其它分布选用中位数，全距/四分位数</p></li>
+<li>对数正态分布数据, 例如抗体的几何滴度，细菌计数等，选用几何均值描述其分布，全距/四分位数描述其离散趋势。</li>
 </ul>
+<ol type="1">
+<li><span class="math inline">\(G  = (\prod{X})^{\frac{1}{n}} \rightarrow 10^{\frac{\sum{lgX}}{n}}\)</span></li>
+</ol>
+<ul>
+<li>任意其它分布选用中位数，全距/四分位数</li>
+</ul>
+<ol type="1">
+<li><span class="math inline">\(M = L + \frac{i}{f_X}(n \cdot X\% - \sum{f_L})\)</span></li>
+</ol>
 </section>
 <section id="分类变量" class="level2">
 <h2 class="anchored" data-anchor-id="分类变量">分类变量</h2>
-<p>分类变量数据主要依赖于各种相对数描述，包括proportion, rate, ration.其中rate主要涉及到时间的概念。</p>
-<blockquote class="blockquote">
-<p>数据的标准化法 直接化法，按总人口统一人口数。 间接法， 每组死亡人数与预期死亡人数之比互相比较。</p>
-<p>动态数列 定基/环比，变化/增长（-1），平均发展速度，平均变化速度。</p>
-</blockquote>
+<p>分类变量数据主要依赖于各种相对数描述，包括比例（proportion），速率（rate）， 相对比（ratio）. 其中rate主要涉及到时间的概念，需要注意孕妇死亡率等是相对比指标。</p>
+<p>数据的标准化法：</p>
+<ol type="1">
+<li>直接化法，按总人口统一人口数，等价于对每组分层数据的率求均值-即每组中每个分层的权重都一致。</li>
+<li>间接法， 依据标准化率计算不同组的理论值，实际值与理论值之比即得到标准化死亡比（standard mortality ration, SMR）, 进而求得当地的标准化死亡率 <span class="math inline">\(p' = p \cdot SMR\)</span>.</li>
+</ol>
+<p>动态数列：定基/环比，变化/增长（-1），平均发展速度/平均变化速度(-1)。</p>
 </section>
 </section>
-<section id="实验设计" class="level1">
-<h1>实验设计</h1>
+<section id="实验设计与调查研究" class="level1">
+<h1>实验设计与调查研究</h1>
+<section id="实验设计" class="level2">
+<h2 class="anchored" data-anchor-id="实验设计">实验设计</h2>
+<p>医学实验的特点：最终对象是人</p>
+<ol type="1">
+<li>人具有生物学和社会学属性。</li>
+<li>人的个体变异性较大，实验单位的一致性较差，观察结果的离散程度较大。</li>
+<li>一般不允许在人体上直接实验，需先进行动物实验。</li>
+</ol>
+<p>医学实验设计要素：</p>
+<ol type="1">
+<li>处理因素。</li>
+<li>受试对象。受试对象要求对处理因素敏感，以及反应稳定。</li>
+<li>实验效应。</li>
+</ol>
+<p>实验设计的基本原则：</p>
+<ol type="1">
+<li>对照。</li>
+<li>随机化。包括抽取随机，分配随机，相同机会接受不同的实验顺序三层含义。</li>
+<li>重复。</li>
+<li>知情同意。</li>
+</ol>
+<p>常用的设计方案包括完全随机化，区组化设计，析因设计以及被试内设计。被试内设计通过将个体的差异转化为重复测量的差异，而减少了误差。</p>
+</section>
+<section id="调查研究" class="level2">
+<h2 class="anchored" data-anchor-id="调查研究">调查研究</h2>
+<p>调查研究最大特点在于其只能被动观察，以及需要更大样本进而有更大的误差。</p>
+<p>调查设计的原则需要完整，可行，经济，时效。</p>
+<p>可行性分析可以通过逻辑分析，或者经验判断，或者试调查。</p>
+<p>抽样的基本程序包括界定研究总体和调查总体，设计抽样方法，编制抽样框架，抽取样本，评估样本。</p>
+<p>调查技术包括问卷，电话，访谈，观察法以及敏感问题调查技术-随机化应答技术。</p>
+<p>非抽样误差包括抽样框误差，无回答误差，以及计量误差。</p>
+<p>非抽样误差的估计有以下方法：</p>
+<ol type="1">
+<li>调查质量控制措施的完善程度和落实情况。</li>
+<li>调查的应答率。</li>
+<li>比较不同来源的资料。</li>
+<li>进行抽样复查。</li>
+</ol>
+</section>
 </section>
 <section id="parametric-statistics" class="level1">
 <h1>Parametric Statistics</h1>
@@ -393,10 +448,14 @@ window.Quarto = {
 <li><span class="math inline">\(\bar{x} \sim \mathcal{N}(\mu, \frac{1}{n}\sigma^2)  \rightarrow \frac{\bar{x} - \mu}{\sigma \cdot \sqrt{\frac{1}{n}}} \sim \mathcal{N}(0, 1)\)</span></li>
 <li><span class="math inline">\(\frac{\bar{x} - \mu}{s \cdot \sqrt{\frac{1}{n}}} \sim t(n-1)\)</span></li>
 </ol>
+<p>应用条件：</p>
+<ol type="1">
+<li>小样本正态分布，大样本。</li>
+</ol>
 </section>
 <section id="paired-t-test" class="level3">
 <h3 class="anchored" data-anchor-id="paired-t-test">Paired <span class="math inline">\(t\)</span>-Test</h3>
-<p><span class="math inline">\(t(\upsilon) = \frac{\mid\bar{d} - 0 \mid}{s_\bar{d}} = \frac{\bar{d}}{s_\bar{d}}, \text{Where } \upsilon = 对子数 - 1, s_{\bar{d}} = s_d \cdot \sqrt{\frac{1}{n}}\)</span></p>
+<p><span class="math inline">\(t(\upsilon) = \frac{\left|\bar{d} - 0\right|}{s_{\bar{d}}} = \frac{\bar{d}}{s_{\bar{d}}}, \text{ where } \upsilon = \text{对子数} - 1, s_{\bar{d}} = s_d \cdot \sqrt{\frac{1}{n}}\)</span></p>
 <p>证明：</p>
 <ol type="1">
 <li><span class="math inline">\(\frac{\bar{d} - \mu_d}{\sigma_d \cdot \sqrt{\frac{1}{n}}} \sim \mathcal{N}(0, 1)\)</span></li>
@@ -708,21 +767,9 @@ M_c = M/C
 </section>
 <section id="假设检验与线性回归参数检验的等效性" class="level2">
 <h2 class="anchored" data-anchor-id="假设检验与线性回归参数检验的等效性">假设检验与线性回归参数检验的等效性</h2>
-</section>
-</section>
-<section id="总结" class="level1">
-<h1>总结</h1>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hypothesis-test01.svg" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

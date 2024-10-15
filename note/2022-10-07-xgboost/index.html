@@ -123,7 +123,7 @@ window.Quarto = {
   <li><a href="#xgboost" id="toc-xgboost" class="nav-link" data-scroll-target="#xgboost">xgboost</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -223,7 +223,7 @@ window.Quarto = {
 \]</span></p>
 <p>在所有的观测值都为一类的时候，Gini不纯度的度量都为0.因此，所选择的拆分变量是使得父节点Gini不纯度和子节点的Gini不纯度差别最大的变量。子节点的Gini不纯度应该用各个子节点观测值数目比例对各个节点的Gini不纯度的加权平均来计算。</p></li>
 </ul>
-<p>何时停止树的生长按照某些确定的误判函数计算。例如控制参数cp，如果纯度改变达不到它的值，就不会再分叉了。另外还有一个复杂性（complexity parameter）的量<span class="math inline">\(\alpha \in [0, \infi)\)</span>, 计算每增加一个变量到模型中的损失。</p>
+<p>何时停止树的生长按照某些确定的误判函数计算。例如控制参数cp，如果纯度改变达不到它的值，就不会再分叉了。另外还有一个复杂性（complexity parameter）的量 <span class="math inline">\(\alpha \in [0, \infty)\)</span>, 计算每增加一个变量到模型中的损失。</p>
 <p>再如，从长成的树的终节点开始剪枝，每剪一次，看看误差是不是增加，如果超过要求则停止剪枝。</p>
 <p>另一种剪枝原则是使得下式最小：</p>
 <p><span class="math display">\[

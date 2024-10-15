@@ -136,7 +136,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#six-functions-six-rules-and-six-theorems" id="toc-six-functions-six-rules-and-six-theorems" class="nav-link" data-scroll-target="#six-functions-six-rules-and-six-theorems">Six Functions, Six Rules, and Six Theorems</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -210,12 +210,12 @@ window.Quarto = {
 <h1><span class="math inline">\(\epsilon, \delta\)</span> for Limits</h1>
 <p>Danger case:</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 \infty - \infty \\
 0 \cdot \infty \\
 \frac{0}{0} \\
 0^0 \text{ or } 1^\infty
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>L’Hospital Rule:</p>
 <p><span class="math display">\[
@@ -226,18 +226,18 @@ window.Quarto = {
 <section id="fundamental-theorem-of-calculus" class="level1">
 <h1>Fundamental Theorem of Calculus</h1>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 f'(x)  &amp;= \frac{f(x + \Delta{x}) - f(x)}{\Delta{x}} \\
 &amp;= \frac{df}{dx}, \text{When} \space \Delta{x} \rightarrow 0
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>Here, <span class="math inline">\(\Delta{x}\)</span> means two point difference in <span class="math inline">\(x\)</span>, <span class="math inline">\(df\)</span> means difference in function value caused by the differenc in <span class="math inline">\(x\)</span>。 <span class="math inline">\(\Delta{x} \rightarrow 0\)</span> 就是代数到微积分的过程。</p>
 <p>考虑函数值 <span class="math inline">\(x\)</span> 在 点 <span class="math inline">\(x_1, x_2, ..., x_n\)</span> 的函数值 <span class="math inline">\(f_1, f_2, ..., f_n\)</span>, 进而考虑其两者之间的差值 <span class="math inline">\((f_2 - f_1) + (f_3 - f_2) + \dots + (f_n - f_{n-1)} = f_n - f_1\)</span>。从这里可以简单的理解为，你可以将一个函数，利用其差值累加还原为原函数的值，这就是积分的过程；</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 \sum{\Delta{y}} &amp;= y_{\text{last}} - y_{\text{first}} \\
 f(x) &amp;= \int{f'(x)dx} = \sum{\frac{\Delta{y}}{\Delta{x}} \cdot \Delta{x}} , \text{Where} \space f'(x)dx = df, \text{when} \Delta{x} \rightarrow 0
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>从这里可以看出，对于导函数可将其视为用高度函数表示原函数的函数，其高度与其底部“面积”的乘积表示了其空间大小，即原函数的差值。</p>
 <p>对于微分还有另一种理解为变换的视角，即从一个函数变换到另一个函数-线性映射，这个映射操作的符号记做 <span class="math inline">\(\frac{d}{dx}\)</span>, 它将 <span class="math inline">\(y\)</span> 进行变换到 <span class="math inline">\(y'\)</span>, <span class="math inline">\(y' =  \frac{d}{dx} \cdot y\)</span></p>
@@ -250,19 +250,19 @@ y'' = \frac{d^2y}{dx^2}
 <p>对于 <span class="math inline">\(dx^2\)</span>, 只是对于 <span class="math inline">\(x\)</span> 只是进行了两次除法操作即 <span class="math inline">\(\frac{\Delta{\Delta{f}}}{\Delta{x} \cdot \Delta{x}}\)</span>，但是对于 <span class="math inline">\(y\)</span> 而言则是在第一次的<span class="math inline">\(df\)</span>之上再次取差值即 <span class="math inline">\(d(df)\)</span>,也就是求差值这个操作 <span class="math inline">\(d\)</span>(diffence) 重复了两次。</p>
 </blockquote>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 f''(x) &gt; 0 &amp;\rightarrow \text{convex function} \\
 f''(x) &lt; 0 &amp;\rightarrow \text{concave function}
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>关于一阶，以及二阶导数的主要应用在于寻找各个特殊的点。</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 f'(x) &amp;\rightarrow \text{stationary point} \\
 f''(x) &amp;  \rightarrow \text{inflection point} \\
 f'(x) = 0, \text{and} f''(x) &gt; 0 &amp;\rightarrow \text{Local max} \\
 f'(x) = 0, \text{and} f''(x) &lt; 0 &amp;\rightarrow \text{Local min}
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>对于函数的最值，则需要比较所有极值点以及边界点确定。</p>
 </section>
@@ -276,10 +276,10 @@ f'(x) = 0, \text{and} f''(x) &lt; 0 &amp;\rightarrow \text{Local min}
 \]</span></p>
 <p>Construction:</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 y(x) = 1 + x + \frac{1}{2}x^2 + \frac{1}{3 \cdot{2} \cdot{1}}x^3 + \dots + \frac{1}{n!}x^n + \dots \\
 \frac{df}{dx} =  1 + x + \frac{1}{2}x^2 + \frac{1}{3 \cdot{2} \cdot{1}}x^3 + \dots + \frac{1}{n!}x^n + \dots
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>这里思想在于当 <span class="math inline">\(\text{when} \space x = 0, e^x = 1\)</span>, 那么其导数也为 <span class="math inline">\(1\)</span>; 导数为 <span class="math inline">\(1\)</span>，原函数为什么其导数才为 <span class="math inline">\(1\)</span> 呢？如此反复迭代；显然当 <span class="math inline">\(n \rightarrow \infty\)</span>， 两式才相等。该级数称之为指数级数。</p>
 <p><span class="math display">\[
@@ -306,20 +306,20 @@ y = f(x) = 1 + x + \frac{1}{2}x^2 + ... + \frac{1}{n!}x^n + ... = e
 <h2 class="anchored" data-anchor-id="trigonometric-function">Trigonometric Function</h2>
 <p>三角函数起源于勾股定理</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 a^2 + b^2 &amp;= c^2 \\
 (\frac{a}{c})^2 + (\frac{b}{c})^2 &amp;= 1\\
-(\sin{\theta})^2 + (\cos{\theta})^2 &amp;= 1\\
-\end{align}
+(\sin{\theta})^2 + (\cos{\theta})^2 &amp;= 1
+\end{aligned}
 \]</span></p>
 <p>三角函数求导关键在于用半径为1的圆描述周期运动，以及其中的三角形。</p>
 <p>下面给两个重要的极限</p>
 <p><span class="math display">\[
-\begin{align}
-\sin{\theta} &amp;&lt; \theta  \rightarrow \frac{\sin{\theta}}{\theta} &lt; 1\\
-\tan{\theta} &amp;&gt; \theta \rightarrow \frac{\sin{\theta}}{\theta} &gt; \cos{\theta}\\
+\begin{aligned}
+\sin{\theta} &amp;&lt; \theta  \rightarrow \frac{\sin{\theta}}{\theta} &lt; 1 \\
+\tan{\theta} &amp;&gt; \theta \rightarrow \frac{\sin{\theta}}{\theta} &gt; \cos{\theta} \\
 \frac{\sin{\theta}}{\theta} &amp;= 1, \text{when} \space \theta \rightarrow 0
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>前两个式子可由弧度制的弧长和面积证明，该极限可认为是 <span class="math inline">\(\sin{0}\)</span> 处的导数, 由上面两个式子夹逼准则定义。</p>
 <p>下面给出另一个重要的极限。</p>
@@ -328,11 +328,11 @@ a^2 + b^2 &amp;= c^2 \\
 \]</span></p>
 <p>该极限可认为是 <span class="math inline">\(\cos{0}\)</span> 处的导数。</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 \frac{\Delta{\sin{x}}}{\Delta{x}} &amp;= \frac{\sin{(x + \Delta{x})} - \sin {x}}{\Delta{x}} \\
 &amp;= \frac{\sin{x}(\cos{\Delta{x} - 1})}{\Delta{x}} + \frac{\sin\Delta{x} \cos{x}}{\Delta{x}} \\
 &amp;= \cos{x}
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>仿照上例子可得到 <span class="math inline">\(\cos{\theta}\)</span> 的导数；下面不加证明地给出 <span class="math inline">\(\cos{x}\)</span> 的导数</p>
 <p><span class="math display">\[
@@ -348,10 +348,10 @@ a^2 + b^2 &amp;= c^2 \\
 \]</span></p>
 <p>When <span class="math inline">\(\Delta{x} \rightarrow 0\)</span>,</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 dq &amp;= f(x)dg + g(x)df \\
 \frac{dq}{dx} &amp;= f(x)\frac{dg}{dx} + g(x)\frac{df}{dx}
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>Quation rule 可由乘法法则推导得到。</p>
 <p><span class="math display">\[
@@ -380,40 +380,40 @@ x = \ln{y}
 \]</span></p>
 <p>其具有如下性质</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 \ln{ab} &amp;= \ln{a} + \ln{b} \\
 \ln{y^n} &amp;= n\ln{y}
-\end{align}
+\end{aligned}
 \]</span></p>
 </section>
 <section id="derivatives-for-lnx-sin-1x-cos-1x" class="level2">
 <h2 class="anchored" data-anchor-id="derivatives-for-lnx-sin-1x-cos-1x">Derivatives for <span class="math inline">\(\ln{x}, \sin^{-1}{x}, \cos^{-1}{x}\)</span></h2>
 <p>set</p>
 <p><span class="math display">\[
-\begin{align}
-y = e^x \\
-x = \ln{y}
-\end{align}
+\begin{aligned}
+y &amp;= e^x \\
+x &amp;= \ln{y}
+\end{aligned}
 \]</span></p>
 <p>Then <span class="math display">\[
-\begin{align}
+\begin{aligned}
 y = e^x \rightarrow e^{\ln{y}} = y \\
 e^{\ln{y}} \cdot \frac{d\ln{y}}{dy} = 1, \text{Where} \space e^{\ln{y}} = y\\
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>set</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 y &amp;= \sin{x} \\
 x &amp;= \sin^{-1}{y}
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>Then</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 \sin{\sin^{-1}{y}}  &amp;= y\\
 \cos{\sin^{-1}{y}} \cdot \frac{d \sin^{-1}y}{y} &amp;= 1, \text{Where} \cos{\sin^{-1}{y}} = \frac{1}{\sqrt{1 - y^2}}
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>Note that the <span class="math inline">\(\sin^{-1}y\)</span> is an angle.</p>
 <p>Give the <span class="math inline">\(\frac{d\cos^{-1}y}{dy}\)</span> without proof.</p>
@@ -427,35 +427,35 @@ x &amp;= \sin^{-1}{y}
 <p>Where <span class="math inline">\(\theta + \alpha = \frac{\pi}{2}\)</span> is a constant.</p>
 <p>Some other deritivites:</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 \frac{d\arctan{x}}{x} = \frac{1}{1 + x^2} \\
 \frac{d \space \text{acrcot} \space {x}}{x} = -\frac{1}{1 + x^2} \\
 \frac{d{a^x}}{x} = a^{x} \ln{a}
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>Converion between different base. <span class="math display">\[
-\begin{align}
+\begin{aligned}
 \log_a{|x|} &amp;= \frac{1}{x\ln{a}} \\
 \log_{a}{b} &amp;= \frac{\ln{b}}{\ln{a}} = \frac{\log_n{b}}{\log_n{a}}
-\end{align}
+\end{aligned}
 \]</span></p>
 </section>
 </section>
 <section id="growth-rate-and-logarithmic-plot" class="level1">
 <h1>Growth Rate and Logarithmic Plot</h1>
 <p>各函数的增长速度如下，其倒数就是减慢的速度。 <span class="math display">\[
-\begin{align}
+\begin{aligned}
 &amp;CX\dots \space &amp;x^2, x^3 \dots \space &amp;2^x, e^x, 10^x \dots &amp;x! \space x^x \\
 &amp;\text{Linear}  &amp;\text{Polynomial}  \space &amp;\text{Exponential} &amp;\text{Factorial}
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>对数尺度能够处理极大或者极小( <span class="math inline">\(x \rightarrow 0\)</span> )的值, 但是该尺度下是没有 <span class="math inline">\(0\)</span> 的。</p>
 <p>对数尺度能够将非线性问题转换为线性问题</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 y = AX^n \rightarrow \log{y} = \log{A} + n\log{X}, \text{logarithmic plot}  \\
 y = B10^{Cx} \rightarrow \log{y} = \log{B} + Cx, \text{semi-logarithmic plot}
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>$$$$</p>
 </section>
@@ -482,10 +482,10 @@ e^x = 1 + x + \frac{1}{2}x^2 + \dots + \frac{1}{n!}x^n + \dots
 \]</span></p>
 <p>仿照上例，给出 <span class="math inline">\(\sin{x}, \cos{x}\)</span> 的幂级数</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 \sin x &amp;= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!} \\
 \cos x &amp;= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!}
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>对于欧拉公式，可由上面三个级数给出</p>
 <p><span class="math display">\[
@@ -498,10 +498,10 @@ e^{i\theta} = \cos{x} + i \sin{x}
 <p>欧拉公式给出了在横轴为实数，纵轴为复数的复平面上，数据之间的关系。</p>
 <p>下面给出两个其它重要的幂级数</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 &amp;\text{Geometrix series}  \space \frac{1}{1 -x} = 1 + x + x^2 + \dots + x^n + \dots, \text{Where} \space 0 &lt; |x| &lt; 1 \\
 &amp;\text{Integrated from the above equation} - \ln{(1 - x)} = x + \frac{1}{2}x^2 + \frac{1}{3}x^3 + \dots \text{Where } x &lt; 1
-\end{align}
+\end{aligned}
 \]</span></p>
 </section>
 <section id="differential-equations" class="level1">
@@ -530,29 +530,29 @@ m\lambda^2 + 2r\lambda + K = 0
 \]</span></p>
 <p>Three Cases:</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 y'' + 6y' + 8y = 0 &amp;\rightarrow y(t) = Ce^{-2t} + De^{-4t} \\
 y'' + 6y' + 10y = 0 &amp;\rightarrow y(t) = Ce^{(-3 - i)t} + De^{(-3 + i)t} \\
 y'' + 6y' + 9 = 0 &amp;\rightarrow y(t) = Ce^{-3t} + Dte^{-3t}
-\end{align}
+\end{aligned}
 \]</span></p>
 </section>
 <section id="differential-equations-of-growth" class="level2">
 <h2 class="anchored" data-anchor-id="differential-equations-of-growth">Differential Equations of Growth</h2>
 <p>The growth rate proportional to itself. <span class="math display">\[
-\begin{align}
+\begin{aligned}
 \frac{dy}{dt} &amp;= cy \\
 y(0) &amp;\rightarrow \text{Given start} \\
 y(t) &amp;= y(0)e^{ct}
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>Add source term:</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 \frac{dy}{dt} &amp;= cy + s \space \text{Where} \space s \space \text{is source term} \\
 \frac{d{(y + \frac{s}{c}})}{dt} &amp;= c(y + \frac{s}{c}) \\
 y + \frac{s}{c} &amp;= (y(0) + \frac{s}{c})e^{ct}
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>For Linear eq, the solutions to eq have form below</p>
 <p><span class="math display">\[
@@ -560,10 +560,10 @@ y(t) = y_{\text{particular}}(t) + y_{\text{right side 0}}(t)
 \]</span></p>
 <p>Specially for <span class="math inline">\(\frac{dy}{dt} = cy + s\)</span></p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 y_{\text{particular}} = -\frac{s}{c} \\
 y_{\text{set s = 0}} = Ae^{ct}
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>Then</p>
 <p><span class="math display">\[
@@ -577,34 +577,34 @@ y = -\frac{s}{c} + Ae^{ct}
 <p>To solve this equation, set <span class="math inline">\(y = \frac{1}{p}\)</span> to turn this equation to linear equation.</p>
 <p>Equation for predators and prey</p>
 <p><span class="math display">\[
-\begin{align}
+\begin{aligned}
 \frac{du}{dt} &amp;= - cu + suv \\
 \frac{dv}{dt} &amp;= cv - suv
-\end{align}
+\end{aligned}
 \]</span></p>
 </section>
 </section>
 <section id="six-functions-six-rules-and-six-theorems" class="level1">
 <h1>Six Functions, Six Rules, and Six Theorems</h1>
 <p>Six Functions <span class="math display">\[
-\begin{align}
+\begin{aligned}
 \frac{1}{n + 1}x^{n + 1} &amp;\rightarrow x^n &amp;\rightarrow (n-1)x^{n-1} \\
 -\cos{x} &amp;\rightarrow \sin{x} &amp;\rightarrow \cos{x} \\
 \sin{x} &amp;\rightarrow \cos{x} &amp;\rightarrow -\sin{x} \\
 \frac{1}{c}e^{cx} &amp;\rightarrow e^{cx} &amp;\rightarrow ce^{cx} \\
 x\ln{x} -x &amp;\rightarrow \ln{x} &amp;\rightarrow \frac{1}{x} \text{power -1} \\
 \text{Ramp Function}
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>Six Rules <span class="math display">\[
-\begin{align}
+\begin{aligned}
 af(x) + bg(x) &amp;\rightarrow a\frac{df}{dx} + b\frac{dg}{dx} \\
 f(x)g(x) &amp;\rightarrow f(x)\frac{dg}{dx} + \frac{df}{dx}(gx) \\
 \frac{f(x)}{g(x)} &amp;\rightarrow \frac{gf' - fg'}{g^2} \\
 x = f^{-1}(y) &amp;\rightarrow \frac{dx}{dy} = \frac{1}{\frac{dy}{dx}} \\
 f(g(x)) &amp;\rightarrow \frac{df}{dy}\cdot \frac{dy}{dx} \\
 \text{L'Hospital} \space \frac{f}{g} = \frac{\frac{df}{dx}}{\frac{dg}{dx}} \text{When} \space x &amp;\rightarrow a, f(a), g(a) \rightarrow 0
-\end{align}
+\end{aligned}
 \]</span></p>
 <p>Six Theorems</p>
 <ul>
