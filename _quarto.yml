@@ -17,6 +17,8 @@ format:
     include-in-header: 
       text: |
         \usepackage{ctex}
+        \usepackage{indentfirst}
+
 
 execute:
   freeze: auto

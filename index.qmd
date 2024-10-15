@@ -1,5 +1,6 @@
 ---
 title: "."
+format: html
 ---
 
 This is a Quarto website. see Notes [here](https://doc.cying.org/note)
