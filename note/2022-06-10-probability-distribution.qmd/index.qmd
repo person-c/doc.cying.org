@@ -3,17 +3,6 @@ title: "Probability Distribution"
 date: "2022-06-10"
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  echo = FALSE,
-  message = FALSE,
-  warning = FALSE,
-  cache = TRUE
-)
-```
-
 
 # 离散分布
 

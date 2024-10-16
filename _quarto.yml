@@ -18,7 +18,16 @@ format:
       text: |
         \usepackage{ctex}
         \usepackage{indentfirst}
-
+        \usepackage{sectsty}
+        % 取消文章标题加粗
+        \usepackage{titling}
+        \pretitle{\begin{center}\normalfont\LARGE} % 设置文章标题为普通字体
+        \posttitle{\end{center}} % 保持居中
+        % 全局取消标题加粗
+        \sectionfont{\normalfont\Large}
+        \subsectionfont{\normalfont\large}
+        \subsubsectionfont{\normalfont\normalsize}
+        
 
 execute:
   freeze: auto
