@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -208,6 +242,492 @@ window.Quarto = {
 X \sim b(n,p) \text{ Where } E(X) = np, D(X) = np(1 - p)
 \]</span></p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dbinom</span>(x, <span class="dv">100</span>, <span class="fl">0.3</span>), <span class="dv">0</span>, <span class="dv">80</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 0.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 1.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 2.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 3.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 4.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 5.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 6.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 7.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 8.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 9.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 10.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 11.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 12.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 13.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 14.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 15.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 16.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 17.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 18.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 19.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 20.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 21.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 22.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 23.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 24.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 25.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 26.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 27.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 28.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 29.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 30.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 31.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 32.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 33.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 34.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 35.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 36.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 37.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 38.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 39.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 40.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 41.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 42.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 43.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 44.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 45.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 46.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 47.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 48.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 49.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 50.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 51.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 52.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 53.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 54.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 55.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 56.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 57.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 58.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 59.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 60.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 61.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 62.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 63.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 64.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 65.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 66.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 67.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 68.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 69.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 70.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 71.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 72.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 73.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 74.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 75.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 76.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 77.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 78.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.3): non-integer x = 79.200000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dbinom</span>(x, <span class="dv">100</span>, <span class="fl">0.5</span>), <span class="dv">0</span>, <span class="dv">80</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 0.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 1.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 2.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 3.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 4.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 5.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 6.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 7.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 8.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 9.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 10.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 11.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 12.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 13.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 14.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 15.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 16.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 17.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 18.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 19.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 20.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 21.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 22.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 23.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 24.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 25.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 26.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 27.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 28.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 29.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 30.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 31.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 32.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 33.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 34.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 35.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 36.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 37.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 38.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 39.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 40.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 41.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 42.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 43.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 44.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 45.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 46.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 47.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 48.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 49.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 50.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 51.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 52.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 53.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 54.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 55.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 56.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 57.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 58.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 59.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 60.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 61.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 62.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 63.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 64.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 65.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 66.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 67.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 68.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 69.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 70.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 71.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 72.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 73.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 74.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 75.200000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 76.800000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 77.600000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 78.400000</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in dbinom(x, 100, 0.5): non-integer x = 79.200000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>,</span>
+<span id="cb163-2"><a href="#cb163-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">paste0</span>(<span class="st">"probe = "</span>, <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.5</span>)),</span>
+<span id="cb163-3"><a href="#cb163-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)</span>
+<span id="cb163-4"><a href="#cb163-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -217,6 +737,12 @@ X \sim b(n,p) \text{ Where } E(X) = np, D(X) = np(1 - p)
 </div>
 </div>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pbinom</span>(x, <span class="dv">100</span>, <span class="fl">0.3</span>), <span class="dv">0</span>, <span class="dv">80</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pbinom</span>(x, <span class="dv">100</span>, <span class="fl">0.5</span>), <span class="dv">0</span>, <span class="dv">80</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb164-3"><a href="#cb164-3" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>,</span>
+<span id="cb164-4"><a href="#cb164-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">paste0</span>(<span class="st">"probe = "</span>, <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.5</span>)),</span>
+<span id="cb164-5"><a href="#cb164-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)</span>
+<span id="cb164-6"><a href="#cb164-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -258,6 +784,13 @@ X \sim Nb(r,p), \text{ Where } E(X) = \frac{r}{p}, D(X) = \frac{r(1-p)}{p^2}
 <p><span class="math display">\[X \sim N(\mu,\sigma)\]</span> <span class="math display">\[E(X) = \mu\]</span> <span class="math display">\[D(X) = \sigma^2\]</span></p>
 <p>概率密度函数： <span class="math display">\[ p(x) = \frac{1}{\sqrt{2 \pi}\sigma} e^{- \frac{(x - \mu)^2}   {2\sigma^2}} \]</span></p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb165"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x), <span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb165-2"><a href="#cb165-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="dv">0</span>, <span class="dv">2</span>), <span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
+<span id="cb165-3"><a href="#cb165-3" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(</span>
+<span id="cb165-4"><a href="#cb165-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"topright"</span>,</span>
+<span id="cb165-5"><a href="#cb165-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(<span class="st">"mean = 0, sd = "</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)),</span>
+<span id="cb165-6"><a href="#cb165-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)</span>
+<span id="cb165-7"><a href="#cb165-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -268,6 +801,13 @@ X \sim Nb(r,p), \text{ Where } E(X) = \frac{r}{p}, D(X) = \frac{r(1-p)}{p^2}
 </div>
 <p>分布函数： <span class="math display">\[ F(x) = \int_{-\infty}^x p(t)dt = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}\sigma} e^{- \frac{(t-\mu^2)}{2\sigma}}dt \]</span></p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb166"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pnorm</span>(x, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb166-2"><a href="#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pnorm</span>(x, <span class="dv">0</span>, <span class="dv">2</span>), <span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
+<span id="cb166-3"><a href="#cb166-3" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(</span>
+<span id="cb166-4"><a href="#cb166-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"topright"</span>,</span>
+<span id="cb166-5"><a href="#cb166-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(<span class="st">"mean = 0, sd = "</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)),</span>
+<span id="cb166-6"><a href="#cb166-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)</span>
+<span id="cb166-7"><a href="#cb166-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -287,6 +827,11 @@ f(x) = \begin{cases}
 \end{cases}
 \]</span></p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dunif</span>(x), <span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb167-2"><a href="#cb167-2" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>,</span>
+<span id="cb167-3"><a href="#cb167-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="st">"min = 0, max = 1"</span>,</span>
+<span id="cb167-4"><a href="#cb167-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="st">"red"</span></span>
+<span id="cb167-5"><a href="#cb167-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -303,6 +848,11 @@ F(x) = \begin{cases}
 \end{cases}
 \]</span></p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb168"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">punif</span>(x), <span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb168-2"><a href="#cb168-2" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>,</span>
+<span id="cb168-3"><a href="#cb168-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="st">"min = 0, max = 1"</span>,</span>
+<span id="cb168-4"><a href="#cb168-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="st">"red"</span></span>
+<span id="cb168-5"><a href="#cb168-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -322,6 +872,12 @@ F(x) = \begin{cases}
 f(x; \lambda) = \lambda e^{-\lambda x} \quad \text{for } x \geq 0 \text{ and } \lambda &gt; 0.
 \]</span></p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dexp</span>(x), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb169-2"><a href="#cb169-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dexp</span>(x, <span class="at">rate =</span> <span class="dv">2</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb169-3"><a href="#cb169-3" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>,</span>
+<span id="cb169-4"><a href="#cb169-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">paste0</span>(<span class="st">"rate = "</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)),</span>
+<span id="cb169-5"><a href="#cb169-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)</span>
+<span id="cb169-6"><a href="#cb169-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -334,6 +890,12 @@ f(x; \lambda) = \lambda e^{-\lambda x} \quad \text{for } x \geq 0 \text{ and } \
 F(x; \lambda) = 1 - e^{-\lambda x} \quad \text{for } x \geq 0 \text{ and } \lambda &gt; 0.
 \]</span></p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb170"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pexp</span>(x), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb170-2"><a href="#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pexp</span>(x, <span class="at">rate =</span> <span class="dv">2</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb170-3"><a href="#cb170-3" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>,</span>
+<span id="cb170-4"><a href="#cb170-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">paste0</span>(<span class="st">"rate = "</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)),</span>
+<span id="cb170-5"><a href="#cb170-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)</span>
+<span id="cb170-6"><a href="#cb170-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -352,6 +914,13 @@ f(x; k, \theta) = \frac{x^{k-1}e^{-\frac{x}{\theta}}}{\theta^k \Gamma(k)} \quad 
 \]</span></p>
 <p>其中，<span class="math inline">\(k\)</span> 是形状参数（也称为度数），<span class="math inline">\(\theta\)</span> 是尺度参数（与标准差成比例），而 <span class="math inline">\(\Gamma(k)\)</span> 是伽马函数。</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="dv">0</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb171-2"><a href="#cb171-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="dv">1</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb171-3"><a href="#cb171-3" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dgamma</span>(x, <span class="at">shape =</span> <span class="dv">2</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"green"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb171-4"><a href="#cb171-4" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>,</span>
+<span id="cb171-5"><a href="#cb171-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">paste0</span>(<span class="st">"shape = "</span>, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)),</span>
+<span id="cb171-6"><a href="#cb171-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>)</span>
+<span id="cb171-7"><a href="#cb171-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -365,6 +934,13 @@ f(x; k, \theta) = \frac{x^{k-1}e^{-\frac{x}{\theta}}}{\theta^k \Gamma(k)} \quad 
 F(x; k, \theta) = \int_0^x \frac{t^{k-1}e^{-\frac{t}{\theta}}}{\theta^k \Gamma(k)} dt = \frac{\gamma(k, \frac{x}{\theta})}{\Gamma(k)} \quad \text{for } x &gt; 0 \text{ and } k, \theta &gt; 0.
 \]</span></p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb172"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pgamma</span>(x, <span class="at">shape =</span> <span class="dv">0</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb172-2"><a href="#cb172-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pgamma</span>(x, <span class="at">shape =</span> <span class="dv">1</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb172-3"><a href="#cb172-3" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">pgamma</span>(x, <span class="at">shape =</span> <span class="dv">2</span>), <span class="dv">0</span>, <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"green"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb172-4"><a href="#cb172-4" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"bottomright"</span>,</span>
+<span id="cb172-5"><a href="#cb172-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">paste0</span>(<span class="st">"shape = "</span>, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)),</span>
+<span id="cb172-6"><a href="#cb172-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">text.col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span>)</span>
+<span id="cb172-7"><a href="#cb172-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
