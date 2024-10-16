@@ -339,7 +339,6 @@ y = B10^{Cx} \rightarrow \log{y} = \log{B} + Cx, \text{semi-logarithmic plot}
 \end{aligned}
 $$
 
-$$$$
 
 # Linear Approximation/Newton's Method
 

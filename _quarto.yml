@@ -27,6 +27,7 @@ format:
         \sectionfont{\normalfont\Large}
         \subsectionfont{\normalfont\large}
         \subsubsectionfont{\normalfont\normalsize}
+    number-sections: true
         
 
 execute:
