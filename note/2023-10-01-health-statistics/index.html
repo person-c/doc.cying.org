@@ -390,7 +390,7 @@ window.Quarto = {
 </ol>
 <p>证明：</p>
 <ol type="1">
-<li><span class="math inline">\(\frac{\bar{x} - \mu}{\sigma \cdot \sqrt{n}} \sim \mathcal{N}(0, 1)\)</span></li>
+<li><span class="math inline">\(\frac{\bar{x} - \mu}{\sigma \cdot \sqrt{\frac{1}{n}}} \sim \mathcal{N}(0, 1)\)</span></li>
 <li><span class="math inline">\(\frac{(n - 1)s^2}{\sigma^2} \sim \chi^2(n - 1)\)</span></li>
 <li><span class="math inline">\(\frac{(1)}{\sqrt{(2)/(n - 1)}} \rightarrow  \frac{\bar{x} - \mu}{s\cdot \sqrt{\frac{1}{n}}} \sim t(n-1)\)</span></li>
 </ol>
@@ -408,14 +408,14 @@ window.Quarto = {
 <p>证明：</p>
 <p>由两样本独立且正态分布：</p>
 <ol type="1">
-<li><span class="math inline">\((\bar{x} - \bar{y}) - (\mu_1 - \mu_2) \sim \mathcal{N}(\mu_1 - \mu_1, (\frac{1}{m} + \frac{1}{n})\sigma^2)\)</span></li>
+<li><span class="math inline">\((\bar{x} - \bar{y}) \sim \mathcal{N}(\mu_1 - \mu_1, (\frac{1}{m} + \frac{1}{n})\sigma^2)\)</span></li>
 <li><span class="math inline">\(\frac{(\bar{x} - \bar{y}) - (\mu_1 - \mu_2)}{\sigma \cdot \sqrt{\frac{1}{m} + \frac{1}{n}}} \sim \mathcal{N}(0, 1)\)</span></li>
 </ol>
 </div>
 <p>由卡方变量可加性：</p>
 <ol type="1">
 <li><span class="math inline">\(\frac{(m - 1)s_x^2}{\sigma_1^2} \sim \chi^2(m - 1), \frac{(n-1)s_y^2}{\sigma_2^2} \sim \chi^2(n-1)\)</span></li>
-<li><span class="math inline">\(\frac{(m - 1)s_x^2}{\sigma^2} + \frac{(n-1)s_y^2}{\sigma^2} \sim \chi^2(m + n - 2）\rightarrow \frac{s_p^2 \cdot (m + n - 2)}{\sigma^2} \sim \chi^2(m + n - 2)\)</span></li>
+<li><span class="math inline">\(\frac{(m - 1)s_x^2}{\sigma^2} + \frac{(n-1)s_y^2}{\sigma^2} \sim \chi^2(m + n - 2)\rightarrow \frac{s_p^2 \cdot (m + n - 2)}{\sigma^2} \sim \chi^2(m + n - 2)\)</span></li>
 </ol>
 </section>
 <section id="tz-text-test" class="level2">
@@ -519,7 +519,7 @@ window.Quarto = {
 <li><span class="math inline">\(X \sim \mathcal{N}(\lambda, \lambda) \rightarrow \frac{X - \lambda}{\sqrt{\lambda}} \sim \mathcal{N}(0, 1),\text{When } \lambda &gt; 20\)</span></li>
 <li><span class="math inline">\(Z = \frac{X_1/n_1 - X_2/n_2}{\sqrt{X_1/n_1^2 + X_2/n_2^2}}\)</span></li>
 </ol>
-<p>泊松分布最大的特征就是其均值与方差都等于 <span class="math inline">\(\lambda\)</span>, 我们常用这一点来判断一个分布是否属于泊松分布。此外，泊松分布具有可加性 - 考虑 <span class="math inline">\(X_1 \sim Po(\lambda_1), X_2 \sim Po(\lambda_2)\)</span>, 且互相独立：</p>
+<p>泊松分布最大的特征就是其均值与方差都等于 <span class="math inline">\(\lambda\)</span>, 我们常用这一点来判断一个分布是否属于泊松分布。此外，泊松分布具有可加性。考虑 <span class="math inline">\(X_1 \sim Po(\lambda_1), X_2 \sim Po(\lambda_2)\)</span>, 且互相独立：</p>
 <ol type="1">
 <li><span class="math inline">\(X_1 + X_2 \sim Po(\lambda_1 + \lambda_2)\)</span></li>
 </ol>
