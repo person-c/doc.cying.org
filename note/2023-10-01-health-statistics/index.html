@@ -476,6 +476,10 @@ window.Quarto = {
 </section>
 <section id="independent-two-sample-t-test" class="level3">
 <h3 class="anchored" data-anchor-id="independent-two-sample-t-test">Independent Two Sample <span class="math inline">\(t\)</span>-Test</h3>
+<p>两个总体的比较需要对方差齐性进行检验：</p>
+<ol type="1">
+<li><span class="math inline">\(F = \frac{S_1^2}{S_2^2}, \upsilon_1 = n_1 - 1, \upsilon_2 = n_2 - 1\)</span>, 其中 <span class="math inline">\(S_1^2\)</span> 是比较大的那个。</li>
+</ol>
 <p>When <span class="math inline">\(\sigma_1 = \sigma_2 = \sigma\)</span>:</p>
 <ol type="1">
 <li><span class="math inline">\(\frac{(\bar{x} - \bar{y}) - (\mu_1 - \mu_2)}{s_p \cdot \sqrt{\frac{1}{m} + \frac{1}{n}}} \sim t(m + n - 2), \text{Where } s_p^2= \frac{(m-1)s_x^2 + (n - 1)s_y^2}{m + n - 2}\)</span></li>
@@ -486,7 +490,7 @@ window.Quarto = {
 </ol>
 <p>通过 <span class="math inline">\(\text{Satterhwaite}\)</span> 法，对自由度进行校正</p>
 <ol type="1">
-<li><span class="math inline">\(\upsilon = \frac{(\frac{s_1^2}{m} + \frac{s_2^2}{n})^2}{\frac{s_1^4}{m^2} + \frac{s_2^4}{n^2}}\)</span></li>
+<li><span class="math inline">\(\upsilon = \frac{(\frac{s_1^2}{m} + \frac{s_2^2}{n})^2}{\frac{s_1^4}{m^2}/(m-1) + \frac{s_2^4}{n^2}/(n-1)}\)</span></li>
 </ol>
 </section>
 </section>
@@ -543,7 +547,7 @@ window.Quarto = {
 </blockquote>
 <ol type="1">
 <li><span class="math inline">\(Y_{ij} - \bar{Y} = (Y_{ij} - Y_i) + (Y_i - \bar{Y})\)</span></li>
-<li><span class="math inline">\(\sum_{i=1}^a\sum_{j=1}^{n_i} \left( Y_{ij} - \bar{Y} \right)^2 = \sum_{i=1}^a\sum_{j=1}^{n_i} \left(Y_{ij} - Y_i \right)^2- \sum_{i=1}^a n_i\left( {Y_i - \bar{Y}} \right)^2\)</span></li>
+<li><span class="math inline">\(\sum_{i=1}^a\sum_{j=1}^{n_i} \left( Y_{ij} - \bar{Y} \right)^2 = \sum_{i=1}^a\sum_{j=1}^{n_i} \left(Y_{ij} - Y_i \right)^2 + \sum_{i=1}^a n_i\left( {Y_i - \bar{Y}} \right)^2\)</span></li>
 <li><span class="math inline">\(F = \frac{\sum_{i=1}^a n_i\left( {\bar{Y_i} - \bar{Y}} \right)^2 \bigg{/} (a - 1)}{\sum_{i=1}^a\sum_{j=1}^{n_i} \left(Y_{ij} - \bar{Y_i} \right)^2 \bigg{/} (N - a)} \sim F_{(a-1, N-a)}\)</span></li>
 </ol>
 <p>从公式的推导之中可以看到，其核心在于对变异(SS, sum of squares)的分解 <span class="math inline">\(SS_{\text{total}} = SS_{\text{within group}} + SS_{\text{between group}}\)</span>。方差分析需要进行Levene’s方差齐性检验，该检验实际上是对每个值减去该组均值的差异做单因素方差分析：</p>
@@ -559,6 +563,11 @@ window.Quarto = {
 <li><span class="math inline">\(Y_{ij} - \bar{Y} = (\bar{Y_i} - \bar{Y}) + (\bar{Y_j} - \bar{Y}) + (Y_{ij} - \bar{Y_i} - \bar{Y_j} + \bar{Y})\)</span></li>
 </ol>
 <p>从上面的公式可以看出，随机区组设计将变异分为两个变量来源（区组，实验因素），以及个体本身的误差，其中误差项的自由度为 <span class="math inline">\((n-1)(\upsilon - 1).\)</span></p>
+<p>对于混杂因素的控制还有将线性回归与方差分析结合起来的协方差分析，其对个体值的分解如下：</p>
+<ol type="1">
+<li><span class="math inline">\(Y_{ij} = \bar{Y_i} + b(\bar{X}_{ij} - \bar{X}) + e_{ij}\)</span></li>
+</ol>
+<p>其中 <span class="math inline">\(X\)</span> 是混杂因素。</p>
 </section>
 </section>
 <section id="mutiple-hypothesis-test" class="level2">
