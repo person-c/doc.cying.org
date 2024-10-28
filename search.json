@@ -340,28 +340,28 @@
     "href": "note/2023-10-01-health-statistics/index.html#假设检验原理",
     "title": "Health Statistics",
     "section": "假设检验原理",
-    "text": "假设检验原理\n若在假设之下计算得到发生样本如此极端以及更极端情况的概率（1.根据总体分布直接计算概率 2. 根据样本统计量的分布计算概率）小于预先设定的阈值，那么我们则选择拒绝该假设或相反。现实的数据总是抽象变量 - 总体，概率的结果。从现实数据中收集得到的某一指标的一些数据-样本， 都是该抽象变量的一些随机数据-。一个显而易见的事实是：样本统计量总是围绕总体参数的周围分布。若在假设之下，求得样本统计量的分布，则可求得假设之下样本统计量向总体参数偏离如此大范围的机率，则依据小概率定律，选择拒绝或者接受原假设。"
+    "text": "假设检验原理\n求得样本统计量的分布，则可求得 \\(H_0\\) 下样本统计量向假设的预期偏离如此大范围的机率，则依据小概率定律，选择拒绝或者接受原假设。\n但是实际上要求得统计量的分布并不容易，对于参数统计，我们常常需要假设其分布，然后推理出相关统计量的分布；非参数统计则需要对其编秩，然后推断出秩和的分布。"
   },
   {
     "objectID": "note/2023-10-01-health-statistics/index.html#假设检验与置信区间",
     "href": "note/2023-10-01-health-statistics/index.html#假设检验与置信区间",
     "title": "Health Statistics",
     "section": "假设检验与置信区间",
-    "text": "假设检验与置信区间"
+    "text": "假设检验与置信区间\n对于 \\(t/z \\space test\\) 而言，统计量 \\(t/z\\) 的大小表示为向均值偏离多少个标准差, 而置信区间的形式则为均值加上多少个标准差。\n\n\\(t/z = \\frac{\\bar{x} - \\mu_{\\bar{x}}}{\\sigma_{\\bar{x}}}\\)\n\\(\\mu_{95\\%} = \\bar{x} \\pm \\frac{t}{z_{95\\%}} \\cdot \\sigma_{\\bar{x}}\\)"
   },
   {
-    "objectID": "note/2023-10-01-health-statistics/index.html#检验功效",
-    "href": "note/2023-10-01-health-statistics/index.html#检验功效",
+    "objectID": "note/2023-10-01-health-statistics/index.html#i-and-ii-type-error-and-power",
+    "href": "note/2023-10-01-health-statistics/index.html#i-and-ii-type-error-and-power",
     "title": "Health Statistics",
-    "section": "检验功效",
-    "text": "检验功效"
+    "section": "I and II type error and power",
+    "text": "I and II type error and power\n\\(H_0\\) 没有差异为阴性结果，\\(H_1\\) 为具有差异，阳性结果。I 型错误是拒绝 \\(H_0\\) 所犯的错误为 \\(\\alpha\\), II 型错误为不拒绝 \\(H_0\\) 所犯的错误为 \\(\\beta\\), 其含义为在 \\(H_1\\) 得到该统计量的概率，\\(1 - \\beta\\) 即为检验功效，即在 \\(H_1\\) 为真的情况下，在指定的 \\(\\alpha\\) 检出其存在差异的概率，即敏感度(sensitivity)."
   },
   {
-    "objectID": "note/2023-10-01-health-statistics/index.html#统计量计算的bootstrap以及置换检验",
-    "href": "note/2023-10-01-health-statistics/index.html#统计量计算的bootstrap以及置换检验",
+    "objectID": "note/2023-10-01-health-statistics/index.html#统计量分布计算的bootstrap以及置换检验",
+    "href": "note/2023-10-01-health-statistics/index.html#统计量分布计算的bootstrap以及置换检验",
     "title": "Health Statistics",
-    "section": "统计量计算的Bootstrap以及置换检验",
-    "text": "统计量计算的Bootstrap以及置换检验\n但是在实际的假设检验过程，倘若需要求得样本统计量的分布，往往需要知晓总体的概率分布。由此在假设检验过程之中，除了零假设以外，实际上在样本统计量的分布的计算之中，同时隐含了总体的分布以及方差齐性等假设，而这些假设也有对应的检验方法。因此，假设检验真正的概率应该所有假设概率的乘积，而不仅仅是在零假设之下所计算出的概率。以上所考虑的是一定要得到样本统计量的确切分布，进而得到精确的概率，例如正态总体假设下，方差齐性的t test, 但是很多情况下我们不必得到样本统计量的精确分布，得到一个大概估计即可，例如大样本下的正态检验，\\(R\\times C\\)列表值用卡方分布近似，非参数检验-秩检验等。在计算机时代，我们可以直接利用Bootstrp模拟得到假设之下样本统计量的分布。"
+    "section": "统计量分布计算的Bootstrap以及置换检验",
+    "text": "统计量分布计算的Bootstrap以及置换检验\n但是在实际的假设检验过程，倘若需要求得样本统计量的分布，往往需要知晓总体的概率分布。由此在假设检验过程之中，除了零假设以外，实际上在样本统计量的分布的计算之中，同时隐含了总体的分布以及方差齐性等假设，而这些假设也有对应的检验方法。因此，假设检验真正的概率应该所有假设概率的乘积，而不仅仅是在零假设之下所计算出的概率。以上所考虑的是一定要得到样本统计量的确切分布，进而得到精确的概率，例如正态总体假设下，方差齐性的 \\(t test\\), 但是很多情况下我们不必得到样本统计量的精确分布，得到一个大概估计即可，例如大样本下的正态检验，\\(R\\times C\\) 列表值用卡方分布近似，非参数检验-秩检验等。在计算机时代，我们可以直接利用Bootstrp模拟得到假设之下样本统计量的分布。"
   },
   {
     "objectID": "note/2023-10-01-health-statistics/index.html#假设检验与线性回归参数检验的等效性",
@@ -760,6 +760,6 @@
     "href": "note.html",
     "title": "Note",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nCategories\n\n\nModified\n\n\n\n\n\n\nSurvival Analysis\n\n\n \n\n\n2024-10-27\n\n\n\n\nHighlights of Calculus\n\n\n \n\n\n2024-10-27\n\n\n\n\nLinear Algebra\n\n\n \n\n\n2024-10-27\n\n\n\n\nData Tricks\n\n\n \n\n\n2024-10-27\n\n\n\n\nHealth Statistics\n\n\n \n\n\n2024-10-27\n\n\n\n\nXgboost\n\n\n \n\n\n2024-10-27\n\n\n\n\nLiner Dimension Reduction\n\n\n \n\n\n2024-10-27\n\n\n\n\nStatistics\n\n\n \n\n\n2024-10-27\n\n\n\n\nCluster Algorithm\n\n\n \n\n\n2024-10-27\n\n\n\n\nRNA Seq\n\n\n \n\n\n2024-10-27\n\n\n\n\nProbability Distribution\n\n\n \n\n\n2024-10-27\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\nCategories\n\n\nModified\n\n\n\n\n\n\nSurvival Analysis\n\n\n \n\n\n2024-10-28\n\n\n\n\nHighlights of Calculus\n\n\n \n\n\n2024-10-28\n\n\n\n\nLinear Algebra\n\n\n \n\n\n2024-10-28\n\n\n\n\nData Tricks\n\n\n \n\n\n2024-10-28\n\n\n\n\nHealth Statistics\n\n\n \n\n\n2024-10-28\n\n\n\n\nXgboost\n\n\n \n\n\n2024-10-28\n\n\n\n\nLiner Dimension Reduction\n\n\n \n\n\n2024-10-28\n\n\n\n\nStatistics\n\n\n \n\n\n2024-10-28\n\n\n\n\nCluster Algorithm\n\n\n \n\n\n2024-10-28\n\n\n\n\nRNA Seq\n\n\n \n\n\n2024-10-28\n\n\n\n\nProbability Distribution\n\n\n \n\n\n2024-10-28\n\n\n\n\n\nNo matching items"
   }
 ]

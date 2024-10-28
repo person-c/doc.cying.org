@@ -163,8 +163,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#假设检验原理" id="toc-假设检验原理" class="nav-link" data-scroll-target="#假设检验原理">假设检验原理</a></li>
   <li><a href="#假设检验与置信区间" id="toc-假设检验与置信区间" class="nav-link" data-scroll-target="#假设检验与置信区间">假设检验与置信区间</a></li>
-  <li><a href="#检验功效" id="toc-检验功效" class="nav-link" data-scroll-target="#检验功效">检验功效</a></li>
-  <li><a href="#统计量计算的bootstrap以及置换检验" id="toc-统计量计算的bootstrap以及置换检验" class="nav-link" data-scroll-target="#统计量计算的bootstrap以及置换检验">统计量计算的Bootstrap以及置换检验</a></li>
+  <li><a href="#i-and-ii-type-error-and-power" id="toc-i-and-ii-type-error-and-power" class="nav-link" data-scroll-target="#i-and-ii-type-error-and-power">I and II type error and power</a></li>
+  <li><a href="#统计量分布计算的bootstrap以及置换检验" id="toc-统计量分布计算的bootstrap以及置换检验" class="nav-link" data-scroll-target="#统计量分布计算的bootstrap以及置换检验">统计量分布计算的Bootstrap以及置换检验</a></li>
   <li><a href="#假设检验与线性回归参数检验的等效性" id="toc-假设检验与线性回归参数检验的等效性" class="nav-link" data-scroll-target="#假设检验与线性回归参数检验的等效性">假设检验与线性回归参数检验的等效性</a></li>
   </ul></li>
   </ul>
@@ -770,17 +770,24 @@ M_c = M/C
 <h1>关于假设检验中若干问题</h1>
 <section id="假设检验原理" class="level2">
 <h2 class="anchored" data-anchor-id="假设检验原理">假设检验原理</h2>
-<p>若在假设之下计算得到发生样本如此极端以及更极端情况的概率（<em>1.根据总体分布直接计算概率 2. 根据样本统计量的分布计算概率</em>）小于预先设定的阈值，那么我们则选择拒绝该假设或相反。现实的数据总是抽象变量 - 总体，概率的结果。从现实数据中收集得到的某一指标的一些数据-样本， 都是该抽象变量的一些随机数据-。一个显而易见的事实是：<em>样本统计量总是围绕总体参数的周围分布</em>。若在假设之下，求得样本统计量的分布，则可求得假设之下样本统计量向总体参数偏离如此大范围的机率，则依据小概率定律，选择拒绝或者接受原假设。</p>
+<p>求得样本统计量的分布，则可求得 <span class="math inline">\(H_0\)</span> 下样本统计量向假设的预期偏离如此大范围的机率，则依据小概率定律，选择拒绝或者接受原假设。</p>
+<p>但是实际上要求得统计量的分布并不容易，对于参数统计，我们常常需要假设其分布，然后推理出相关统计量的分布；非参数统计则需要对其编秩，然后推断出秩和的分布。</p>
 </section>
 <section id="假设检验与置信区间" class="level2">
 <h2 class="anchored" data-anchor-id="假设检验与置信区间">假设检验与置信区间</h2>
+<p>对于 <span class="math inline">\(t/z \space test\)</span> 而言，统计量 <span class="math inline">\(t/z\)</span> 的大小表示为向均值偏离多少个标准差, 而置信区间的形式则为均值加上多少个标准差。</p>
+<ol type="1">
+<li><p><span class="math inline">\(t/z = \frac{\bar{x} - \mu_{\bar{x}}}{\sigma_{\bar{x}}}\)</span></p></li>
+<li><p><span class="math inline">\(\mu_{95\%} = \bar{x} \pm \frac{t}{z_{95\%}} \cdot \sigma_{\bar{x}}\)</span></p></li>
+</ol>
 </section>
-<section id="检验功效" class="level2">
-<h2 class="anchored" data-anchor-id="检验功效">检验功效</h2>
+<section id="i-and-ii-type-error-and-power" class="level2">
+<h2 class="anchored" data-anchor-id="i-and-ii-type-error-and-power">I and II type error and power</h2>
+<p><span class="math inline">\(H_0\)</span> 没有差异为阴性结果，<span class="math inline">\(H_1\)</span> 为具有差异，阳性结果。I 型错误是拒绝 <span class="math inline">\(H_0\)</span> 所犯的错误为 <span class="math inline">\(\alpha\)</span>, II 型错误为不拒绝 <span class="math inline">\(H_0\)</span> 所犯的错误为 <span class="math inline">\(\beta\)</span>, 其含义为在 <span class="math inline">\(H_1\)</span> 得到该统计量的概率，<span class="math inline">\(1 - \beta\)</span> 即为检验功效，即在 <span class="math inline">\(H_1\)</span> 为真的情况下，在指定的 <span class="math inline">\(\alpha\)</span> 检出其存在差异的概率，即敏感度(sensitivity).</p>
 </section>
-<section id="统计量计算的bootstrap以及置换检验" class="level2">
-<h2 class="anchored" data-anchor-id="统计量计算的bootstrap以及置换检验">统计量计算的Bootstrap以及置换检验</h2>
-<p>但是在实际的假设检验过程，倘若需要求得样本统计量的分布，往往需要知晓总体的概率分布。由此在假设检验过程之中，除了零假设以外，实际上在样本统计量的分布的计算之中，同时隐含了总体的分布以及方差齐性等假设，而这些假设也有对应的检验方法。因此，<em>假设检验真正的概率应该所有假设概率的乘积，而不仅仅是在零假设之下所计算出的概率</em>。以上所考虑的是一定要得到样本统计量的确切分布，进而得到精确的概率，例如正态总体假设下，方差齐性的t test, 但是很多情况下我们不必得到样本统计量的精确分布，得到一个大概估计即可，例如大样本下的正态检验，<span class="math inline">\(R\times C\)</span>列表值用卡方分布近似，非参数检验-秩检验等。在计算机时代，我们可以直接利用Bootstrp模拟得到假设之下样本统计量的分布。</p>
+<section id="统计量分布计算的bootstrap以及置换检验" class="level2">
+<h2 class="anchored" data-anchor-id="统计量分布计算的bootstrap以及置换检验">统计量分布计算的Bootstrap以及置换检验</h2>
+<p>但是在实际的假设检验过程，倘若需要求得样本统计量的分布，往往需要知晓总体的概率分布。由此在假设检验过程之中，除了零假设以外，实际上在样本统计量的分布的计算之中，同时隐含了总体的分布以及方差齐性等假设，而这些假设也有对应的检验方法。因此，<em>假设检验真正的概率应该所有假设概率的乘积，而不仅仅是在零假设之下所计算出的概率</em>。以上所考虑的是一定要得到样本统计量的确切分布，进而得到精确的概率，例如正态总体假设下，方差齐性的 <span class="math inline">\(t test\)</span>, 但是很多情况下我们不必得到样本统计量的精确分布，得到一个大概估计即可，例如大样本下的正态检验，<span class="math inline">\(R\times C\)</span> 列表值用卡方分布近似，非参数检验-秩检验等。在计算机时代，我们可以直接利用Bootstrp模拟得到假设之下样本统计量的分布。</p>
 </section>
 <section id="假设检验与线性回归参数检验的等效性" class="level2">
 <h2 class="anchored" data-anchor-id="假设检验与线性回归参数检验的等效性">假设检验与线性回归参数检验的等效性</h2>
