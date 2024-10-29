@@ -140,8 +140,8 @@ window.Quarto = {
   </ul></li>
   <li><a href="#mutiple-hypothesis-test" id="toc-mutiple-hypothesis-test" class="nav-link" data-scroll-target="#mutiple-hypothesis-test">Mutiple Hypothesis Test</a>
   <ul class="collapse">
-  <li><a href="#q--teststudent-newman-keuls" id="toc-q--teststudent-newman-keuls" class="nav-link" data-scroll-target="#q--teststudent-newman-keuls"><span class="math inline">\(q\)</span> -Test/student Newman-Keuls</a></li>
-  <li><a href="#dunnett-t-test" id="toc-dunnett-t-test" class="nav-link" data-scroll-target="#dunnett-t-test"><span class="math inline">\(Dunnett-t\)</span> Test</a></li>
+  <li><a href="#q--teststudent-newman-keuls" id="toc-q--teststudent-newman-keuls" class="nav-link" data-scroll-target="#q--teststudent-newman-keuls"><span class="math inline">\(q\)</span> -Test/student-Newman-Keuls</a></li>
+  <li><a href="#dunnett-t-test" id="toc-dunnett-t-test" class="nav-link" data-scroll-target="#dunnett-t-test">Dunnett-<span class="math inline">\(t\)</span> Test</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#non-parametric-statistics" id="toc-non-parametric-statistics" class="nav-link" data-scroll-target="#non-parametric-statistics">Non-parametric Statistics</a>
@@ -340,7 +340,7 @@ window.Quarto = {
 <p>首先给出各分布构造的定义：</p>
 <ul>
 <li>若 <span class="math inline">\(\left\{  X_i \right\}_{i=1}^n\)</span> 独立同分布于 <span class="math inline">\(N(0, 1)\)</span>， 那么 <span class="math inline">\(\sum{X_i^2} \sim \chi^2(n)\)</span>, 其 <span class="math inline">\(E(\chi^2) = n, Var(\chi^2) = 2n\)</span>.</li>
-<li>若有 <span class="math inline">\(\chi^2_1(m)\)</span>, <span class="math inline">\(\chi^2_2(n)\)</span>, 那么 <span class="math inline">\(\frac{\frac{\chi_1^2}{m}}{\frac{\chi_2^2}{n}} \sim F(m - 1, n -1).\)</span></li>
+<li>若有 <span class="math inline">\(\chi^2_1(m)\)</span>, <span class="math inline">\(\chi^2_2(n)\)</span>, 那么 <span class="math inline">\(\frac{\frac{\chi_1^2}{m}}{\frac{\chi_2^2}{n}} \sim F(m, n).\)</span></li>
 <li>若有 <span class="math inline">\(X \sim \mathcal{N}(0, 1)\)</span>， 以及 <span class="math inline">\(\chi^2(n)\)</span>, 那么 <span class="math inline">\(\frac{X}{\sqrt{\frac{\chi^2(n)}{n}}} \sim t(n)\)</span></li>
 </ul>
 <div id="thm-th1" class="theorem">
@@ -572,19 +572,15 @@ window.Quarto = {
 </section>
 <section id="mutiple-hypothesis-test" class="level2">
 <h2 class="anchored" data-anchor-id="mutiple-hypothesis-test">Mutiple Hypothesis Test</h2>
-<p>方差分析对各处理组均数是否相等总的检验，在<span class="math inline">\(H_0\)</span>被拒绝以后，需要确定究竟是哪些处理组之间存在差异，此时需要进行均数之间的多重比较，这就涉及到累计 Ⅰ率。</p>
-<p>当 <span class="math inline">\(a\)</span> 个处理组均数需要两两比较时候，共需要比较 <span class="math inline">\(c = a![2!(a-1)!].\)</span> 设每次检验的检验的检验水准为 <span class="math inline">\(\alpha\)</span> ,累积Ⅰ型错误概率为 <span class="math inline">\('\alpha\)</span>, 则</p>
-<ol type="1">
-<li><span class="math inline">\('\alpha = 1 - (1 - \alpha)^c\)</span></li>
-</ol>
+<p>方差分析对各处理组均数是否相等总的检验，在 <span class="math inline">\(H_0\)</span> 被拒绝以后，需要确定究竟是哪些处理组之间存在差异，此时需要进行均数之间的多重比较，这就涉及到累计I型错误率。</p>
+<p>当 <span class="math inline">\(a\)</span> 个处理组均数需要两两比较时候，共需要比较 <span class="math inline">\(c = a!/[2!(a-2)!]\)</span>。 设每次检验的检验水准为 <span class="math inline">\(\alpha\)</span> ,累积I型错误概率为 <span class="math inline">\('\alpha\)</span>, 则 FFG 1. <span class="math inline">\('\alpha = 1 - (1 - \alpha)^c\)</span></p>
 <section id="q--teststudent-newman-keuls" class="level3">
-<h3 class="anchored" data-anchor-id="q--teststudent-newman-keuls"><span class="math inline">\(q\)</span> -Test/student Newman-Keuls</h3>
+<h3 class="anchored" data-anchor-id="q--teststudent-newman-keuls"><span class="math inline">\(q\)</span> -Test/student-Newman-Keuls</h3>
 <p><span class="math inline">\(q \text{Test}\)</span> 用于任意两组之间的相互比较，SNK法的检验效能介于Bonferroni和Tukey法之间的；当比较均值的组数较多时，Tukey法更有效，组数较少时，ferroni法更有效。</p>
 <p>其计算过程如下：</p>
 <ol type="1">
 <li>将各组的平均值按由小到大的顺序排列。</li>
-<li>计算过两个平均之间的差值以及组间跨度 <span class="math inline">\(r\)</span></li>
-<li>按下列公式计算统计量<span class="math inline">\(q\)</span>.</li>
+<li>计算两个平均之间的差值以及组间跨度 <span class="math inline">\(r\)</span></li>
 </ol>
 <p>则 <span class="math inline">\(q\)</span> 统计量：</p>
 <ol type="1">
@@ -593,7 +589,7 @@ window.Quarto = {
 <p>其中 <span class="math inline">\(\bar{Y_i}, \bar{Y_h}\)</span> 及 <span class="math inline">\(n_i, n_h\)</span> 分别是两个比较组的均数以及样本例数， <span class="math inline">\(MS_{\text{within group}}\)</span> 为进行方差分析得到的组内均方。</p>
 </section>
 <section id="dunnett-t-test" class="level3">
-<h3 class="anchored" data-anchor-id="dunnett-t-test"><span class="math inline">\(Dunnett-t\)</span> Test</h3>
+<h3 class="anchored" data-anchor-id="dunnett-t-test">Dunnett-<span class="math inline">\(t\)</span> Test</h3>
 <p><span class="math inline">\(t_D\)</span> 统计量处理组与对照组的比较，该统计量的计算如下：</p>
 <ol type="1">
 <li><span class="math inline">\(t_D = \frac{\bar{Y_i} - \bar{Y_c}}{\sqrt{MS_{within \: group} \times (\frac{1}{n}_i + \frac{1}{n_c})}}\)</span></li>
