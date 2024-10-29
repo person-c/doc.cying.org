@@ -108,7 +108,7 @@ date: "2023-10-01"
 首先给出各分布构造的定义：
 
 - 若 $\left\{  X_i \right\}_{i=1}^n$ 独立同分布于 $N(0, 1)$， 那么 $\sum{X_i^2} \sim \chi^2(n)$, 其 $E(\chi^2) = n, Var(\chi^2) = 2n$.
-- 若有 $\chi^2_1(m)$, $\chi^2_2(n)$, 那么 $\frac{\frac{\chi_1^2}{m}}{\frac{\chi_2^2}{n}} \sim F(m - 1, n -1).$
+- 若有 $\chi^2_1(m)$, $\chi^2_2(n)$, 那么 $\frac{\frac{\chi_1^2}{m}}{\frac{\chi_2^2}{n}} \sim F(m, n).$
 - 若有 $X \sim \mathcal{N}(0, 1)$， 以及 $\chi^2(n)$, 那么 $\frac{X}{\sqrt{\frac{\chi^2(n)}{n}}} \sim t(n)$
 
 
@@ -357,21 +357,21 @@ When $\sigma_1 \neq \sigma_2 \text{ or Unknown for it} \rightarrow \text{ Welch'
 
 ## Mutiple Hypothesis Test
 
-方差分析对各处理组均数是否相等总的检验，在$H_0$被拒绝以后，需要确定究竟是哪些处理组之间存在差异，此时需要进行均数之间的多重比较，这就涉及到累计 &#8544;率。
+方差分析对各处理组均数是否相等总的检验，在 $H_0$ 被拒绝以后，需要确定究竟是哪些处理组之间存在差异，此时需要进行均数之间的多重比较，这就涉及到累计I型错误率。
 
-当 $a$ 个处理组均数需要两两比较时候，共需要比较 $c = a![2!(a-1)!].$ 设每次检验的检验的检验水准为 $\alpha$ ,累积&#8544;型错误概率为 $'\alpha$, 则
-
+当 $a$ 个处理组均数需要两两比较时候，共需要比较 $c = a!/[2!(a-2)!]$。 设每次检验的检验水准为 $\alpha$ ,累积I型错误概率为 $'\alpha$, 则
+FFG
 1. $'\alpha = 1 - (1 - \alpha)^c$
 
-### $q$ -Test/student Newman-Keuls
+### $q$ -Test/student-Newman-Keuls
 
 $q \text{Test}$ 用于任意两组之间的相互比较，SNK法的检验效能介于Bonferroni和Tukey法之间的；当比较均值的组数较多时，Tukey法更有效，组数较少时，ferroni法更有效。
 
 其计算过程如下：
 
 1. 将各组的平均值按由小到大的顺序排列。
-2. 计算过两个平均之间的差值以及组间跨度 $r$
-3. 按下列公式计算统计量$q$.
+2. 计算两个平均之间的差值以及组间跨度 $r$
+
 
 则 $q$ 统计量：
 
@@ -381,7 +381,7 @@ $q \text{Test}$ 用于任意两组之间的相互比较，SNK法的检验效能�
 
 
 
-### $Dunnett-t$ Test
+### Dunnett-$t$ Test
 
 $t_D$ 统计量处理组与对照组的比较，该统计量的计算如下：
 
