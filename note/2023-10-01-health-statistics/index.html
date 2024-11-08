@@ -449,6 +449,7 @@ window.Quarto = {
 </ol>
 </blockquote>
 <p>而大样本下 <span class="math inline">\(t\)</span> 分布近似于 <span class="math inline">\(z\)</span> 分布。所以 <span class="math inline">\(t\)</span> 分布可以应用于小样本下的正态总体，以及大样本下的任意总体的均值的检验。</p>
+<p>在应用 <span class="math inline">\(t\)</span> 检验时，我们往往只有一个或两个样本的均值与方差，计算的关键就在于如何利用样本方差计算得到均值分布的方差。</p>
 </section>
 <section id="one-smple-t-test" class="level3">
 <h3 class="anchored" data-anchor-id="one-smple-t-test">One Smple <span class="math inline">\(t\)</span>-Test</h3>
@@ -573,7 +574,10 @@ window.Quarto = {
 <section id="mutiple-hypothesis-test" class="level2">
 <h2 class="anchored" data-anchor-id="mutiple-hypothesis-test">Mutiple Hypothesis Test</h2>
 <p>方差分析对各处理组均数是否相等总的检验，在 <span class="math inline">\(H_0\)</span> 被拒绝以后，需要确定究竟是哪些处理组之间存在差异，此时需要进行均数之间的多重比较，这就涉及到累计I型错误率。</p>
-<p>当 <span class="math inline">\(a\)</span> 个处理组均数需要两两比较时候，共需要比较 <span class="math inline">\(c = a!/[2!(a-2)!]\)</span>。 设每次检验的检验水准为 <span class="math inline">\(\alpha\)</span> ,累积I型错误概率为 <span class="math inline">\('\alpha\)</span>, 则 FFG 1. <span class="math inline">\('\alpha = 1 - (1 - \alpha)^c\)</span></p>
+<p>当 <span class="math inline">\(a\)</span> 个处理组均数需要两两比较时候，共需要比较 <span class="math inline">\(c = a!/[2!(a-2)!]\)</span>。 设每次检验的检验水准为 <span class="math inline">\(\alpha\)</span> ,累积I型错误概率为 <span class="math inline">\('\alpha\)</span>, 则</p>
+<ol type="1">
+<li><span class="math inline">\('\alpha = 1 - (1 - \alpha)^c\)</span></li>
+</ol>
 <section id="q--teststudent-newman-keuls" class="level3">
 <h3 class="anchored" data-anchor-id="q--teststudent-newman-keuls"><span class="math inline">\(q\)</span> -Test/student-Newman-Keuls</h3>
 <p><span class="math inline">\(q \text{Test}\)</span> 用于任意两组之间的相互比较，SNK法的检验效能介于Bonferroni和Tukey法之间的；当比较均值的组数较多时，Tukey法更有效，组数较少时，ferroni法更有效。</p>
@@ -649,7 +653,7 @@ window.Quarto = {
 </section>
 <section id="rank-based-test" class="level2">
 <h2 class="anchored" data-anchor-id="rank-based-test">Rank Based Test</h2>
-<p>用于总体分布未知，且观测变量为数值变量或者有序分类变量情况，需要关注的是不同的秩和检验的秩和 <span class="math inline">\(T\)</span> 是如何计算的。</p>
+<p>用于总体分布未知，且观测变量为数值变量或者有序分类变量情况，需要关注的是不同的秩和检验的秩和 <span class="math inline">\(T\)</span> 是如何计算的以及遇到相等的数据该如何处理（只有数值变量会遇到相同的数据，对于观测变量为有序的等级数据，因为用的是其每一类结果的平均秩次，不存在该问题）。</p>
 <section id="wilcoxon-signed-rank-test-for-paired-sample" class="level3">
 <h3 class="anchored" data-anchor-id="wilcoxon-signed-rank-test-for-paired-sample">Wilcoxon Signed Rank Test for Paired Sample</h3>
 <p>依差值的绝对值从小到大编秩。编秩时遇到差值为 <span class="math inline">\(0\)</span> 的舍去不计，同时样本例数 <span class="math inline">\(n - 1\)</span> ; 遇到绝对值差值相等差数，符号相同则顺次编秩，符号相反则取平均秩次，再给秩次冠以原差值的正负号。分别计算出正负秩次 <span class="math inline">\(T_+, T_-,\)</span>任取其中一个作为统计量秩和 <span class="math inline">\(T\)</span></p>
@@ -670,7 +674,7 @@ window.Quarto = {
 </ol>
 <p>则统计量 <span class="math inline">\(T\)</span>:</p>
 <ol type="1">
-<li><span class="math inline">\(T \sim \mathcal{N}(\frac{n_1(N+1)}{2}, \frac{n_1n_2(N+1)}{24}), \text{Where} N = n_1 + n_2\)</span></li>
+<li><span class="math inline">\(T \sim \mathcal{N}(\frac{n_1(N+1)}{2}, \frac{n_1n_2(N+1)}{12}), \text{Where} N = n_1 + n_2\)</span></li>
 <li><span class="math inline">\(Z = \frac{|T - \frac{n_1(N+1)}{2}| - 0.5}{\sqrt{\frac{n_1n_2(N+1)}{12}}}\)</span></li>
 </ol>
 <p>当相同秩较多时，有如下校正：</p>
@@ -681,36 +685,45 @@ window.Quarto = {
 <section id="annova-for-rank" class="level3">
 <h3 class="anchored" data-anchor-id="annova-for-rank">ANNOVA for Rank</h3>
 <p>单因素的方差分析对应Kruskal-Wallis Test, 随机区组设计的方差分析对应Freidman Test.</p>
-<section id="kruskal-wallis-test" class="level4">
-<h4 class="anchored" data-anchor-id="kruskal-wallis-test">Kruskal-Wallis Test</h4>
+<p><strong>Kruskal-Wallis Test</strong></p>
 <p>构造<span class="math inline">\(H\)</span>统计量：假设有 <span class="math inline">\(a\)</span> 个组，第 <span class="math inline">\(i\)</span> 组的样本量 <span class="math inline">\(n_i\)</span>, <span class="math inline">\(N\)</span> 为各组样本量之和，将各组数据合并，编秩次，秩次相同的取平均值。<span class="math inline">\(R_{ij}\)</span> 为第 <span class="math inline">\(i\)</span> 个组的第 <span class="math inline">\(j\)</span> 个个体的秩次，<span class="math inline">\(\bar{R_i}\)</span>为第 <span class="math inline">\(i\)</span> 个组的平均秩次，<span class="math inline">\(\bar{R}\)</span> 为总平均秩次。</p>
-<p>没有相同秩次时，秩次服从均匀分布：</p>
+<ol type="1">
+<li><span class="math inline">\(H = \frac{\sum_{i}^{a}n_i(\bar{R_i} - \bar{R})^2}{\frac{1}{N - 1}\sum_{i=1}^a\sum_{j=1}^{n_i}(R_{ij} - \bar{R})^2}\)</span></li>
+</ol>
+<p>从上式可以看出 <span class="math inline">\(H\)</span> 统计量实际上是组间变异与总的变异的比值。</p>
+<p>没有相同秩次时，秩次服从均匀分布, 上式可以简化为：</p>
 <ol type="1">
 <li><span class="math inline">\(H =\frac{12}{N(N + 1)}(\sum\frac{R_i^2}{n_i}) - 3(N+1).\)</span></li>
 </ol>
-<p>相同秩次过多时，上诉以均匀分布为基础推导的公式需要进行校正：</p>
+<p>相同秩次过多时，上述以均匀分布为基础推导的公式需要进行校正：</p>
 <ol type="1">
 <li><span class="math inline">\(H_c = H/C\)</span></li>
 </ol>
-<p>其中 <span class="math inline">\(C = 1 - \sum(t_j^3 - t_j) / (N^3 - N) .\)</span></p>
+<p>其中 <span class="math inline">\(C = 1 - \sum(t_j^3 - t_j) / (N^3 - N)\)</span>。</p>
 <p><span class="math inline">\(n_i\)</span> 与 <span class="math inline">\(a\)</span> 较小时 直接计算或者查表。</p>
 <p><span class="math inline">\(n\)</span> 较大时, <span class="math inline">\(H\)</span> 近似服从于 <span class="math inline">\(\chi^2_{a-1}.\)</span></p>
-</section>
-<section id="friedman-test" class="level4">
-<h4 class="anchored" data-anchor-id="friedman-test">Friedman Test</h4>
+<p>实际上也可以对数据编秩，然后用数据的秩次代替原数据进行方差分析得到 <span class="math inline">\(F\)</span> 统计量， <span class="math inline">\(H\)</span> 统计量与 <span class="math inline">\(F\)</span> 统计量有如下关系：</p>
+<p><span class="math inline">\(F = \frac{H/(a-1)}{(N-1-H)/(N-a)}\)</span></p>
+<p><strong>Friedman Test</strong></p>
 <p>在区组(行）内进行编秩，有相同的则取平均秩次。<span class="math inline">\(i\)</span> 代表不同的区组，<span class="math inline">\(j\)</span> 代表不同地处理水平。</p>
-<p><span class="math display">\[
-M = \frac{\sum_{j=1}^{a}n(\bar{R}_j - \bar{R})^2}{\sum_{j=1}^{a}\sum_{i=1}^{n}(R_{ij} - \bar{R})^2 / n(a-1)}
-\]</span></p>
+<ol type="1">
+<li><span class="math inline">\(M = \frac{\sum_{j=1}^{a}n(\bar{R}_j - \bar{R})^2}{\sum_{j=1}^{a}\sum_{i=1}^{n}(R_{ij} - \bar{R})^2 / n(a-1)}\)</span></li>
+</ol>
+<p>从上式可以看到 <span class="math inline">\(M\)</span> 统计量是处理水平之间的变异与总的变异的比值。</p>
+<p>如果没有相同秩次时，上式可以简化为：</p>
+<ol type="1">
+<li><span class="math inline">\(M = \frac{12}{na(a + 1)}\sum_{j=1}^aR_j^2 - 3n(a+1)\)</span></li>
+</ol>
 <p>当相同秩过多时可以进行校正，校正系数为</p>
-<p><span class="math display">\[
-C = 1 - \sum_{j=1}^{a}\sum_{p=1}^{l_i}(t_{jp}^3 - t_{jp})/[na(a^2 -1 )]
-\]</span></p>
-<p><span class="math display">\[
-M_c = M/C
-\]</span></p>
+<ol type="1">
+<li><p><span class="math inline">\(C = 1 - \sum_{j=1}^{a}\sum_{p=1}^{l_i}(t_{jp}^3 - t_{jp})/[na(a^2 -1 )]\)</span></p></li>
+<li><p><span class="math inline">\(M_c = M/C\)</span></p></li>
+</ol>
 <p>当 <span class="math inline">\(n\)</span> 以及 <span class="math inline">\(a\)</span> 较小时直接查表或精确计算。<span class="math inline">\(n\)</span> 较大时 <span class="math inline">\(M\)</span> 近似服从于 <span class="math inline">\(\chi^2_{a-1}.\)</span></p>
-</section>
+<p>同样地，我们也可以直接用编秩后数据代替原始数据的值进行随机区组设计的方差分析， 此时的 <span class="math inline">\(F\)</span> 统计量与 <span class="math inline">\(M\)</span> 统计量的关系如下：</p>
+<ol type="1">
+<li><span class="math inline">\(F = \frac{M/(a-1)}{(na-n - M)/(n-1)(a-1)}\)</span></li>
+</ol>
 </section>
 </section>
 </section>
@@ -776,6 +789,7 @@ M_c = M/C
 <li><p><span class="math inline">\(t/z = \frac{\bar{x} - \mu_{\bar{x}}}{\sigma_{\bar{x}}}\)</span></p></li>
 <li><p><span class="math inline">\(\mu_{95\%} = \bar{x} \pm \frac{t}{z_{95\%}} \cdot \sigma_{\bar{x}}\)</span></p></li>
 </ol>
+<p>置信区间的含义在于用100个样本均值计算得到置信区间，其范围包括总体均值的个数为95，但是对个一个样本均值计算出来的区间，其是否包括该总体均值只有是或者不是，而不是有 95%的概率包括，因为该区间以及总体均值都是确定的值。</p>
 </section>
 <section id="i-and-ii-type-error-and-power" class="level2">
 <h2 class="anchored" data-anchor-id="i-and-ii-type-error-and-power">I and II type error and power</h2>
