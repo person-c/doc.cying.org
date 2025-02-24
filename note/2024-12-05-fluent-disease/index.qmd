@@ -14,10 +14,10 @@ pdf:
 # 矩阵视角下的线性方程组
 
 $$
-\begin{align}
+\begin{aligned}
 2x_1 + 3x_2 &= 8 \\
 x_1 - x_2 &= 1 \\
-\end{align}
+\end{aligned}
 $$
 
 Can be represented in matrix form as $Ax = b$:
@@ -339,7 +339,7 @@ $$
 如果矩阵 $A$ 具有 $n$ 个线性无关的的特征向量，将它们作为列向量可以组成一个可逆方阵 $S$, 并且有：
 
 $$
-\begin{align}
+\begin{aligned}
 A\mathbf{S} &=  A \begin{bmatrix} \mathbf{x}_1 & \mathbf{x}_2 & \dots & \mathbf{x}_n \end{bmatrix} \\
    &= \begin{bmatrix} \lambda_1\mathbf{x}_1 & \lambda_2\mathbf{x}_2 &  \dots & \lambda_n\mathbf{x}_n \end{bmatrix}\\
    & = \begin{bmatrix} 
@@ -349,7 +349,7 @@ A\mathbf{S} &=  A \begin{bmatrix} \mathbf{x}_1 & \mathbf{x}_2 & \dots & \mathbf{
         0         & \dots     & 0      & \lambda_n  
        \end{bmatrix}  \\
   &= \mathbf{S} \Lambda
-\end{align}
+\end{aligned}
 $$
 
 那么有：
