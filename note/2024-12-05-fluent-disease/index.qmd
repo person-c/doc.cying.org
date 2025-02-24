@@ -14,10 +14,10 @@ pdf:
 # 矩阵视角下的线性方程组
 
 $$
-\begin{aligned}
+\begin{align}
 2x_1 + 3x_2 &= 8 \\
 x_1 - x_2 &= 1 \\
-\end{aligned}
+\end{align}
 $$
 
 Can be represented in matrix form as $Ax = b$:
