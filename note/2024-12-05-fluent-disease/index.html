@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.41">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-48ffa3e5b9d089919c6712c39e5b00f2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5027bf1c1f92ac6615724d89c8213d6a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-5c67a7444eebc356e54fdce0a63e8750.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -113,6 +113,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#矩阵视角下的线性方程组" id="toc-矩阵视角下的线性方程组" class="nav-link active" data-scroll-target="#矩阵视角下的线性方程组">矩阵视角下的线性方程组</a></li>
+  <li><a href="#方阵-行列式-特征值-对角化" id="toc-方阵-行列式-特征值-对角化" class="nav-link" data-scroll-target="#方阵-行列式-特征值-对角化">方阵 行列式 特征值 对角化</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -327,6 +328,113 @@ x_\text{complete} = x_p + x_n, \text{其中} Ax_p = b, Ax_n = 0 \rightarrow A(x_
 <li>若 <span class="math inline">\(r = m &lt; n \rightarrow R = \begin{bmatrix} I &amp; F \end{bmatrix}\)</span>, 即有多余的列，无穷多解。</li>
 <li>若 <span class="math inline">\(r &lt; n, r &lt; m \rightarrow R = \begin{bmatrix} I &amp; F \\0 &amp; 0 \\\end{bmatrix}\)</span> , 即有多余的行与列，无解或者无穷多解。</li>
 </ol>
+<p>从上可以看出对于在2或者4的无解情形下，我们是无法解出线性方程组的；但是实际上对于情况2，我们可以通过将向量 <span class="math inline">\(b\)</span> 投影到 <span class="math inline">\(A\)</span> 的列空间之中得出一个最优解，而对于投影则涉及到正交的概念。</p>
+<blockquote class="blockquote">
+<p>对于两个向量正交则 <span class="math inline">\(x^Ty = y^Tx = 0 \rightarrow ||x||^2 + ||y||^2 = ||x+y||^2\)</span>, 其中 <span class="math inline">\(||x||^2 = x^Tx\)</span>. 之前我们曾提到矩阵的四个子空间，实际上矩阵的行空间和它的零空间是互为正交补的，列空间与左零空间互为正交补。</p>
+</blockquote>
+<p>对于情形2无解的情况，要得到最优解，我们需要将 <span class="math inline">\(b\)</span> 投影到 <span class="math inline">\(a/A\)</span> 的方向，下面介绍如何进行投影。</p>
+<p>考虑 向量 <span class="math inline">\(b\)</span> 在 <span class="math inline">\(a\)</span> 方向上投影的向量为 <span class="math inline">\(p\)</span>，既然其在 <span class="math inline">\(a\)</span> 的方向上，则 <span class="math inline">\(p = ax\)</span>， 那么 <span class="math inline">\(e = b - p\)</span> 则与 <span class="math inline">\(a\)</span> 向量正交：</p>
+<p><span class="math display">\[
+a^T(b-p) = 0 \rightarrow a^T(b-xa) = 0 \rightarrow a^Tax = a^Tb
+\]</span></p>
+<p>解得 <span class="math inline">\(x = \frac{a^Tb}{a^Ta}, p = ax = a\frac{a^Tb}{a^Ta}\)</span>， 从 <span class="math inline">\(p\)</span> 中我们可以分离出 矩阵 <span class="math inline">\(P = \frac{aa^T}{a^Ta}\)</span>， 该矩阵我们称之为投影矩阵，它将向量 <span class="math inline">\(b\)</span> 投影到 <span class="math inline">\(a\)</span> 的方向。</p>
+<p>投影矩阵 <span class="math inline">\(P\)</span> 是一个对称矩阵。显然，考虑到左乘一个矩阵为列的线性组合，投影矩阵既然是把 <span class="math inline">\(b\)</span> 投影到 <span class="math inline">\(a\)</span> 的方向，其显然和 <span class="math inline">\(a\)</span> 有相同的列空间，其秩为1。另一方面，如果做两次投影则有 <span class="math inline">\(P^2b = Pb\)</span>，因为投影一次之后再投影，显然还是在原来的位置。因此矩阵 <span class="math inline">\(P\)</span> 有如下性质：</p>
+<p><span class="math display">\[
+P^2 = P, P^T = P
+\]</span></p>
+<blockquote class="blockquote">
+<p>Gram-SChmidt 正交化</p>
+<p>单位长度为 1， 并且彼此正交的向量称之为标准正交向量。如果矩阵 <span class="math inline">\(Q\)</span> 的列向量为标准正交向量，则 <span class="math inline">\(Q^TQ = I\)</span> 。一个标准正交的方正我们称之为“正交矩阵”（orthogonal matrix）。</p>
+<p>从两个线性无关的向量开始 <span class="math inline">\(a\)</span>， <span class="math inline">\(b\)</span> 开始其张成了一个空间，我们的目标就是找到一组标准正交的向量 <span class="math inline">\(q1, q2\)</span> 能张成同样的空间。Schmidt提出如果有一组正交基 <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, 那么我们令它们除以自己的长度就得到标准正交基。</p>
+<p><span class="math display">\[
+q_1 = \frac{A}{||A||}, q_2 = \frac{B}{||B||}
+\]</span></p>
+<p>Gram 提出了只要用向量 <span class="math inline">\(b\)</span> 减去投影到 <span class="math inline">\(a\)</span> 上的向量，即可得到一个与 <span class="math inline">\(a\)</span> 垂直的向量，也就是上面提到的 <span class="math inline">\(e\)</span> 的方向。</p>
+<p><span class="math display">\[
+B = \frac{aa^T}{a^Ta}b
+\]</span></p>
+<p>如果从三个线性无关的向量 <span class="math inline">\(a, b, c\)</span> 出发，则可以通过从 <span class="math inline">\(c\)</span> 中减去其在 <span class="math inline">\(a, b\)</span> 向量上的投影得到与 <span class="math inline">\(a, b\)</span> 垂直的向量 <span class="math inline">\(C\)</span>。</p>
+<p><span class="math display">\[
+C = c - \frac{aa^Tc}{a^Ta} - \frac{bb^Tc}{b^Tb}
+\]</span></p>
+<p>施密特正交化的过程可以用矩阵运算的方式表示为 <span class="math inline">\(A = QR\)</span>, 此处 <span class="math inline">\(R\)</span> 为上三角矩阵。</p>
+<p><span class="math display">\[
+\begin{bmatrix} a_1 &amp; a_2 \end{bmatrix} = \begin{bmatrix} q_1 &amp; q_2 \end{bmatrix} \begin{bmatrix} a_1^Tq_1 &amp; a_2^Tq_1 \\ a_1^Tq_2 &amp; a_2^Tq_2 \end{bmatrix}
+\]</span></p>
+<p><span class="math inline">\(R\)</span> 矩阵每个元素都是向量点积的值，而实际上点积代表的是 <span class="math inline">\(a\)</span> 向量 在 <span class="math inline">\(q\)</span> 向量上的投影长度与 <span class="math inline">\(q\)</span> 的长度的乘积。如果 <span class="math inline">\(q\)</span> 为 单位向量 则点积就是 <span class="math inline">\(a\)</span> 在 <span class="math inline">\(q\)</span> 方向的投影长度，如果 <span class="math inline">\(a\)</span> 也为 单位向量，则点积就是两个向量夹角的余弦值。</p>
+<p>结合右乘一个矩阵为列的线性组合，可以看到 <span class="math inline">\(R\)</span> 矩阵每列的元素就是原每个 <span class="math inline">\(a\)</span> 向量在 <span class="math inline">\(q\)</span> 方向的投影长度，称之为权。</p>
+</blockquote>
+<p>将 <span class="math inline">\(b\)</span> 向量投影到 <span class="math inline">\(A\)</span> 矩阵的列空间， 则 <span class="math inline">\(p = Ax\)</span></p>
+<p><span class="math display">\[
+A^T(b - Ax) = 0 \rightarrow  A^TAx = A^Tb
+\]</span></p>
+<p>解得 <span class="math inline">\(x = (A^TA)^{-1}A^Tb, p = A(A^TA)^{-1}A^Tb\)</span>, 则投影矩阵 <span class="math inline">\(P = A(A^TA)^{-1}A^T\)</span></p>
+<p>将向量 <span class="math inline">\(b\)</span> 投影到列空间 <span class="math inline">\(A\)</span> 与 投影到向量 <span class="math inline">\(a\)</span> 的方向的一个特殊点在于，实际上 <span class="math inline">\(b\)</span> 向量是在一个 <span class="math inline">\(m\)</span> 空间之中，而之前提到是四个子空间，列空间与左零空间为正交补，为 <span class="math inline">\(m\)</span> 维空间的子空间， 所以将 <span class="math inline">\(b\)</span> 投影到 <span class="math inline">\(A\)</span> 的列空间之中，实际是将 <span class="math inline">\(b\)</span> 分解为两个向量，其中 <span class="math inline">\(p\)</span> 向量在 <span class="math inline">\(A\)</span> 列空间之中， 而 <span class="math inline">\(e\)</span> 则在 左零空间之中，而将 <span class="math inline">\(b\)</span> 投影到左零空间的矩阵为 <span class="math inline">\(I-P\)</span> 为将其投影到左零空间的投影矩阵。</p>
+<p>从 <span class="math inline">\(x\)</span> 解的形式中，我们可以看到，用投影的方法求解线性方程组，需要 <span class="math inline">\(A^TA\)</span> 存在逆矩阵，而其存在逆矩阵的条件就是 <span class="math inline">\(A\)</span> 是列满秩的, 这就是该方法只能用于情形 2 无解的原因。应用投影矩阵求方程组最优解的方法，常用于“最小二乘法”拟合曲线。</p>
+</section>
+<section id="方阵-行列式-特征值-对角化" class="level1">
+<h1>方阵 行列式 特征值 对角化</h1>
+<p>以下三个性质定义了行列式：</p>
+<ol type="1">
+<li><span class="math inline">\(det(I) = 1\)</span></li>
+<li>如果交换行列式的两行，行列式的数值会反号。</li>
+<li><ol type="a">
+<li>如果矩阵某行乘以 <span class="math inline">\(t\)</span>, 则行列式的值要乘上 <span class="math inline">\(t\)</span>。b）行列式是“矩阵的行”的线性函数。</li>
+</ol></li>
+</ol>
+<p>从以上三个性质可以推导出下面七条性质：</p>
+<ol start="4" type="1">
+<li>如果矩阵的两行完全相同，则它的行列式为 0。</li>
+<li>从矩阵的某行 <span class="math inline">\(k\)</span> 减去某一行 <span class="math inline">\(i\)</span> 的倍数，并不改变行列式的数值。</li>
+<li>如果矩阵 <span class="math inline">\(A\)</span> 的某一行都是 0， 则其行列式为0。</li>
+<li>三角阵行列式的值等于其对角线上数值（主元）的乘积。</li>
+<li>当且仅当矩阵 <span class="math inline">\(A\)</span> 为奇异矩阵时，其行列式为 0。</li>
+<li><span class="math inline">\(det(AB) = det(A)det(B)\)</span>.</li>
+<li><span class="math inline">\(det(A^T) = det(A)\)</span>.</li>
+</ol>
+<p>从性质 1，2， 3 可以推出行列式公式 (Formula for the determinant)：</p>
+<p>通过性质 3 对 <span class="math inline">\(n\)</span> 阶矩阵进行拆分，我们可以得到所有只包含 <span class="math inline">\(n\)</span> 个非零元素的行列式，对于二阶行列式，我们从一个拆分为两个，然后拆分为四个。对于三阶方阵，则从一个拆分成三个，然后拆分成九个，最后拆分为27个。然而，这些行列式中有很大一部分为 0。</p>
+<p>每一个拆分出来的非 0 行列式都是再每行每列只有一个元素，就如同置换矩阵的元素分布，利用性质 3 可以将元素从行列式中提取出来，而置换矩阵的行列式值为 1， 或 -1，因此可以给出行列式公式；对于 <span class="math inline">\(n\)</span> 阶方阵，其非 0 行列式的元素个数为 <span class="math inline">\(n!\)</span>。</p>
+<p><span class="math display">\[
+det(A) = \sum_{n!}\pm{a_{1\alpha}a_{2\beta}...a_{n\omega}}
+\]</span></p>
+<p>将上面的行列式公式把某一行的元素提取，例如 <span class="math inline">\(a_{11}, a_{12}...\)</span>, 则每个元素的系数即为代数余子式，是一个低阶行列式的值，这个低阶行列式是由原矩阵去掉 <span class="math inline">\(a1j\)</span> 所在行和列组成的。</p>
+<p>对矩阵中的任意元素 <span class="math inline">\(a_{ij}\)</span> 而言，其代数余子式 <span class="math inline">\(C_{ij}\)</span> 就是矩阵的行列式的公式中 <span class="math inline">\(a_{ij}\)</span> 的系数。<span class="math inline">\(C_{ij}\)</span> 等于原矩阵移除第 <span class="math inline">\(i\)</span> 行，第 <span class="math inline">\(j\)</span> 列后剩余元素组成的 <span class="math inline">\(n - 1\)</span> 矩阵的行列式数值乘以 <span class="math inline">\((-1)^{i + j}\)</span></p>
+<p>对于 <span class="math inline">\(n\)</span> 阶方阵，其行列式的代数余子式公式为：</p>
+<p><span class="math display">\[
+det(A) = a_{11}C_{11} + a_{12}C_{12} + \dots + a_{1n}C_{1n}
+\]</span></p>
+<p>然后实际上对于行列式的求解，消元法更简单高效。</p>
+<p>将左乘一个矩阵看作对向量的变换，那么，如果一个变换不改变向量的方向，那么有：</p>
+<p><span class="math display">\[
+Ax = \lambda x
+\]</span></p>
+<p>上式的含义就是一个矩阵操作，只对一个向量进行放缩，如果矩上式存在非零解，那么</p>
+<p><span class="math display">\[
+det(A- \lambda I) = 0
+\]</span></p>
+<p>对于任意的 <span class="math inline">\(n \cdot n\)</span> 矩阵，其具有 <span class="math inline">\(n\)</span> 个特征值（可能存在重复的特征值），其和等于矩阵对角线元素之和，称为迹。其乘积等于矩阵的行列式。</p>
+<p>对于对称矩阵而言，其永远具有实数的特征值，并且其特征向量正交；而对于反对称矩阵而言，具有纯虚数的特征值。</p>
+<p>如果矩阵 <span class="math inline">\(A\)</span> 具有 <span class="math inline">\(n\)</span> 个线性无关的的特征向量，将它们作为列向量可以组成一个可逆方阵 <span class="math inline">\(S\)</span>, 并且有：</p>
+<p><span class="math display">\[
+\begin{aligned}
+A\mathbf{S} &amp;=  A \begin{bmatrix} \mathbf{x}_1 &amp; \mathbf{x}_2 &amp; \dots &amp; \mathbf{x}_n \end{bmatrix} \\
+   &amp;= \begin{bmatrix} \lambda_1\mathbf{x}_1 &amp; \lambda_2\mathbf{x}_2 &amp;  \dots &amp; \lambda_n\mathbf{x}_n \end{bmatrix}\\
+   &amp; = \begin{bmatrix}
+        \lambda_1 &amp; 0         &amp; \dots  &amp; 0         \\
+        0         &amp; \lambda_2 &amp;        &amp; 0         \\
+        \vdots    &amp;           &amp; \ddots &amp; \vdots    \\
+        0         &amp; \dots     &amp; 0      &amp; \lambda_n  
+       \end{bmatrix}  \\
+  &amp;= \mathbf{S} \Lambda
+\end{aligned}
+\]</span></p>
+<p>那么有：</p>
+<p><span class="math display">\[
+A = S \Lambda S^{-1}
+\]</span></p>
+<p>特征值给矩阵的幂计算提供了方法。</p>
+<p>如果 <span class="math inline">\(A\mathbf{x} = \lambda\mathbf{x}\)</span>, 则有 <span class="math inline">\(A^2\mathbf{x} = \lambda A\mathbf{x} = \lambda^2\mathbf{x}\)</span>, 说明矩阵 <span class="math inline">\(A^2\)</span> 有着和 <span class="math inline">\(A\)</span> 一样的特征向量，而特征值为 <span class="math inline">\(\lambda^2\)</span>。写成对角化的形式则有: <span class="math inline">\(A^2 = S\Lambda S^{-1} S\Lambda S^{-1}\)</span>。同样的处理可以得到 <span class="math inline">\(A^{k} = S\Lambda^{k}S^{-1}\)</span>。这说明 <span class="math inline">\(A^k\)</span> 和 <span class="math inline">\(A\)</span> 有相同的特征向量，而特征值为 <span class="math inline">\(\lambda^{k}\)</span>。</p>
 
 
 </section>
