@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.41">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-48ffa3e5b9d089919c6712c39e5b00f2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5c67a7444eebc356e54fdce0a63e8750.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-8647a4a42273f773479d27c00df3f9ed.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -114,6 +114,12 @@ window.Quarto = {
   <ul>
   <li><a href="#矩阵视角下的线性方程组" id="toc-矩阵视角下的线性方程组" class="nav-link active" data-scroll-target="#矩阵视角下的线性方程组">矩阵视角下的线性方程组</a></li>
   <li><a href="#方阵-行列式-特征值-对角化" id="toc-方阵-行列式-特征值-对角化" class="nav-link" data-scroll-target="#方阵-行列式-特征值-对角化">方阵 行列式 特征值 对角化</a></li>
+  <li><a href="#矩阵分解" id="toc-矩阵分解" class="nav-link" data-scroll-target="#矩阵分解">矩阵分解</a>
+  <ul class="collapse">
+  <li><a href="#a-lu" id="toc-a-lu" class="nav-link" data-scroll-target="#a-lu"><span class="math inline">\(A = LU\)</span></a></li>
+  <li><a href="#a-plambda-p-1" id="toc-a-plambda-p-1" class="nav-link" data-scroll-target="#a-plambda-p-1"><span class="math inline">\(A = P\Lambda P^{-1}\)</span></a></li>
+  <li><a href="#a-usigma-v" id="toc-a-usigma-v" class="nav-link" data-scroll-target="#a-usigma-v"><span class="math inline">\(A = U\Sigma V^*\)</span></a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -343,7 +349,7 @@ a^T(b-p) = 0 \rightarrow a^T(b-xa) = 0 \rightarrow a^Tax = a^Tb
 P^2 = P, P^T = P
 \]</span></p>
 <blockquote class="blockquote">
-<p>Gram-SChmidt 正交化</p>
+<p><strong>Gram-SChmidt 正交化</strong></p>
 <p>单位长度为 1， 并且彼此正交的向量称之为标准正交向量。如果矩阵 <span class="math inline">\(Q\)</span> 的列向量为标准正交向量，则 <span class="math inline">\(Q^TQ = I\)</span> 。一个标准正交的方正我们称之为“正交矩阵”（orthogonal matrix）。</p>
 <p>从两个线性无关的向量开始 <span class="math inline">\(a\)</span>， <span class="math inline">\(b\)</span> 开始其张成了一个空间，我们的目标就是找到一组标准正交的向量 <span class="math inline">\(q1, q2\)</span> 能张成同样的空间。Schmidt提出如果有一组正交基 <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, 那么我们令它们除以自己的长度就得到标准正交基。</p>
 <p><span class="math display">\[
@@ -392,35 +398,52 @@ A^T(b - Ax) = 0 \rightarrow  A^TAx = A^Tb
 <li><span class="math inline">\(det(AB) = det(A)det(B)\)</span>.</li>
 <li><span class="math inline">\(det(A^T) = det(A)\)</span>.</li>
 </ol>
-<p>从性质 1，2， 3 可以推出行列式公式 (Formula for the determinant)：</p>
+<p>从性质 1，2， 3 可以推出 <strong>行列式公式</strong> (Formula for the determinant)：</p>
 <p>通过性质 3 对 <span class="math inline">\(n\)</span> 阶矩阵进行拆分，我们可以得到所有只包含 <span class="math inline">\(n\)</span> 个非零元素的行列式，对于二阶行列式，我们从一个拆分为两个，然后拆分为四个。对于三阶方阵，则从一个拆分成三个，然后拆分成九个，最后拆分为27个。然而，这些行列式中有很大一部分为 0。</p>
-<p>每一个拆分出来的非 0 行列式都是再每行每列只有一个元素，就如同置换矩阵的元素分布，利用性质 3 可以将元素从行列式中提取出来，而置换矩阵的行列式值为 1， 或 -1，因此可以给出行列式公式；对于 <span class="math inline">\(n\)</span> 阶方阵，其非 0 行列式的元素个数为 <span class="math inline">\(n!\)</span>。</p>
+<p>每一个拆分出来的非 0 行列式都是在每行每列只有一个元素，就如同置换矩阵的元素分布，利用性质 3 可以将元素从行列式中提取出来，而置换矩阵的行列式值为 1， 或 -1，因此可以给出行列式公式；对于 <span class="math inline">\(n\)</span> 阶方阵，其非 0 行列式的元素个数为 <span class="math inline">\(n!\)</span>。</p>
 <p><span class="math display">\[
 det(A) = \sum_{n!}\pm{a_{1\alpha}a_{2\beta}...a_{n\omega}}
 \]</span></p>
-<p>将上面的行列式公式把某一行的元素提取，例如 <span class="math inline">\(a_{11}, a_{12}...\)</span>, 则每个元素的系数即为代数余子式，是一个低阶行列式的值，这个低阶行列式是由原矩阵去掉 <span class="math inline">\(a1j\)</span> 所在行和列组成的。</p>
-<p>对矩阵中的任意元素 <span class="math inline">\(a_{ij}\)</span> 而言，其代数余子式 <span class="math inline">\(C_{ij}\)</span> 就是矩阵的行列式的公式中 <span class="math inline">\(a_{ij}\)</span> 的系数。<span class="math inline">\(C_{ij}\)</span> 等于原矩阵移除第 <span class="math inline">\(i\)</span> 行，第 <span class="math inline">\(j\)</span> 列后剩余元素组成的 <span class="math inline">\(n - 1\)</span> 矩阵的行列式数值乘以 <span class="math inline">\((-1)^{i + j}\)</span></p>
-<p>对于 <span class="math inline">\(n\)</span> 阶方阵，其行列式的代数余子式公式为：</p>
+<p>将上面的行列式公式把某一行的元素提取，例如 <span class="math inline">\(a_{11}, a_{12}...\)</span>, 则每个元素的系数即为 <strong>代数余子式</strong>，是一个低阶行列式的值，这个低阶行列式是由原矩阵去掉 <span class="math inline">\(a_{1j}\)</span> 所在行和列组成的。</p>
+<p>对矩阵中的任意元素 <span class="math inline">\(a_{ij}\)</span> 而言，其代数余子式(cofactor) <span class="math inline">\(C_{ij}\)</span> 就是矩阵的行列式的公式中 <span class="math inline">\(a_{ij}\)</span> 的系数。<span class="math inline">\(C_{ij}\)</span> 等于原矩阵移除第 <span class="math inline">\(i\)</span> 行，第 <span class="math inline">\(j\)</span> 列后剩余元素组成的 <span class="math inline">\(n - 1\)</span> 矩阵的行列式数值乘以 <span class="math inline">\((-1)^{i + j}\)</span></p>
+<p>对于 <span class="math inline">\(n\)</span> 阶方阵，其行列式的代数余子式公式为（按第一行展开）：</p>
 <p><span class="math display">\[
 det(A) = a_{11}C_{11} + a_{12}C_{12} + \dots + a_{1n}C_{1n}
 \]</span></p>
 <p>然后实际上对于行列式的求解，消元法更简单高效。</p>
-<p>将左乘一个矩阵看作对向量的变换，那么，如果一个变换不改变向量的方向，那么有：</p>
+<p>利用行列式以及其伴随矩阵，我们可以得到逆矩阵的公式 <span class="math inline">\(\mathbf{AC^T} = det(\mathbf{A})\mathbf{I}\)</span>:</p>
 <p><span class="math display">\[
-Ax = \lambda x
+\mathbf{A}\mathbf{C}^T = \begin{bmatrix} a_{11} &amp; \dots &amp; a_{1n} \\
+                                         \vdots &amp; \ddots &amp; \vdots \\
+                                         a_{n1} &amp; \dots &amp; a_{nn}
+                         \end{bmatrix}\begin{bmatrix}
+                         C_{11} &amp; \dots &amp; C_{n1} \\
+                         \vdots &amp; \ddots &amp; \vdots \\
+                         C_{n1} &amp; \dots &amp; C_{nn}
+                          \end{bmatrix}
 \]</span></p>
-<p>上式的含义就是一个矩阵操作，只对一个向量进行放缩，如果矩上式存在非零解，那么</p>
+<p>从上式中可以看到对角线上的元素就是行列式按行展开的公式，其值就是行列式 <span class="math inline">\(\lambda\)</span>， 而对于其它元素，例如第二行第一列的元素值，则相当于用 <span class="math inline">\(A\)</span> 的第二行替代第一行得到矩阵 <span class="math inline">\(\mathbf{A}_s\)</span> 的行列式，而由于其有两行相同所以其行列式的值为 0。</p>
+<p>通过逆矩阵的公式，我们可以推出 <strong>克莱姆法则</strong>（Cramer’s Rule for <span class="math inline">\(\mathbf{x} = \mathbf{A^{-1}b}\)</span>）：</p>
+<p>对于可逆矩阵 <span class="math inline">\(A\)</span>, 方程 <span class="math inline">\(\mathbf{Ax} = \mathbf{b}\)</span> 必然有解 <span class="math inline">\(\mathbf{x} = \mathbf{A^{-1}b}\)</span>，将逆矩阵的公式代入其中有：<span class="math inline">\(\mathbf{x} = \mathbf{A^{-1}b} = \frac{\mathbf{C^T b}}{det(\mathbf{A})}\)</span>。</p>
+<p>将 <span class="math inline">\(C^T\)</span> 每一行视为一个行向量 <span class="math inline">\(\mathbf{c}_j\)</span>，观测该式子可以看到：<span class="math inline">\(\mathbf{x}\)</span> 的每个分量 <span class="math inline">\(x_j = \frac{\mathbf{c}_j\mathbf{b}}{det(\mathbf{A})}\)</span>。而 <span class="math inline">\(\mathbf{c}_j\)</span> 实际上是 <span class="math inline">\(A\)</span> 矩阵第 <span class="math inline">\(j\)</span> 列的代数余子式，所以 <span class="math inline">\(\mathbf{c}_j\mathbf{b}\)</span> 可以视为将 <span class="math inline">\(A\)</span> 的第 <span class="math inline">\(j\)</span> 列替换为 <span class="math inline">\(b\)</span> 得到 <span class="math inline">\(B_j\)</span> ，然后按该列展开得到的 <span class="math inline">\(B_j\)</span> 行列式的值; 所以 <span class="math inline">\(\mathbf{x_j} = \frac{det(\mathbf{B}_j)}{det(\mathbf{A})}\)</span>。</p>
+<p>最后，行列式在几何上代表了该矩阵向量构成的平行六面体的体积。</p>
+<p>将左乘一个矩阵看作对向量的变换，那么，如果一个变换不改变向量 <span class="math inline">\(x\)</span> 的方向该向量称为 <strong>特征向量</strong>，那么有：</p>
+<p><span class="math display">\[
+A\mathbf{x} = \lambda \mathbf{x}
+\]</span></p>
+<p>上式的含义就是一个矩阵操作，只对一个向量进行放缩，如果上式存在非零解，那么</p>
 <p><span class="math display">\[
 det(A- \lambda I) = 0
 \]</span></p>
 <p>对于任意的 <span class="math inline">\(n \cdot n\)</span> 矩阵，其具有 <span class="math inline">\(n\)</span> 个特征值（可能存在重复的特征值），其和等于矩阵对角线元素之和，称为迹。其乘积等于矩阵的行列式。</p>
 <p>对于对称矩阵而言，其永远具有实数的特征值，并且其特征向量正交；而对于反对称矩阵而言，具有纯虚数的特征值。</p>
+<p>如果矩阵没有重特征值，那么其一定有 <span class="math inline">\(n\)</span> 个线性无关的特征向量；如果有重特征值，那么它可能有 <span class="math inline">\(n\)</span> 个线性无关的特征向量，也可能没有。</p>
 <p>如果矩阵 <span class="math inline">\(A\)</span> 具有 <span class="math inline">\(n\)</span> 个线性无关的的特征向量，将它们作为列向量可以组成一个可逆方阵 <span class="math inline">\(S\)</span>, 并且有：</p>
 <p><span class="math display">\[
 \begin{aligned}
 A\mathbf{S} &amp;=  A \begin{bmatrix} \mathbf{x}_1 &amp; \mathbf{x}_2 &amp; \dots &amp; \mathbf{x}_n \end{bmatrix} \\
    &amp;= \begin{bmatrix} \lambda_1\mathbf{x}_1 &amp; \lambda_2\mathbf{x}_2 &amp;  \dots &amp; \lambda_n\mathbf{x}_n \end{bmatrix}\\
-   &amp; = \begin{bmatrix}
+   &amp; = \mathbf{S}\begin{bmatrix}
         \lambda_1 &amp; 0         &amp; \dots  &amp; 0         \\
         0         &amp; \lambda_2 &amp;        &amp; 0         \\
         \vdots    &amp;           &amp; \ddots &amp; \vdots    \\
@@ -433,10 +456,46 @@ A\mathbf{S} &amp;=  A \begin{bmatrix} \mathbf{x}_1 &amp; \mathbf{x}_2 &amp; \dot
 <p><span class="math display">\[
 A = S \Lambda S^{-1}
 \]</span></p>
-<p>特征值给矩阵的幂计算提供了方法。</p>
+<p>特征值给矩阵的幂计算提供了方法：</p>
 <p>如果 <span class="math inline">\(A\mathbf{x} = \lambda\mathbf{x}\)</span>, 则有 <span class="math inline">\(A^2\mathbf{x} = \lambda A\mathbf{x} = \lambda^2\mathbf{x}\)</span>, 说明矩阵 <span class="math inline">\(A^2\)</span> 有着和 <span class="math inline">\(A\)</span> 一样的特征向量，而特征值为 <span class="math inline">\(\lambda^2\)</span>。写成对角化的形式则有: <span class="math inline">\(A^2 = S\Lambda S^{-1} S\Lambda S^{-1}\)</span>。同样的处理可以得到 <span class="math inline">\(A^{k} = S\Lambda^{k}S^{-1}\)</span>。这说明 <span class="math inline">\(A^k\)</span> 和 <span class="math inline">\(A\)</span> 有相同的特征向量，而特征值为 <span class="math inline">\(\lambda^{k}\)</span>。</p>
+</section>
+<section id="矩阵分解" class="level1">
+<h1>矩阵分解</h1>
+<section id="a-lu" class="level2">
+<h2 class="anchored" data-anchor-id="a-lu"><span class="math inline">\(A = LU\)</span></h2>
+<p><span class="math inline">\(LU\)</span> 分解将矩阵分解为一个下三角以及上三角矩阵乘积；实际上，对于线性方程组进行高斯消元时，在不设计行交换时，每一次的行变换都可以用一个下三角矩阵表示，那么其乘积以及逆都是下三角矩阵 <span class="math inline">\(L\)</span>，该下三角矩阵，的每一个系数记录了每次操作的消元系数。</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+a_{21} &amp; 1 &amp; 0 \\
+a_{31} &amp; a_{32} &amp; 1 \\
+\end{bmatrix}
+\]</span></p>
+<p>如上矩阵表示在对一列进行消元时，进行的操作<span class="math inline">\(r_2 = r_2 + a_{21}r_1\)</span>, <span class="math inline">\(r_3 = a_{31}r_1\)</span>；在第二列进行消元时， <span class="math inline">\(r_3 = a_{32}r_2\)</span></p>
+</section>
+<section id="a-plambda-p-1" class="level2">
+<h2 class="anchored" data-anchor-id="a-plambda-p-1"><span class="math inline">\(A = P\Lambda P^{-1}\)</span></h2>
+<p>考虑方阵<span class="math inline">\(A\)</span>，<span class="math inline">\(A\)</span>代表了一个空间变换，空间的变换只对该矩阵的特征向量起到缩放作用。那么<span class="math inline">\(A\)</span>所代表的空间变换，我们可以考虑先把向量<span class="math inline">\(x\)</span>转化为用矩阵<span class="math inline">\(A\)</span>的特征向量构成的基底表示，即<span class="math inline">\(Q^{-1}x\)</span>，其中<span class="math inline">\(Q\)</span>为方阵<span class="math inline">\(A\)</span>的特征向量构成的矩阵（为什么是<span class="math inline">\(Q^{-1}\)</span>而不是<span class="math inline">\(Q\)</span>?因为特征向量是从原矩阵求解而来，它们都是在同一视角下的表示，要变化到特征向量的视角则是其逆<span class="math inline">\(Q^{-1}\)</span>)。那么矩阵<span class="math inline">\(A\)</span>对这个新的<span class="math inline">\(x\)</span>，即<span class="math inline">\(Q^{-1}x\)</span>的作用就仅仅是缩放（在每个维度上进行缩放），这个缩放用一个新的矩阵<span class="math inline">\(\Sigma\)</span>表示，其为对角矩阵，对角线上即是对应的特征值，那么现在整个变化记为<span class="math inline">\(\Sigma\)</span><span class="math inline">\(Q^{-1}x\)</span>。完成变化后，我们回到原来的基的视角，即左乘<span class="math inline">\(Q\)</span>，整个变化即如下： <span class="math display">\[
+Ax = Q\Sigma{Q^{-1}}{x} \longrightarrow A = Q\Sigma{Q^{-1}}
+\]</span></p>
+</section>
+<section id="a-usigma-v" class="level2">
+<h2 class="anchored" data-anchor-id="a-usigma-v"><span class="math inline">\(A = U\Sigma V^*\)</span></h2>
+<p>考虑向量 <span class="math inline">\(\begin{bmatrix} V_1 &amp; V_2 \end{bmatrix}\)</span>，其为一组正交的向量，如果其在经历空间变换 <span class="math inline">\(M\)</span> 以后仍然映射为一组正交的向量 <span class="math inline">\(\begin{bmatrix} U_1 &amp; U_2 \end{bmatrix}\)</span> 。那么，我们直接在向量 <span class="math inline">\(\begin{bmatrix} U_1 &amp; U_2 \end{bmatrix}\)</span>的方向上选择一组基 <span class="math inline">\(\begin{bmatrix} u_1 &amp; u_2 \end{bmatrix}\)</span>，那么向量<span class="math inline">\(\begin{bmatrix} v_1 &amp; v_2 \end{bmatrix}\)</span>，在经历空间变化以后，在基<span class="math inline">\(\begin{bmatrix} u_1 &amp; u_2 \end{bmatrix}\)</span> 上的表示为，<span class="math inline">\(\begin{bmatrix} u_1 &amp; u_2 \end{bmatrix} * \begin{bmatrix} \sigma_1 &amp; 0 \\ 0 &amp; \sigma_2 \end{bmatrix}\)</span>。即：</p>
+<p><span class="math display">\[
+M[v_1, v_2] = [u_1, u_2] * \begin{bmatrix} \sigma_1 &amp; 0 \\ 0 &amp; \sigma_2 \end{bmatrix} \rightarrow
+MV = U\Sigma \rightarrow  M = U\Sigma V^T
+\]</span></p>
+<p>如此，对于奇异值分解，我们有如下的直观理解：对于矩阵<span class="math inline">\(M\)</span>,其对一组向量<span class="math inline">\(V\)</span>在变换以后仍然为正交的向量。在进行变换的时候考虑直接转换到向量<span class="math inline">\(V\)</span>的视角之下，然后进行缩放<span class="math inline">\(\Sigma\)</span>，以及其它变换<span class="math inline">\(E\)</span>（旋转，投影），最后变换回原来的视角。即：</p>
+<p><span class="math display">\[
+M = VE\Sigma V^T \rightarrow M = U\Sigma V^T
+\]</span></p>
+<p>可以看到奇异值与特征值分解的区别在于，选择的视角不同。当选择特征向量视角时，变换只会有缩放即<span class="math inline">\(\Sigma\)</span>变换，当选择任意的正交向量视角时，变换不仅包含缩放还含有旋转以及投影等即<span class="math inline">\(E\Sigma\)</span>。</p>
+<p>需要注意的是，虽然对于特征分解以及奇异值分解从视角转换的角度去解释了。但是，矩阵分解同样可以从空间变换的角度理解。例如对于奇异值分解有如下解释：</p>
+<p>第一个变换<span class="math inline">\(V^{T}\)</span>将单位正交向量<span class="math inline">\(v_1, v_2\)</span>转到水平和垂直方向、<span class="math inline">\(\Sigma\)</span>相当于对<span class="math inline">\(v_1, v_2\)</span>进行放缩、<span class="math inline">\(U\)</span>将放缩后的向量旋转到最后的位置。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
